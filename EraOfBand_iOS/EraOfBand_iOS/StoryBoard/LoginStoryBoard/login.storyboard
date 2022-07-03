@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg_img" translatesAutoresizingMaskIntoConstraints="NO" id="ggc-7i-TPx">
+                                <rect key="frame" x="0.0" y="-6" width="414" height="936"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eob_logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="fno-Ad-nCg">
+                                <rect key="frame" x="0.0" y="114" width="190" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="CyW-fE-tsx"/>
+                                    <constraint firstAttribute="height" constant="51" id="khB-5j-miN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 당신은 밴드의 시대를 열 준비가 되셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Z2-SB-15q">
+                                <rect key="frame" x="20" y="224" width="253" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="253" id="QJ3-em-sR8"/>
+                                    <constraint firstAttribute="height" constant="63" id="Z0K-gy-KO2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMw-nt-2sC">
+                                <rect key="frame" x="29.5" y="709" width="355" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="355" id="Fn8-53-36P"/>
+                                    <constraint firstAttribute="height" constant="55" id="KFr-A0-uYc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="kakao_login_btn"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ggc-7i-TPx" secondAttribute="trailing" id="8nd-fN-1Jv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZMw-nt-2sC" secondAttribute="bottom" constant="98" id="HJM-sD-5AM"/>
+                            <constraint firstItem="ggc-7i-TPx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IkI-1l-98k"/>
+                            <constraint firstAttribute="bottom" secondItem="ggc-7i-TPx" secondAttribute="bottom" constant="-34" id="T3w-nS-FeI"/>
+                            <constraint firstItem="fno-Ad-nCg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dDt-8v-42e"/>
+                            <constraint firstItem="ggc-7i-TPx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="-50" id="dKm-WS-WuM"/>
+                            <constraint firstItem="fno-Ad-nCg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="f8Y-og-WDJ"/>
+                            <constraint firstItem="3Z2-SB-15q" firstAttribute="top" secondItem="fno-Ad-nCg" secondAttribute="bottom" constant="59" id="inn-vc-GvC"/>
+                            <constraint firstItem="3Z2-SB-15q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qeX-tj-PWS"/>
+                            <constraint firstItem="ZMw-nt-2sC" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zkh-RJ-p5V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImg" destination="ggc-7i-TPx" id="DMd-gS-Pnh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="eob_logo_text" width="760" height="204"/>
+        <image name="kakao_login_btn" width="1340" height="220"/>
+        <image name="login_bg_img" width="375" height="811"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
