@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1g6-q6-V62">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iqR-rl-rr5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,12 +57,23 @@
             </objects>
             <point key="canvasLocation" x="1001" y="517"/>
         </scene>
+        <!--login-->
+        <scene sceneID="SUs-Wj-XBJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LoginViewController" storyboardName="login" id="wut-Ux-cGq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Gju-xf-1iv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RlG-x5-DZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746" y="54"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aii-4b-LVB">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1g6-q6-V62" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2uT-c8-yOV">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -76,6 +88,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flt-a9-qzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="179.71014492753625" y="53.571428571428569"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="PKx-ZH-JKv">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="iqR-rl-rr5" customClass="OnboardingViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EXT-0O-fDp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjA-RI-SFP">
+                                <rect key="frame" x="337" y="44" width="58" height="32"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="SKIP">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="skipBtnTapped:" destination="iqR-rl-rr5" eventType="touchUpInside" id="mM1-y5-WCt"/>
+                                    <action selector="skipBtnTapped:" destination="Lzv-5e-XYF" eventType="touchUpInside" id="xC5-di-uxR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b9j-EH-Dg1"/>
+                        <color key="backgroundColor" red="0.062745101750000004" green="0.066666662690000003" blue="0.062745101750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="b9j-EH-Dg1" firstAttribute="trailing" secondItem="MjA-RI-SFP" secondAttribute="trailing" constant="19" id="9Is-MB-yJo"/>
+                            <constraint firstItem="MjA-RI-SFP" firstAttribute="top" secondItem="b9j-EH-Dg1" secondAttribute="top" id="Kyc-08-ANX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZFt-Fs-qi6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Lzv-5e-XYF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1303" y="54"/>
         </scene>
     </scenes>
 </document>
