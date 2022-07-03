@@ -13,6 +13,12 @@
 		A809A7C0286F283400B9E08D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7BE286F283400B9E08D /* Main.storyboard */; };
 		A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A809A7C1286F283600B9E08D /* Assets.xcassets */; };
 		A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7C3286F283600B9E08D /* LaunchScreen.storyboard */; };
+		A809A7CF28714FC100B9E08D /* BottomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7CD28714FC100B9E08D /* BottomTabBarViewController.swift */; };
+		A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D22871533A00B9E08D /* CommunityTab.storyboard */; };
+		A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D42871537B00B9E08D /* NoticeTab.storyboard */; };
+		A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D62871538400B9E08D /* HomeTab.storyboard */; };
+		A809A7D92871538D00B9E08D /* ChaetingTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */; };
+		A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7DA287153A200B9E08D /* MypageTab.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		A809A7C1286F283600B9E08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A809A7C4286F283600B9E08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A809A7C6286F283600B9E08D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A809A7CD28714FC100B9E08D /* BottomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBarViewController.swift; sourceTree = "<group>"; };
+		A809A7D22871533A00B9E08D /* CommunityTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityTab.storyboard; sourceTree = "<group>"; };
+		A809A7D42871537B00B9E08D /* NoticeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoticeTab.storyboard; sourceTree = "<group>"; };
+		A809A7D62871538400B9E08D /* HomeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTab.storyboard; sourceTree = "<group>"; };
+		A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChaetingTab.storyboard; sourceTree = "<group>"; };
+		A809A7DA287153A200B9E08D /* MypageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageTab.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,8 @@
 		A809A7B7286F283400B9E08D /* EraOfBand_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A809A7D1287152F800B9E08D /* TabStoryBoard */,
+				A809A7CC28714D8800B9E08D /* TabBarCustomLayout */,
 				A809A7B8286F283400B9E08D /* AppDelegate.swift */,
 				A809A7BA286F283400B9E08D /* SceneDelegate.swift */,
 				A809A7BC286F283400B9E08D /* ViewController.swift */,
@@ -65,6 +79,26 @@
 				A809A7C6286F283600B9E08D /* Info.plist */,
 			);
 			path = EraOfBand_iOS;
+			sourceTree = "<group>";
+		};
+		A809A7CC28714D8800B9E08D /* TabBarCustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				A809A7CD28714FC100B9E08D /* BottomTabBarViewController.swift */,
+			);
+			path = TabBarCustomLayout;
+			sourceTree = "<group>";
+		};
+		A809A7D1287152F800B9E08D /* TabStoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
+				A809A7D42871537B00B9E08D /* NoticeTab.storyboard */,
+				A809A7D62871538400B9E08D /* HomeTab.storyboard */,
+				A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */,
+				A809A7DA287153A200B9E08D /* MypageTab.storyboard */,
+			);
+			path = TabStoryBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +162,11 @@
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
+				A809A7D92871538D00B9E08D /* ChaetingTab.storyboard in Resources */,
+				A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */,
+				A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */,
+				A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */,
+				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +179,7 @@
 			files = (
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */,
+				A809A7CF28714FC100B9E08D /* BottomTabBarViewController.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
