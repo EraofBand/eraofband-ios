@@ -30,7 +30,7 @@
                             <constraint firstItem="cKJ-w6-uIV" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="PPC-1N-uSZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="채팅" id="2t6-xX-TTo" userLabel="Chaeting"/>
+                    <tabBarItem key="tabBarItem" title="채팅" image="ic_message_off" id="2t6-xX-TTo" userLabel="Chaeting"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -39,6 +39,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_message_off" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
