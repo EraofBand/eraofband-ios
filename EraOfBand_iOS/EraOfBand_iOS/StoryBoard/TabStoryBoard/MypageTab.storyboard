@@ -30,7 +30,7 @@
                             <constraint firstItem="Ta1-YN-byz" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="fWG-CJ-yMg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이페이지" id="Vdp-bY-j6X" userLabel="Mypage"/>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="ic_mypage_off" id="Vdp-bY-j6X" userLabel="Mypage"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -39,6 +39,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_mypage_off" width="31" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
