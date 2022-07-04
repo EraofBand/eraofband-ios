@@ -51,6 +51,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="kakao_login_btn"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Exu-mJ-ZrY" kind="presentation" modalPresentationStyle="fullScreen" id="wfx-bM-ILK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -75,6 +78,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.739130434782609" y="67.633928571428569"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="DKf-sl-wOM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Register" id="Exu-mJ-ZrY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zI2-sA-VB6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VcQ-31-ct8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="659" y="93"/>
         </scene>
     </scenes>
     <resources>
