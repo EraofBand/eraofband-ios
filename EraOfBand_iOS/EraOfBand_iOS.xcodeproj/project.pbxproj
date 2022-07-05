@@ -16,18 +16,21 @@
 		A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D22871533A00B9E08D /* CommunityTab.storyboard */; };
 		A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D42871537B00B9E08D /* NoticeTab.storyboard */; };
 		A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D62871538400B9E08D /* HomeTab.storyboard */; };
-		A809A7D92871538D00B9E08D /* ChaetingTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */; };
+		A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D82871538D00B9E08D /* MessageTab.storyboard */; };
 		A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7DA287153A200B9E08D /* MypageTab.storyboard */; };
-
+		A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* TabBarController.swift */; };
+		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
+		A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */; };
+		A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */; };
+		A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */; };
+		A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85736102874C68C00E2F0AB /* MessageTabViewController.swift */; };
+		A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85736122874C69E00E2F0AB /* MypageTabViewController.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
 		BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFE287345F3006F5659 /* RegisterViewController4.swift */; };
 		BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439C0028735BCD006F5659 /* RegisterViewController5.swift */; };
-
-		A809A7EF2872E88300B9E08D /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* CustomTabBarViewController.swift */; };
-		A809A7F12872EAA400B9E08D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBarViewController.swift */; };
 		BC4B5BFD287192190072A5FF /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4B5BFC287192190072A5FF /* login.storyboard */; };
 		BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5BFF287199770072A5FF /* OnboardingViewController.swift */; };
 		BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5C0128719BF30072A5FF /* LoginViewController.swift */; };
@@ -48,14 +51,8 @@
 		A809A7D22871533A00B9E08D /* CommunityTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityTab.storyboard; sourceTree = "<group>"; };
 		A809A7D42871537B00B9E08D /* NoticeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoticeTab.storyboard; sourceTree = "<group>"; };
 		A809A7D62871538400B9E08D /* HomeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTab.storyboard; sourceTree = "<group>"; };
-		A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChaetingTab.storyboard; sourceTree = "<group>"; };
+		A809A7D82871538D00B9E08D /* MessageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageTab.storyboard; sourceTree = "<group>"; };
 		A809A7DA287153A200B9E08D /* MypageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageTab.storyboard; sourceTree = "<group>"; };
-		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
-		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
-		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
-		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
-		BC439BFE287345F3006F5659 /* RegisterViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController4.swift; sourceTree = "<group>"; };
-		BC439C0028735BCD006F5659 /* RegisterViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController5.swift; sourceTree = "<group>"; };
 		A809A7E52872DE0F00B9E08D /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		A809A7E62872DE0F00B9E08D /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		A809A7E72872DE0F00B9E08D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -65,8 +62,19 @@
 		A809A7EB2872DE0F00B9E08D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		A809A7EC2872DE0F00B9E08D /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		A809A7ED2872DE0F00B9E08D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
-		A809A7EE2872E88300B9E08D /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
-		A809A7F02872EAA400B9E08D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		A809A7EE2872E88300B9E08D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTabViewController.swift; sourceTree = "<group>"; };
+		A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTabViewController.swift; sourceTree = "<group>"; };
+		A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		A85736102874C68C00E2F0AB /* MessageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTabViewController.swift; sourceTree = "<group>"; };
+		A85736122874C69E00E2F0AB /* MypageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTabViewController.swift; sourceTree = "<group>"; };
+		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
+		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
+		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
+		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
+		BC439BFE287345F3006F5659 /* RegisterViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController4.swift; sourceTree = "<group>"; };
+		BC439C0028735BCD006F5659 /* RegisterViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController5.swift; sourceTree = "<group>"; };
 		BC4B5BFC287192190072A5FF /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		BC4B5BFF287199770072A5FF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BC4B5C0128719BF30072A5FF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -120,8 +128,8 @@
 		A809A7CC28714D8800B9E08D /* TabBarCustomLayout */ = {
 			isa = PBXGroup;
 			children = (
-				A809A7EE2872E88300B9E08D /* CustomTabBarViewController.swift */,
-				A809A7F02872EAA400B9E08D /* TabBarViewController.swift */,
+				A809A7EE2872E88300B9E08D /* TabBarController.swift */,
+				A809A7F02872EAA400B9E08D /* TabBar.swift */,
 			);
 			path = TabBarCustomLayout;
 			sourceTree = "<group>";
@@ -132,10 +140,22 @@
 				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				A809A7D42871537B00B9E08D /* NoticeTab.storyboard */,
 				A809A7D62871538400B9E08D /* HomeTab.storyboard */,
-				A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */,
+				A809A7D82871538D00B9E08D /* MessageTab.storyboard */,
 				A809A7DA287153A200B9E08D /* MypageTab.storyboard */,
 			);
 			path = TabStoryBoard;
+			sourceTree = "<group>";
+		};
+		A85736092874C62000E2F0AB /* TabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */,
+				A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */,
+				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
+				A85736102874C68C00E2F0AB /* MessageTabViewController.swift */,
+				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
+			);
+			path = TabViewController;
 			sourceTree = "<group>";
 		};
 		BC439BF728730B6A006F5659 /* RegisterViewController */ = {
@@ -174,6 +194,7 @@
 		BC4B5BFE287199550072A5FF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A85736092874C62000E2F0AB /* TabViewController */,
 				BC439BF728730B6A006F5659 /* RegisterViewController */,
 				A809A7B8286F283400B9E08D /* AppDelegate.swift */,
 				A809A7BA286F283400B9E08D /* SceneDelegate.swift */,
@@ -285,11 +306,10 @@
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
-				A809A7D92871538D00B9E08D /* ChaetingTab.storyboard in Resources */,
+				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */,
 				A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */,
 				A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */,
-				BC4B5C162871A7030072A5FF /* Pretendard-Regular.otf in Resources */,
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
 				BC4B5BFD287192190072A5FF /* login.storyboard in Resources */,
@@ -305,20 +325,24 @@
 			files = (
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
+				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
 				A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */,
+				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
+				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
 				BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */,
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
-				A809A7CF28714FC100B9E08D /* BottomTabBarViewController.swift in Sources */,
-				A809A7F12872EAA400B9E08D /* TabBarViewController.swift in Sources */,
+				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
-				A809A7EF2872E88300B9E08D /* CustomTabBarViewController.swift in Sources */,
+				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
+				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
+				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

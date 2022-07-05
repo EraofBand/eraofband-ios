@@ -8,7 +8,7 @@
 import UIKit
 
 
-@IBDesignable class TabBarViewController: UITabBar {
+@IBDesignable class TabBar: UITabBar {
     @IBInspectable var color: UIColor?
     @IBInspectable var radii: CGFloat = 15.0
 

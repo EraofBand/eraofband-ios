@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--채팅-->
+        <!--Message Tab View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="MessageTabViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                             <constraint firstItem="cKJ-w6-uIV" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="PPC-1N-uSZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="채팅" image="ic_message_off" id="2t6-xX-TTo" userLabel="Chaeting"/>
+                    <tabBarItem key="tabBarItem" title="" id="2t6-xX-TTo" userLabel="Chaeting"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -39,7 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_message_off" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
