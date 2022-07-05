@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1g6-q6-V62">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iqR-rl-rr5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -200,6 +200,11 @@
             <point key="canvasLocation" x="-1304.3478260869567" y="53.571428571428569"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="2uT-c8-yOV">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
     <resources>
         <image name="onboarding_img_placeholder" width="908" height="1124"/>
     </resources>
