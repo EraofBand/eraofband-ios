@@ -19,6 +19,7 @@
 		A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D62871538400B9E08D /* HomeTab.storyboard */; };
 		A809A7D92871538D00B9E08D /* ChaetingTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */; };
 		A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7DA287153A200B9E08D /* MypageTab.storyboard */; };
+		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
@@ -56,6 +57,7 @@
 		A809A7D62871538400B9E08D /* HomeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTab.storyboard; sourceTree = "<group>"; };
 		A809A7D82871538D00B9E08D /* ChaetingTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChaetingTab.storyboard; sourceTree = "<group>"; };
 		A809A7DA287153A200B9E08D /* MypageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageTab.storyboard; sourceTree = "<group>"; };
+		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
 		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				BC439BFC2873437A006F5659 /* RegisterViewController3.swift */,
 				BC439BFE287345F3006F5659 /* RegisterViewController4.swift */,
 				BC439C0028735BCD006F5659 /* RegisterViewController5.swift */,
+				BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */,
 			);
 			path = RegisterViewController;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */,
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
+				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
 				A809A7CF28714FC100B9E08D /* BottomTabBarViewController.swift in Sources */,
