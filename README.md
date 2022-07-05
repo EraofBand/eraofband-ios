@@ -3,7 +3,11 @@
 ## 작업 규칙
 [공통]
 * class, package 구조 : MVC 패턴 적용, Model / View(storyboard) / ViewController 별로 폴더 나누기 
-* 깃 커밋 메세지 규칙 : Notion에 올려준 블로그 참고, 한국어로 코딩 규약 
+* 깃 커밋 메세지 규칙 : Notion에 올려준 블로그 참고, 한국어로
+  - feat : 기능 추가
+  - fix : 수정
+  - style : 디자인 관련 개발
+  - ect : 나머지
 * 주석 : Mark 달기, 개발 하면서 더 맞춰가는걸로.. ㅎ
 
 [클라이언트]

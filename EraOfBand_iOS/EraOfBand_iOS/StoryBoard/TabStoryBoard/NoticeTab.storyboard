@@ -30,7 +30,7 @@
                             <constraint firstItem="t1s-ZC-TFR" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="qZs-KK-EDO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="게시판" id="e9p-r0-6z1" userLabel="Notice"/>
+                    <tabBarItem key="tabBarItem" title="게시판" image="ic_notice_off" id="e9p-r0-6z1" userLabel="Notice"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -39,6 +39,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_notice_off" width="34" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

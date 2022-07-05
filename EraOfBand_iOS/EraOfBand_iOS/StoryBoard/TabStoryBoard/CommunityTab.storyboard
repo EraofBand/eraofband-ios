@@ -30,7 +30,9 @@
                             <constraint firstItem="oHo-t3-uhc" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="lrK-wd-tJL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="커뮤니티" id="iuH-t8-S7M" userLabel="Community"/>
+                    <tabBarItem key="tabBarItem" title="커뮤니티" image="ic_community_off" id="iuH-t8-S7M" userLabel="Community">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -39,6 +41,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_community_off" width="30" height="31"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

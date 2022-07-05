@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "chaeting_off.png",
+      "filename" : "message_off.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "chaeting_off@2x.png",
+      "filename" : "message_off@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "chaeting_off@3x.png",
+      "filename" : "message_off@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
