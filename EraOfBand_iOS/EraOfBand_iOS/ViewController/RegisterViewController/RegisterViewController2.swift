@@ -13,7 +13,11 @@ class RegisterViewController2: UIViewController{
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
+    @IBOutlet weak var birthdayTextField: UITextField!
     
+    let datePicker = UIDatePicker()
+    
+    /*성별 선택 버튼 눌렸을 때*/
     @IBAction func maleBtnTapped(_ sender: Any) {
         maleBtn.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         femaleBtn.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
@@ -23,12 +27,12 @@ class RegisterViewController2: UIViewController{
         maleBtn.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
     }
     
-    
+    /*네비바 뒤로가기 버튼 눌렀을 때*/
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    /*레이아웃 구성 함수*/
     func setLayout(){
         let text = titleLabel.text
         let attributedString = NSMutableAttributedString(string: text!)
@@ -36,6 +40,35 @@ class RegisterViewController2: UIViewController{
         attributedString.addAttribute(.foregroundColor, value: UIColor(red: 0.094, green: 0.392, blue: 0.992, alpha: 1) as Any, range: (text! as NSString).range(of: "생년월일"))
         
         titleLabel.attributedText = attributedString
+        
+        /*생년월일 textfield 보더 넣기*/
+        birthdayTextField.layer.borderWidth = 1
+        birthdayTextField.layer.borderColor = UIColor(red: 0.717, green: 0.717, blue: 0.717, alpha: 1).cgColor
+        birthdayTextField.layer.cornerRadius = 5
+    }
+    
+    @objc func doneBtnTapped(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        birthdayTextField.text = dateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    /*date picker 만드는 함수*/
+    func createDatePicker(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBtnTapped))
+        
+        birthdayTextField.inputAccessoryView = toolbar
+        
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
+        birthdayTextField.inputView = datePicker
+        
+        toolbar.setItems([doneBtn], animated: true)
     }
     
     override func viewDidLoad() {
@@ -44,5 +77,6 @@ class RegisterViewController2: UIViewController{
         titleLabel.text = "성별과 생년월일을\n선택해주세요"
         
         setLayout()
+        createDatePicker()
     }
 }
