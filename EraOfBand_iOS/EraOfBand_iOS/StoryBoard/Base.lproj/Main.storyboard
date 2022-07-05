@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1g6-q6-V62">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iqR-rl-rr5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -115,23 +115,23 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fen-2x-GIw">
-                                <rect key="frame" x="0.0" y="178" width="414" height="540"/>
+                                <rect key="frame" x="0.0" y="168" width="414" height="414"/>
                                 <color key="backgroundColor" red="0.062745101750000004" green="0.066666662690000003" blue="0.062745101750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="540" id="Ui3-5P-ThO"/>
+                                    <constraint firstAttribute="height" constant="414" id="Ui3-5P-ThO"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="OGh-Wr-GN9">
-                                    <size key="itemSize" width="415" height="540"/>
+                                    <size key="itemSize" width="415" height="414"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="5oS-L6-kBN" customClass="OnboardingCollectionViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="540"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="414"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="415" height="540"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="415" height="414"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="onboarding_img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Kpg-1L-C4b">
@@ -153,9 +153,6 @@
                                                     <color key="textColor" red="0.71701222659999997" green="0.71701222659999997" blue="0.71701222659999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="cND-ri-ycA">
-                                                    <rect key="frame" x="141.5" y="499.5" width="132.5" height="26"/>
-                                                </pageControl>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.054901964960000001" green="0.05882352591" blue="0.054901964960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -163,22 +160,24 @@
                                             <constraint firstItem="3SK-Jv-QqB" firstAttribute="centerX" secondItem="5oS-L6-kBN" secondAttribute="centerX" id="5Tq-Mn-i8o"/>
                                             <constraint firstItem="3SK-Jv-QqB" firstAttribute="top" secondItem="uBr-LN-Hpm" secondAttribute="bottom" constant="31" id="BfO-tc-qIB"/>
                                             <constraint firstItem="Kpg-1L-C4b" firstAttribute="top" secondItem="5oS-L6-kBN" secondAttribute="top" id="KBH-JS-reA"/>
-                                            <constraint firstItem="cND-ri-ycA" firstAttribute="top" secondItem="3SK-Jv-QqB" secondAttribute="bottom" constant="106" id="PHS-XO-GY4"/>
                                             <constraint firstItem="uBr-LN-Hpm" firstAttribute="top" secondItem="Kpg-1L-C4b" secondAttribute="bottom" constant="38" id="Pqh-lu-M3i"/>
-                                            <constraint firstItem="cND-ri-ycA" firstAttribute="centerX" secondItem="5oS-L6-kBN" secondAttribute="centerX" id="Rud-TY-4EQ"/>
                                             <constraint firstItem="uBr-LN-Hpm" firstAttribute="centerX" secondItem="5oS-L6-kBN" secondAttribute="centerX" id="bgS-Bq-glP"/>
                                             <constraint firstItem="Kpg-1L-C4b" firstAttribute="centerX" secondItem="5oS-L6-kBN" secondAttribute="centerX" id="p6w-2g-qLV"/>
                                         </constraints>
-                                        <size key="customSize" width="415" height="540"/>
+                                        <size key="customSize" width="415" height="414"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="3SK-Jv-QqB" id="B0W-kf-hEH"/>
                                             <outlet property="onboardingImg" destination="Kpg-1L-C4b" id="9tr-0M-VlG"/>
-                                            <outlet property="pageControl" destination="cND-ri-ycA" id="0Z9-10-iwR"/>
                                             <outlet property="titleLabel" destination="uBr-LN-Hpm" id="JS5-bT-5Nk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="qTI-Ob-Dxa">
+                                <rect key="frame" x="141" y="712" width="132.5" height="26"/>
+                                <color key="pageIndicatorTintColor" red="0.85223323110000004" green="0.85223323110000004" blue="0.85223323110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b9j-EH-Dg1"/>
                         <color key="backgroundColor" red="0.062745101750000004" green="0.066666662690000003" blue="0.062745101750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -186,12 +185,15 @@
                             <constraint firstItem="fen-2x-GIw" firstAttribute="leading" secondItem="b9j-EH-Dg1" secondAttribute="leading" id="52l-dh-t9c"/>
                             <constraint firstItem="b9j-EH-Dg1" firstAttribute="trailing" secondItem="MjA-RI-SFP" secondAttribute="trailing" constant="19" id="9Is-MB-yJo"/>
                             <constraint firstItem="MjA-RI-SFP" firstAttribute="top" secondItem="b9j-EH-Dg1" secondAttribute="top" id="Kyc-08-ANX"/>
+                            <constraint firstItem="qTI-Ob-Dxa" firstAttribute="centerX" secondItem="EXT-0O-fDp" secondAttribute="centerX" id="V9I-qt-HQF"/>
                             <constraint firstItem="b9j-EH-Dg1" firstAttribute="trailing" secondItem="fen-2x-GIw" secondAttribute="trailing" id="aTm-8p-BYz"/>
-                            <constraint firstItem="fen-2x-GIw" firstAttribute="centerY" secondItem="EXT-0O-fDp" secondAttribute="centerY" id="yJS-VG-eTc"/>
+                            <constraint firstItem="fen-2x-GIw" firstAttribute="top" secondItem="MjA-RI-SFP" secondAttribute="bottom" constant="92" id="jAP-FB-Yer"/>
+                            <constraint firstItem="b9j-EH-Dg1" firstAttribute="bottom" secondItem="qTI-Ob-Dxa" secondAttribute="bottom" constant="124" id="xgV-if-RyU"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="fen-2x-GIw" id="WuK-Tp-jq3"/>
+                        <outlet property="pageControl" destination="qTI-Ob-Dxa" id="60R-rq-HhC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFt-Fs-qi6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -200,6 +202,11 @@
             <point key="canvasLocation" x="-1304.3478260869567" y="53.571428571428569"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="2uT-c8-yOV">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
     <resources>
         <image name="onboarding_img_placeholder" width="908" height="1124"/>
     </resources>

@@ -12,7 +12,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell
     @IBOutlet weak var onboardingImg: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
+    //@IBOutlet weak var pageControl: UIPageControl!
     
     var onboardingModel: OnboardingModel!{
         didSet{
