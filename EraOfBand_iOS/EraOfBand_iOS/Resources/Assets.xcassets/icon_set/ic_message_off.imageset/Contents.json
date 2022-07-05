@@ -6,12 +6,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "message_off@2x.png",
+      "filename" : "message_off-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "message_off@3x.png",
+      "filename" : "message_off-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,5 +1,5 @@
 //
-//  TabBarViewController.swift
+//  BottomTabBarViewController.swift
 //  EraOfBand_iOS
 //
 //  Created by 김영현 on 2022/07/04.
@@ -7,50 +7,61 @@
 
 import UIKit
 
+class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
-@IBDesignable class TabBarViewController: UITabBar {
-    @IBInspectable var color: UIColor?
-    @IBInspectable var radii: CGFloat = 15.0
-
-    private var shapeLayer: CALayer?
-
-    override func draw(_ rect: CGRect) {
-        addShape()
-        self.unselectedItemTintColor = UIColor(named: "off_icon_color")
-        self.tintColor = UIColor(named: "on_icon_color")
-    }
-
-    private func addShape() {
-        let shapeLayer = CAShapeLayer()
-
-        shapeLayer.path = createPath()
-        shapeLayer.strokeColor = UIColor.gray.withAlphaComponent(0.1).cgColor
-        shapeLayer.fillColor = UIColor(named: "tabbar_background_color")?.cgColor
-        shapeLayer.lineWidth = 2
-
-        if let oldShapeLayer = self.shapeLayer {
-            layer.replaceSublayer(oldShapeLayer, with: shapeLayer)
-        } else {
-            layer.insertSublayer(shapeLayer, at: 0)
-        }
-
-        self.shapeLayer = shapeLayer
+    // MARK: Initializing
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
-    private func createPath() -> CGPath {
-        let path = UIBezierPath(
-            roundedRect: bounds,
-            byRoundingCorners: [.topLeft, .topRight],
-            cornerRadii: CGSize(width: radii, height: 0.0))
-
-        return path.cgPath
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.delegate = self
+        self.selectedIndex = 2
+        
+        let controller1 = CommunityTabView()
+        controller1.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "ic_community_off"), selectedImage: UIImage(named: "ic_community_on"))
+        controller1.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 12)!], for: .normal)
+        
+        let controller2 = NoticeTabView()
+        controller2.tabBarItem = UITabBarItem(title: "게시판", image: UIImage(named: "ic_notice_off"), selectedImage: UIImage(named: "ic_notice_on"))
+        controller2.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 12)!], for: .normal)
+        
+        let controller3 = HomeTabView()
+        
+        let controller4 = MessageTabView()
+        controller4.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "ic_message_off"), selectedImage: UIImage(named: "ic_message_on"))
+        controller4.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 12)!], for: .normal)
+        
+        let controller5 = MypageTabView()
+        controller5.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: "ic_mypage_off"), selectedImage: UIImage(named: "ic_mypage_on"))
+        controller5.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 12)!], for: .normal)
+        
+        viewControllers = [controller1, controller2, controller3, controller4, controller5]
+        
+        setupMiddleButton()
+        
     }
     
-    override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 110 // 원하는 길이
-        return sizeThatFits
+    // MARK: Home Button Custom
+    func setupMiddleButton() {
+        
+        // 버튼 위치,크기 커스텀
+        let middleButton = UIButton(frame: CGRect(x: (self.view.bounds.width / 2) - 33, y: 15, width: 66, height: 66))
+        
+        middleButton.setBackgroundImage(UIImage(named: "ic_home"), for: .normal)
+        
+        self.tabBar.addSubview(middleButton)
+        middleButton.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
+        
+        self.view.layoutIfNeeded()
+        
     }
     
+    @objc func menuButtonAction(sender: UIButton) {
+        // 탭 바 아이템 중 몇 번째 인덱스인지 설정
+        self.selectedIndex = 2
+    }
 
 }
