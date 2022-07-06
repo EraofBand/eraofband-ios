@@ -202,6 +202,11 @@
             <point key="canvasLocation" x="-1304.3478260869567" y="53.571428571428569"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="2uT-c8-yOV">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
     <resources>
         <image name="onboarding_img_placeholder" width="908" height="1124"/>
     </resources>

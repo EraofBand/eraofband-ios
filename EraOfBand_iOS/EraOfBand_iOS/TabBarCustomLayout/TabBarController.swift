@@ -20,7 +20,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         self.selectedIndex = 2
         
-        let font = UIFont(name: "Pretendard-Bold", size: 12) ?? .systemFont(ofSize: 11)
+        let font = UIFont(name: "Pretendard-Bold", size: 13)!
         
         let controller1 = CommunityTabViewController()
         controller1.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "ic_community_off"), selectedImage: UIImage(named: "ic_community_on"))

@@ -25,6 +25,15 @@
 		A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */; };
 		A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85736102874C68C00E2F0AB /* MessageTabViewController.swift */; };
 		A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85736122874C69E00E2F0AB /* MypageTabViewController.swift */; };
+		A8573614287534E200E2F0AB /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E92872DE0F00B9E08D /* Pretendard-Black.otf */; };
+		A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7EC2872DE0F00B9E08D /* Pretendard-Bold.otf */; };
+		A8573616287534EA00E2F0AB /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7EB2872DE0F00B9E08D /* Pretendard-ExtraBold.otf */; };
+		A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7ED2872DE0F00B9E08D /* Pretendard-ExtraLight.otf */; };
+		A8573618287534EF00E2F0AB /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7EA2872DE0F00B9E08D /* Pretendard-Light.otf */; };
+		A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E72872DE0F00B9E08D /* Pretendard-Medium.otf */; };
+		A857361A287534F500E2F0AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E82872DE0F00B9E08D /* Pretendard-Regular.otf */; };
+		A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E62872DE0F00B9E08D /* Pretendard-SemiBold.otf */; };
+		A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E52872DE0F00B9E08D /* Pretendard-Thin.otf */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
@@ -303,14 +312,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
+				A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */,
+				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */,
 				A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */,
+				A8573618287534EF00E2F0AB /* Pretendard-Light.otf in Resources */,
+				A8573614287534E200E2F0AB /* Pretendard-Black.otf in Resources */,
+				A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */,
+				A857361A287534F500E2F0AB /* Pretendard-Regular.otf in Resources */,
 				A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */,
+				A8573616287534EA00E2F0AB /* Pretendard-ExtraBold.otf in Resources */,
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
+				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
 				BC4B5BFD287192190072A5FF /* login.storyboard in Resources */,
 			);
