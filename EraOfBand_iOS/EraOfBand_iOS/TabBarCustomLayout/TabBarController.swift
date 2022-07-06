@@ -25,25 +25,25 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let font = UIFont(name: "Pretendard-Bold", size: 13)!
         
         // 각 탭 아이콘 설정, 뷰컨트롤러 연결
-        let controller1 = CommunityTabViewController()
-        controller1.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "ic_community_off"), selectedImage: UIImage(named: "ic_community_on"))
-        controller1.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        let tab1 = UIStoryboard(name: "CommunityTab", bundle: nil).instantiateViewController(withIdentifier: "CommunityTabViewController")
+        tab1.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "ic_community_off"), selectedImage: UIImage(named: "ic_community_on"))
+        tab1.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
-        let controller2 = NoticeTabViewController()
-        controller2.tabBarItem = UITabBarItem(title: "게시판", image: UIImage(named: "ic_notice_off"), selectedImage: UIImage(named: "ic_notice_on"))
-        controller2.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        let tab2 = UIStoryboard(name: "NoticeTab", bundle: nil).instantiateViewController(withIdentifier: "NoticeTabViewController")
+        tab2.tabBarItem = UITabBarItem(title: "게시판", image: UIImage(named: "ic_notice_off"), selectedImage: UIImage(named: "ic_notice_on"))
+        tab2.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
-        let controller3 = HomeTabViewController()
+        let tab3 = UIStoryboard(name: "HomeTab", bundle: nil).instantiateViewController(withIdentifier: "HomeTabViewController")
         
-        let controller4 = MessageTabViewController()
-        controller4.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "ic_message_off"), selectedImage: UIImage(named: "ic_message_on"))
-        controller4.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        let tab4 = UIStoryboard(name: "MessageTab", bundle: nil).instantiateViewController(withIdentifier: "MessageTabViewController")
+        tab4.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "ic_message_off"), selectedImage: UIImage(named: "ic_message_on"))
+        tab4.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
-        let controller5 = MypageTabViewController()
-        controller5.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: "ic_mypage_off"), selectedImage: UIImage(named: "ic_mypage_on"))
-        controller5.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        let tab5 = UIStoryboard(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "MypageTabViewController")
+        tab5.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: "ic_mypage_off"), selectedImage: UIImage(named: "ic_mypage_on"))
+        tab5.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
-        viewControllers = [controller1, controller2, controller3, controller4, controller5]
+        viewControllers = [tab1, tab2, tab3, tab4, tab5]
         
         setupMiddleButton()
         
