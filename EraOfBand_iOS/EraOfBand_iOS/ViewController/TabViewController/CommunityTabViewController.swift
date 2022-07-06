@@ -9,8 +9,13 @@ import UIKit
 
 class CommunityTabViewController: UIViewController {
 
+    @IBOutlet weak var Label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
+        
 
         // Do any additional setup after loading the view.
     }
