@@ -8,7 +8,7 @@
 import UIKit
 
 
-@IBDesignable class TabBarViewController: UITabBar {
+@IBDesignable class TabBar: UITabBar {
     @IBInspectable var color: UIColor?
     @IBInspectable var radii: CGFloat = 15.0
 
@@ -16,10 +16,13 @@ import UIKit
 
     override func draw(_ rect: CGRect) {
         addShape()
+        
+        // 탭 바 아이템 색상 설정
         self.unselectedItemTintColor = UIColor(named: "off_icon_color")
         self.tintColor = UIColor(named: "on_icon_color")
     }
 
+    // 탭 바 배경 설정
     private func addShape() {
         let shapeLayer = CAShapeLayer()
 
@@ -37,6 +40,7 @@ import UIKit
         self.shapeLayer = shapeLayer
     }
     
+    // 탭 바 배경 모서리 둥글게 설정
     private func createPath() -> CGPath {
         let path = UIBezierPath(
             roundedRect: bounds,
@@ -46,6 +50,7 @@ import UIKit
         return path.cgPath
     }
     
+    // 탭 바 길이 설정
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
         var sizeThatFits = super.sizeThatFits(size)
         sizeThatFits.height = 110 // 원하는 길이

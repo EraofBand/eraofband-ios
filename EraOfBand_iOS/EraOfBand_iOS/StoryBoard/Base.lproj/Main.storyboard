@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iqR-rl-rr5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1g6-q6-V62">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="180" y="517"/>
         </scene>
-        <!--ChaetingTab-->
+        <!--MessageTab-->
         <scene sceneID="TA9-dC-RZ5">
             <objects>
-                <viewControllerPlaceholder storyboardName="ChaetingTab" id="na2-W4-gaJ" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MessageTab" id="na2-W4-gaJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="b6n-Se-Qcw"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Af-GS-xn4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -72,12 +72,12 @@
             </objects>
             <point key="canvasLocation" x="-746" y="54"/>
         </scene>
-        <!--Custom Tab Bar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="aii-4b-LVB">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1g6-q6-V62" customClass="CustomTabBarViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1g6-q6-V62" customClass="TabBarController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2uT-c8-yOV" customClass="TabBarViewController" customModule="EraOfBand_iOS" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2uT-c8-yOV" customClass="TabBar" customModule="EraOfBand_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
