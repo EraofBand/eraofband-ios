@@ -49,12 +49,6 @@ extension OnboardingViewController: UICollectionViewDataSource{
         
         let onboarding = onboardingModel[indexPath.item]
         cell.onboardingModel = onboarding
-                
-        /*page control 설정*/
-        /*
-        cell.pageControl.pageIndicatorTintColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
-        cell.pageControl.currentPageIndicatorTintColor = UIColor(red: 0.094, green: 0.392, blue: 0.992, alpha: 1)
-        cell.pageControl.currentPage = indexPath.row*/
         
         return cell
     }
