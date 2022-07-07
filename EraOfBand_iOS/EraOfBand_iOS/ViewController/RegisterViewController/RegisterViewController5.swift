@@ -9,6 +9,7 @@ import UIKit
 
 class RegisterViewController5: UIViewController{
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

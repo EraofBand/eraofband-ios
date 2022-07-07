@@ -14,6 +14,10 @@ class RegisterViewController2: UIViewController{
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     @IBOutlet weak var birthdayTextField: UITextField!
+    @IBOutlet weak var nextBtn: UIButton!
+    
+    var isMale: Bool = false
+    var isFemale: Bool = false
     
     let datePicker = UIDatePicker()
     
@@ -21,10 +25,28 @@ class RegisterViewController2: UIViewController{
     @IBAction func maleBtnTapped(_ sender: Any) {
         maleBtn.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         femaleBtn.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        isMale = true
+        isFemale = false
+        
+        if(!isFemale && !isMale){
+            nextBtn.isEnabled = false
+        }else{
+            nextBtn.isEnabled = true
+        }
     }
+    
     @IBAction func femaleBtnTapped(_ sender: Any) {
         femaleBtn.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         maleBtn.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        
+        isFemale = true
+        isMale = false
+        
+        if(!isFemale && !isMale){
+            nextBtn.isEnabled = false
+        }else{
+            nextBtn.isEnabled = true
+        }
     }
     
     /*네비바 뒤로가기 버튼 눌렀을 때*/
@@ -45,6 +67,8 @@ class RegisterViewController2: UIViewController{
         birthdayTextField.layer.borderWidth = 1
         birthdayTextField.layer.borderColor = UIColor(red: 0.717, green: 0.717, blue: 0.717, alpha: 1).cgColor
         birthdayTextField.layer.cornerRadius = 5
+        
+        nextBtn.isEnabled = false
     }
     
     @objc func doneBtnTapped(){
