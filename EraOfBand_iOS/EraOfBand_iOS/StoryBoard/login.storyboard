@@ -52,7 +52,7 @@
                                     <backgroundConfiguration key="background" image="kakao_login_btn"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Exu-mJ-ZrY" kind="presentation" modalPresentationStyle="fullScreen" id="wfx-bM-ILK"/>
+                                    <action selector="kakaoBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AiC-jn-gR1"/>
                                 </connections>
                             </button>
                         </subviews>
