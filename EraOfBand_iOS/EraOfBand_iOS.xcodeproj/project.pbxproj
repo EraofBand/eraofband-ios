@@ -197,19 +197,11 @@
 			children = (
 				A809A7C3286F283600B9E08D /* LaunchScreen.storyboard */,
 				A809A7BE286F283400B9E08D /* Main.storyboard */,
-				BC4B5BFB287191F40072A5FF /* LoginStoryBoard */,
+				BC4B5BFC287192190072A5FF /* login.storyboard */,
 				A809A7D1287152F800B9E08D /* TabStoryBoard */,
 				BCA6646B287306F500136D1B /* Register.storyboard */,
 			);
 			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		BC4B5BFB287191F40072A5FF /* LoginStoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				BC4B5BFC287192190072A5FF /* login.storyboard */,
-			);
-			path = LoginStoryBoard;
 			sourceTree = "<group>";
 		};
 		BC4B5BFE287199550072A5FF /* ViewController */ = {
@@ -536,6 +528,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -563,6 +556,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
