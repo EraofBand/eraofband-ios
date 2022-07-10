@@ -52,7 +52,7 @@
                                     <backgroundConfiguration key="background" image="kakao_login_btn"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Exu-mJ-ZrY" kind="presentation" modalPresentationStyle="fullScreen" id="wfx-bM-ILK"/>
+                                    <action selector="kakaoBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AiC-jn-gR1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,7 +82,7 @@
         <!--Register-->
         <scene sceneID="DKf-sl-wOM">
             <objects>
-                <viewControllerPlaceholder storyboardName="Register" id="Exu-mJ-ZrY" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="RegisterNavigationController" storyboardName="Register" id="Exu-mJ-ZrY" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zI2-sA-VB6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcQ-31-ct8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
