@@ -16,7 +16,7 @@
         <scene sceneID="cfD-35-hO3">
             <objects>
                 <viewControllerPlaceholder storyboardName="CommunityTab" id="i0e-a2-oN7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="1Gp-Oy-urJ"/>
+                    <tabBarItem key="tabBarItem" title="community" id="1Gp-Oy-urJ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lk0-qc-jz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,7 +26,7 @@
         <scene sceneID="oAj-gD-ogb">
             <objects>
                 <viewControllerPlaceholder storyboardName="NoticeTab" id="96C-kT-MPR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Clj-GL-x6i"/>
+                    <tabBarItem key="tabBarItem" title="notice" id="Clj-GL-x6i"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gR-vY-Nfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +36,7 @@
         <scene sceneID="MX8-40-bZL">
             <objects>
                 <viewControllerPlaceholder storyboardName="HomeTab" id="Xm2-xh-74Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bKf-Fa-QU1"/>
+                    <tabBarItem key="tabBarItem" title="home" id="bKf-Fa-QU1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8My-1Y-JL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +46,7 @@
         <scene sceneID="TA9-dC-RZ5">
             <objects>
                 <viewControllerPlaceholder storyboardName="MessageTab" id="na2-W4-gaJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="b6n-Se-Qcw"/>
+                    <tabBarItem key="tabBarItem" title="message" id="b6n-Se-Qcw"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Af-GS-xn4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,11 +56,12 @@
         <scene sceneID="rDY-SI-tzV">
             <objects>
                 <viewControllerPlaceholder storyboardName="MypageTab" id="Jvl-by-PyZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mB2-ph-bwp"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="q5I-01-k9v" userLabel="mypage"/>
+                    <navigationItem key="navigationItem" id="MJa-U8-XA1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTc-gj-eCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="517"/>
+            <point key="canvasLocation" x="999" y="517"/>
         </scene>
         <!--login-->
         <scene sceneID="SUs-Wj-XBJ">
@@ -87,7 +88,7 @@
                         <segue destination="96C-kT-MPR" kind="relationship" relationship="viewControllers" id="2B3-VA-ZFw"/>
                         <segue destination="Xm2-xh-74Z" kind="relationship" relationship="viewControllers" id="Xn9-6I-IuF"/>
                         <segue destination="na2-W4-gaJ" kind="relationship" relationship="viewControllers" id="xYh-rz-1n0"/>
-                        <segue destination="Jvl-by-PyZ" kind="relationship" relationship="viewControllers" id="ZX8-Df-boJ"/>
+                        <segue destination="Jvl-by-PyZ" kind="relationship" relationship="viewControllers" id="MWb-OZ-JqT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flt-a9-qzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
