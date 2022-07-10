@@ -39,8 +39,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         tab4.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "ic_message_off"), selectedImage: UIImage(named: "ic_message_on"))
         tab4.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
-        let tab5 = UIStoryboard(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "MypageTabViewController")
-        //let tab5 = UINavigationController(rootViewController: MypageTabViewController())
+        let tab5 = UIStoryboard(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "MypageNC")
         tab5.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: "ic_mypage_off"), selectedImage: UIImage(named: "ic_mypage_on"))
         tab5.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
