@@ -230,7 +230,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ioS-Hd-LBc">
                         <rightBarButtonItems>
-                            <barButtonItem title="setting" image="ic_setting" id="Xa4-WA-LCZ"/>
+                            <barButtonItem title="setting" image="ic_setting" id="Xa4-WA-LCZ">
+                                <connections>
+                                    <segue destination="Aa8-Yx-xvZ" kind="show" id="Dxg-Un-Wtm"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="edit" image="ic_editing" id="ApM-s3-VRY"/>
                         </rightBarButtonItems>
                     </navigationItem>
