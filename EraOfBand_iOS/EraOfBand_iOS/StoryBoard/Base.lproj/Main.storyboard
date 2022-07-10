@@ -56,11 +56,12 @@
         <scene sceneID="rDY-SI-tzV">
             <objects>
                 <viewControllerPlaceholder storyboardName="MypageTab" id="Jvl-by-PyZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="q5I-01-k9v" userLabel="mypage"/>
                     <navigationItem key="navigationItem" id="MJa-U8-XA1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTc-gj-eCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189" y="517"/>
+            <point key="canvasLocation" x="999" y="517"/>
         </scene>
         <!--login-->
         <scene sceneID="SUs-Wj-XBJ">
@@ -87,7 +88,7 @@
                         <segue destination="96C-kT-MPR" kind="relationship" relationship="viewControllers" id="2B3-VA-ZFw"/>
                         <segue destination="Xm2-xh-74Z" kind="relationship" relationship="viewControllers" id="Xn9-6I-IuF"/>
                         <segue destination="na2-W4-gaJ" kind="relationship" relationship="viewControllers" id="xYh-rz-1n0"/>
-                        <segue destination="KHn-FG-1p3" kind="relationship" relationship="viewControllers" id="ZX8-Df-boJ"/>
+                        <segue destination="Jvl-by-PyZ" kind="relationship" relationship="viewControllers" id="MWb-OZ-JqT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flt-a9-qzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -200,25 +201,6 @@
                 <exit id="Lzv-5e-XYF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1304.3478260869567" y="53.571428571428569"/>
-        </scene>
-        <!--mypage-->
-        <scene sceneID="OPb-d7-ctY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KHn-FG-1p3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="mypage" id="mB2-ph-bwp"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Txw-41-OSW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Jvl-by-PyZ" kind="relationship" relationship="rootViewController" id="D1D-nt-DUo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lO2-KJ-K5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1188" y="54"/>
         </scene>
     </scenes>
     <designables>
