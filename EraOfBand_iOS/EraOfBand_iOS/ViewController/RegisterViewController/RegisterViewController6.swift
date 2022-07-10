@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RegisterViewController6: UIViewController{
     @IBOutlet weak var titleLabel: UILabel!
@@ -14,7 +15,30 @@ class RegisterViewController6: UIViewController{
     @IBOutlet weak var admitAllBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
+    var myRegisterData: RegisterData!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var admitBool: [Bool] = [false, false, false]
+    
+    @IBAction func startBtnTapped(_ sender: Any) {
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/users/signin/" + appDelegate.myKakaoData.kakaoToken,
+                   method: .post,
+                   parameters: [
+                    "birth": myRegisterData.birth,
+                    "gender": myRegisterData.gender,
+                    "nickName": myRegisterData.nickName,
+                    "profileImgUrl": myRegisterData.profileImgUrl,
+                    "region": myRegisterData.region,
+                    "session": 0
+                    ],
+                   encoding: JSONEncoding.default,
+                   headers: header).response{response in
+            print(response.data!)
+                    }
+    }
     
     func checkForNextBtnEnabled(){
         if(admitBool[1] == true && admitBool[2] == true){
@@ -95,6 +119,10 @@ class RegisterViewController6: UIViewController{
         
         setLayout()
 
+        
+        print(myRegisterData!)
+        print(appDelegate.myKakaoData.kakaoToken)
+        
     }
 
 }
