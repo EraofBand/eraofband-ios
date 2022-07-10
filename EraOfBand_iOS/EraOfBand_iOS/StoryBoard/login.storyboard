@@ -82,7 +82,7 @@
         <!--Register-->
         <scene sceneID="DKf-sl-wOM">
             <objects>
-                <viewControllerPlaceholder storyboardName="Register" id="Exu-mJ-ZrY" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="RegisterNavigationController" storyboardName="Register" id="Exu-mJ-ZrY" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zI2-sA-VB6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcQ-31-ct8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
