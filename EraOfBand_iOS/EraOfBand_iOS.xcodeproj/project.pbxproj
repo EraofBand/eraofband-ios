@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DD28607C26E2D073BAC5914 /* Pods_EraOfBand_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */; };
 		A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7B8286F283400B9E08D /* AppDelegate.swift */; };
 		A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7BA286F283400B9E08D /* SceneDelegate.swift */; };
 		A809A7BD286F283400B9E08D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7BC286F283400B9E08D /* ViewController.swift */; };
@@ -57,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1190870D647DF9114CDC66E6 /* Pods-EraOfBand_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.debug.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EraOfBand_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A809A7B5286F283400B9E08D /* EraOfBand_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraOfBand_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A809A7B8286F283400B9E08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A809A7BA286F283400B9E08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		BCA3DA3428793B4B0031028E /* KakaoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoData.swift; sourceTree = "<group>"; };
 		BCA3DA36287941B30031028E /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
 		BCA6646B287306F500136D1B /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.release.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,18 +116,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				9DD28607C26E2D073BAC5914 /* Pods_EraOfBand_iOS.framework in Frameworks */,
+        
 				BC6DD51F28785D030067D6B5 /* KakaoSDK in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63D074F824A2B32D19E7A153 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A809A7AC286F283400B9E08D = {
 			isa = PBXGroup;
 			children = (
 				A809A7B7286F283400B9E08D /* EraOfBand_iOS */,
 				A809A7B6286F283400B9E08D /* Products */,
+				B71A2707C3ED5E437AF76117 /* Pods */,
+				63D074F824A2B32D19E7A153 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +201,16 @@
 				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
 			);
 			path = TabViewController;
+			sourceTree = "<group>";
+		};
+		B71A2707C3ED5E437AF76117 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1190870D647DF9114CDC66E6 /* Pods-EraOfBand_iOS.debug.xcconfig */,
+				D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		BC439BF728730B6A006F5659 /* RegisterViewController */ = {
@@ -276,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A809A7C9286F283600B9E08D /* Build configuration list for PBXNativeTarget "EraOfBand_iOS" */;
 			buildPhases = (
+				3DA4904C891975ABEE973453 /* [CP] Check Pods Manifest.lock */,
 				A809A7B1286F283400B9E08D /* Sources */,
 				A809A7B2286F283400B9E08D /* Frameworks */,
 				A809A7B3286F283400B9E08D /* Resources */,
+				43122A3AF08D95C3E3C23FE6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -357,6 +387,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DA4904C891975ABEE973453 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EraOfBand_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43122A3AF08D95C3E3C23FE6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A809A7B1286F283400B9E08D /* Sources */ = {
@@ -535,6 +607,7 @@
 		};
 		A809A7CA286F283600B9E08D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1190870D647DF9114CDC66E6 /* Pods-EraOfBand_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -563,6 +636,7 @@
 		};
 		A809A7CB286F283600B9E08D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
