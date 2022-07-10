@@ -16,10 +16,27 @@ class RegisterViewController2: UIViewController{
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var nextBtn: UIButton!
     
+    var myRegisterData: RegisterData!
+    
     var isMale: Bool = false
     var isFemale: Bool = false
     
     let datePicker = UIDatePicker()
+    
+    @IBAction func nextBtnTapped(_ sender: Any) {
+        if(isMale){
+            myRegisterData.setGender(newGender: "MALE")
+        }else{
+            myRegisterData.setGender(newGender: "FEMALE")
+        }
+        
+        myRegisterData.setBirth(newBirth: birthdayTextField.text ?? "")
+        
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController3") as? RegisterViewController3 else {return}
+        nextVC.myRegisterData = myRegisterData
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
     /*성별 선택 버튼 눌렸을 때*/
     @IBAction func maleBtnTapped(_ sender: Any) {
@@ -102,5 +119,6 @@ class RegisterViewController2: UIViewController{
         
         setLayout()
         createDatePicker()
+        
     }
 }

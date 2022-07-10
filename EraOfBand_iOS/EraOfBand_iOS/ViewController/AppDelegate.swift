@@ -12,7 +12,8 @@ import KakaoSDKAuth
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    public let baseUrl = "eraofband.shop" //rest api 베이스 url 전역변수
+    public let baseUrl = "https://eraofband.shop" //rest api 베이스 url 전역변수
+    public var myKakaoData: kakaoData!
     
     let kakaoKey = Bundle.main.kakaoKey
 

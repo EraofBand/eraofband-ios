@@ -11,6 +11,15 @@ class RegisterViewController5: UIViewController{
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var myRegisterData: RegisterData!
+    
+    @IBAction func nextBtnTapped(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController6") as? RegisterViewController6 else {return}
+        nextVC.myRegisterData = myRegisterData
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
