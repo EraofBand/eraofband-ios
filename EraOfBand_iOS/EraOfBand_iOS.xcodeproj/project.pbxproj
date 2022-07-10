@@ -46,6 +46,14 @@
 		BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5C0128719BF30072A5FF /* LoginViewController.swift */; };
 		BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */; };
 		BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */; };
+		BC6DD51F28785D030067D6B5 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = BC6DD51E28785D030067D6B5 /* KakaoSDK */; };
+		BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC6DD520287861EE0067D6B5 /* ApiKey.plist */; };
+		BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */; };
+		BC8502FF287732200022EA7B /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8502FE287732200022EA7B /* SessionModel.swift */; };
+		BC850301287735210022EA7B /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC850300287735210022EA7B /* SessionCollectionViewCell.swift */; };
+		BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA32287934480031028E /* RegisterNavigationController.swift */; };
+		BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA3428793B4B0031028E /* KakaoData.swift */; };
+		BCA3DA37287941B30031028E /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA36287941B30031028E /* RegisterData.swift */; };
 		BCA6646C287306F500136D1B /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA6646B287306F500136D1B /* Register.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +100,13 @@
 		BC4B5C0128719BF30072A5FF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		BC6DD520287861EE0067D6B5 /* ApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
+		BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EraOfBand_iOS++Bundle.swift"; sourceTree = "<group>"; };
+		BC8502FE287732200022EA7B /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
+		BC850300287735210022EA7B /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
+		BCA3DA32287934480031028E /* RegisterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigationController.swift; sourceTree = "<group>"; };
+		BCA3DA3428793B4B0031028E /* KakaoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoData.swift; sourceTree = "<group>"; };
+		BCA3DA36287941B30031028E /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
 		BCA6646B287306F500136D1B /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.release.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +116,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				9DD28607C26E2D073BAC5914 /* Pods_EraOfBand_iOS.framework in Frameworks */,
+        
+				BC6DD51F28785D030067D6B5 /* KakaoSDK in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +156,7 @@
 		A809A7B7286F283400B9E08D /* EraOfBand_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
 				BC4B5C1C2871C4210072A5FF /* Model */,
 				BC4B5C192871C24E0072A5FF /* Cell */,
 				BC4B5C032871A6CD0072A5FF /* Resources */,
@@ -145,6 +165,7 @@
 				A809A7CC28714D8800B9E08D /* TabBarCustomLayout */,
 				A809A7BC286F283400B9E08D /* ViewController.swift */,
 				A809A7C6286F283600B9E08D /* Info.plist */,
+				BC6DD520287861EE0067D6B5 /* ApiKey.plist */,
 			);
 			path = EraOfBand_iOS;
 			sourceTree = "<group>";
@@ -201,6 +222,7 @@
 				BC439BFE287345F3006F5659 /* RegisterViewController4.swift */,
 				BC439C0028735BCD006F5659 /* RegisterViewController5.swift */,
 				BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */,
+				BCA3DA32287934480031028E /* RegisterNavigationController.swift */,
 			);
 			path = RegisterViewController;
 			sourceTree = "<group>";
@@ -210,19 +232,11 @@
 			children = (
 				A809A7C3286F283600B9E08D /* LaunchScreen.storyboard */,
 				A809A7BE286F283400B9E08D /* Main.storyboard */,
-				BC4B5BFB287191F40072A5FF /* LoginStoryBoard */,
+				BC4B5BFC287192190072A5FF /* login.storyboard */,
 				A809A7D1287152F800B9E08D /* TabStoryBoard */,
 				BCA6646B287306F500136D1B /* Register.storyboard */,
 			);
 			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		BC4B5BFB287191F40072A5FF /* LoginStoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				BC4B5BFC287192190072A5FF /* login.storyboard */,
-			);
-			path = LoginStoryBoard;
 			sourceTree = "<group>";
 		};
 		BC4B5BFE287199550072A5FF /* ViewController */ = {
@@ -267,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */,
+				BC850300287735210022EA7B /* SessionCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -275,6 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */,
+				BC8502FE287732200022EA7B /* SessionModel.swift */,
+				BCA3DA3428793B4B0031028E /* KakaoData.swift */,
+				BCA3DA36287941B30031028E /* RegisterData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +315,9 @@
 			dependencies = (
 			);
 			name = EraOfBand_iOS;
+			packageProductDependencies = (
+				BC6DD51E28785D030067D6B5 /* KakaoSDK */,
+			);
 			productName = EraOfBand_iOS;
 			productReference = A809A7B5286F283400B9E08D /* EraOfBand_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -325,6 +346,9 @@
 				Base,
 			);
 			mainGroup = A809A7AC286F283400B9E08D;
+			packageReferences = (
+				BC6DD51D28785D030067D6B5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = A809A7B6286F283400B9E08D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -357,6 +381,7 @@
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
 				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
+				BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */,
 				BC4B5BFD287192190072A5FF /* login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,19 +436,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
+				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
+				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
 				A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */,
+				BCA3DA37287941B30031028E /* RegisterData.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
 				BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */,
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
+				BC850301287735210022EA7B /* SessionCollectionViewCell.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
+				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
+				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
+				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
+				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
+				BC8502FF287732200022EA7B /* SessionModel.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
@@ -431,6 +465,7 @@
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
+				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +613,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -606,6 +642,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -648,6 +685,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC6DD51D28785D030067D6B5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC6DD51E28785D030067D6B5 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC6DD51D28785D030067D6B5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A809A7AD286F283400B9E08D /* Project object */;
 }
