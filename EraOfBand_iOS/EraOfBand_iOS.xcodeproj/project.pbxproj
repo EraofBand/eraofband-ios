@@ -50,11 +50,12 @@
 		BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC6DD520287861EE0067D6B5 /* ApiKey.plist */; };
 		BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */; };
 		BC8502FF287732200022EA7B /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8502FE287732200022EA7B /* SessionModel.swift */; };
-		BC850301287735210022EA7B /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC850300287735210022EA7B /* SessionCollectionViewCell.swift */; };
 		BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA32287934480031028E /* RegisterNavigationController.swift */; };
 		BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA3428793B4B0031028E /* KakaoData.swift */; };
 		BCA3DA37287941B30031028E /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA36287941B30031028E /* RegisterData.swift */; };
 		BCA6646C287306F500136D1B /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA6646B287306F500136D1B /* Register.storyboard */; };
+		BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */; };
+		BCC2CF24287C62FE00A71B82 /* RegisterResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,11 +104,12 @@
 		BC6DD520287861EE0067D6B5 /* ApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EraOfBand_iOS++Bundle.swift"; sourceTree = "<group>"; };
 		BC8502FE287732200022EA7B /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
-		BC850300287735210022EA7B /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BCA3DA32287934480031028E /* RegisterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigationController.swift; sourceTree = "<group>"; };
 		BCA3DA3428793B4B0031028E /* KakaoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoData.swift; sourceTree = "<group>"; };
 		BCA3DA36287941B30031028E /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
 		BCA6646B287306F500136D1B /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
+		BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponseModel.swift; sourceTree = "<group>"; };
 		D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.release.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,11 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				9DD28607C26E2D073BAC5914 /* Pods_EraOfBand_iOS.framework in Frameworks */,
-        
 				BC6DD51F28785D030067D6B5 /* KakaoSDK in Frameworks */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +155,7 @@
 		A809A7B7286F283400B9E08D /* EraOfBand_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */,
 				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
 				BC4B5C1C2871C4210072A5FF /* Model */,
 				BC4B5C192871C24E0072A5FF /* Cell */,
@@ -209,7 +209,6 @@
 				1190870D647DF9114CDC66E6 /* Pods-EraOfBand_iOS.debug.xcconfig */,
 				D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -281,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */,
-				BC850300287735210022EA7B /* SessionCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -293,6 +291,7 @@
 				BC8502FE287732200022EA7B /* SessionModel.swift */,
 				BCA3DA3428793B4B0031028E /* KakaoData.swift */,
 				BCA3DA36287941B30031028E /* RegisterData.swift */,
+				BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -437,6 +436,7 @@
 			files = (
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
+				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
@@ -450,7 +450,6 @@
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
-				BC850301287735210022EA7B /* SessionCollectionViewCell.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
@@ -462,6 +461,7 @@
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
+				BCC2CF24287C62FE00A71B82 /* RegisterResponseModel.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
