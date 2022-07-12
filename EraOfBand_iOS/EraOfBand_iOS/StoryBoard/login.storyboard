@@ -89,6 +89,14 @@
             </objects>
             <point key="canvasLocation" x="659" y="93"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="lRf-eq-tEV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="Main" id="hRo-T5-pqE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOG-PF-POH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="659" y="162"/>
+        </scene>
     </scenes>
     <resources>
         <image name="eob_logo_text" width="760" height="204"/>
