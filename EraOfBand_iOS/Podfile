@@ -4,11 +4,11 @@
 target 'EraOfBand_iOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
-  pod 'Tabman', '~> 2.11'
+
 
   # Pods for EraOfBand_iOS
   pod 'KakaoSDK'
   pod 'Tabman', '~> 2.12'
+  pod 'KeychainSwift', '~> 20.0'
 
 end
