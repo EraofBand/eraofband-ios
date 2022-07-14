@@ -14,17 +14,56 @@ class RegisterViewController2: UIViewController{
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     @IBOutlet weak var birthdayTextField: UITextField!
+    @IBOutlet weak var nextBtn: UIButton!
+    
+    var myRegisterData: RegisterData!
+    
+    var isMale: Bool = false
+    var isFemale: Bool = false
     
     let datePicker = UIDatePicker()
+    
+    @IBAction func nextBtnTapped(_ sender: Any) {
+        if(isMale){
+            myRegisterData.setGender(newGender: "MALE")
+        }else{
+            myRegisterData.setGender(newGender: "FEMALE")
+        }
+        
+        myRegisterData.setBirth(newBirth: birthdayTextField.text ?? "")
+        
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController3") as? RegisterViewController3 else {return}
+        nextVC.myRegisterData = myRegisterData
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
     /*성별 선택 버튼 눌렸을 때*/
     @IBAction func maleBtnTapped(_ sender: Any) {
         maleBtn.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         femaleBtn.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        isMale = true
+        isFemale = false
+        
+        if(!isFemale && !isMale){
+            nextBtn.isEnabled = false
+        }else{
+            nextBtn.isEnabled = true
+        }
     }
+    
     @IBAction func femaleBtnTapped(_ sender: Any) {
         femaleBtn.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         maleBtn.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        
+        isFemale = true
+        isMale = false
+        
+        if(!isFemale && !isMale){
+            nextBtn.isEnabled = false
+        }else{
+            nextBtn.isEnabled = true
+        }
     }
     
     /*네비바 뒤로가기 버튼 눌렀을 때*/
@@ -45,6 +84,8 @@ class RegisterViewController2: UIViewController{
         birthdayTextField.layer.borderWidth = 1
         birthdayTextField.layer.borderColor = UIColor(red: 0.717, green: 0.717, blue: 0.717, alpha: 1).cgColor
         birthdayTextField.layer.cornerRadius = 5
+        
+        nextBtn.isEnabled = false
     }
     
     @objc func doneBtnTapped(){
@@ -78,5 +119,6 @@ class RegisterViewController2: UIViewController{
         
         setLayout()
         createDatePicker()
+        
     }
 }
