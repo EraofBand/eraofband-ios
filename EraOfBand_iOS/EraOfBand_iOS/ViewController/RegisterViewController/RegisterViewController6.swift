@@ -21,6 +21,8 @@ class RegisterViewController6: UIViewController{
     
     var admitBool: [Bool] = [false, false, false]
     
+    
+    
     @IBAction func startBtnTapped(_ sender: Any) {
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
@@ -32,12 +34,12 @@ class RegisterViewController6: UIViewController{
                     "nickName": myRegisterData.nickName,
                     "profileImgUrl": myRegisterData.profileImgUrl,
                     "region": myRegisterData.region,
-                    "session": 0
+                    "session": myRegisterData.session
                     ],
                    encoding: JSONEncoding.default,
-                   headers: header).response{response in
-            print(response.data!)
-                    }
+                   headers: header).responseJSON{ response in
+            print(response)
+        }
     }
     
     func checkForNextBtnEnabled(){
@@ -120,8 +122,8 @@ class RegisterViewController6: UIViewController{
         setLayout()
 
         
-        print(myRegisterData!)
-        print(appDelegate.myKakaoData.kakaoToken)
+        //print(myRegisterData!)
+        //print(appDelegate.myKakaoData.kakaoToken)
         
     }
 
