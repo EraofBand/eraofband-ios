@@ -293,26 +293,6 @@
             </objects>
             <point key="canvasLocation" x="156.52173913043478" y="59.598214285714285"/>
         </scene>
-        <!--AddPofol-->
-        <scene sceneID="hLg-pf-RVo">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddPofol" id="76g-B6-Fus" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="SRc-Fe-H2N"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rTV-e1-H47" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="829" y="503"/>
-        </scene>
-        <!--MyPofolTable-->
-        <scene sceneID="unm-mS-kEq">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MyPofolTable" id="noa-Cj-wOB" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="6QN-qD-1YG"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RmH-9f-lvd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1233" y="503"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ic_editing" width="28" height="28"/>
