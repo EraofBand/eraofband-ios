@@ -383,7 +383,7 @@
                         <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="gRJ-NO-t7x">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="backBtnTapped:" destination="8sh-Jy-bf7" id="TyV-hv-dRT"/>
+                                <action selector="backBtnTapped:" destination="60s-nG-VqM" id="5P1-ng-eD0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -394,8 +394,54 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFt-fw-p2Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="60s-nG-VqM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1051" y="781"/>
+        </scene>
+        <!--Pofol Table View Controller-->
+        <scene sceneID="Aga-64-02b">
+            <objects>
+                <viewController storyboardIdentifier="PofolTableViewController" hidesBottomBarWhenPushed="YES" id="tp0-8e-hys" customClass="PofolTableViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gtz-dw-DY4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IlI-FD-Jm7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="918"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" rowHeight="451" id="hdk-x6-cHi">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="451"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hdk-x6-cHi" id="ZfA-vZ-XWd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="451"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="awx-NT-cgt"/>
+                        <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="awx-NT-cgt" firstAttribute="bottom" secondItem="IlI-FD-Jm7" secondAttribute="bottom" constant="-100" id="9Kx-uj-pM2"/>
+                            <constraint firstItem="IlI-FD-Jm7" firstAttribute="leading" secondItem="awx-NT-cgt" secondAttribute="leading" id="eyJ-ft-UBU"/>
+                            <constraint firstItem="IlI-FD-Jm7" firstAttribute="top" secondItem="awx-NT-cgt" secondAttribute="top" id="fSf-ZB-EdO"/>
+                            <constraint firstItem="awx-NT-cgt" firstAttribute="trailing" secondItem="IlI-FD-Jm7" secondAttribute="trailing" id="nJC-il-el3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jaz-jC-GxD">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="fLB-bL-Kfa">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="backBtnTapped:" destination="tp0-8e-hys" id="CNB-Qh-e3b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0oZ-4u-8oC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2060.8695652173915" y="791.51785714285711"/>
         </scene>
     </scenes>
     <resources>

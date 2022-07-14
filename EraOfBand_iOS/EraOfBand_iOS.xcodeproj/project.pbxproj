@@ -36,6 +36,8 @@
 		A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E62872DE0F00B9E08D /* Pretendard-SemiBold.otf */; };
 		A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E52872DE0F00B9E08D /* Pretendard-Thin.otf */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
+		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
+		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
@@ -94,6 +96,8 @@
 		A85736102874C68C00E2F0AB /* MessageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTabViewController.swift; sourceTree = "<group>"; };
 		A85736122874C69E00E2F0AB /* MypageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTabViewController.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
+		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
+		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
 		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
 		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 				BCA3DA36287941B30031028E /* RegisterData.swift */,
 				BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */,
 				BC636131287DA62400DFA6D2 /* UserModel.swift */,
+				BC1ED493288027A100A5B931 /* PofolData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				BC636134287DB47300DFA6D2 /* AddPofolViewController.swift */,
+				BC1ED4912880264600A5B931 /* PofolTableViewController.swift */,
 			);
 			path = PofolViewController;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
 				A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */,
 				BCA3DA37287941B30031028E /* RegisterData.swift in Sources */,
+				BC1ED494288027A100A5B931 /* PofolData.swift in Sources */,
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
@@ -475,6 +482,7 @@
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
+				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC8502FF287732200022EA7B /* SessionModel.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,

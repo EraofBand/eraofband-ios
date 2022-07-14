@@ -9,6 +9,5 @@ target 'EraOfBand_iOS' do
   # Pods for EraOfBand_iOS
   pod 'KakaoSDK'
   pod 'Tabman', '~> 2.12'
-  pod 'KeychainSwift', '~> 20.0'
 
 end
