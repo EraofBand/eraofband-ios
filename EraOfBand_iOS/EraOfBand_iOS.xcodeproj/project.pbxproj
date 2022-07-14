@@ -34,6 +34,12 @@
 		A857361A287534F500E2F0AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E82872DE0F00B9E08D /* Pretendard-Regular.otf */; };
 		A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E62872DE0F00B9E08D /* Pretendard-SemiBold.otf */; };
 		A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E52872DE0F00B9E08D /* Pretendard-Thin.otf */; };
+		A857361F287C440B00E2F0AB /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857361E287C440B00E2F0AB /* PortfolioViewController.swift */; };
+		A8573621287C442100E2F0AB /* BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573620287C442100E2F0AB /* BandViewController.swift */; };
+		A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573622287C442B00E2F0AB /* LessonViewController.swift */; };
+		A8573625287C49F800E2F0AB /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573624287C49F800E2F0AB /* TabManViewController.swift */; };
+		A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573626287D2F5300E2F0AB /* EditViewController.swift */; };
+		A8573629287DB2C500E2F0AB /* UserInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573628287DB2C500E2F0AB /* UserInfoData.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
@@ -94,6 +100,12 @@
 		A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		A85736102874C68C00E2F0AB /* MessageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTabViewController.swift; sourceTree = "<group>"; };
 		A85736122874C69E00E2F0AB /* MypageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTabViewController.swift; sourceTree = "<group>"; };
+		A857361E287C440B00E2F0AB /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		A8573620287C442100E2F0AB /* BandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandViewController.swift; sourceTree = "<group>"; };
+		A8573622287C442B00E2F0AB /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		A8573624287C49F800E2F0AB /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
+		A8573626287D2F5300E2F0AB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		A8573628287DB2C500E2F0AB /* UserInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoData.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
@@ -208,9 +220,22 @@
 				A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */,
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
 				A85736102874C68C00E2F0AB /* MessageTabViewController.swift */,
-				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
+				A857361D287C43E100E2F0AB /* Mypage */,
 			);
 			path = TabViewController;
+			sourceTree = "<group>";
+		};
+		A857361D287C43E100E2F0AB /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
+				A8573624287C49F800E2F0AB /* TabManViewController.swift */,
+				A857361E287C440B00E2F0AB /* PortfolioViewController.swift */,
+				A8573620287C442100E2F0AB /* BandViewController.swift */,
+				A8573622287C442B00E2F0AB /* LessonViewController.swift */,
+				A8573626287D2F5300E2F0AB /* EditViewController.swift */,
+			);
+			path = Mypage;
 			sourceTree = "<group>";
 		};
 		B71A2707C3ED5E437AF76117 /* Pods */ = {
@@ -314,6 +339,7 @@
 				BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */,
 				BC636131287DA62400DFA6D2 /* UserModel.swift */,
 				BC1ED493288027A100A5B931 /* PofolData.swift */,
+				A8573628287DB2C500E2F0AB /* UserInfoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,13 +501,17 @@
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
 				A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */,
+				A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */,
 				BCA3DA37287941B30031028E /* RegisterData.swift in Sources */,
 				BC1ED494288027A100A5B931 /* PofolData.swift in Sources */,
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
 				BC636135287DB47300DFA6D2 /* AddPofolViewController.swift in Sources */,
+				A8573629287DB2C500E2F0AB /* UserInfoData.swift in Sources */,
 				BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */,
+				A8573621287C442100E2F0AB /* BandViewController.swift in Sources */,
+				A8573625287C49F800E2F0AB /* TabManViewController.swift in Sources */,
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
@@ -491,6 +521,8 @@
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
+				A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */,
+				A857361F287C440B00E2F0AB /* PortfolioViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC8502FF287732200022EA7B /* SessionModel.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
