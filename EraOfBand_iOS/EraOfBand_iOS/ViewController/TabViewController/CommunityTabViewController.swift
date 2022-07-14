@@ -9,9 +9,11 @@ import UIKit
 
 class CommunityTabViewController: UIViewController {
 
+    @IBOutlet weak var Label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     

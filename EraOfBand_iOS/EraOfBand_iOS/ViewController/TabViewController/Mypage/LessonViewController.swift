@@ -1,13 +1,13 @@
 //
-//  MypageTabView.swift
+//  LessonViewController.swift
 //  EraOfBand_iOS
 //
-//  Created by 김영현 on 2022/07/06.
+//  Created by 김영현 on 2022/07/11.
 //
 
 import UIKit
 
-class MypageTabViewController: UIViewController {
+class LessonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
