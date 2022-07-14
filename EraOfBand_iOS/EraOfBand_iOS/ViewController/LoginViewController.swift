@@ -9,6 +9,7 @@ import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import Alamofire
 
 class LoginViewController: UIViewController{
     
@@ -30,17 +31,26 @@ class LoginViewController: UIViewController{
     
     //로그인 이후 카카오 유저 정보 가져오기
     func getKakaoData(kakaoToken: String){
-        UserApi.shared.me() {(user, error) in
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        UserApi.shared.me() { [self](user, error) in
             if let error = error {
                 print(error)
             }
             else {
                 print("me() success.")
-                //self.kakaoUserName = (user?.kakaoAccount?.profile?.nickname)! as String
-            
-                //print("카카오정보:" + self.kakaoToken + self.kakaoUserName)
-                let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String)
+                
+                let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String, kakaoEmail: (user?.kakaoAccount?.email)! as String)
                 self.appDelegate.myKakaoData = myKakaoData
+                
+                /*
+                AF.request(self.appDelegate.baseUrl + "/users/signin/" + appDelegate.myKakaoData.kakaoEmail,
+                           method: .get,
+                           encoding: JSONEncoding.default,
+                           headers: header).responseJSON{ response in
+                    print(response)
+                }*/
+                
                 guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
                 registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
                 
