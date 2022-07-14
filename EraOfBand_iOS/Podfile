@@ -7,7 +7,8 @@ target 'EraOfBand_iOS' do
 
 
   # Pods for EraOfBand_iOS
-  pod 'KakaoSDK'
+  pod 'KakaoSDKCommon'
+  pod 'KakaoSDKAuth'
   pod 'Tabman', '~> 2.12'
   pod 'SnapKit', '~> 5.6.0'
 
