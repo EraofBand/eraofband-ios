@@ -45,6 +45,8 @@ class AddPofolViewController: UIViewController{
         ).responseJSON{ response in
             print(response)
         }
+        
+        self.navigationController?.popViewController(animated: true)
     }
     /*
     func authorizeJWT(){
@@ -53,11 +55,12 @@ class AddPofolViewController: UIViewController{
     }*/
     
     func setLayout(){
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 42))
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 42))
         
         self.title = "포트폴리오 추가"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
+        titleTextField.borderStyle = .none
         titleTextField.layer.cornerRadius = 15
         titleTextField.attributedPlaceholder = NSAttributedString(
             string: "제목",
