@@ -10,11 +10,18 @@ import UIKit
 class RegisterViewController3: UIViewController{
 
     @IBOutlet weak var titleLabel: UILabel!
+    var myRegisterData: RegisterData!
+    
+    @IBAction func nextBtnTapped(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController4") as? RegisterViewController4 else {return}
+        nextVC.myRegisterData = myRegisterData
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     func setLayout(){
         
@@ -32,5 +39,6 @@ class RegisterViewController3: UIViewController{
         titleLabel.text = "다른 뮤지션들이\n더 잘 알 수 있도록\n프로필 사진을 선택해주세요"
         
         setLayout()
+
     }
 }
