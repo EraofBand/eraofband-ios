@@ -53,7 +53,6 @@
 		BC636135287DB47300DFA6D2 /* AddPofolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC636134287DB47300DFA6D2 /* AddPofolViewController.swift */; };
 		BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC636136287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift */; };
 		BC6DD51F28785D030067D6B5 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = BC6DD51E28785D030067D6B5 /* KakaoSDK */; };
-		BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC6DD520287861EE0067D6B5 /* ApiKey.plist */; };
 		BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */; };
 		BC8502FF287732200022EA7B /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8502FE287732200022EA7B /* SessionModel.swift */; };
 		BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA32287934480031028E /* RegisterNavigationController.swift */; };
@@ -113,7 +112,6 @@
 		BC636131287DA62400DFA6D2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		BC636134287DB47300DFA6D2 /* AddPofolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPofolViewController.swift; sourceTree = "<group>"; };
 		BC636136287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAccessTokenAdapter.swift; sourceTree = "<group>"; };
-		BC6DD520287861EE0067D6B5 /* ApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EraOfBand_iOS++Bundle.swift"; sourceTree = "<group>"; };
 		BC8502FE287732200022EA7B /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		BCA3DA32287934480031028E /* RegisterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigationController.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				A809A7CC28714D8800B9E08D /* TabBarCustomLayout */,
 				A809A7BC286F283400B9E08D /* ViewController.swift */,
 				A809A7C6286F283600B9E08D /* Info.plist */,
-				BC6DD520287861EE0067D6B5 /* ApiKey.plist */,
 				BC636136287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift */,
 			);
 			path = EraOfBand_iOS;
@@ -415,7 +412,6 @@
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
 				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
-				BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */,
 				BC4B5BFD287192190072A5FF /* login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
