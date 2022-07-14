@@ -1,46 +1,41 @@
 //
-//  MypageTabView.swift
+//  TabmanViewController.swift
 //  EraOfBand_iOS
 //
-//  Created by 김영현 on 2022/07/06.
+//  Created by 김영현 on 2022/07/11.
 //
 
 import UIKit
 import Tabman
 import Pageboy
 
-class MypageTabViewController: TabmanViewController {
-    
-    @IBOutlet weak var infoView: UIView!
-    
-    @IBOutlet weak var sessionView: UIView!
-    
+class TabManViewController: TabmanViewController {
+
     var viewControllers: Array<UIViewController> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let portfolioVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "PortfolioViewController")
+        let bandVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "BandViewController")
+        let lessonVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "LessonViewController")
         
-        infoView.layer.cornerRadius = 15
-        sessionView.layer.cornerRadius = 15
+        viewControllers.append(portfolioVC)
+        viewControllers.append(bandVC)
+        viewControllers.append(lessonVC)
         
         self.dataSource = self
         
-        
-//        // MARK: 페이지 하단 탭 바
-//        let bar = TMBar.ButtonBar()
-//        settingTabBar(ctBar: bar) //함수 추후 구현
-//        addBar(bar, dataSource: self, at: .top)
-        
-        // 프로필 view, 세션 view 모서리 둥글게
-        
-        
-
+        // MARK: 페이지 하단 탭 바
+        let bar = TMBar.ButtonBar()
+        settingTabBar(ctBar: bar) //함수 추후 구현
+        addBar(bar, dataSource: self, at: .top)
+       
     }
-    
     
 }
 
-extension MypageTabViewController: PageboyViewControllerDataSource, TMBarDataSource {
+extension TabManViewController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         //        let item = TMBarItem(title: "")
@@ -83,13 +78,10 @@ extension MypageTabViewController: PageboyViewControllerDataSource, TMBarDataSou
 
 func settingTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.transitionStyle = .snap
-    // 왼쪽 여백주기
-    ctBar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 13.0, bottom: 0.0, right: 20.0)
     
-    // 간격
-    ctBar.layout.interButtonSpacing = 35
+    ctBar.layout.contentMode = .fit
     
-    ctBar.backgroundView.style = .blur(style: .light)
+    ctBar.backgroundView.style = .clear
     
     // 선택 / 안선택 색 + font size
     ctBar.buttons.customize { (button) in
