@@ -18,7 +18,6 @@
 		A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D42871537B00B9E08D /* NoticeTab.storyboard */; };
 		A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D62871538400B9E08D /* HomeTab.storyboard */; };
 		A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7D82871538D00B9E08D /* MessageTab.storyboard */; };
-		A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7DA287153A200B9E08D /* MypageTab.storyboard */; };
 		A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* TabBarController.swift */; };
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
 		A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */; };
@@ -80,7 +79,6 @@
 		A809A7D42871537B00B9E08D /* NoticeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoticeTab.storyboard; sourceTree = "<group>"; };
 		A809A7D62871538400B9E08D /* HomeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTab.storyboard; sourceTree = "<group>"; };
 		A809A7D82871538D00B9E08D /* MessageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageTab.storyboard; sourceTree = "<group>"; };
-		A809A7DA287153A200B9E08D /* MypageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageTab.storyboard; sourceTree = "<group>"; };
 		A809A7E52872DE0F00B9E08D /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		A809A7E62872DE0F00B9E08D /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		A809A7E72872DE0F00B9E08D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 		BC1ED49528803F3900A5B931 /* MypageTab */ = {
 			isa = PBXGroup;
 			children = (
-				A809A7DA287153A200B9E08D /* MypageTab.storyboard */,
 				BC1ED49628803F6B00A5B931 /* AddPofol.storyboard */,
 				BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */,
 			);
@@ -407,7 +404,6 @@
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */,
-				A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */,
 				A8573618287534EF00E2F0AB /* Pretendard-Light.otf in Resources */,
 				BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */,
 				A8573614287534E200E2F0AB /* Pretendard-Black.otf in Resources */,
