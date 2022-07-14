@@ -13,11 +13,23 @@ class RegisterViewController4: UIViewController{
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var districtTextField: UITextField!
     
+    var myRegisterData: RegisterData!
+    
     let city = ["서울", "경기"]
     let districtSeoul = ["강서구", "광진구", "강남구"]
     
     var cityPickerView = UIPickerView()
     var districtPickerView = UIPickerView()
+    
+    @IBAction func nextBtnTapped(_ sender: Any) {
+        
+        myRegisterData.setRegion(newRegion: (cityTextField.text ?? "") + "," + (districtTextField.text ?? ""))
+        
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController5") as? RegisterViewController5 else {return}
+        nextVC.myRegisterData = myRegisterData
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
