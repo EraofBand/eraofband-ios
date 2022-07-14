@@ -216,13 +216,29 @@
 			isa = PBXGroup;
 			children = (
 				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
-				A8573624287C49F800E2F0AB /* TabManViewController.swift */,
-				A857361E287C440B00E2F0AB /* PortfolioViewController.swift */,
-				A8573620287C442100E2F0AB /* BandViewController.swift */,
-				A8573622287C442B00E2F0AB /* LessonViewController.swift */,
 				A8573626287D2F5300E2F0AB /* EditViewController.swift */,
+				A8BFC8BB2880529800EB5A1A /* TabMan */,
 			);
 			path = Mypage;
+			sourceTree = "<group>";
+		};
+		A8BFC8BB2880529800EB5A1A /* TabMan */ = {
+			isa = PBXGroup;
+			children = (
+				A8573624287C49F800E2F0AB /* TabManViewController.swift */,
+				A8BFC8BC288052BE00EB5A1A /* Portfolio */,
+				A8573620287C442100E2F0AB /* BandViewController.swift */,
+				A8573622287C442B00E2F0AB /* LessonViewController.swift */,
+			);
+			path = TabMan;
+			sourceTree = "<group>";
+		};
+		A8BFC8BC288052BE00EB5A1A /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				A857361E287C440B00E2F0AB /* PortfolioViewController.swift */,
+			);
+			path = Portfolio;
 			sourceTree = "<group>";
 		};
 		B71A2707C3ED5E437AF76117 /* Pods */ = {
