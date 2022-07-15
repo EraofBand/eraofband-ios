@@ -46,6 +46,7 @@
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
 		BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED49628803F6B00A5B931 /* AddPofol.storyboard */; };
 		BC1ED499288041B300A5B931 /* MyPofolTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */; };
+		BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
@@ -114,6 +115,7 @@
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
 		BC1ED49628803F6B00A5B931 /* AddPofol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPofol.storyboard; sourceTree = "<group>"; };
 		BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPofolTable.storyboard; sourceTree = "<group>"; };
+		BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPofolTableViewCell.swift; sourceTree = "<group>"; };
 		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
 		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
@@ -181,10 +183,9 @@
 		A809A7B7286F283400B9E08D /* EraOfBand_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */,
 				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
-				BC4B5C1C2871C4210072A5FF /* Model */,
 				BC4B5C192871C24E0072A5FF /* Cell */,
+				BC4B5C1C2871C4210072A5FF /* Model */,
 				BC4B5C032871A6CD0072A5FF /* Resources */,
 				BC4B5BFE287199550072A5FF /* ViewController */,
 				BC4B5BFA28716A0B0072A5FF /* StoryBoard */,
@@ -330,7 +331,9 @@
 		BC4B5C192871C24E0072A5FF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */,
 				BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */,
+				BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -338,13 +341,13 @@
 		BC4B5C1C2871C4210072A5FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */,
 				BC8502FE287732200022EA7B /* SessionModel.swift */,
 				BCA3DA3428793B4B0031028E /* KakaoData.swift */,
 				BCA3DA36287941B30031028E /* RegisterData.swift */,
 				BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */,
 				BC636131287DA62400DFA6D2 /* UserModel.swift */,
 				BC1ED493288027A100A5B931 /* PofolData.swift */,
+				BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */,
 				A8573628287DB2C500E2F0AB /* UserInfoData.swift */,
 			);
 			path = Model;
@@ -524,6 +527,7 @@
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
+				BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,

@@ -23,7 +23,7 @@ class PofolTableViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol" + "?userIdx=36",
+        AF.request(appDelegate.baseUrl + "/pofol/my" + "?userIdx=36",
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
