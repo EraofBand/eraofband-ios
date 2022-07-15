@@ -38,7 +38,7 @@ class AddPofolViewController: UIViewController{
                     "content": descriptionTextView.text ?? "",
                     "imgUrl": "",
                     "title": titleTextField.text ?? "",
-                    "userIdx": 36,
+                    "userIdx": appDelegate.userIdx!,
                     "videoUrl": ""
                     ],
                    encoding: JSONEncoding.default,

@@ -280,7 +280,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="ic_floating"/>
                                 <connections>
-                                    <segue destination="CkD-Ht-Q1N" kind="push" id="159-vO-ctV"/>
+                                    <segue destination="lWW-EG-1Rh" kind="push" id="nlv-xQ-t8r"/>
                                 </connections>
                             </button>
                         </subviews>
