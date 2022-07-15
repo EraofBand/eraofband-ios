@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public let baseUrl = "https://eraofband.shop" //rest api 베이스 url 전역변수
     public var myKakaoData: kakaoData!
-    public var jwt: String = "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjozNiwiaWF0IjoxNjU3NjM2OTkwLCJleHAiOjE2NTkxMDgyMTl9.riyv6r-Yqu3XY7jaCmtsd2B9XDQ4nnNXD1C-zB148Lg"
+    public var jwt: String = ""
+    public var userIdx: Int?
+    
+    /*"eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjozNiwiaWF0IjoxNjU3NjM2OTkwLCJleHAiOjE2NTkxMDgyMTl9.riyv6r-Yqu3XY7jaCmtsd2B9XDQ4nnNXD1C-zB148Lg"*/
     
     let kakaoKey = Bundle.main.kakaoKey
 
