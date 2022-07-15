@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -35,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paP-Sv-d5t" userLabel="Inner Scroll View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="726"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8c4-sd-HlP">
                                                 <rect key="frame" x="20" y="34" width="374" height="271"/>
@@ -233,7 +234,7 @@
                                                 </constraints>
                                             </view>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-pz-2O3">
-                                                <rect key="frame" x="0.0" y="440" width="414" height="683"/>
+                                                <rect key="frame" x="0.0" y="440" width="414" height="857"/>
                                                 <connections>
                                                     <segue destination="e1B-x5-Uil" kind="embed" id="sbJ-qD-qJG"/>
                                                 </connections>
@@ -250,7 +251,7 @@
                                             <constraint firstItem="8c4-sd-HlP" firstAttribute="leading" secondItem="paP-Sv-d5t" secondAttribute="leading" constant="20" id="eU4-5S-gzY"/>
                                             <constraint firstAttribute="trailing" secondItem="WB4-pz-2O3" secondAttribute="trailing" id="fJ2-Yk-uJd"/>
                                             <constraint firstItem="WB4-pz-2O3" firstAttribute="top" secondItem="paP-Sv-d5t" secondAttribute="top" constant="440" id="jRt-wO-QOY"/>
-                                            <constraint firstAttribute="height" priority="250" constant="726" id="xJ9-ir-0Mo"/>
+                                            <constraint firstAttribute="height" priority="250" constant="900" id="xJ9-ir-0Mo"/>
                                             <constraint firstAttribute="trailing" secondItem="8c4-sd-HlP" secondAttribute="trailing" constant="20" id="yCk-oQ-kMm"/>
                                         </constraints>
                                     </view>
@@ -270,12 +271,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27e-bY-MnU">
+                                <rect key="frame" x="349" y="748" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="PGN-Fr-ee4"/>
+                                    <constraint firstAttribute="width" constant="60" id="gko-5d-MgP"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="ic_floating"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7NY-ab-Qib"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FcL-0F-h6g" firstAttribute="leading" secondItem="H4u-53-ASG" secondAttribute="leading" id="97Q-9T-XCO"/>
+                            <constraint firstItem="7NY-ab-Qib" firstAttribute="trailing" secondItem="27e-bY-MnU" secondAttribute="trailing" constant="5" id="B4y-fu-mK0"/>
                             <constraint firstAttribute="trailing" secondItem="FcL-0F-h6g" secondAttribute="trailing" id="C3M-Nh-fQX"/>
+                            <constraint firstItem="7NY-ab-Qib" firstAttribute="bottom" secondItem="27e-bY-MnU" secondAttribute="bottom" constant="5" id="YZB-nn-Luq"/>
                             <constraint firstAttribute="bottom" secondItem="FcL-0F-h6g" secondAttribute="bottom" id="rdx-Mv-slQ"/>
                             <constraint firstItem="FcL-0F-h6g" firstAttribute="top" secondItem="7NY-ab-Qib" secondAttribute="top" id="rlU-tZ-Z8f"/>
                         </constraints>
@@ -662,21 +674,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="포트폴리오" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dg0-7t-XDs">
-                                <rect key="frame" x="142" y="430" width="130" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEV-6f-ROK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Y7-IN-1Kp">
+                                    <size key="itemSize" width="139" height="134"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PorfolCollectionViewCell" id="vsU-rs-LpK" customClass="PorfolCollectionViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="p0D-ns-upx">
+                                            <rect key="frame" x="0.0" y="0.0" width="139" height="134"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gil-vV-n3b">
+                                                    <rect key="frame" x="0.0" y="0.0" width="139" height="134"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="139" height="134"/>
+                                        <connections>
+                                            <outlet property="porfolButton" destination="gil-vV-n3b" id="z4G-qv-UbD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XW3-EO-TqS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="tabbar_background_color"/>
+                        <constraints>
+                            <constraint firstItem="hEV-6f-ROK" firstAttribute="top" secondItem="XW3-EO-TqS" secondAttribute="top" id="ERh-h1-ag1"/>
+                            <constraint firstItem="hEV-6f-ROK" firstAttribute="leading" secondItem="XW3-EO-TqS" secondAttribute="leading" id="G7V-fK-60K"/>
+                            <constraint firstItem="XW3-EO-TqS" firstAttribute="bottom" secondItem="hEV-6f-ROK" secondAttribute="bottom" id="Hum-Om-zEJ"/>
+                            <constraint firstItem="XW3-EO-TqS" firstAttribute="trailing" secondItem="hEV-6f-ROK" secondAttribute="trailing" id="vzW-1L-6H5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="porfolCollectionView" destination="hEV-6f-ROK" id="Wd9-af-zbu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkY-J7-ura" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="1059"/>
+            <point key="canvasLocation" x="-52.173913043478265" y="1058.7053571428571"/>
         </scene>
         <!--Band View Controller-->
         <scene sceneID="xda-DB-pcd">
@@ -731,7 +777,7 @@
             <objects>
                 <viewController storyboardIdentifier="TabManViewController" id="e1B-x5-Uil" customClass="TabManViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ae-Rk-cOV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="857"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dtA-Xj-mGe"/>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -747,10 +793,14 @@
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="ic_editing" width="28" height="28"/>
+        <image name="ic_floating" width="84" height="84"/>
         <image name="ic_guitar" width="38.5" height="42.5"/>
         <image name="ic_setting" width="28.5" height="27.5"/>
         <namedColor name="on_icon_color">
             <color red="0.093999996781349182" green="0.3919999897480011" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tabbar_background_color">
+            <color red="0.125" green="0.13300000131130219" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
