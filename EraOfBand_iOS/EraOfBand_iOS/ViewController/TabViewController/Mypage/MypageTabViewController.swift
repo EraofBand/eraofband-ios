@@ -14,6 +14,7 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var sessionView: UIView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // user 정보 변수
     @IBOutlet weak var userImageView: UIImageView!
@@ -26,7 +27,7 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var sessionLabel: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let userIdx: String = "33"
+    let userIdx: String = "12"
     
     var userRegion: String = ""
     var userAge: Int = 0
@@ -98,8 +99,8 @@ class MypageTabViewController: UIViewController {
         sessionView.layer.cornerRadius = 15
         bottomView.layer.cornerRadius = 15
         
-        
-        
+        scrollView.updateContentSize()
+        print(scrollView.contentSize)
 
     }
     
@@ -123,5 +124,27 @@ extension UIImageView {
                 }
             }
         }
+    }
+}
+
+extension UIScrollView {
+    func updateContentSize() {
+        let unionCalculatedTotalRect = recursiveUnionInDepthFor(view: self)
+        
+        // 계산된 크기로 컨텐츠 사이즈 설정
+        self.contentSize = CGSize(width: self.frame.width, height: unionCalculatedTotalRect.height+50)
+        print(self.contentSize)
+    }
+    
+    private func recursiveUnionInDepthFor(view: UIView) -> CGRect {
+        var totalRect: CGRect = .zero
+        
+        // 모든 자식 View의 컨트롤의 크기를 재귀적으로 호출하며 최종 영역의 크기를 설정
+        for subView in view.subviews {
+            totalRect = totalRect.union(recursiveUnionInDepthFor(view: subView))
+        }
+        
+        // 최종 계산 영역의 크기를 반환
+        return totalRect.union(view.frame)
     }
 }
