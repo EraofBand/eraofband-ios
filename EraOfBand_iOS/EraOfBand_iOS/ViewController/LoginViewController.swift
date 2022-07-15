@@ -38,6 +38,7 @@ class LoginViewController: UIViewController{
                         self.present(registerVC, animated: true)
                     }else{
                         self.appDelegate.jwt = getData.result.jwt ?? ""
+                        self.appDelegate.userIdx = getData.result.userIdx!
                         
                         guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else {return}
                         mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
