@@ -12,57 +12,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--CommunityTab-->
-        <scene sceneID="cfD-35-hO3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CommunityTab" id="i0e-a2-oN7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="community" id="1Gp-Oy-urJ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lk0-qc-jz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-580" y="517"/>
-        </scene>
-        <!--NoticeTab-->
-        <scene sceneID="oAj-gD-ogb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NoticeTab" id="96C-kT-MPR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="notice" id="Clj-GL-x6i"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8gR-vY-Nfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-208" y="517"/>
-        </scene>
-        <!--HomeTab-->
-        <scene sceneID="MX8-40-bZL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="HomeTab" id="Xm2-xh-74Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="home" id="bKf-Fa-QU1"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8My-1Y-JL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="180" y="517"/>
-        </scene>
-        <!--MessageTab-->
-        <scene sceneID="TA9-dC-RZ5">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MessageTab" id="na2-W4-gaJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="message" id="b6n-Se-Qcw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Af-GS-xn4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="617" y="517"/>
-        </scene>
-        <!--MypageTab-->
-        <scene sceneID="rDY-SI-tzV">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MypageTab" id="Jvl-by-PyZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="q5I-01-k9v" userLabel="mypage"/>
-                    <navigationItem key="navigationItem" id="MJa-U8-XA1"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aTc-gj-eCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="999" y="517"/>
-        </scene>
         <!--login-->
         <scene sceneID="SUs-Wj-XBJ">
             <objects>
@@ -71,29 +20,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlG-x5-DZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-746" y="54"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="aii-4b-LVB">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1g6-q6-V62" customClass="TabBarController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2uT-c8-yOV" customClass="TabBar" customModule="EraOfBand_iOS" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="i0e-a2-oN7" kind="relationship" relationship="viewControllers" id="2je-gC-iVC"/>
-                        <segue destination="96C-kT-MPR" kind="relationship" relationship="viewControllers" id="2B3-VA-ZFw"/>
-                        <segue destination="Xm2-xh-74Z" kind="relationship" relationship="viewControllers" id="Xn9-6I-IuF"/>
-                        <segue destination="na2-W4-gaJ" kind="relationship" relationship="viewControllers" id="xYh-rz-1n0"/>
-                        <segue destination="Jvl-by-PyZ" kind="relationship" relationship="viewControllers" id="MWb-OZ-JqT"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="flt-a9-qzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="179.71014492753625" y="53.571428571428569"/>
+            <point key="canvasLocation" x="-771" y="123"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="PKx-ZH-JKv">
@@ -203,11 +130,6 @@
             <point key="canvasLocation" x="-1304.3478260869567" y="53.571428571428569"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="2uT-c8-yOV">
-            <size key="intrinsicContentSize" width="-1" height="83"/>
-        </designable>
-    </designables>
     <resources>
         <image name="onboarding_img_placeholder" width="908" height="1124"/>
     </resources>
