@@ -36,7 +36,8 @@ class PofolTableViewController: UIViewController{
         super.viewDidLoad()
         
         self.title = "포트폴리오"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        //getPofolList()
+        getPofolList()
     }
 }
