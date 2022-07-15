@@ -18,6 +18,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var introduceView: UIView!
     @IBOutlet weak var introduceTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     
     @IBOutlet weak var birthTextField: UITextField!
@@ -115,6 +116,8 @@ class EditViewController: UIViewController {
         districtPickerView.dataSource = self
         
         districtTextField.inputView = districtPickerView
+        
+        saveButton.layer.cornerRadius = 10
         
     }
     

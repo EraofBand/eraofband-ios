@@ -529,6 +529,16 @@
                                                     <constraint firstAttribute="width" constant="80" id="vwN-1P-RZs"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gk0-Cp-V1a">
+                                                <rect key="frame" x="25" y="729" width="364" height="45"/>
+                                                <color key="backgroundColor" name="on_icon_color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="Jyt-Ry-BAX"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="저장하기"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -542,7 +552,9 @@
                                             <constraint firstItem="skX-iC-bCS" firstAttribute="leading" secondItem="lC3-Ys-YTe" secondAttribute="leading" id="BAv-CR-EoK"/>
                                             <constraint firstItem="YqE-PD-rR9" firstAttribute="top" secondItem="skX-iC-bCS" secondAttribute="bottom" constant="5" id="CD9-iy-fL3"/>
                                             <constraint firstItem="rGv-fE-cME" firstAttribute="leading" secondItem="DQR-j3-DaK" secondAttribute="leading" id="COo-qG-shx"/>
+                                            <constraint firstItem="gk0-Cp-V1a" firstAttribute="top" secondItem="jcj-ZA-HZ0" secondAttribute="bottom" constant="32" id="CXA-hX-PtQ"/>
                                             <constraint firstItem="Tfc-ou-Dhg" firstAttribute="trailing" secondItem="OsR-VT-0Du" secondAttribute="trailing" id="DDP-nW-gWZ"/>
+                                            <constraint firstItem="gk0-Cp-V1a" firstAttribute="leading" secondItem="Qwa-od-Hie" secondAttribute="leading" id="DoW-O5-J5T"/>
                                             <constraint firstItem="jcj-ZA-HZ0" firstAttribute="leading" secondItem="IJM-GX-SUm" secondAttribute="leading" id="ENh-gV-uDC"/>
                                             <constraint firstItem="YqE-PD-rR9" firstAttribute="leading" secondItem="skX-iC-bCS" secondAttribute="leading" id="G18-bh-o6t"/>
                                             <constraint firstItem="85u-43-L9v" firstAttribute="top" secondItem="9Bo-DC-dAn" secondAttribute="bottom" constant="30" id="HX2-h3-WbP"/>
@@ -558,6 +570,7 @@
                                             <constraint firstItem="rGv-fE-cME" firstAttribute="top" secondItem="DQR-j3-DaK" secondAttribute="bottom" id="Wiu-ie-aGX"/>
                                             <constraint firstItem="OsR-VT-0Du" firstAttribute="top" secondItem="OcA-Gg-vvK" secondAttribute="top" constant="30" id="X18-6e-nbP"/>
                                             <constraint firstItem="1O3-Hu-D3G" firstAttribute="leading" secondItem="skX-iC-bCS" secondAttribute="leading" id="Xhb-i9-bKw"/>
+                                            <constraint firstItem="gk0-Cp-V1a" firstAttribute="centerX" secondItem="OcA-Gg-vvK" secondAttribute="centerX" id="ZYp-cq-7vN"/>
                                             <constraint firstItem="9Bo-DC-dAn" firstAttribute="top" secondItem="1O3-Hu-D3G" secondAttribute="bottom" constant="15" id="Zqo-No-KGW"/>
                                             <constraint firstItem="i0W-Ch-c0A" firstAttribute="leading" secondItem="7Z1-Qj-em4" secondAttribute="trailing" constant="2" id="alI-4Y-XEC"/>
                                             <constraint firstItem="DQR-j3-DaK" firstAttribute="leading" secondItem="lC3-Ys-YTe" secondAttribute="leading" id="auc-TU-lLj"/>
@@ -615,11 +628,12 @@
                         <outlet property="introduceView" destination="YqE-PD-rR9" id="tZd-Sm-kgG"/>
                         <outlet property="nickNameTextField" destination="DQR-j3-DaK" id="JrC-lF-dQa"/>
                         <outlet property="profileImageView" destination="OsR-VT-0Du" id="Ebz-9W-upj"/>
+                        <outlet property="saveButton" destination="gk0-Cp-V1a" id="Asv-iA-6z4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVt-uE-5KM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="-564"/>
+            <point key="canvasLocation" x="1927.5362318840582" y="-564.50892857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NMM-UB-ic6">
