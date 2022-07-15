@@ -26,7 +26,7 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var sessionLabel: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let userIdx: String = "32"
+    let userIdx: String = "33"
     
     var userRegion: String = ""
     var userAge: Int = 0
