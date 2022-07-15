@@ -21,7 +21,8 @@
 		A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7DA287153A200B9E08D /* MypageTab.storyboard */; };
 		A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* TabBarController.swift */; };
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
-		A8545D922880DF1D003E076A /* PorfolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D912880DF1D003E076A /* PorfolCollectionViewCell.swift */; };
+		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
+		A8545D96288156DD003E076A /* PorfolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D95288156DD003E076A /* PorfolCollectionViewCell.swift */; };
 		A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */; };
 		A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */; };
 		A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */; };
@@ -36,7 +37,6 @@
 		A857361A287534F500E2F0AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E82872DE0F00B9E08D /* Pretendard-Regular.otf */; };
 		A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E62872DE0F00B9E08D /* Pretendard-SemiBold.otf */; };
 		A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E52872DE0F00B9E08D /* Pretendard-Thin.otf */; };
-		A857361F287C440B00E2F0AB /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857361E287C440B00E2F0AB /* PortfolioViewController.swift */; };
 		A8573621287C442100E2F0AB /* BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573620287C442100E2F0AB /* BandViewController.swift */; };
 		A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573622287C442B00E2F0AB /* LessonViewController.swift */; };
 		A8573625287C49F800E2F0AB /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573624287C49F800E2F0AB /* TabManViewController.swift */; };
@@ -99,13 +99,13 @@
 		A809A7ED2872DE0F00B9E08D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		A809A7EE2872E88300B9E08D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		A8545D912880DF1D003E076A /* PorfolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorfolCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		A8545D95288156DD003E076A /* PorfolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorfolCollectionViewCell.swift; sourceTree = "<group>"; };
 		A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTabViewController.swift; sourceTree = "<group>"; };
 		A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTabViewController.swift; sourceTree = "<group>"; };
 		A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		A85736102874C68C00E2F0AB /* MessageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTabViewController.swift; sourceTree = "<group>"; };
 		A85736122874C69E00E2F0AB /* MypageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTabViewController.swift; sourceTree = "<group>"; };
-		A857361E287C440B00E2F0AB /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		A8573620287C442100E2F0AB /* BandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandViewController.swift; sourceTree = "<group>"; };
 		A8573622287C442B00E2F0AB /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 		A8573624287C49F800E2F0AB /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 			children = (
 				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
 				A8573624287C49F800E2F0AB /* TabManViewController.swift */,
-				A857361E287C440B00E2F0AB /* PortfolioViewController.swift */,
+				A8545D93288154D5003E076A /* PortfolioViewController.swift */,
 				A8573620287C442100E2F0AB /* BandViewController.swift */,
 				A8573622287C442B00E2F0AB /* LessonViewController.swift */,
 				A8573626287D2F5300E2F0AB /* EditViewController.swift */,
@@ -333,7 +333,7 @@
 			children = (
 				BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */,
 				BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */,
-				A8545D912880DF1D003E076A /* PorfolCollectionViewCell.swift */,
+				A8545D95288156DD003E076A /* PorfolCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -503,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
+				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
 				BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
@@ -527,14 +528,13 @@
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
+				A8545D96288156DD003E076A /* PorfolCollectionViewCell.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
-				A8545D922880DF1D003E076A /* PorfolCollectionViewCell.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
 				A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */,
-				A857361F287C440B00E2F0AB /* PortfolioViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC8502FF287732200022EA7B /* SessionModel.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,

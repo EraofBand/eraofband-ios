@@ -91,7 +91,7 @@ func settingTabBar (ctBar : TMBar.ButtonBar) {
         button.selectedFont = UIFont.systemFont(ofSize: 16, weight: .medium)
     }
     
-    // 인디케이터 (영상에서 주황색 아래 바 부분)
+    // 인디케이터
     ctBar.indicator.weight = .custom(value: 2)
     ctBar.indicator.tintColor = UIColor(named: "on_icon_color")
 }
