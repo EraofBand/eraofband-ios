@@ -28,6 +28,7 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PorfolCollectionViewCell", for: indexPath) as! PorfolCollectionViewCell
         
         cell.layer.cornerRadius = 10
@@ -35,7 +36,15 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         
         return cell
     }
-    
+
+    /*
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("test")
+        guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
+        
+        self.navigationController?.pushViewController(myPofolTableVC, animated: true)
+
+    }*/
     
 }
 

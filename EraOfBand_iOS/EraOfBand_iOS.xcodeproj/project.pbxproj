@@ -48,6 +48,8 @@
 		BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED49628803F6B00A5B931 /* AddPofol.storyboard */; };
 		BC1ED499288041B300A5B931 /* MyPofolTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */; };
 		BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */; };
+		BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED49E288116B700A5B931 /* LoginUserData.swift */; };
+		BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
@@ -118,6 +120,8 @@
 		BC1ED49628803F6B00A5B931 /* AddPofol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPofol.storyboard; sourceTree = "<group>"; };
 		BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPofolTable.storyboard; sourceTree = "<group>"; };
 		BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPofolTableViewCell.swift; sourceTree = "<group>"; };
+		BC1ED49E288116B700A5B931 /* LoginUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserData.swift; sourceTree = "<group>"; };
+		BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
 		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
 		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 			children = (
 				A809A7C3286F283600B9E08D /* LaunchScreen.storyboard */,
 				A809A7BE286F283400B9E08D /* Main.storyboard */,
+				BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */,
 				BC4B5BFC287192190072A5FF /* login.storyboard */,
 				A809A7D1287152F800B9E08D /* TabStoryBoard */,
 				BCA6646B287306F500136D1B /* Register.storyboard */,
@@ -352,6 +357,7 @@
 				BC1ED493288027A100A5B931 /* PofolData.swift */,
 				BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */,
 				A8573628287DB2C500E2F0AB /* UserInfoData.swift */,
+				BC1ED49E288116B700A5B931 /* LoginUserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 			files = (
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
+				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
 				A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */,
 				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
@@ -509,6 +516,7 @@
 				BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
+				BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
