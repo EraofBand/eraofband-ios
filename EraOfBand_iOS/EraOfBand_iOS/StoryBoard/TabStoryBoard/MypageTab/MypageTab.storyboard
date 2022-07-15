@@ -279,6 +279,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="ic_floating"/>
+                                <connections>
+                                    <segue destination="lWW-EG-1Rh" kind="push" id="nlv-xQ-t8r"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7NY-ab-Qib"/>
@@ -330,6 +333,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1063.768115942029" y="59.598214285714285"/>
+        </scene>
+        <!--AddPofol-->
+        <scene sceneID="MnD-Gr-2K7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddPofol" id="CkD-Ht-Q1N" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nl4-gs-0US"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zSP-zn-2JM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1747" y="292"/>
+        </scene>
+        <!--MyPofolTable-->
+        <scene sceneID="H0m-vq-4nG">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PofolTableViewController" storyboardName="MyPofolTable" id="lWW-EG-1Rh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="g9K-ST-pyc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blO-9v-3ha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="388"/>
         </scene>
         <!--프로필 편집-->
         <scene sceneID="Quh-xJ-27n">

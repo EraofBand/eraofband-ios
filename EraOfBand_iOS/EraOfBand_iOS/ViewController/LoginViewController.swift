@@ -16,22 +16,47 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var backgroundImg: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let header : HTTPHeaders = ["Content-Type": "application/json"]
     
-    //카카오 데이터 구조체
-    /*
-    struct kakaoData{
-        var kakaoToken: String
-        var kakaoUserName: String
-        
-        init(kakaoToken: String, kakaoUserName: String){
-            self.kakaoToken = kakaoToken
-            self.kakaoUserName = kakaoUserName
+    //가입된 유저인지 판별
+    func checkRegistered(){
+ 
+        AF.request(appDelegate.baseUrl + "/users/login/" + appDelegate.myKakaoData.kakaoEmail,
+                   method: .patch,
+                   encoding: JSONEncoding.default,
+                   headers: header).responseJSON { response in
+            switch response.result{
+            case .success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(LoginUserData.self, from: dataJSON)
+                    
+                    if(getData.result.jwt! == "NULL"){
+                        guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
+                        registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(registerVC, animated: true)
+                    }else{
+                        self.appDelegate.jwt = getData.result.jwt ?? ""
+                        self.appDelegate.userIdx = getData.result.userIdx!
+                        
+                        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else {return}
+                        mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(mainTabBarVC, animated: true)
+                    }
+                    
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
+            }
         }
-    }*/
+    }
     
     //로그인 이후 카카오 유저 정보 가져오기
     func getKakaoData(kakaoToken: String){
-        let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         UserApi.shared.me() { [self](user, error) in
             if let error = error {
@@ -43,20 +68,13 @@ class LoginViewController: UIViewController{
                 let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String, kakaoEmail: (user?.kakaoAccount?.email)! as String)
                 self.appDelegate.myKakaoData = myKakaoData
                 
-                /*
-                AF.request(self.appDelegate.baseUrl + "/users/signin/" + appDelegate.myKakaoData.kakaoEmail,
-                           method: .get,
-                           encoding: JSONEncoding.default,
-                           headers: header).responseJSON{ response in
-                    print(response)
-                }*/
+                checkRegistered()
                 
+                /*
                 guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
                 registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                
-                //registerVC.myKakaoData = myKakaoData
-                
-                self.present(registerVC, animated: true)
+            
+                self.present(registerVC, animated: true)*/
             }
         }
     }
