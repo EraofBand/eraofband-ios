@@ -21,6 +21,7 @@
 		A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7DA287153A200B9E08D /* MypageTab.storyboard */; };
 		A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* TabBarController.swift */; };
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
+		A8545D922880DF1D003E076A /* PorfolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D912880DF1D003E076A /* PorfolCollectionViewCell.swift */; };
 		A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */; };
 		A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */; };
 		A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */; };
@@ -99,6 +100,7 @@
 		A809A7ED2872DE0F00B9E08D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		A809A7EE2872E88300B9E08D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		A8545D912880DF1D003E076A /* PorfolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorfolCollectionViewCell.swift; sourceTree = "<group>"; };
 		A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTabViewController.swift; sourceTree = "<group>"; };
 		A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTabViewController.swift; sourceTree = "<group>"; };
 		A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */,
 				BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */,
 				BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */,
+				A8545D912880DF1D003E076A /* PorfolCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
+				A8545D922880DF1D003E076A /* PorfolCollectionViewCell.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
