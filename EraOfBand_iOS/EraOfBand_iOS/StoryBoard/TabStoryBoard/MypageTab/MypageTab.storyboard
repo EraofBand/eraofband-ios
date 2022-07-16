@@ -562,6 +562,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="저장하기"/>
+                                                <connections>
+                                                    <action selector="saveAction:" destination="K4F-Y0-7eY" eventType="touchUpInside" id="aXb-2c-TuY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -654,7 +657,7 @@
                         <outlet property="maleButton" destination="9Bo-DC-dAn" id="0Zs-3z-Ru9"/>
                         <outlet property="nickNameTextField" destination="DQR-j3-DaK" id="JrC-lF-dQa"/>
                         <outlet property="profileImageView" destination="OsR-VT-0Du" id="Ebz-9W-upj"/>
-                        <outlet property="saveButton" destination="gk0-Cp-V1a" id="Asv-iA-6z4"/>
+                        <outlet property="saveButton" destination="gk0-Cp-V1a" id="exq-OO-dSA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVt-uE-5KM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
