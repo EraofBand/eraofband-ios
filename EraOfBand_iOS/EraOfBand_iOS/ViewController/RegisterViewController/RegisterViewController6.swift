@@ -38,7 +38,26 @@ class RegisterViewController6: UIViewController{
                     ],
                    encoding: JSONEncoding.default,
                    headers: header).responseJSON{ response in
-            print(response)
+            switch response.result{
+            case .success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(LoginUserData.self, from: dataJSON)
+                    
+                    self.appDelegate.jwt = getData.result.jwt ?? ""
+                    self.appDelegate.userIdx = getData.result.userIdx!
+                    
+                    guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else {return}
+                    mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                
+                    self.present(mainTabBarVC, animated: true)
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
+            }
+            
         }
     }
     

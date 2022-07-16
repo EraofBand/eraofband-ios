@@ -7,17 +7,24 @@
 
 import Foundation
 
-struct PofolData
+struct PofolData: Codable
 {
-    var commentCount: Int
-    var content: String
-    var likeOrNot: String
-    var nickName: String
-    var pofolIdx: Int
-    var pofolLikeCount: Int
-    var profileImgUrl: String
-    var title: String
-    var updatedAt: String
-    var userIdx: Int
-    var videoUrl: String
+    var code: Int
+    var isSuccess: Bool
+    var message: String
+    var result: [PofolResult]
+}
+
+struct PofolResult: Codable{
+    var commentCount: Int?
+    var content: String?
+    var likeOrNot: String?
+    var nickName: String?
+    var pofolIdx: Int?
+    var pofolLikeCount: Int?
+    var profileImgUrl: String?
+    var title: String?
+    var updatedAt: String?
+    var userIdx: Int?
+    var videoUrl: String?
 }
