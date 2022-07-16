@@ -50,6 +50,7 @@ class LoginViewController: UIViewController{
                     print(error.localizedDescription)
                 }
             default:
+                print("login failed")
                 return
             }
         }

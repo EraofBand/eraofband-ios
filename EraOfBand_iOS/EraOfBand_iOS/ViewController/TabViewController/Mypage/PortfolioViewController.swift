@@ -24,7 +24,9 @@ class PortfolioViewController: UIViewController {
 
 extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+
+        return 3
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -34,18 +36,22 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .gray
         
+        //cell.porfolButton.addTarget(self, action: #selector(cellTapped(sender: self, indexPath: indexPath)), for: .touchUpInside)
+        
         return cell
     }
-
+    
     /*
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    @objc func cellTapped(sender: UIButton, indexPath: IndexPath){
         print("test")
-        guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
-        
-        self.navigationController?.pushViewController(myPofolTableVC, animated: true)
-
     }*/
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
+        myPofolTableVC.selectedIndex = indexPath
+                
+        self.navigationController?.pushViewController(myPofolTableVC, animated: true)
+    }
 }
 
 extension PortfolioViewController: UICollectionViewDelegateFlowLayout {

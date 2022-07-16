@@ -280,7 +280,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="ic_floating"/>
                                 <connections>
-                                    <segue destination="lWW-EG-1Rh" kind="push" id="nlv-xQ-t8r"/>
+                                    <segue destination="lWW-EG-1Rh" kind="push" id="Ewj-T9-qcf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -733,23 +733,11 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jRZ-fm-pAh">
                                             <rect key="frame" x="0.0" y="0.0" width="24" height="14"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="165-aW-O2Q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="14"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain"/>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="165-aW-O2Q" firstAttribute="leading" secondItem="jRZ-fm-pAh" secondAttribute="leading" id="2Xd-PA-1bI"/>
-                                                <constraint firstItem="165-aW-O2Q" firstAttribute="top" secondItem="jRZ-fm-pAh" secondAttribute="top" id="COf-VC-LW7"/>
-                                                <constraint firstAttribute="trailing" secondItem="165-aW-O2Q" secondAttribute="trailing" id="FOs-j6-8J8"/>
-                                                <constraint firstAttribute="bottom" secondItem="165-aW-O2Q" secondAttribute="bottom" id="Q3u-fy-FYD"/>
-                                            </constraints>
+
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="porfolButton" destination="165-aW-O2Q" id="v4G-nG-IB8"/>
-                                        </connections>
+                                        <size key="customSize" width="139" height="134"/>
+
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
