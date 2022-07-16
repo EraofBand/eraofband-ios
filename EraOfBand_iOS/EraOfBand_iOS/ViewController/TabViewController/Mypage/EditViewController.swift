@@ -10,7 +10,6 @@ import Alamofire
 
 class EditViewController: UIViewController {
     
-    
     @IBOutlet weak var profileImageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
@@ -18,6 +17,8 @@ class EditViewController: UIViewController {
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var introduceView: UIView!
     @IBOutlet weak var introduceTextField: UITextField!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
     
@@ -35,9 +36,10 @@ class EditViewController: UIViewController {
     
     let city = ["서울", "경기"]
     let districtSeoul = ["강서구", "광진구", "강남구"]
+    let districtGyeonggi = ["성남시"]
     
     @IBAction func cameraButton(_ sender: Any) {
-        let alert = UIAlertController(title: "원하는 ",message: "",preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) {
             (action) in self.openLibrary()
         }
@@ -98,6 +100,7 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*프로필 편집 기본 레이아웃*/
         imagePicker.delegate = self
         
         self.navigationController?.navigationBar.tintColor = .white
@@ -119,12 +122,61 @@ class EditViewController: UIViewController {
         
         saveButton.layer.cornerRadius = 10
         
+        /*프로필 편집 기본 유저 정보*/
+        GetUserDataService.shared.getUserInfo { (response) in
+            switch(response) {
+            case .success(let userData):
+                /*서버 연동 성공*/
+                if let data = userData as? User {
+                    let data = data.getUser
+                    
+                    let imgUrl = data.profileImgUrl
+                    if let url = URL(string: imgUrl) {
+                        self.profileImageView.load(url: url)
+                    } else {
+                        self.profileImageView.image = UIImage(named: "default_image")
+                    }
+                    self.profileImageView.setRounded()
+                    
+                    self.nickNameTextField.text = data.nickName
+                    
+                    self.introduceTextField.text = data.introduction
+                    
+                    let userGender = data.gender
+                    if userGender == "MALE" {
+                        self.maleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+                    } else {
+                        self.femaleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+                    }
+                    
+                    self.birthTextField.text = data.birth
+                    
+                    let region = data.region.components(separatedBy: " ")
+                    self.cityTextField.text = region[0]
+                    self.districtTextField.text = region[1]
+
+                }
+                
+            case .requestErr(let message) :
+                print("requestErr", message)
+            case .pathErr :
+                print("pathErr")
+            case .serverErr :
+                print("serveErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+        
+        
+        
     }
     
 }
 
-extension EditViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage]{
             profileImageView.image = image as! UIImage
             profileImageView.contentMode = .scaleAspectFill
