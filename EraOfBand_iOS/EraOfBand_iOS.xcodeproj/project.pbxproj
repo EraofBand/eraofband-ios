@@ -23,6 +23,7 @@
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
 		A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A42882A79400078C9E /* GetUserDataService.swift */; };
 		A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A62882A8CD00078C9E /* NetworkResult.swift */; };
+		A81351A92882CF5B00078C9E /* PatchUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A82882CF5B00078C9E /* PatchUserDataService.swift */; };
 		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
 		A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */; };
 		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
@@ -108,6 +109,7 @@
 		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A81351A42882A79400078C9E /* GetUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataService.swift; sourceTree = "<group>"; };
 		A81351A62882A8CD00078C9E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		A81351A82882CF5B00078C9E /* PatchUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchUserDataService.swift; sourceTree = "<group>"; };
 		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
 		A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				A81351A62882A8CD00078C9E /* NetworkResult.swift */,
 				A81351A42882A79400078C9E /* GetUserDataService.swift */,
+				A81351A82882CF5B00078C9E /* PatchUserDataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */,
 				BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */,
 				A8573621287C442100E2F0AB /* BandViewController.swift in Sources */,
+				A81351A92882CF5B00078C9E /* PatchUserDataService.swift in Sources */,
 				A8573625287C49F800E2F0AB /* TabManViewController.swift in Sources */,
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,

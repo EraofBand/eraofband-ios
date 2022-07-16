@@ -38,9 +38,9 @@ class MypageTabViewController: UIViewController {
             switch(response) {
             case .success(let userData):
                 /*서버 연동 성공*/
-                print(userData)
                 if let data = userData as? User {
                     let data = data.getUser
+                    
                     /*마이페이지 유저 정보 입력*/
                     self.nickNameLabel.text = data.nickName
 
@@ -103,8 +103,7 @@ class MypageTabViewController: UIViewController {
         bottomView.layer.cornerRadius = 15
         
         scrollView.updateContentSize()
-        print(scrollView.contentSize)
-
+        
     }
     
     
@@ -136,7 +135,6 @@ extension UIScrollView {
         
         // 계산된 크기로 컨텐츠 사이즈 설정
         self.contentSize = CGSize(width: self.frame.width, height: unionCalculatedTotalRect.height+50)
-        print(self.contentSize)
     }
     
     private func recursiveUnionInDepthFor(view: UIView) -> CGRect {
