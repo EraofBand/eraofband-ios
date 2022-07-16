@@ -342,7 +342,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSP-zn-2JM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747" y="292"/>
+            <point key="canvasLocation" x="1626" y="282"/>
         </scene>
         <!--MyPofolTable-->
         <scene sceneID="H0m-vq-4nG">
@@ -352,7 +352,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blO-9v-3ha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="388"/>
+            <point key="canvasLocation" x="758" y="488"/>
         </scene>
         <!--프로필 편집-->
         <scene sceneID="Quh-xJ-27n">
