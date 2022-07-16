@@ -20,7 +20,7 @@ struct GetUserDataService {
     func getUserInfo(completion : @escaping (NetworkResult<Any>) -> Void) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let URL = appDelegate.baseUrl + "/users/myPage/" + String(appDelegate.userIdx!)
+        let URL = appDelegate.baseUrl + "/users/my-page/" + String(appDelegate.userIdx!)
         print(URL)
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]

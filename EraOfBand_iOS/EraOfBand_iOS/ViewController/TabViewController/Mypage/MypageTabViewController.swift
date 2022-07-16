@@ -34,6 +34,18 @@ class MypageTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 프로필 view, 세션 view 모서리 둥글게
+        infoView.layer.cornerRadius = 15
+        sessionView.layer.cornerRadius = 15
+        bottomView.layer.cornerRadius = 15
+        
+        scrollView.updateContentSize()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         GetUserDataService.shared.getUserInfo { (response) in
             switch(response) {
             case .success(let userData):
@@ -43,16 +55,16 @@ class MypageTabViewController: UIViewController {
                     
                     /*마이페이지 유저 정보 입력*/
                     self.nickNameLabel.text = data.nickName
-
+                    
                     let region = data.region
                     self.userRegion = region.components(separatedBy: " ")[1]
-
+                    
                     let year = DateFormatter()
                     year.dateFormat = "yyyy"
                     let currentYear = year.string(from: Date())
                     let birthYear = data.birth.components(separatedBy: "-")[0]
                     self.userAge = Int(currentYear)! - Int(birthYear)! + 1
-
+                    
                     let gender = data.gender
                     if gender == "MALE" {
                         self.userGender = "남"
@@ -60,22 +72,22 @@ class MypageTabViewController: UIViewController {
                         self.userGender = "여"
                     }
                     self.userInfoLabel.text = "\(self.userRegion) / \(self.userAge) / \(self.userGender)"
-
+                    
                     if let introduction = data.introduction {
                         self.introductionLabel.text = introduction
                     } else {
                         self.introductionLabel.text = ""
                     }
-
+                    
                     let followeeCount = data.followeeCount
                     self.followingButton.setTitle(String(followeeCount), for: .normal)
                     /*
                      self.followingButton.titleLabel!.font = UIFont(name: "Pretendard-Bold", size: 40)
                      */
-
+                    
                     let followerCount = data.followerCount
                     self.followerButton.setTitle(String(followerCount), for: .normal)
-
+                    
                     let imageUrl = data.profileImgUrl
                     if let url = URL(string: imageUrl) {
                         self.userImageView.load(url: url)
@@ -83,7 +95,7 @@ class MypageTabViewController: UIViewController {
                         self.userImageView.image = UIImage(named: "default_image")
                     }
                     self.userImageView.setRounded()
-
+                    
                 }
                 
             case .requestErr(let message) :
@@ -95,14 +107,8 @@ class MypageTabViewController: UIViewController {
             case .networkFail:
                 print("networkFail")
             }
+            
         }
-        
-        // 프로필 view, 세션 view 모서리 둥글게
-        infoView.layer.cornerRadius = 15
-        sessionView.layer.cornerRadius = 15
-        bottomView.layer.cornerRadius = 15
-        
-        scrollView.updateContentSize()
         
     }
     

@@ -38,6 +38,9 @@ class EditViewController: UIViewController {
     let districtSeoul = ["강서구", "광진구", "강남구"]
     let districtGyeonggi = ["성남시"]
     
+    var gender: String = "MALE"
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBAction func cameraButton(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) {
@@ -74,7 +77,7 @@ class EditViewController: UIViewController {
     
     @objc func doneBtnTapped(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         birthTextField.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
@@ -145,8 +148,10 @@ class EditViewController: UIViewController {
                     let userGender = data.gender
                     if userGender == "MALE" {
                         self.maleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+                        self.gender = "MALE"
                     } else {
                         self.femaleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+                        self.gender = "FEMALE"
                     }
                     
                     self.birthTextField.text = data.birth
@@ -169,8 +174,47 @@ class EditViewController: UIViewController {
         }
         
         
-        
     }
+    
+    @IBAction func saveAction(_ sender: Any) {
+        
+        let region: String = cityTextField.text! + " " + districtTextField.text!
+        
+        let params: Dictionary<String, Any?> = ["birth": birthTextField.text!,
+                                               "gender": gender,
+                                               "introduction": introduceTextField.text,
+                                               "nickName": nickNameTextField.text!,
+                                               "profileImgUrl": "",
+                                               "region": region,
+                                               "userIdx": appDelegate.userIdx!]
+        
+        let urlString = appDelegate.baseUrl + "/users/user-info"
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "PATCH"
+        request.headers = header
+        
+        do {
+            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+            print("http Body Error")
+        }
+        
+        AF.request(request).responseString { (response) in
+            switch response.result {
+            case .success:
+                print("POST 성공")
+            case .failure(let error):
+                print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+            }
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     
 }
 
