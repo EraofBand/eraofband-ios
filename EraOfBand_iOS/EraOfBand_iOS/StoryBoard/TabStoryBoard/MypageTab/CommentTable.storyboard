@@ -117,6 +117,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="입력">
                                                     <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="enterBtnTapped:" destination="MEc-JZ-Hb0" eventType="touchUpInside" id="Pat-5I-qWU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

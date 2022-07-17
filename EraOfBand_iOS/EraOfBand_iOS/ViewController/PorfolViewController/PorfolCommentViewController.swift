@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Alamofire
 
 class PorfolCommentViewController: UIViewController{
     
@@ -17,10 +18,42 @@ class PorfolCommentViewController: UIViewController{
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var enterCommentBtn: UIButton!
     
+    var pofolIdx: Int?
     
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     @IBOutlet weak var tableView: UITableView!
-    var commentList: [CommentResult] = [CommentResult(content: "테스트1", nickName: "잼민", pofolCommentIdx: 0, pofolIdx: 0, profileImgUrl: "", updatedAt: "2시간 전", userIdx: 0), CommentResult(content: "테스트2", nickName: "잼민", pofolCommentIdx: 0, pofolIdx: 0, profileImgUrl: "", updatedAt: "2시간 전", userIdx: 0)]
+    var commentList: [CommentResult] = [CommentResult(content: "테스트1", nickName: "잼민", pofolCommentIdx: 0, pofolIdx: 0, profileImgUrl: "", updatedAt: "2시간 전", userIdx: 0)]
+    
+    
+    @IBAction func enterBtnTapped(_ sender: Any) {
+        view.endEditing(true)
+        
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/pofol/" + String(pofolIdx!) + "/comment",
+                   method: .post,
+                   parameters: [
+                    "content": commentTextField.text ?? "",
+                    "userIdx": appDelegate.userIdx!
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ [self] response in
+            print(response)
+            
+            self.commentTextField.text = ""
+            
+            print("appear 테스트")
+            self.getCommentList()
+            print(self.commentList)
+            self.tableView.reloadData()
+        }
+        
+        
+    }
     
     @IBAction func commentTextFieldChanged(_ sender: Any) {
         if(commentTextField.text == ""){
@@ -31,6 +64,36 @@ class PorfolCommentViewController: UIViewController{
         
     }
 
+    func getCommentList(){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/pofol/comment/" + "?postIdx=" + String(pofolIdx!),
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj,
+                                           options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(CommentData.self, from: dataJSON)
+                    print(getData)
+                    self.commentList = getData.result
+                    print(self.commentList)
+                    
+                    self.tableView.reloadData()
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
+            }
+        }
+    }
+    
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -53,6 +116,7 @@ class PorfolCommentViewController: UIViewController{
         commentTextField.layer.backgroundColor = UIColor.white.cgColor
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
@@ -62,7 +126,7 @@ class PorfolCommentViewController: UIViewController{
         tableView.tableHeaderView = UIView()
         
         setKeyBoardObserver()
-        
+        getCommentList()
         
     }
     

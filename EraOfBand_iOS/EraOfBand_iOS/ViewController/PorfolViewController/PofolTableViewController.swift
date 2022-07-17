@@ -92,6 +92,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.selectionStyle = .none
         
+        cell.commentBtn.tag = pofolList[indexPath.row].pofolIdx!
         cell.commentBtn.addTarget(self, action: #selector(commentBtnTapped(sender:)), for: .touchUpInside)
         
         return cell
@@ -99,7 +100,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
     
     @objc func commentBtnTapped(sender: UIButton){
         guard let commentTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PorfolCommentViewController") as? PorfolCommentViewController else {return}
-                
+        commentTableVC.pofolIdx = sender.tag
         self.navigationController?.pushViewController(commentTableVC, animated: true)
     }
     
