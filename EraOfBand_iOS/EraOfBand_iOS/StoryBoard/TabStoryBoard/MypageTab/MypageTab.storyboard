@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paP-Sv-d5t" userLabel="Inner Scroll View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1240"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8c4-sd-HlP">
                                                 <rect key="frame" x="20" y="34" width="374" height="271.5"/>
@@ -234,7 +234,10 @@
                                                 </constraints>
                                             </view>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-pz-2O3">
-                                                <rect key="frame" x="0.0" y="440" width="414" height="660"/>
+                                                <rect key="frame" x="0.0" y="440" width="414" height="800"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="250" constant="800" id="hMg-0J-3BF"/>
+                                                </constraints>
                                                 <connections>
                                                     <segue destination="e1B-x5-Uil" kind="embed" id="sbJ-qD-qJG"/>
                                                 </connections>
@@ -242,10 +245,9 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="WB4-pz-2O3" secondAttribute="bottom" constant="-300" id="2Xi-zP-ZTJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="WB4-pz-2O3" secondAttribute="bottom" id="6r6-SE-t5a"/>
                                             <constraint firstItem="oFK-w8-6Xf" firstAttribute="centerX" secondItem="8c4-sd-HlP" secondAttribute="centerX" id="Ejk-mm-oXE"/>
                                             <constraint firstItem="8c4-sd-HlP" firstAttribute="top" secondItem="paP-Sv-d5t" secondAttribute="top" constant="34" id="KUI-cO-4cO"/>
-                                            <constraint firstAttribute="height" constant="800" id="Lxp-Qu-GLE"/>
                                             <constraint firstItem="WB4-pz-2O3" firstAttribute="top" secondItem="oFK-w8-6Xf" secondAttribute="bottom" constant="20" id="Qmh-Nu-6i1"/>
                                             <constraint firstItem="oFK-w8-6Xf" firstAttribute="top" secondItem="8c4-sd-HlP" secondAttribute="bottom" constant="50" id="aJr-oB-Kh7"/>
                                             <constraint firstItem="oFK-w8-6Xf" firstAttribute="leading" secondItem="8c4-sd-HlP" secondAttribute="leading" id="buZ-1o-7oE"/>
@@ -948,9 +950,23 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jRZ-fm-pAh">
                                             <rect key="frame" x="0.0" y="0.0" width="139" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zzm-fi-GUc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="139" height="134"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Zzm-fi-GUc" firstAttribute="leading" secondItem="jRZ-fm-pAh" secondAttribute="leading" id="CIe-um-gTK"/>
+                                                <constraint firstItem="Zzm-fi-GUc" firstAttribute="top" secondItem="jRZ-fm-pAh" secondAttribute="top" id="MWR-TE-WLB"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zzm-fi-GUc" secondAttribute="trailing" id="gdW-ZW-Uoq"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zzm-fi-GUc" secondAttribute="bottom" id="lK2-1I-zrb"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="139" height="134"/>
+                                        <connections>
+                                            <outlet property="pofolImage" destination="Zzm-fi-GUc" id="Amd-Su-CfZ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1025,7 +1041,7 @@
             <objects>
                 <viewController storyboardIdentifier="TabManViewController" id="e1B-x5-Uil" customClass="TabManViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ae-Rk-cOV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="660"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dtA-Xj-mGe"/>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

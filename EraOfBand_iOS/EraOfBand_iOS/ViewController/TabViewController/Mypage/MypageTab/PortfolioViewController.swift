@@ -17,6 +17,7 @@ class PortfolioViewController: UIViewController {
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
         
+        porfolCollectionView.contentSize
     }
     
 
