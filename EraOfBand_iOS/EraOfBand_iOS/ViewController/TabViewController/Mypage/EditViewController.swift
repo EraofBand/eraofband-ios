@@ -10,7 +10,6 @@ import Alamofire
 
 class EditViewController: UIViewController {
     
-    
     @IBOutlet weak var profileImageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
@@ -18,6 +17,9 @@ class EditViewController: UIViewController {
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var introduceView: UIView!
     @IBOutlet weak var introduceTextField: UITextField!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     
     @IBOutlet weak var birthTextField: UITextField!
@@ -34,9 +36,13 @@ class EditViewController: UIViewController {
     
     let city = ["서울", "경기"]
     let districtSeoul = ["강서구", "광진구", "강남구"]
+    let districtGyeonggi = ["성남시"]
+    
+    var gender: String = "MALE"
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func cameraButton(_ sender: Any) {
-        let alert = UIAlertController(title: "원하는 ",message: "",preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) {
             (action) in self.openLibrary()
         }
@@ -71,24 +77,31 @@ class EditViewController: UIViewController {
     
     @objc func doneBtnTapped(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         birthTextField.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
     /*date picker 만드는 함수*/
-    func createDatePicker(){
+    func createDatePicker(_ birth: String){
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBtnTapped))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let birthText = dateFormatter.date(from: birth)!
         
         birthTextField.inputAccessoryView = toolbar
         
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
         datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.maximumDate = Date()
+        datePicker.date = birthText
         birthTextField.inputView = datePicker
         
         toolbar.setItems([doneBtn], animated: true)
@@ -97,14 +110,65 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*프로필 편집 기본 유저 정보*/
+        GetUserDataService.shared.getUserInfo { (response) in
+            switch(response) {
+            case .success(let userData):
+                /*서버 연동 성공*/
+                if let data = userData as? User {
+                    let data = data.getUser
+                    
+                    let imgUrl = data.profileImgUrl
+                    if let url = URL(string: imgUrl) {
+                        self.profileImageView.load(url: url)
+                    } else {
+                        self.profileImageView.image = UIImage(named: "default_image")
+                    }
+                    self.profileImageView.setRounded()
+                    
+                    self.nickNameTextField.text = data.nickName
+                    
+                    self.introduceTextField.text = data.introduction
+                    
+                    let userGender = data.gender
+                    if userGender == "MALE" {
+                        self.maleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+                        self.gender = "MALE"
+                    } else {
+                        self.femaleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+                        self.gender = "FEMALE"
+                    }
+                    
+                    self.birthTextField.text = data.birth
+                    self.createDatePicker(data.birth)
+                    
+                    let region = data.region.components(separatedBy: " ")
+                    self.cityTextField.text = region[0]
+                    self.districtTextField.text = region[1]
+
+                }
+                
+            case .requestErr(let message) :
+                print("requestErr", message)
+            case .pathErr :
+                print("pathErr")
+            case .serverErr :
+                print("serveErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+        
+        /*프로필 편집 기본 레이아웃*/
         imagePicker.delegate = self
         
+        
+        self.navigationItem.title = "프로필 변경"
+        self.navigationItem.titleView?.tintColor = .white
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationItem.title = "프로필 변경"
         
         introduceView.layer.cornerRadius = 15
         setLayout()
-        createDatePicker()
         
         cityPickerView.delegate = self
         cityPickerView.dataSource = self
@@ -116,12 +180,66 @@ class EditViewController: UIViewController {
         
         districtTextField.inputView = districtPickerView
         
+        saveButton.layer.cornerRadius = 10
+        
     }
+    
+    @IBAction func maleAction(_ sender: Any) {
+        maleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        femaleButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        gender = "MALE"
+    }
+    
+    @IBAction func femaleAction(_ sender: Any) {
+        maleButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        femaleButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        gender = "FEMALE"
+    }
+    
+    @IBAction func saveAction(_ sender: Any) {
+        
+        let region: String = cityTextField.text! + " " + districtTextField.text!
+        
+        let params: Dictionary<String, Any?> = ["birth": birthTextField.text!,
+                                               "gender": gender,
+                                               "introduction": introduceTextField.text,
+                                               "nickName": nickNameTextField.text!,
+                                               "profileImgUrl": "",
+                                               "region": region,
+                                               "userIdx": appDelegate.userIdx!]
+        
+        let urlString = appDelegate.baseUrl + "/users/user-info"
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "PATCH"
+        request.headers = header
+        
+        do {
+            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+            print("http Body Error")
+        }
+        
+        AF.request(request).responseString { (response) in
+            switch response.result {
+            case .success:
+                print("POST 성공")
+            case .failure(let error):
+                print(error.errorDescription!)
+            }
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
 }
 
-extension EditViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage]{
             profileImageView.image = image as! UIImage
             profileImageView.contentMode = .scaleAspectFill
@@ -162,27 +280,3 @@ extension EditViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         self.view.endEditing(true)
     }
 }
-
-
-
-    
-
-//    /* genderBtns[0] == maleButton, genderBtns[1] == femaleButton */
-//    @IBOutlet var genderBtns : [UIButton]!
-//
-//    @IBAction func chooseGender(_ sender: UIButton) {
-//        if myRegisterData.gender == "MALE" {
-//            if genderBtns.firstIndex(of: sender) == 1 {
-//                genderBtns[1].setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-//                genderBtns[0].setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-//                myRegisterData.setGender(newGender: "FEMALE")
-//            }
-//        } else {
-//            if genderBtns.firstIndex(of: sender) == 0 {
-//                genderBtns[0].setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-//                genderBtns[1].setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-//                myRegisterData.setGender(newGender: "MALE")
-//            }
-//        }
-//    }
-
