@@ -8,6 +8,9 @@
 import UIKit
 
 class PorfolCollectionViewCell: UICollectionViewCell {
-    //@IBOutlet weak var porfolButton: UIButton!
+    
+    @IBOutlet weak var pofolImage: UIImageView!
+    
+    
     
 }
