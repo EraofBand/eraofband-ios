@@ -23,6 +23,7 @@
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
 		A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A42882A79400078C9E /* GetUserDataService.swift */; };
 		A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A62882A8CD00078C9E /* NetworkResult.swift */; };
+		A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351AA2883B96100078C9E /* SettingViewController.swift */; };
 		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
 		A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */; };
 		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
@@ -107,6 +108,7 @@
 		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A81351A42882A79400078C9E /* GetUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataService.swift; sourceTree = "<group>"; };
 		A81351A62882A8CD00078C9E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		A81351AA2883B96100078C9E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
 		A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -255,13 +257,14 @@
 		A857361D287C43E100E2F0AB /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
-				BC636133287DB45F00DFA6D2 /* PofolViewController */,
 				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
+				BC636133287DB45F00DFA6D2 /* PofolViewController */,
 				A8573624287C49F800E2F0AB /* TabManViewController.swift */,
 				A8545D93288154D5003E076A /* PortfolioViewController.swift */,
 				A8573620287C442100E2F0AB /* BandViewController.swift */,
 				A8573622287C442B00E2F0AB /* LessonViewController.swift */,
 				A8573626287D2F5300E2F0AB /* EditViewController.swift */,
+				A81351AA2883B96100078C9E /* SettingViewController.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -316,10 +319,7 @@
 		BC4B5BFE287199550072A5FF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-
 				A809A7CC28714D8800B9E08D /* TabBarCustomLayout */,
-				BC636133287DB45F00DFA6D2 /* PofolViewController */,
-
 				A85736092874C62000E2F0AB /* TabViewController */,
 				BC439BF728730B6A006F5659 /* RegisterViewController */,
 				A809A7B8286F283400B9E08D /* AppDelegate.swift */,
@@ -580,6 +580,7 @@
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
+				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
