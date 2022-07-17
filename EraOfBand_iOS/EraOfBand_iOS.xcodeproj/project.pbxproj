@@ -21,6 +21,13 @@
 		A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A809A7DA287153A200B9E08D /* MypageTab.storyboard */; };
 		A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* TabBarController.swift */; };
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
+		A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A42882A79400078C9E /* GetUserDataService.swift */; };
+		A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A62882A8CD00078C9E /* NetworkResult.swift */; };
+		A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351AA2883B96100078C9E /* SettingViewController.swift */; };
+		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
+		A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */; };
+		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
+		A8545D96288156DD003E076A /* PorfolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D95288156DD003E076A /* PorfolCollectionViewCell.swift */; };
 		A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */; };
 		A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */; };
 		A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */; };
@@ -35,17 +42,19 @@
 		A857361A287534F500E2F0AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E82872DE0F00B9E08D /* Pretendard-Regular.otf */; };
 		A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E62872DE0F00B9E08D /* Pretendard-SemiBold.otf */; };
 		A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = A809A7E52872DE0F00B9E08D /* Pretendard-Thin.otf */; };
-		A857361F287C440B00E2F0AB /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857361E287C440B00E2F0AB /* PortfolioViewController.swift */; };
 		A8573621287C442100E2F0AB /* BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573620287C442100E2F0AB /* BandViewController.swift */; };
 		A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573622287C442B00E2F0AB /* LessonViewController.swift */; };
 		A8573625287C49F800E2F0AB /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573624287C49F800E2F0AB /* TabManViewController.swift */; };
 		A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573626287D2F5300E2F0AB /* EditViewController.swift */; };
-		A8573629287DB2C500E2F0AB /* UserInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573628287DB2C500E2F0AB /* UserInfoData.swift */; };
+		A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573628287DB2C500E2F0AB /* UserDataModel.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
 		BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED49628803F6B00A5B931 /* AddPofol.storyboard */; };
 		BC1ED499288041B300A5B931 /* MyPofolTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */; };
+		BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */; };
+		BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED49E288116B700A5B931 /* LoginUserData.swift */; };
+		BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
@@ -68,7 +77,6 @@
 		BCA3DA37287941B30031028E /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA36287941B30031028E /* RegisterData.swift */; };
 		BCA6646C287306F500136D1B /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA6646B287306F500136D1B /* Register.storyboard */; };
 		BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */; };
-		BCC2CF24287C62FE00A71B82 /* RegisterResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,22 +106,31 @@
 		A809A7ED2872DE0F00B9E08D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		A809A7EE2872E88300B9E08D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		A81351A42882A79400078C9E /* GetUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataService.swift; sourceTree = "<group>"; };
+		A81351A62882A8CD00078C9E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		A81351AA2883B96100078C9E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
+		A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
+		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		A8545D95288156DD003E076A /* PorfolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorfolCollectionViewCell.swift; sourceTree = "<group>"; };
 		A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTabViewController.swift; sourceTree = "<group>"; };
 		A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTabViewController.swift; sourceTree = "<group>"; };
 		A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		A85736102874C68C00E2F0AB /* MessageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTabViewController.swift; sourceTree = "<group>"; };
 		A85736122874C69E00E2F0AB /* MypageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTabViewController.swift; sourceTree = "<group>"; };
-		A857361E287C440B00E2F0AB /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		A8573620287C442100E2F0AB /* BandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandViewController.swift; sourceTree = "<group>"; };
 		A8573622287C442B00E2F0AB /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 		A8573624287C49F800E2F0AB /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		A8573626287D2F5300E2F0AB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		A8573628287DB2C500E2F0AB /* UserInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoData.swift; sourceTree = "<group>"; };
+		A8573628287DB2C500E2F0AB /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
 		BC1ED49628803F6B00A5B931 /* AddPofol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPofol.storyboard; sourceTree = "<group>"; };
 		BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPofolTable.storyboard; sourceTree = "<group>"; };
+		BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPofolTableViewCell.swift; sourceTree = "<group>"; };
+		BC1ED49E288116B700A5B931 /* LoginUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserData.swift; sourceTree = "<group>"; };
+		BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
 		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
 		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
@@ -135,7 +152,6 @@
 		BCA3DA36287941B30031028E /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
 		BCA6646B287306F500136D1B /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
-		BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponseModel.swift; sourceTree = "<group>"; };
 		D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.release.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,14 +197,13 @@
 		A809A7B7286F283400B9E08D /* EraOfBand_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */,
 				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
-				BC4B5C1C2871C4210072A5FF /* Model */,
+				A81351A32882A76B00078C9E /* Service */,
 				BC4B5C192871C24E0072A5FF /* Cell */,
+				BC4B5C1C2871C4210072A5FF /* Model */,
 				BC4B5C032871A6CD0072A5FF /* Resources */,
 				BC4B5BFE287199550072A5FF /* ViewController */,
 				BC4B5BFA28716A0B0072A5FF /* StoryBoard */,
-				A809A7CC28714D8800B9E08D /* TabBarCustomLayout */,
 				A809A7BC286F283400B9E08D /* ViewController.swift */,
 				A809A7C6286F283600B9E08D /* Info.plist */,
 				BC6DD520287861EE0067D6B5 /* ApiKey.plist */,
@@ -218,6 +233,26 @@
 			path = TabStoryBoard;
 			sourceTree = "<group>";
 		};
+		A81351A32882A76B00078C9E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A81351A62882A8CD00078C9E /* NetworkResult.swift */,
+				A81351A42882A79400078C9E /* GetUserDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A81351AC2884150100078C9E /* MypageTab */ = {
+			isa = PBXGroup;
+			children = (
+				A8573624287C49F800E2F0AB /* TabManViewController.swift */,
+				A8545D93288154D5003E076A /* PortfolioViewController.swift */,
+				A8573620287C442100E2F0AB /* BandViewController.swift */,
+				A8573622287C442B00E2F0AB /* LessonViewController.swift */,
+			);
+			path = MypageTab;
+			sourceTree = "<group>";
+		};
 		A85736092874C62000E2F0AB /* TabViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,11 +269,10 @@
 			isa = PBXGroup;
 			children = (
 				A85736122874C69E00E2F0AB /* MypageTabViewController.swift */,
-				A8573624287C49F800E2F0AB /* TabManViewController.swift */,
-				A857361E287C440B00E2F0AB /* PortfolioViewController.swift */,
-				A8573620287C442100E2F0AB /* BandViewController.swift */,
-				A8573622287C442B00E2F0AB /* LessonViewController.swift */,
+				BC636133287DB45F00DFA6D2 /* PofolViewController */,
+				A81351AC2884150100078C9E /* MypageTab */,
 				A8573626287D2F5300E2F0AB /* EditViewController.swift */,
+				A81351AA2883B96100078C9E /* SettingViewController.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -281,9 +315,11 @@
 			children = (
 				A809A7C3286F283600B9E08D /* LaunchScreen.storyboard */,
 				A809A7BE286F283400B9E08D /* Main.storyboard */,
+				BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */,
 				BC4B5BFC287192190072A5FF /* login.storyboard */,
 				A809A7D1287152F800B9E08D /* TabStoryBoard */,
 				BCA6646B287306F500136D1B /* Register.storyboard */,
+				A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -291,13 +327,14 @@
 		BC4B5BFE287199550072A5FF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BC636133287DB45F00DFA6D2 /* PofolViewController */,
+				A809A7CC28714D8800B9E08D /* TabBarCustomLayout */,
 				A85736092874C62000E2F0AB /* TabViewController */,
 				BC439BF728730B6A006F5659 /* RegisterViewController */,
 				A809A7B8286F283400B9E08D /* AppDelegate.swift */,
 				A809A7BA286F283400B9E08D /* SceneDelegate.swift */,
 				BC4B5BFF287199770072A5FF /* OnboardingViewController.swift */,
 				BC4B5C0128719BF30072A5FF /* LoginViewController.swift */,
+				A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -330,7 +367,10 @@
 		BC4B5C192871C24E0072A5FF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */,
+				A8545D95288156DD003E076A /* PorfolCollectionViewCell.swift */,
 				BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */,
+				BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -338,14 +378,14 @@
 		BC4B5C1C2871C4210072A5FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */,
 				BC8502FE287732200022EA7B /* SessionModel.swift */,
 				BCA3DA3428793B4B0031028E /* KakaoData.swift */,
 				BCA3DA36287941B30031028E /* RegisterData.swift */,
-				BCC2CF23287C62FE00A71B82 /* RegisterResponseModel.swift */,
 				BC636131287DA62400DFA6D2 /* UserModel.swift */,
 				BC1ED493288027A100A5B931 /* PofolData.swift */,
-				A8573628287DB2C500E2F0AB /* UserInfoData.swift */,
+				BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */,
+				BC1ED49E288116B700A5B931 /* LoginUserData.swift */,
+				A8573628287DB2C500E2F0AB /* UserDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +467,7 @@
 			files = (
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
+				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
 				A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */,
 				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
@@ -445,6 +486,7 @@
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
 				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
+				A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */,
 				BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */,
 				BC4B5BFD287192190072A5FF /* login.storyboard in Resources */,
 			);
@@ -500,9 +542,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
+				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
 				BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
+				BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
@@ -516,7 +560,8 @@
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
 				BC636135287DB47300DFA6D2 /* AddPofolViewController.swift in Sources */,
-				A8573629287DB2C500E2F0AB /* UserInfoData.swift in Sources */,
+				A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */,
+				A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */,
 				BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */,
 				A8573621287C442100E2F0AB /* BandViewController.swift in Sources */,
 				A8573625287C49F800E2F0AB /* TabManViewController.swift in Sources */,
@@ -524,23 +569,26 @@
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
+				A8545D96288156DD003E076A /* PorfolCollectionViewCell.swift in Sources */,
+				BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
+				A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
 				A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */,
-				A857361F287C440B00E2F0AB /* PortfolioViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC8502FF287732200022EA7B /* SessionModel.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
-				BCC2CF24287C62FE00A71B82 /* RegisterResponseModel.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
+				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
+				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

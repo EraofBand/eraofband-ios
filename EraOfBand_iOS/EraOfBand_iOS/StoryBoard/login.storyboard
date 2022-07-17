@@ -87,15 +87,15 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcQ-31-ct8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="659" y="93"/>
+            <point key="canvasLocation" x="633" y="14"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="lRf-eq-tEV">
+        <!--MainTabBar-->
+        <scene sceneID="ABX-wR-fLj">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="Main" id="hRo-T5-pqE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zOG-PF-POH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="MainTabBar" storyboardName="MainTabBar" id="szn-11-P2L" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3cq-My-9cH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="659" y="162"/>
+            <point key="canvasLocation" x="633" y="176"/>
         </scene>
     </scenes>
     <resources>
