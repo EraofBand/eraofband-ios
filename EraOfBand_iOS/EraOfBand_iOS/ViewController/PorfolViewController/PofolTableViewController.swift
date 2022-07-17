@@ -92,7 +92,15 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.selectionStyle = .none
         
+        cell.commentBtn.addTarget(self, action: #selector(commentBtnTapped(sender:)), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc func commentBtnTapped(sender: UIButton){
+        guard let commentTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PorfolCommentViewController") as? PorfolCommentViewController else {return}
+                
+        self.navigationController?.pushViewController(commentTableVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
