@@ -7,9 +7,11 @@
 
 import UIKit
 
-class PortfolioViewController: UIViewController {
+class PortfolioViewController: UIViewController{
     
     @IBOutlet weak var porfolCollectionView: UICollectionView!
+    
+    var pofolCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,16 +19,14 @@ class PortfolioViewController: UIViewController {
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
         
-        porfolCollectionView.contentSize
     }
-    
 
 }
 
 extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return 3
+        
+        return 4
 
     }
     
