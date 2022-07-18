@@ -18,6 +18,8 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var commentBtn: UIButton!
+    @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var likeImg: UIImageView!
     
     override class func awakeFromNib() {
         super.awakeFromNib()
