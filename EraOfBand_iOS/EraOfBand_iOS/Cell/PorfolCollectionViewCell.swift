@@ -12,5 +12,4 @@ class PorfolCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pofolImage: UIImageView!
     
     
-    
 }

@@ -312,13 +312,15 @@
                     <view key="view" contentMode="scaleToFill" id="iBU-1q-v2Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="605.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+
                         <viewLayoutGuide key="safeArea" id="rXG-KZ-8Kw"/>
+
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFo-pf-972" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775" y="298"/>
+            <point key="canvasLocation" x="1819" y="80"/>
         </scene>
     </scenes>
     <resources>

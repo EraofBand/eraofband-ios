@@ -15,6 +15,8 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var sessionView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
     
     // user 정보 변수
     @IBOutlet weak var userImageView: UIImageView!
@@ -30,6 +32,9 @@ class MypageTabViewController: UIViewController {
     var userRegion: String = ""
     var userAge: Int = 0
     var userGender: String = ""
+    var userPofolCount: Int = 0
+    var session: Int = 0
+    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +44,12 @@ class MypageTabViewController: UIViewController {
         sessionView.layer.cornerRadius = 15
         bottomView.layer.cornerRadius = 15
         
-        scrollView.updateContentSize()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        GetUserDataService.shared.getUserInfo { (response) in
+        GetUserDataService.shared.getUserInfo { [self](response) in
             switch(response) {
             case .success(let userData):
                 /*서버 연동 성공*/
@@ -54,47 +57,53 @@ class MypageTabViewController: UIViewController {
                     let data = data.getUser
                     
                     /*마이페이지 유저 정보 입력*/
-                    self.nickNameLabel.text = data.nickName
+                    nickNameLabel.text = data.nickName
                     
                     let region = data.region
-                    self.userRegion = region.components(separatedBy: " ")[1]
+                    userRegion = region.components(separatedBy: " ")[1]
                     
                     let year = DateFormatter()
                     year.dateFormat = "yyyy"
                     let currentYear = year.string(from: Date())
                     let birthYear = data.birth.components(separatedBy: "-")[0]
-                    self.userAge = Int(currentYear)! - Int(birthYear)! + 1
+                    userAge = Int(currentYear)! - Int(birthYear)! + 1
                     
                     let gender = data.gender
                     if gender == "MALE" {
-                        self.userGender = "남"
+                        userGender = "남"
                     } else {
-                        self.userGender = "여"
+                        userGender = "여"
                     }
-                    self.userInfoLabel.text = "\(self.userRegion) / \(self.userAge) / \(self.userGender)"
+                    userInfoLabel.text = "\(userRegion) / \(userAge) / \(userGender)"
                     
                     if let introduction = data.introduction {
-                        self.introductionLabel.text = introduction
+                        introductionLabel.text = introduction
                     } else {
-                        self.introductionLabel.text = ""
+                        introductionLabel.text = ""
                     }
                     
                     let followeeCount = data.followeeCount
-                    self.followingButton.setTitle(String(followeeCount), for: .normal)
+                    followingButton.setTitle(String(followeeCount), for: .normal)
                     /*
                      self.followingButton.titleLabel!.font = UIFont(name: "Pretendard-Bold", size: 40)
                      */
                     
                     let followerCount = data.followerCount
-                    self.followerButton.setTitle(String(followerCount), for: .normal)
+                    followerButton.setTitle(String(followerCount), for: .normal)
                     
                     let imageUrl = data.profileImgUrl
                     if let url = URL(string: imageUrl) {
-                        self.userImageView.load(url: url)
+                        userImageView.load(url: url)
                     } else {
-                        self.userImageView.image = UIImage(named: "default_image")
+                        userImageView.image = UIImage(named: "default_image")
                     }
-                    self.userImageView.setRounded()
+                    userImageView.setRounded()
+                    
+                    print(data.session)
+                    session = data.session
+                    sessionLabel.text = sessionData[session]
+                    
+                    containerView.updateHeight(containerViewHeight, data.pofolCount)
                     
                 }
                 
@@ -109,9 +118,17 @@ class MypageTabViewController: UIViewController {
             }
             
         }
-        
     }
     
+    @IBAction func changeSession(_ sender: Any) {
+        
+        guard let sessionVC = storyboard?.instantiateViewController(withIdentifier: "SessionViewController") as? SessionViewController else { return }
+        
+        sessionVC.session = session
+        
+        self.navigationController?.pushViewController(sessionVC, animated: true)
+        
+    }
     
 }
 
@@ -135,23 +152,11 @@ extension UIImageView {
     }
 }
 
-extension UIScrollView {
-    func updateContentSize() {
-        let unionCalculatedTotalRect = recursiveUnionInDepthFor(view: self)
+extension UIView {
+    func updateHeight(_ height: NSLayoutConstraint, _ pofolCount: Int) {
+        let cellHeight = self.frame.width / 3 - 2
+        let containerHeight = cellHeight * CGFloat(pofolCount / 3 + 1) + 150
         
-        // 계산된 크기로 컨텐츠 사이즈 설정
-        self.contentSize = CGSize(width: self.frame.width, height: unionCalculatedTotalRect.height+50)
-    }
-    
-    private func recursiveUnionInDepthFor(view: UIView) -> CGRect {
-        var totalRect: CGRect = .zero
-        
-        // 모든 자식 View의 컨트롤의 크기를 재귀적으로 호출하며 최종 영역의 크기를 설정
-        for subView in view.subviews {
-            totalRect = totalRect.union(recursiveUnionInDepthFor(view: subView))
-        }
-        
-        // 최종 계산 영역의 크기를 반환
-        return totalRect.union(view.frame)
+        height.constant = containerHeight
     }
 }

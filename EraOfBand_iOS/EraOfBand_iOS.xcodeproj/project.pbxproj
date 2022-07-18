@@ -24,6 +24,8 @@
 		A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A42882A79400078C9E /* GetUserDataService.swift */; };
 		A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A62882A8CD00078C9E /* NetworkResult.swift */; };
 		A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351AA2883B96100078C9E /* SettingViewController.swift */; };
+		A81351AE2884572D00078C9E /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351AD2884572D00078C9E /* SessionViewController.swift */; };
+		A81351B0288561E000078C9E /* SessionChangeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351AF288561E000078C9E /* SessionChangeCollectionViewCell.swift */; };
 		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
 		A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */; };
 		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
@@ -113,6 +115,8 @@
 		A81351A42882A79400078C9E /* GetUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataService.swift; sourceTree = "<group>"; };
 		A81351A62882A8CD00078C9E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A81351AA2883B96100078C9E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A81351AD2884572D00078C9E /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		A81351AF288561E000078C9E /* SessionChangeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionChangeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
 		A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 				A81351AC2884150100078C9E /* MypageTab */,
 				A8573626287D2F5300E2F0AB /* EditViewController.swift */,
 				A81351AA2883B96100078C9E /* SettingViewController.swift */,
+				A81351AD2884572D00078C9E /* SessionViewController.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -382,7 +387,11 @@
 				A8545D95288156DD003E076A /* PorfolCollectionViewCell.swift */,
 				BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */,
 				BC1ED49C2880672300A5B931 /* MyPofolTableViewCell.swift */,
+
+				A81351AF288561E000078C9E /* SessionChangeCollectionViewCell.swift */,
+
 				BCD3C22F2882FBB600562FB4 /* CommentTableViewCell.swift */,
+
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -558,6 +567,7 @@
 				BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
+				A81351B0288561E000078C9E /* SessionChangeCollectionViewCell.swift in Sources */,
 				BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
@@ -602,6 +612,7 @@
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
+				A81351AE2884572D00078C9E /* SessionViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class PortfolioViewController: UIViewController {
+class PortfolioViewController: UIViewController{
     
     var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
     
@@ -45,17 +45,20 @@ class PortfolioViewController: UIViewController {
         }
     }
     
+    var pofolCount: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
         
+
         porfolCollectionView.contentSize
         
         getPofolList()
+
     }
-    
 
 }
 
@@ -63,6 +66,7 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return pofolList.count
+
 
     }
     
