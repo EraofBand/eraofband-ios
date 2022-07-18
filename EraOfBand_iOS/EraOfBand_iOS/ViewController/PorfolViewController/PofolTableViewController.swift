@@ -21,6 +21,36 @@ class PofolTableViewController: UIViewController{
         self.navigationController?.popViewController(animated: true)
     }
     
+    /*좋아요 업데이트를 위한 포폴리스트 리로드 함수*/
+    func reloadPofolList(){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        //print(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!))
+        
+        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj,
+                                           options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(PofolData.self, from: dataJSON)
+                    self.pofolList = getData.result
+                    self.tableView.reloadData()
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
+            }
+        }
+    }
+    
+    /*뷰 최초 실행시 포폴리스트 가져오기 함수*/
     func getPofolList(){
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
@@ -92,7 +122,73 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.selectionStyle = .none
         
+        cell.commentBtn.tag = pofolList[indexPath.row].pofolIdx!
+        cell.commentBtn.addTarget(self, action: #selector(commentBtnTapped(sender:)), for: .touchUpInside)
+        
+        
+        cell.likeBtn.tag = pofolList[indexPath.row].pofolIdx!
+        if (pofolList[indexPath.row].likeOrNot == "Y"){
+            cell.likeImg.image = UIImage(systemName: "heart.fill")
+            cell.likeImg.tintColor = UIColor(red: 0.094, green: 0.392, blue: 0.992, alpha: 1)
+            cell.likeBtn.addTarget(self, action: #selector(deleteLike(sender:)), for: .touchUpInside)
+        }else{
+            cell.likeImg.image = UIImage(systemName: "heart")
+            cell.likeImg.tintColor = .white
+            cell.likeBtn.addTarget(self, action: #selector(postLike(sender:)), for: .touchUpInside)
+        }
+        
+        
+        
         return cell
+    }
+    
+    /*좋아요 취소*/
+    @objc func deleteLike(sender: UIButton){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/pofol/" + String(sender.tag) + "/unlikes",
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success:
+                print(response)
+                self.reloadPofolList()
+            default:
+                return
+            }
+        }
+    }
+    
+    /*좋아요 누르기*/
+    @objc func postLike(sender: UIButton){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/pofol/" + String(sender.tag) + "/likes",
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success:
+                print(response)
+                self.reloadPofolList()
+            default:
+                return
+            }
+        }
+    }
+
+    /*댓글버튼 눌렀을 때*/
+    @objc func commentBtnTapped(sender: UIButton){
+        guard let commentTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PorfolCommentViewController") as? PorfolCommentViewController else {return}
+        commentTableVC.pofolIdx = sender.tag
+        self.navigationController?.pushViewController(commentTableVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
