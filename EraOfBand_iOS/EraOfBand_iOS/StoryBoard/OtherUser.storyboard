@@ -312,9 +312,7 @@
                     <view key="view" contentMode="scaleToFill" id="iBU-1q-v2Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="605.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-
                         <viewLayoutGuide key="safeArea" id="rXG-KZ-8Kw"/>
-
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
