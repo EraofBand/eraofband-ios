@@ -6,10 +6,44 @@
 //
 
 import UIKit
+import Alamofire
 
 class PortfolioViewController: UIViewController{
     
+    var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
+    
     @IBOutlet weak var porfolCollectionView: UICollectionView!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    func getPofolList(){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        //print(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!))
+        
+        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj,
+                                           options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(PofolData.self, from: dataJSON)
+                    //print(response)
+                    self.pofolList = getData.result
+                    print(self.pofolList)
+                    self.porfolCollectionView.reloadData()
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
+            }
+        }
+    }
     
     var pofolCount: Int = 0
     
@@ -19,14 +53,20 @@ class PortfolioViewController: UIViewController{
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
         
+
+        porfolCollectionView.contentSize
+        
+        getPofolList()
+
     }
 
 }
 
 extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 4
+
+        return pofolList.count
+
 
     }
     

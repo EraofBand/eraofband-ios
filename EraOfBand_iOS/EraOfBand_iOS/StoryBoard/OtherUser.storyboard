@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wlr-oL-JE6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -23,19 +23,19 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Other User View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtherUserViewController" id="Y6W-OH-hqX" customClass="OtherUserViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="774" translatesAutoresizingMaskIntoConstraints="NO" id="AWB-Cr-HwF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYG-Am-Ilx" userLabel="InnerScrollView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pL6-Hu-m3a" userLabel="InfoView">
                                                 <rect key="frame" x="22" y="34" width="370" height="268.5"/>
@@ -231,7 +231,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="메세지"/>
                                             </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tt-wL-tQd">
-                                                <rect key="frame" x="0.0" y="412.5" width="414" height="561.5"/>
+                                                <rect key="frame" x="0.0" y="412.5" width="414" height="605.5"/>
                                                 <connections>
                                                     <segue destination="hcV-3c-6S0" kind="embed" id="nEK-Gy-izG"/>
                                                 </connections>
@@ -282,46 +282,39 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FiS-gr-a7o">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="LbK-P4-Cad">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="F4q-Jl-g5K">
-                                <rect key="frame" x="302" y="3.5" width="92" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ic_more"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="04s-nY-oFK">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtnTapped:" destination="Y6W-OH-hqX" id="vFv-5Q-0zp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_more" id="qHi-RM-ygD">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="followerLabel" destination="3LZ-XG-ghE" id="Bm4-ge-WAH"/>
+                        <outlet property="followingLabel" destination="lIs-ju-QBX" id="Ebw-cV-3Gj"/>
+                        <outlet property="userInfoLabel" destination="p5f-S4-sTt" id="1As-Ut-oMs"/>
+                        <outlet property="userIntroLabel" destination="HCf-gL-fp3" id="GSJ-yj-0lM"/>
+                        <outlet property="userNickNameLabel" destination="xoj-tT-WVx" id="mf2-8N-Zs7"/>
+                        <outlet property="userSessionLabel" destination="xrQ-Kn-6Z9" id="RCK-WW-heh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="79.6875"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4NU-Ad-Zfp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wlr-oL-JE6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m1d-lF-aER">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="oVt-Xd-HFl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I2f-D8-6jb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="44.927536231884062" y="79.6875"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="I9b-Zk-NtR">
             <objects>
                 <viewController id="hcV-3c-6S0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iBU-1q-v2Z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="561.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="605.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="wvI-4g-iPM"/>
+
+                        <viewLayoutGuide key="safeArea" id="rXG-KZ-8Kw"/>
+
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -331,6 +324,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="ic_more" width="4.5" height="23"/>
         <namedColor name="on_icon_color">
             <color red="0.093999996781349182" green="0.3919999897480011" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
