@@ -37,8 +37,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Lf-bk-Fdw">
-                                                    <rect key="frame" x="20" y="12" width="35" height="35"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three_dot" translatesAutoresizingMaskIntoConstraints="NO" id="fXC-Qj-Rbr">
+                                                    <rect key="frame" x="382" y="31" width="4" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="4" id="Ik9-Ic-Udv"/>
+                                                        <constraint firstAttribute="height" constant="16" id="MXO-UE-FJX"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Lf-bk-Fdw">
+                                                    <rect key="frame" x="20" y="13.5" width="35" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="KOt-Qf-Oa1"/>
                                                         <constraint firstAttribute="height" constant="35" id="iqj-f9-xpd"/>
@@ -62,13 +69,15 @@
                                                     <color key="textColor" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three_dot" translatesAutoresizingMaskIntoConstraints="NO" id="fXC-Qj-Rbr">
-                                                    <rect key="frame" x="382" y="31" width="4" height="16"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFe-K5-nkT">
+                                                    <rect key="frame" x="20" y="12" width="35" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="4" id="Ik9-Ic-Udv"/>
-                                                        <constraint firstAttribute="height" constant="16" id="MXO-UE-FJX"/>
+                                                        <constraint firstAttribute="height" constant="35" id="65y-7N-GRF"/>
+                                                        <constraint firstAttribute="width" constant="35" id="Qeg-IN-3Cu"/>
                                                     </constraints>
-                                                </imageView>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="k6T-L6-LDy" firstAttribute="top" secondItem="VLs-Ix-hKw" secondAttribute="bottom" constant="7" id="An1-QV-otB"/>
@@ -77,7 +86,9 @@
                                                 <constraint firstItem="VLs-Ix-hKw" firstAttribute="leading" secondItem="9mu-jW-Y3z" secondAttribute="leading" id="E2S-P0-HVL"/>
                                                 <constraint firstItem="fXC-Qj-Rbr" firstAttribute="top" secondItem="7Yf-db-LWY" secondAttribute="top" constant="31" id="My0-EB-dxs"/>
                                                 <constraint firstItem="6Lf-bk-Fdw" firstAttribute="top" secondItem="7Yf-db-LWY" secondAttribute="top" constant="12" id="Pqv-Jd-ddG"/>
+                                                <constraint firstItem="mFe-K5-nkT" firstAttribute="top" secondItem="7Yf-db-LWY" secondAttribute="top" constant="12" id="XrR-7X-69G"/>
                                                 <constraint firstAttribute="trailing" secondItem="fXC-Qj-Rbr" secondAttribute="trailing" constant="28" id="bh7-fM-IGp"/>
+                                                <constraint firstItem="mFe-K5-nkT" firstAttribute="leading" secondItem="7Yf-db-LWY" secondAttribute="leadingMargin" id="mA5-H5-iZQ"/>
                                                 <constraint firstItem="k6T-L6-LDy" firstAttribute="leading" secondItem="VLs-Ix-hKw" secondAttribute="leading" id="mFs-OT-sWe"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="VLs-Ix-hKw" secondAttribute="trailing" constant="20" id="mab-vJ-imB"/>
                                                 <constraint firstItem="VLs-Ix-hKw" firstAttribute="top" secondItem="9mu-jW-Y3z" secondAttribute="bottom" constant="17" id="qfU-8L-Tmy"/>
@@ -89,6 +100,7 @@
                                             <outlet property="contentLabel" destination="VLs-Ix-hKw" id="Ze7-kq-tdA"/>
                                             <outlet property="dateLabel" destination="k6T-L6-LDy" id="ppS-l3-KYI"/>
                                             <outlet property="nicknameLabel" destination="9mu-jW-Y3z" id="N7H-In-juG"/>
+                                            <outlet property="profileBtn" destination="mFe-K5-nkT" id="TNe-rD-qaW"/>
                                             <outlet property="profileImgView" destination="6Lf-bk-Fdw" id="boj-CV-g2E"/>
                                         </connections>
                                     </tableViewCell>
@@ -117,6 +129,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="입력">
                                                     <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="enterBtnTapped:" destination="MEc-JZ-Hb0" eventType="touchUpInside" id="Pat-5I-qWU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,9 +195,18 @@
             </objects>
             <point key="canvasLocation" x="192.75362318840581" y="73.660714285714278"/>
         </scene>
+        <!--OtherUser-->
+        <scene sceneID="160-LL-Fec">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="OtherUserViewController" storyboardName="OtherUser" id="kAG-Ym-v54" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0h7-k7-2tq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="95"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="three_dot" width="128" height="576"/>
     </resources>
 </document>

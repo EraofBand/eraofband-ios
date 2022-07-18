@@ -12,6 +12,7 @@ struct CommentData: Codable
     var code: Int
     var isSuccess: Bool
     var message: String
+    var result: [CommentResult]
 }
 
 struct CommentResult: Codable{
