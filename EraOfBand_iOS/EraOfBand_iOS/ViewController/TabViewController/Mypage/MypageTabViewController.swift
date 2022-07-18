@@ -99,7 +99,6 @@ class MypageTabViewController: UIViewController {
                     }
                     userImageView.setRounded()
                     
-                    print(data.session)
                     session = data.session
                     sessionLabel.text = sessionData[session]
                     
