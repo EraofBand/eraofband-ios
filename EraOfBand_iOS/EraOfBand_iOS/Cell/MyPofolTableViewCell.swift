@@ -17,6 +17,7 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var commentBtn: UIButton!
     
     override class func awakeFromNib() {
         super.awakeFromNib()
