@@ -6,23 +6,60 @@
 //
 
 import UIKit
+import Alamofire
 
 class SessionViewController: UIViewController {
 
     @IBOutlet weak var sessionCollectionView: UICollectionView!
+    @IBOutlet weak var saveButton: UIButton!
     
     let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
     var session: Int = 0
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         sessionCollectionView.delegate = self
         sessionCollectionView.dataSource = self
+
+        saveButton.layer.cornerRadius = 13
         
     }
-
+    
+    @IBAction func saveAction(_ sender: Any) {
+        let params: Dictionary<String, Any?> = ["session": session,
+                                                "userIdx": appDelegate.userIdx]
+        
+        let urlString = appDelegate.baseUrl + "/users/user-session"
+        let header: HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                   "Content-Type": "application/json"]
+        
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "PATCH"
+        request.headers = header
+        
+        do {
+            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+            print("http Body Error")
+        }
+        
+        AF.request(request).responseString { (response) in
+            switch response.result {
+            case .success:
+                print("POST한 세션 번호: \(self.session)")
+                print("POST 성공")
+            case .failure(let error):
+                print(error.errorDescription!)
+            }
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 
 extension SessionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -40,12 +77,17 @@ extension SessionViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.sessionName = sessionData[indexPath.item]
         cell.sessionImageView.image = UIImage(named: "ic_session_off")
         
+        if indexPath.item == session {
+            cell.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("click index=\(indexPath.row)")
-        let cell  = collectionView.cellForItem(at: indexPath) as! SessionCollectionViewCell
+        
         session = indexPath.row
         
     }
