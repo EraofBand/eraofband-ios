@@ -107,6 +107,7 @@ class RegisterViewController2: UIViewController{
         
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
+        datePicker.maximumDate = Date()
         birthdayTextField.inputView = datePicker
         
         toolbar.setItems([doneBtn], animated: true)
