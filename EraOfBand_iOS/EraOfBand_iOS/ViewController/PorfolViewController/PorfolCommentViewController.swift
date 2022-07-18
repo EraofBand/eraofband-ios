@@ -45,7 +45,7 @@ class PorfolCommentViewController: UIViewController{
             print(response)
             
             self.commentTextField.text = ""
-            
+             
             print("appear 테스트")
             self.getCommentList()
             print(self.commentList)
@@ -69,7 +69,7 @@ class PorfolCommentViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/comment/" + "?postIdx=" + String(pofolIdx!),
+        AF.request(appDelegate.baseUrl + "/pofol/comment/" + "?pofolIdx=" + String(pofolIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -153,7 +153,16 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
         
         cell.selectionStyle = .none
         
+        cell.profileBtn.tag = commentList[indexPath.row].userIdx
+        cell.profileBtn.addTarget(self, action: #selector(profileBtnTapped(sender:)), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc func profileBtnTapped(sender: UIButton){
+        guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+        otherUserVC.userIdx = sender.tag
+        self.navigationController?.pushViewController(otherUserVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
