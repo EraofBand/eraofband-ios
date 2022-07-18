@@ -33,9 +33,21 @@ class MypageTabViewController: UIViewController {
     var userAge: Int = 0
     var userGender: String = ""
     var userPofolCount: Int = 0
+    var session: Int = 0
+    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 프로필 view, 세션 view 모서리 둥글게
+        infoView.layer.cornerRadius = 15
+        sessionView.layer.cornerRadius = 15
+        bottomView.layer.cornerRadius = 15
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         GetUserDataService.shared.getUserInfo { [self](response) in
             switch(response) {
@@ -87,6 +99,10 @@ class MypageTabViewController: UIViewController {
                     }
                     userImageView.setRounded()
                     
+                    print(data.session)
+                    session = data.session
+                    sessionLabel.text = sessionData[session]
+                    
                     containerView.updateHeight(containerViewHeight, data.pofolCount)
                     
                 }
@@ -102,16 +118,15 @@ class MypageTabViewController: UIViewController {
             }
             
         }
-        
-        // 프로필 view, 세션 view 모서리 둥글게
-        infoView.layer.cornerRadius = 15
-        sessionView.layer.cornerRadius = 15
-        bottomView.layer.cornerRadius = 15
-        
     }
     
     @IBAction func changeSession(_ sender: Any) {
         
+        guard let sessionVC = storyboard?.instantiateViewController(withIdentifier: "SessionViewController") as? SessionViewController else { return }
+        
+        sessionVC.session = session
+        
+        self.navigationController?.pushViewController(sessionVC, animated: true)
         
     }
     

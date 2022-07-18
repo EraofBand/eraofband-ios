@@ -209,7 +209,6 @@
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeSession:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="e5G-mK-yNT"/>
-                                                            <segue destination="gmh-LS-nCE" kind="show" id="oPo-2Q-RUu"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_guitar" translatesAutoresizingMaskIntoConstraints="NO" id="XHz-Xk-SPs">
@@ -218,7 +217,7 @@
                                                             <constraint firstAttribute="width" secondItem="XHz-Xk-SPs" secondAttribute="height" multiplier="29:32" id="HfE-ei-g55"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhX-gM-H9b">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세션" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhX-gM-H9b">
                                                         <rect key="frame" x="73.5" y="23" width="26" height="18"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -340,7 +339,7 @@
                         <outlet property="nickNameLabel" destination="IrH-ov-6hZ" id="Gp1-cc-XpQ"/>
                         <outlet property="porfolLabel" destination="8MU-0O-Jqd" id="sze-7j-CBg"/>
                         <outlet property="scrollView" destination="FcL-0F-h6g" id="sga-3n-9v4"/>
-                        <outlet property="sessionLabel" destination="XhX-gM-H9b" id="3Ev-ba-M4I"/>
+                        <outlet property="sessionLabel" destination="XhX-gM-H9b" id="SiV-NT-B8p"/>
                         <outlet property="sessionView" destination="oFK-w8-6Xf" id="cun-1D-mxp"/>
                         <outlet property="userImageView" destination="Wxa-35-dtc" id="IXn-t7-tm2"/>
                         <outlet property="userInfoLabel" destination="gJQ-lg-GkE" id="QOW-lD-Orv"/>
@@ -369,19 +368,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="희망하는 세션" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmq-8t-UWn">
-                                <rect key="frame" x="33" y="175" width="130" height="29"/>
+                                <rect key="frame" x="33" y="131" width="130" height="29"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="24"/>
                                 <color key="textColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS8-xy-TRX">
-                                <rect key="frame" x="164" y="175" width="152" height="29"/>
+                                <rect key="frame" x="164" y="131" width="152" height="29"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4ey-gc-TFA">
-                                <rect key="frame" x="5" y="255" width="404" height="482"/>
+                                <rect key="frame" x="5" y="211" width="404" height="472"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mhp-9C-oi8">
                                     <size key="itemSize" width="104" height="142"/>
@@ -427,7 +426,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qb-F9-jqG">
-                                <rect key="frame" x="33" y="768" width="348" height="45"/>
+                                <rect key="frame" x="33" y="728" width="348" height="45"/>
                                 <color key="backgroundColor" name="on_icon_color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="rkW-I5-gtb"/>
@@ -436,6 +435,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="저장하기"/>
                                 <connections>
+                                    <action selector="saveAction:" destination="gmh-LS-nCE" eventType="touchUpInside" id="Id2-j8-Sg2"/>
                                     <action selector="saveAction:" destination="K4F-Y0-7eY" eventType="touchUpInside" id="kQN-N3-JVP"/>
                                 </connections>
                             </button>
@@ -445,13 +445,13 @@
                         <constraints>
                             <constraint firstItem="Mmq-8t-UWn" firstAttribute="top" secondItem="mlz-kT-vRD" secondAttribute="top" constant="87" id="FMw-AJ-K4E"/>
                             <constraint firstItem="4ey-gc-TFA" firstAttribute="trailing" secondItem="mlz-kT-vRD" secondAttribute="trailing" constant="-5" id="SqO-mX-ShD"/>
-                            <constraint firstItem="9qb-F9-jqG" firstAttribute="bottom" secondItem="mlz-kT-vRD" secondAttribute="bottom" id="XhH-aC-a8K"/>
+                            <constraint firstItem="9qb-F9-jqG" firstAttribute="bottom" secondItem="mlz-kT-vRD" secondAttribute="bottom" constant="-40" id="XhH-aC-a8K"/>
                             <constraint firstItem="9qb-F9-jqG" firstAttribute="leading" secondItem="mlz-kT-vRD" secondAttribute="leading" constant="33" id="Y8Z-3A-zta"/>
                             <constraint firstItem="hS8-xy-TRX" firstAttribute="centerY" secondItem="Mmq-8t-UWn" secondAttribute="centerY" id="cbb-fh-TwW"/>
                             <constraint firstItem="9qb-F9-jqG" firstAttribute="centerX" secondItem="mlz-kT-vRD" secondAttribute="centerX" id="s7T-MC-SMU"/>
                             <constraint firstItem="4ey-gc-TFA" firstAttribute="top" secondItem="Mmq-8t-UWn" secondAttribute="bottom" constant="51" id="t6L-QE-sYH"/>
                             <constraint firstItem="Mmq-8t-UWn" firstAttribute="leading" secondItem="mlz-kT-vRD" secondAttribute="leading" constant="33" id="tQ3-VC-skA"/>
-                            <constraint firstItem="9qb-F9-jqG" firstAttribute="top" secondItem="4ey-gc-TFA" secondAttribute="bottom" constant="31" id="w7g-IS-MH8"/>
+                            <constraint firstItem="mlz-kT-vRD" firstAttribute="bottom" secondItem="4ey-gc-TFA" secondAttribute="bottom" constant="130" id="w7g-IS-MH8"/>
                             <constraint firstItem="4ey-gc-TFA" firstAttribute="leading" secondItem="vUG-Nm-auL" secondAttribute="leading" constant="5" id="waz-2f-3Ik"/>
                             <constraint firstItem="hS8-xy-TRX" firstAttribute="leading" secondItem="Mmq-8t-UWn" secondAttribute="trailing" constant="1" id="yrJ-eu-maM"/>
                         </constraints>
@@ -459,6 +459,7 @@
                     <navigationItem key="navigationItem" id="PYP-DG-b4g"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="saveButton" destination="9qb-F9-jqG" id="HbW-xF-cqy"/>
                         <outlet property="sessionCollectionView" destination="4ey-gc-TFA" id="CVq-xU-Sds"/>
                     </connections>
                 </viewController>
