@@ -59,6 +59,10 @@ class PortfolioViewController: UIViewController{
         getPofolList()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getPofolList()
+    }
 
 }
 
