@@ -154,7 +154,8 @@ extension UIImageView {
 extension UIView {
     func updateHeight(_ height: NSLayoutConstraint, _ pofolCount: Int) {
         let cellHeight = self.frame.width / 3 - 2
-        let containerHeight = cellHeight * CGFloat(pofolCount / 3 + 1) + 150
+        
+        let containerHeight = pofolCount % 3 == 0 ? cellHeight * CGFloat(pofolCount / 3) + 150 : cellHeight * CGFloat(pofolCount / 3 + 1) + 150
         
         height.constant = containerHeight
     }
