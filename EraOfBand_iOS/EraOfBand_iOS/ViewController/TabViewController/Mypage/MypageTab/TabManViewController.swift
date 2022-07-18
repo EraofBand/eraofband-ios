@@ -15,7 +15,7 @@ class TabManViewController: TabmanViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let portfolioVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "PortfolioViewController")
         let bandVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "BandViewController")
         let lessonVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "LessonViewController")
@@ -38,12 +38,6 @@ class TabManViewController: TabmanViewController {
 extension TabManViewController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        //        let item = TMBarItem(title: "")
-        //        item.title = "Page \(index)"
-        //        item.image = UIImage(named: "image.png")
-        //
-        //        return item
-        
         // MARK: - Tab 안 글씨들
         switch index {
         case 0:
