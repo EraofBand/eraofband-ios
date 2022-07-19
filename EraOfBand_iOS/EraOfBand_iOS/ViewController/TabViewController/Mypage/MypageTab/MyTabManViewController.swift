@@ -9,7 +9,7 @@ import UIKit
 import Tabman
 import Pageboy
 
-class TabManViewController: TabmanViewController {
+class MyTabManViewController: TabmanViewController {
 
     var viewControllers: Array<UIViewController> = []
     
@@ -35,7 +35,7 @@ class TabManViewController: TabmanViewController {
     
 }
 
-extension TabManViewController: PageboyViewControllerDataSource, TMBarDataSource {
+extension MyTabManViewController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         // MARK: - Tab 안 글씨들

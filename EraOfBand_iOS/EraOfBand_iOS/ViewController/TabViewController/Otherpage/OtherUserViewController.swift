@@ -12,12 +12,21 @@ class OtherUserViewController: UIViewController {
 
     var userIdx: Int?
     
+    @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNickNameLabel: UILabel!
     @IBOutlet weak var userInfoLabel: UILabel!
     @IBOutlet weak var userIntroLabel: UILabel!
     @IBOutlet weak var userSessionLabel: UILabel!
-    @IBOutlet weak var followingLabel: UIButton!
-    @IBOutlet weak var followerLabel: UIButton!
+    @IBOutlet weak var userFollowingButton: UIButton!
+    @IBOutlet weak var userFollowerButton: UIButton!
+    @IBOutlet weak var userPofolLabel: UILabel!
+    
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var messageButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
+    
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var userData: UserDataModel?
@@ -45,6 +54,22 @@ class OtherUserViewController: UIViewController {
         userInfoLabel.text = "\(userData?.result.getUser.region ?? "") / \(userAge) / \(userGender)"
 
         userIntroLabel.text = userData?.result.getUser.introduction
+        
+        userPofolLabel.text = String((userData?.result.getUser.pofolCount)!)
+        
+        userFollowerButton.setTitle(String((userData?.result.getUser.followerCount)!), for: .normal)
+        
+        userFollowingButton.setTitle(String((userData?.result.getUser.followeeCount)!), for: .normal)
+        
+        containerView.updateHeight(containerViewHeight, (userData?.result.getUser.pofolCount)!)
+        
+        guard let imageUrl = userData?.result.getUser.profileImgUrl else { return }
+        if let url = URL(string: imageUrl) {
+            userImageView.load(url: url)
+        } else {
+            userImageView.image = UIImage(named: "default_image")
+        }
+        userImageView.setRounded()
     }
     
     func getUserData(){
@@ -78,19 +103,17 @@ class OtherUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //print(userIdx!)
         getUserData()
+        
+        infoView.layer.cornerRadius = 15
+        followButton.layer.cornerRadius = 15
+        messageButton.layer.cornerRadius = 15
+        
+        userSessionLabel.layer.cornerRadius = 10
+        userSessionLabel.layer.borderWidth = 1
+        userSessionLabel.layer.borderColor = UIColor(named: "on_icon_color")?.cgColor
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

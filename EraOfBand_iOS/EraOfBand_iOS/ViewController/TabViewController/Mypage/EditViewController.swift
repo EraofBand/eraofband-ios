@@ -181,6 +181,7 @@ class EditViewController: UIViewController {
         districtTextField.inputView = districtPickerView
         
         saveButton.layer.cornerRadius = 10
+        addTapGesture()
         
     }
     
@@ -232,6 +233,16 @@ class EditViewController: UIViewController {
         }
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard(_:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc
+    private func hideKeyboard(_ sender: Any) {
+        view.endEditing(true)
     }
     
     
