@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zhS-KU-Sss">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Follow Tab Man View Controller-->
+        <scene sceneID="LKQ-ZY-DIu">
+            <objects>
+                <viewController storyboardIdentifier="FollowTabManViewController" hidesBottomBarWhenPushed="YES" id="zhS-KU-Sss" customClass="FollowTabManViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bD3-hg-RbI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Cck-f8-7iJ"/>
+                        <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kXp-BX-xsE">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="sGq-ac-e0z">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="backBtnTapped:" destination="zhS-KU-Sss" id="ZCm-0q-VrB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWc-A1-IPY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="68"/>
+        </scene>
+        <!--Following Table View Controller-->
+        <scene sceneID="lGm-Rb-j0o">
+            <objects>
+                <viewController storyboardIdentifier="FollowingTableViewController" id="owa-us-tIn" customClass="FollowingTableViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YiY-Mk-klN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xxb-T6-Uba">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" red="0.065940469500000001" green="0.065940469500000001" blue="0.065940469500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="vls-V3-glR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="barTintColor" red="0.065940469500000001" green="0.065940469500000001" blue="0.065940469500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FollowTableViewCell" rowHeight="64" id="eMI-nL-ATf" customClass="FollowTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eMI-nL-ATf" id="vIk-Pg-qv1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="LL0-jM-Mps">
+                                                    <rect key="frame" x="20" y="12" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="CqA-Rn-VNX"/>
+                                                        <constraint firstAttribute="height" constant="40" id="UTa-Na-Gzw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUl-3U-T0m">
+                                                    <rect key="frame" x="76" y="23" width="37" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjL-rb-JA0">
+                                                    <rect key="frame" x="328" y="18" width="66" height="28"/>
+                                                    <color key="backgroundColor" red="0.12549020350000001" green="0.13333332540000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="66" id="E7b-ZO-MjY"/>
+                                                        <constraint firstAttribute="height" constant="28" id="dmh-KW-HlM"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="팔로잉">
+                                                        <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PUl-3U-T0m" firstAttribute="leading" secondItem="LL0-jM-Mps" secondAttribute="trailing" constant="16" id="22k-gN-ip8"/>
+                                                <constraint firstItem="LL0-jM-Mps" firstAttribute="leading" secondItem="vIk-Pg-qv1" secondAttribute="leading" constant="20" id="9sR-aK-Loj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sjL-rb-JA0" secondAttribute="trailing" id="JTJ-yz-jlN"/>
+                                                <constraint firstItem="LL0-jM-Mps" firstAttribute="centerY" secondItem="vIk-Pg-qv1" secondAttribute="centerY" id="jsy-YZ-zVI"/>
+                                                <constraint firstItem="PUl-3U-T0m" firstAttribute="centerY" secondItem="LL0-jM-Mps" secondAttribute="centerY" id="zBF-2a-1xE"/>
+                                                <constraint firstItem="sjL-rb-JA0" firstAttribute="centerY" secondItem="vIk-Pg-qv1" secondAttribute="centerY" id="ztL-wc-f7C"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="followBtn" destination="sjL-rb-JA0" id="icI-vc-I3d"/>
+                                            <outlet property="nickNameLabel" destination="PUl-3U-T0m" id="box-eN-EBc"/>
+                                            <outlet property="profileImgView" destination="LL0-jM-Mps" id="0rM-G6-1Hz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9nF-bw-jwa"/>
+                        <color key="backgroundColor" red="0.065940469500000001" green="0.065940469500000001" blue="0.065940469500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xxb-T6-Uba" firstAttribute="top" secondItem="9nF-bw-jwa" secondAttribute="top" id="IcJ-Dj-uJH"/>
+                            <constraint firstItem="9nF-bw-jwa" firstAttribute="trailing" secondItem="xxb-T6-Uba" secondAttribute="trailing" id="bMw-Dz-h9u"/>
+                            <constraint firstItem="9nF-bw-jwa" firstAttribute="bottom" secondItem="xxb-T6-Uba" secondAttribute="bottom" id="iQT-yl-86p"/>
+                            <constraint firstItem="xxb-T6-Uba" firstAttribute="leading" secondItem="9nF-bw-jwa" secondAttribute="leading" id="wY3-4X-p86"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="xxb-T6-Uba" id="aKN-5H-5En"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DRN-vF-qxp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695.6521739130435" y="787.5"/>
+        </scene>
+        <!--Follower Table View Controller-->
+        <scene sceneID="3ND-Dr-U8g">
+            <objects>
+                <viewController storyboardIdentifier="FollowerTableViewController" id="LKQ-UX-ms7" customClass="FollowerTableViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="clX-QR-i80">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="팔로워" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUo-in-xPb">
+                                <rect key="frame" x="184.5" y="437.5" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iv4-S2-p4o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jUo-in-xPb" firstAttribute="centerX" secondItem="clX-QR-i80" secondAttribute="centerX" id="Tcd-Wo-ah2"/>
+                            <constraint firstItem="jUo-in-xPb" firstAttribute="centerY" secondItem="clX-QR-i80" secondAttribute="centerY" id="tyk-X0-b3f"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HRq-sW-PQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1575" y="788"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="default_image" width="170.5" height="170.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
