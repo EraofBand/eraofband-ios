@@ -19,7 +19,6 @@ class PortfolioViewController: UIViewController{
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
-        //print(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!))
         
         AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
                    method: .get,
@@ -53,9 +52,6 @@ class PortfolioViewController: UIViewController{
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
         
-
-        porfolCollectionView.contentSize
-        
         getPofolList()
 
     }
@@ -81,15 +77,8 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .gray
         
-        //cell.porfolButton.addTarget(self, action: #selector(cellTapped(sender: self, indexPath: indexPath)), for: .touchUpInside)
-        
         return cell
     }
-    
-    /*
-    @objc func cellTapped(sender: UIButton, indexPath: IndexPath){
-        print("test")
-    }*/
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
