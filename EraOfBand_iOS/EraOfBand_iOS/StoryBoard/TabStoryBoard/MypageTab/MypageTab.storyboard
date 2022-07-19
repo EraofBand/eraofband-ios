@@ -90,6 +90,9 @@
                                                                                 </fragment>
                                                                             </attributedString>
                                                                         </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="followingBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JXe-AL-KtX"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -294,7 +297,6 @@
                                 <state key="normal" image="ic_floating"/>
                                 <connections>
                                     <segue destination="CkD-Ht-Q1N" kind="push" id="HXv-x1-YAB"/>
-
                                 </connections>
                             </button>
                         </subviews>
@@ -359,6 +361,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSP-zn-2JM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1788" y="312"/>
+        </scene>
+        <!--FollowingTable-->
+        <scene sceneID="Ppk-My-2PU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="FollowTabManViewController" storyboardName="FollowingTable" id="Sya-50-xZy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdk-kc-lpJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1536" y="424"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="qiS-gr-Nsb">
