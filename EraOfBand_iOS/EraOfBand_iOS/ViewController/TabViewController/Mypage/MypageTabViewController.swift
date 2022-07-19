@@ -43,6 +43,7 @@ class MypageTabViewController: UIViewController {
         infoView.layer.cornerRadius = 15
         sessionView.layer.cornerRadius = 15
         bottomView.layer.cornerRadius = 15
+        containerView.layer.cornerRadius = 15
         
         
     }
@@ -84,12 +85,11 @@ class MypageTabViewController: UIViewController {
                     
                     let followeeCount = data.followeeCount
                     followingButton.setTitle(String(followeeCount), for: .normal)
-                    /*
-                     self.followingButton.titleLabel!.font = UIFont(name: "Pretendard-Bold", size: 40)
-                     */
                     
                     let followerCount = data.followerCount
                     followerButton.setTitle(String(followerCount), for: .normal)
+                    
+                    porfolLabel.text = String(data.pofolCount)
                     
                     let imageUrl = data.profileImgUrl
                     if let url = URL(string: imageUrl) {
