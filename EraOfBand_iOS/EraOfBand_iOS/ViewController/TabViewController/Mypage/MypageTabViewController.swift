@@ -119,6 +119,16 @@ class MypageTabViewController: UIViewController {
         }
     }
     
+    @IBAction func followingBtnTapped(_ sender: Any) {
+        
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        followVC.myNickName = nickNameLabel.text
+        
+        navigationController?.pushViewController(followVC, animated: true)
+    }
+    
+    
     @IBAction func changeSession(_ sender: Any) {
         
         guard let sessionVC = storyboard?.instantiateViewController(withIdentifier: "SessionViewController") as? SessionViewController else { return }
