@@ -30,6 +30,7 @@ class OtherUserViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var userData: UserDataModel?
+    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -60,6 +61,9 @@ class OtherUserViewController: UIViewController {
         userFollowerButton.setTitle(String((userData?.result.getUser.followerCount)!), for: .normal)
         
         userFollowingButton.setTitle(String((userData?.result.getUser.followeeCount)!), for: .normal)
+        
+        let sessionNum: Int = (userData?.result.getUser.session)!
+        userSessionLabel.text = sessionData[sessionNum]
         
         containerView.updateHeight(containerViewHeight, (userData?.result.getUser.pofolCount)!)
         
