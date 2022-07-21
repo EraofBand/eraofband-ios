@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public var myKakaoData: kakaoData!
     public var jwt: String = ""
     public var userIdx: Int?
+    public var otherUserIdx: Int?
     
     let kakaoKey = Bundle.main.kakaoKey
 
