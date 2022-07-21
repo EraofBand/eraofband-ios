@@ -31,6 +31,7 @@
 		A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351B72886761200078C9E /* OtherBandViewController.swift */; };
 		A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351B92887EDCD00078C9E /* LabelPadding.swift */; };
 		A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351BB28884C6300078C9E /* ImgUrlModel.swift */; };
+		A81351BE2889753800078C9E /* BodyStringEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351BD2889753800078C9E /* BodyStringEncoding.swift */; };
 		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
 		A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */; };
 		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
@@ -133,6 +134,7 @@
 		A81351B72886761200078C9E /* OtherBandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBandViewController.swift; sourceTree = "<group>"; };
 		A81351B92887EDCD00078C9E /* LabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPadding.swift; sourceTree = "<group>"; };
 		A81351BB28884C6300078C9E /* ImgUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgUrlModel.swift; sourceTree = "<group>"; };
+		A81351BD2889753800078C9E /* BodyStringEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyStringEncoding.swift; sourceTree = "<group>"; };
 		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
 		A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				A81351A62882A8CD00078C9E /* NetworkResult.swift */,
 				A81351A42882A79400078C9E /* GetUserDataService.swift */,
+				A81351BD2889753800078C9E /* BodyStringEncoding.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -459,11 +462,8 @@
 				BC1ED49E288116B700A5B931 /* LoginUserData.swift */,
 				BCD3C2312882FE3B00562FB4 /* CommentData.swift */,
 				A8573628287DB2C500E2F0AB /* UserDataModel.swift */,
-
 				A81351BB28884C6300078C9E /* ImgUrlModel.swift */,
-
 				BC2E991E2886F48C0034CBD9 /* FollowData.swift */,
-
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -645,6 +645,7 @@
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
+				A81351BE2889753800078C9E /* BodyStringEncoding.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
@@ -832,7 +833,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7RWD3A283;
+				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -863,7 +864,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7RWD3A283;
+				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
