@@ -64,7 +64,7 @@ struct GetOtherUser: Codable{
     var pofolCount: Int = 0
     var profileImgUrl: String = ""
     var region: String = ""
-    var session: Int = 0
+    var userSession: Int = 0
     var userIdx: Int = 0
 
 }
