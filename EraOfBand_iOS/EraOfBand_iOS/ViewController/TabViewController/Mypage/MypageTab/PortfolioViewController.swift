@@ -20,7 +20,7 @@ class PortfolioViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/pofols/info/" + String(appDelegate.userIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -33,7 +33,7 @@ class PortfolioViewController: UIViewController{
                     let getData = try JSONDecoder().decode(PofolData.self, from: dataJSON)
                     //print(response)
                     self.pofolList = getData.result
-                    print(self.pofolList)
+                    //print(self.pofolList)
                     self.porfolCollectionView.reloadData()
                 }catch{
                     print(error.localizedDescription)
@@ -83,6 +83,7 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
         myPofolTableVC.selectedIndex = indexPath
+        myPofolTableVC.userIdx = appDelegate.userIdx ?? 0
                 
         self.navigationController?.pushViewController(myPofolTableVC, animated: true)
     }
