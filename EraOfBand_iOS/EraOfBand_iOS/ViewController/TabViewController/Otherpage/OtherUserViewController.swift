@@ -29,7 +29,11 @@ class OtherUserViewController: UIViewController {
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
+
     var userData: OtherUserDataModel?
+
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -117,6 +121,9 @@ class OtherUserViewController: UIViewController {
         
         userFollowingButton.setTitle(String((userData?.result.getUser.followerCount)!), for: .normal)
         
+        let sessionNum: Int = (userData?.result.getUser.userSession)!
+        userSessionLabel.text = sessionData[sessionNum]
+        
         containerView.updateHeight(containerViewHeight, (userData?.result.getUser.pofolCount)!)
         
         guard let imageUrl = userData?.result.getUser.profileImgUrl else { return }
@@ -133,7 +140,7 @@ class OtherUserViewController: UIViewController {
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/users/" + String(userIdx!),
+        AF.request(appDelegate.baseUrl + "/users/info/" + String(userIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header

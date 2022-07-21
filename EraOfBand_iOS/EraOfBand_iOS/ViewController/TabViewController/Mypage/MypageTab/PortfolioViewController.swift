@@ -13,6 +13,7 @@ class PortfolioViewController: UIViewController{
     var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
     
     @IBOutlet weak var porfolCollectionView: UICollectionView!
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func getPofolList(){
