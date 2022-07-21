@@ -99,7 +99,7 @@ class MypageTabViewController: UIViewController {
                     }
                     userImageView.setRounded()
                     
-                    session = data.session
+                    session = data.userSession
                     sessionLabel.text = sessionData[session]
                     
                     containerView.updateHeight(containerViewHeight, data.pofolCount)
@@ -115,7 +115,7 @@ class MypageTabViewController: UIViewController {
             case .networkFail:
                 print("networkFail")
             }
-            
+    
         }
     }
     

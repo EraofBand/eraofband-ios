@@ -74,7 +74,7 @@ extension RegisterViewController5: UICollectionViewDataSource{
             cell.iconBorderView.layer.borderColor = UIColor(red: 0.094, green: 0.392, blue: 0.992, alpha: 1).cgColor
             myRegisterData.setSession(newSession: indexPath.row)
             
-            print(myRegisterData.session)
+            print(myRegisterData.userSession)
         }else{
             cell.checkBtn.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
             cell.checkBtn.tintColor = UIColor.white
