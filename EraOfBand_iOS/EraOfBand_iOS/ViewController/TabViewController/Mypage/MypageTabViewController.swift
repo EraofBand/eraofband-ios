@@ -51,8 +51,10 @@ class MypageTabViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         GetUserDataService.shared.getUserInfo { [self](response) in
+            
             switch(response) {
             case .success(let userData):
+                print(userData)
                 /*서버 연동 성공*/
                 if let data = userData as? User {
                     let data = data.getUser
@@ -84,10 +86,9 @@ class MypageTabViewController: UIViewController {
                     }
                     
                     let followeeCount = data.followeeCount
-                    followingButton.setTitle(String(followeeCount), for: .normal)
-                    
                     let followerCount = data.followerCount
-                    followerButton.setTitle(String(followerCount), for: .normal)
+                    followingButton.setTitle(String(followerCount), for: .normal)
+                    followerButton.setTitle(String(followeeCount), for: .normal)
                     
                     porfolLabel.text = String(data.pofolCount)
                     
@@ -118,6 +119,25 @@ class MypageTabViewController: UIViewController {
     
         }
     }
+    
+    @IBAction func followingBtnTapped(_ sender: Any) {
+        
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        followVC.myNickName = nickNameLabel.text
+        followVC.currentPage = "Following"
+        
+        navigationController?.pushViewController(followVC, animated: true)
+    }
+    @IBAction func followerBtnTapped(_ sender: Any) {
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        followVC.myNickName = nickNameLabel.text
+        followVC.currentPage = "Follower"
+        
+        navigationController?.pushViewController(followVC, animated: true)
+    }
+    
     
     @IBAction func changeSession(_ sender: Any) {
         
