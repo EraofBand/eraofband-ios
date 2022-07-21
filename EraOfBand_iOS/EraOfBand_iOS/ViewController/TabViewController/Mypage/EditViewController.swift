@@ -38,27 +38,40 @@ class EditViewController: UIViewController {
     
     var gender: String = "MALE"
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var imgUrl: String = ""
+    
+    func documentDirectoryPath() -> URL? {
+        let path = FileManager.default.urls(for: .documentDirectory,
+                                            in: .userDomainMask)
+        return path.first
+    }
   
     
-    func getImgUrl(_ imageData: UIImage?) {
-                
+    func getImgUrl(_ image: UIImage?) {
+        
         let urlString = appDelegate.baseUrl + "/api/v1/upload"
         let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
         
-        let upload = AF.upload(multipartFormData: { multipartFormData in
-            if let image = imageData?.jpegData(compressionQuality: 1.0) {
-                multipartFormData.append(image, withName: "testImg", fileName: "\(image).jpg", mimeType: "image/jpg")
-            } else {
-                print("이미지 파일변환 실패")
-            }
+        AF.upload(multipartFormData: { multipartFormData in
+
+            let imageData: NSData = image!.jpegData(compressionQuality: 0.50)! as NSData
+            let imgString = imageData.base64EncodedString(options: .init(rawValue: 0))
+            print("imageData: \(imageData)")
+            print("imgString: \(imgString)")
             
-        }, to: urlString, method: .post, headers: header)
-        
-        upload.responseDecodable(of: ImgUrlModel.self) { response in
+            multipartFormData.append(imageData as Data, withName: "file", fileName: "test.jpg", mimeType: "image/jpg")
+
+        }, to: urlString, method: .post, headers: header).responseDecodable(of: ImgUrlModel.self) { response in
+            
+            print(response.value)
+            
             guard let imgInfo = response.value else { return }
+            print(imgInfo.result)
+            self.imgUrl = imgInfo.result
             
-            print(imgInfo.message)
         }
+        
+        
     }
     
     /*레이아웃 구성 함수*/
@@ -206,7 +219,7 @@ class EditViewController: UIViewController {
                                                "gender": gender,
                                                "introduction": introduceTextField.text,
                                                "nickName": nickNameTextField.text!,
-                                               "profileImgUrl": "",
+                                               "profileImgUrl": imgUrl,
                                                "region": region,
                                                "userIdx": appDelegate.userIdx!]
         
