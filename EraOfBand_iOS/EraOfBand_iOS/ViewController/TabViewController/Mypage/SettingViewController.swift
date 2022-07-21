@@ -6,9 +6,25 @@
 //
 
 import UIKit
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class SettingViewController: UIViewController {
+    
+    @IBAction func logOutBtnTapped(_ sender: Any) {
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("logout() success.")
+                self.dismiss(animated: true)
+            }
+        }
 
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
