@@ -11,6 +11,8 @@ import Pageboy
 
 class FollowTabManViewController: TabmanViewController{
     
+    var currentPage = "Following"
+    
     private var viewControllers: Array<UIViewController> = []
     var myNickName: String?
     
@@ -61,8 +63,13 @@ extension FollowTabManViewController: PageboyViewControllerDataSource, TMBarData
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        return nil
+        if(currentPage == "Following"){
+            return .first
+        }else{
+            return .last
+        }
     }
+    
     
     func settingTabBar (ctBar : TMBar.ButtonBar) {
         ctBar.layout.transitionStyle = .snap

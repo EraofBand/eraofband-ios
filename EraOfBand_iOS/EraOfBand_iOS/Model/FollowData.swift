@@ -9,7 +9,7 @@ import Foundation
 
 struct FollowData: Codable{
     var code: Int?
-    var isSuccess: String?
+    var isSuccess: Bool?
     var result: FollowResult?
 }
 
