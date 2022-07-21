@@ -167,8 +167,9 @@ class OtherUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         getUserData()
+
         
         infoView.layer.cornerRadius = 15
         followButton.layer.cornerRadius = 15
@@ -178,6 +179,12 @@ class OtherUserViewController: UIViewController {
         userSessionLabel.layer.borderWidth = 1
         userSessionLabel.layer.borderColor = UIColor(named: "on_icon_color")?.cgColor
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        appDelegate.otherUserIdx = self.userIdx
     }
     
 

@@ -29,7 +29,7 @@ class PofolTableViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(self.userIdx),
+        AF.request(appDelegate.baseUrl + "/pofols/info/" + String(self.userIdx),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -58,7 +58,7 @@ class PofolTableViewController: UIViewController{
             "Content-Type": "application/json"]
         //print(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!))
         
-        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/pofols/info/" + String(self.userIdx),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -137,8 +137,6 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
             cell.likeImg.tintColor = .white
             cell.likeBtn.addTarget(self, action: #selector(postLike(sender:)), for: .touchUpInside)
         }
-        
-        
         
         return cell
     }

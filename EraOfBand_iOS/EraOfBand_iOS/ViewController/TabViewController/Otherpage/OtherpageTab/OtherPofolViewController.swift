@@ -12,6 +12,7 @@ class OtherPofolViewController: UIViewController {
     
     var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
     
+    
     @IBOutlet weak var pofolCollectionView: UICollectionView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -21,7 +22,7 @@ class OtherPofolViewController: UIViewController {
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/pofols/info/" + String(appDelegate.otherUserIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -49,9 +50,11 @@ class OtherPofolViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //print(userIdx)
+        
         pofolCollectionView.delegate = self
         pofolCollectionView.dataSource = self
+        getPofolList()
     
     }
     
@@ -60,7 +63,7 @@ class OtherPofolViewController: UIViewController {
 extension OtherPofolViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 5
+        return pofolList.count
 
 
     }
@@ -78,7 +81,7 @@ extension OtherPofolViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
         myPofolTableVC.selectedIndex = indexPath
-        
+        myPofolTableVC.userIdx = appDelegate.otherUserIdx ?? 0
                 
         self.navigationController?.pushViewController(myPofolTableVC, animated: true)
     }
