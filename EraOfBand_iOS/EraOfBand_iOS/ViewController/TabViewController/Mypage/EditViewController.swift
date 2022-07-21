@@ -55,9 +55,8 @@ class EditViewController: UIViewController {
         AF.upload(multipartFormData: { multipartFormData in
 
             let imageData: NSData = image!.jpegData(compressionQuality: 0.50)! as NSData
-            let imgString = imageData.base64EncodedString(options: .init(rawValue: 0))
+            
             print("imageData: \(imageData)")
-            print("imgString: \(imgString)")
             
             multipartFormData.append(imageData as Data, withName: "file", fileName: "test.jpg", mimeType: "image/jpg")
 
