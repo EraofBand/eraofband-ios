@@ -12,9 +12,15 @@ struct UserDataModel: Codable {
     var code: Int = 0
     var isSuccess: Bool = true
     var message: String = ""
-    var result: User
+    var result: User?
 }
 
+struct OtherUserDataModel: Codable{
+    var code: Int = 0
+    var isSuccess: Bool = true
+    var message: String = ""
+    var result: OtherUser
+}
 
 // MARK: User
 struct User: Codable {
@@ -24,6 +30,11 @@ struct User: Codable {
     var getUserPofol: [GetUserPofol]?
 }
 
+struct OtherUser: Codable {
+    var getUser: GetOtherUser
+    var getUserBand: [GetUserBand]?
+    var getUserPofol: [GetUserPofol]?
+}
 
 // MARK: 유저 기본 정보
 struct GetUser: Codable {
@@ -36,7 +47,22 @@ struct GetUser: Codable {
     var pofolCount: Int = 0
     var profileImgUrl: String = ""
     var region: String = ""
+    var userSession: Int = 0
+}
+
+struct GetOtherUser: Codable{
+    var birth: String = ""
+    var follow: Int = 0
+    var followeeCount: Int = 0
+    var followerCount: Int = 0
+    var gender: String = ""
+    var introduction: String?
+    var nickName: String = ""
+    var pofolCount: Int = 0
+    var profileImgUrl: String = ""
+    var region: String = ""
     var session: Int = 0
+    var userIdx: Int = 0
 }
 
 
@@ -47,16 +73,20 @@ struct GetUserBand: Codable {
     var bandIntroduction: String = ""
     var bandRegion: String = ""
     var bandTitle: String = ""
+    var capacity: Int = 0
+    var memberCount: Int = 0
 }
 
 
 // MARK: 유저 레슨 정보
 struct GetUserLesson: Codable {
+    var capacity: Int = 0
     var lessonIdx: Int = 0
     var lessonImgUrl: String = ""
     var lessonIntroduction: String = ""
     var lessonRegion: String = ""
     var lessonTitle: String = ""
+    var memberCount: Int = 0
 }
 
 

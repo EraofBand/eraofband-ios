@@ -22,7 +22,7 @@ class LoginViewController: UIViewController{
     func checkRegistered(){
  
         AF.request(appDelegate.baseUrl + "/users/login/" + appDelegate.myKakaoData.kakaoEmail,
-                   method: .patch,
+                   method: .post,
                    encoding: JSONEncoding.default,
                    headers: header).responseJSON { response in
             switch response.result{

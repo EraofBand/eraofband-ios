@@ -14,6 +14,8 @@ class PofolTableViewController: UIViewController{
     var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var userIdx: Int = 0
+    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -26,9 +28,8 @@ class PofolTableViewController: UIViewController{
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
-        //print(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!))
         
-        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(self.userIdx),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header

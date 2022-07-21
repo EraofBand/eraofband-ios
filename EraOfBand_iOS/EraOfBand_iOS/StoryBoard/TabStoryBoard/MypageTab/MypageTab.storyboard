@@ -129,6 +129,9 @@
                                                                         <state key="normal" title="140">
                                                                             <color key="titleColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="followerBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cnh-lq-lGg"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
