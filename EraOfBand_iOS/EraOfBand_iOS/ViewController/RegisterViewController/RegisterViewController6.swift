@@ -34,7 +34,7 @@ class RegisterViewController6: UIViewController{
                     "nickName": myRegisterData.nickName,
                     "profileImgUrl": myRegisterData.profileImgUrl,
                     "region": myRegisterData.region,
-                    "session": myRegisterData.session
+                    "userSession": myRegisterData.userSession
                     ],
                    encoding: JSONEncoding.default,
                    headers: header).responseJSON{ response in

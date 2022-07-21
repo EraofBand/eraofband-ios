@@ -6,14 +6,12 @@
 //
 
 import UIKit
+import PhotosUI
 import Alamofire
 
 class EditViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
-    
-    let imagePicker = UIImagePickerController()
-    
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var introduceView: UIView!
     @IBOutlet weak var introduceTextField: UITextField!
@@ -40,30 +38,27 @@ class EditViewController: UIViewController {
     
     var gender: String = "MALE"
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  
     
-    @IBAction func cameraButton(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let library = UIAlertAction(title: "사진앨범", style: .default) {
-            (action) in self.openLibrary()
+    func getImgUrl(_ imageData: UIImage?) {
+                
+        let urlString = appDelegate.baseUrl + "/api/v1/upload"
+        let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
+        
+        let upload = AF.upload(multipartFormData: { multipartFormData in
+            if let image = imageData?.jpegData(compressionQuality: 1.0) {
+                multipartFormData.append(image, withName: "testImg", fileName: "\(image).jpg", mimeType: "image/jpg")
+            } else {
+                print("이미지 파일변환 실패")
+            }
+            
+        }, to: urlString, method: .post, headers: header)
+        
+        upload.responseDecodable(of: ImgUrlModel.self) { response in
+            guard let imgInfo = response.value else { return }
+            
+            print(imgInfo.message)
         }
-        let camera = UIAlertAction(title: "카메라", style: .default) {
-            (action) in self.openCamera()
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        alert.addAction(library)
-        alert.addAction(camera)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func openLibrary(){
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: false, completion: nil)
-    }
-
-    func openCamera(){
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: false, completion: nil)
     }
     
     /*레이아웃 구성 함수*/
@@ -160,9 +155,6 @@ class EditViewController: UIViewController {
         }
         
         /*프로필 편집 기본 레이아웃*/
-        imagePicker.delegate = self
-        
-        
         self.navigationItem.title = "프로필 변경"
         self.navigationItem.titleView?.tintColor = .white
         self.navigationController?.navigationBar.tintColor = .white
@@ -182,6 +174,15 @@ class EditViewController: UIViewController {
         
         saveButton.layer.cornerRadius = 10
         addTapGesture()
+        
+    }
+    
+    @IBAction func cameraButton(_ sender: Any) {
+        if #available(iOS 14, *){
+            pickImage()
+        } else {
+            openGallery()
+        }
         
     }
     
@@ -248,16 +249,75 @@ class EditViewController: UIViewController {
     
 }
 
-extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage]{
-            profileImageView.image = image as! UIImage
-            profileImageView.contentMode = .scaleAspectFill
-            profileImageView.setRounded()
-        }
-        dismiss(animated: true, completion: nil)
+extension EditViewController: PHPickerViewControllerDelegate {
+    
+    func pickImage() {
+        let photoLibrary = PHPhotoLibrary.shared()
+        var configuration = PHPickerConfiguration(photoLibrary: photoLibrary)
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        configuration.preferredAssetRepresentationMode = .current
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
+
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                DispatchQueue.main.async {
+                    self.profileImageView.image = image as? UIImage
+                    
+                    self.getImgUrl(self.profileImageView.image)
+                    
+                    let identifiers = results.compactMap(\.assetIdentifier)
+                    let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
+                    if let filename = fetchResult.firstObject?.value(forKey: "filename") as? String {
+                        
+                        print("가져온 파일의 이름 : \(filename)")
+                        
+                    }
+            
+                }
+            }
+        }
+    }
+    
+}
+
+extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func openGallery(){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            DispatchQueue.main.async {
+                self.profileImageView.image = image
+            }
+            
+            var fileName: String = ""
+            if let asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset{
+                fileName = asset.value(forKey: "filename") as? String ?? ""
+                print(fileName)
+            }
+            
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
 extension EditViewController: UIPickerViewDelegate, UIPickerViewDataSource {

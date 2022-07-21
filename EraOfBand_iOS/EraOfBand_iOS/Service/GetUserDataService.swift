@@ -21,7 +21,7 @@ struct GetUserDataService {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let URL = appDelegate.baseUrl + "/users/info/my-page/" + String(appDelegate.userIdx!)
-        print(URL)
+
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
         
@@ -35,15 +35,13 @@ struct GetUserDataService {
             switch dataResponse.result {
             case .success:
                 // dataResponse.statusCode는 Response의 statusCode - 200/400/500
-                guard let statusCode = dataResponse.response?.statusCode else {return}
+                guard let statusCode = dataResponse.response?.statusCode else { return }
                 // dataResponse.value는 Response의 결과 데이터
                 guard let value = dataResponse.value else { return }
                 
                 let networkResult = self.judgeStatus(by: statusCode, value)
                 completion(networkResult)
                 
-                // 통신 실패의 경우, completion에 pathErr값을 담아서 뷰컨으로 날려줍니다.
-                // 타임아웃 / 통신 불가능의 상태로 통신 자체에 실패한 경우입니다.
             case .failure:
                 print("error")
                 completion(.pathErr)

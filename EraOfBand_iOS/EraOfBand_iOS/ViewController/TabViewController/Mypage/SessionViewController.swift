@@ -30,8 +30,8 @@ class SessionViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        let params: Dictionary<String, Any?> = ["session": session,
-                                                "userIdx": appDelegate.userIdx]
+        let params: Dictionary<String, Any?> = ["userIdx": appDelegate.userIdx,
+                                                "userSession": session]
         
         let urlString = appDelegate.baseUrl + "/users/user-session"
         let header: HTTPHeaders = ["x-access-token": appDelegate.jwt,
