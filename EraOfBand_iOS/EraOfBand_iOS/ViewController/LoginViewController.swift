@@ -22,7 +22,7 @@ class LoginViewController: UIViewController{
     func checkRegistered(){
  
         AF.request(appDelegate.baseUrl + "/users/login/" + appDelegate.myKakaoData.kakaoEmail,
-                   method: .patch,
+                   method: .post,
                    encoding: JSONEncoding.default,
                    headers: header).responseJSON { response in
             switch response.result{
@@ -40,14 +40,25 @@ class LoginViewController: UIViewController{
                         self.appDelegate.jwt = getData.result.jwt ?? ""
                         self.appDelegate.userIdx = getData.result.userIdx!
                         
-                        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else {return}
+                        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
                         mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
                     
                         self.present(mainTabBarVC, animated: true)
                     }
                     
-                }catch{
-                    print(error.localizedDescription)
+                } catch let DecodingError.dataCorrupted(context) {
+                    print(context)
+                } catch let DecodingError.keyNotFound(key, context) {
+                    print("Key '\(key)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.valueNotFound(value, context) {
+                    print("Value '\(value)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.typeMismatch(type, context)  {
+                    print("Type '\(type)' mismatch:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch {
+                    print("error: ", error)
                 }
             default:
                 print("login failed")

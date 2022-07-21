@@ -62,7 +62,7 @@ class OtherUserViewController: UIViewController {
         
         userFollowingButton.setTitle(String((userData?.result.getUser.followeeCount)!), for: .normal)
         
-        let sessionNum: Int = (userData?.result.getUser.session)!
+        let sessionNum: Int = (userData?.result.getUser.userSession)!
         userSessionLabel.text = sessionData[sessionNum]
         
         containerView.updateHeight(containerViewHeight, (userData?.result.getUser.pofolCount)!)
@@ -81,7 +81,7 @@ class OtherUserViewController: UIViewController {
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/users/" + String(userIdx!),
+        AF.request(appDelegate.baseUrl + "/users/info/" + String(userIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header

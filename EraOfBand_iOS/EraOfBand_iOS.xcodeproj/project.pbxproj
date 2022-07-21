@@ -30,6 +30,7 @@
 		A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351B52886760500078C9E /* OtherPofolViewController.swift */; };
 		A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351B72886761200078C9E /* OtherBandViewController.swift */; };
 		A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351B92887EDCD00078C9E /* LabelPadding.swift */; };
+		A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351BB28884C6300078C9E /* ImgUrlModel.swift */; };
 		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
 		A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */; };
 		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
@@ -125,6 +126,7 @@
 		A81351B52886760500078C9E /* OtherPofolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPofolViewController.swift; sourceTree = "<group>"; };
 		A81351B72886761200078C9E /* OtherBandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBandViewController.swift; sourceTree = "<group>"; };
 		A81351B92887EDCD00078C9E /* LabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPadding.swift; sourceTree = "<group>"; };
+		A81351BB28884C6300078C9E /* ImgUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgUrlModel.swift; sourceTree = "<group>"; };
 		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
 		A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				BC1ED49E288116B700A5B931 /* LoginUserData.swift */,
 				BCD3C2312882FE3B00562FB4 /* CommentData.swift */,
 				A8573628287DB2C500E2F0AB /* UserDataModel.swift */,
+				A81351BB28884C6300078C9E /* ImgUrlModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
+				A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */,
 				BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
@@ -796,6 +800,8 @@
 				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -825,6 +831,8 @@
 				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -18,13 +18,8 @@ struct UserModel
     var pofolCount: Int
     var profileImgUrl: String
     var region: String
-    var session: Int
+    var userSession: Int
     var userIdx: Int
     
-    /*
-    init(birth: String, followeeCount: Int, followerCount: Int){
-        self.name = name
-        self.icon = icon
-    }*/
     
 }

@@ -9,7 +9,43 @@ import UIKit
 import Alamofire
 
 class OtherPofolViewController: UIViewController {
+    
+    var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
+    
     @IBOutlet weak var pofolCollectionView: UICollectionView!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    func getPofolList(){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!),
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj,
+                                           options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(PofolData.self, from: dataJSON)
+                    //print(response)
+                    self.pofolList = getData.result
+                    print(self.pofolList)
+                    self.pofolCollectionView.reloadData()
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
+            }
+        }
+    }
+    
+    var pofolCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
