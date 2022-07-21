@@ -1231,7 +1231,7 @@
         <!--MainTabBar-->
         <scene sceneID="g4r-cd-lBg">
             <objects>
-                <viewControllerPlaceholder storyboardName="MainTabBar" id="DKv-wM-wEH" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="MainTabBar" storyboardName="MainTabBar" id="DKv-wM-wEH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOh-bF-R07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6022" y="134"/>
