@@ -21,6 +21,7 @@ struct GetUserDataService {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let URL = appDelegate.baseUrl + "/users/info/my-page/" + String(appDelegate.userIdx!)
+
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
         

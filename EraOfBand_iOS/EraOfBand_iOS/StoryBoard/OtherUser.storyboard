@@ -229,6 +229,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="팔로우"/>
+                                                <connections>
+                                                    <action selector="followBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MX9-D2-xAd"/>
+                                                </connections>
                                             </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tt-wL-tQd">
                                                 <rect key="frame" x="0.0" y="402.5" width="414" height="600"/>
@@ -390,6 +393,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPD-bN-fX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="481" y="1341"/>
+        </scene>
+        <!--MyPofolTable-->
+        <scene sceneID="cCv-5F-NMZ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PofolTableViewController" storyboardName="MyPofolTable" id="SYs-l0-4V1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vcm-lp-aSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="295" y="1795"/>
         </scene>
         <!--Other Band View Controller-->
         <scene sceneID="u3v-XL-qK4">
