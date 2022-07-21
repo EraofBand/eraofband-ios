@@ -22,7 +22,7 @@ class FollowingTableViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/users/follow-info/" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/users/info/follow/" + String(appDelegate.userIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -104,6 +104,7 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
     
     @objc func otherUserTapped(sender: UIButton){
         guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+        appDelegate.otherUserIdx = sender.tag
         otherUserVC.userIdx = sender.tag
         self.navigationController?.pushViewController(otherUserVC, animated: true)
     }

@@ -33,7 +33,7 @@ class PorfolCommentViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/" + String(pofolIdx!) + "/comment",
+        AF.request(appDelegate.baseUrl + "/pofols/comment/" + String(pofolIdx!),
                    method: .post,
                    parameters: [
                     "content": commentTextField.text ?? "",
@@ -69,7 +69,7 @@ class PorfolCommentViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/comment/" + "?pofolIdx=" + String(pofolIdx!),
+        AF.request(appDelegate.baseUrl + "/pofols/info/comment" + "?pofolIdx=" + String(pofolIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -162,6 +162,7 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
     @objc func profileBtnTapped(sender: UIButton){
         guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
         otherUserVC.userIdx = sender.tag
+        appDelegate.otherUserIdx = sender.tag
         self.navigationController?.pushViewController(otherUserVC, animated: true)
     }
     
