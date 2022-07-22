@@ -106,6 +106,7 @@ class RegisterViewController2: UIViewController{
         birthdayTextField.inputAccessoryView = toolbar
         
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date()
         birthdayTextField.inputView = datePicker
