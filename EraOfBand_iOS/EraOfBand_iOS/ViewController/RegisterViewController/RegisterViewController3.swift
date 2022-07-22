@@ -17,10 +17,20 @@ class RegisterViewController3: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var plusImgView: UIImageView!
     
     @IBAction func nextBtnTapped(_ sender: Any) {
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController4") as? RegisterViewController4 else {return}
-        nextVC.myRegisterData = myRegisterData
         
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        PostUserService.getImgUrl(profileImgView.image!) { [self] (isSuccess, result) in
+            if isSuccess {
+                let imgUrl = result
+                
+                myRegisterData.setProfileImgUrl(newProfileImgUrl: imgUrl)
+                
+                guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController4") as? RegisterViewController4 else {return}
+                nextVC.myRegisterData = myRegisterData
+                
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        }
+        
     }
     
     @IBAction func backBtnTapped(_ sender: Any) {
