@@ -81,7 +81,6 @@
 		BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */; };
 		BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC636131287DA62400DFA6D2 /* UserModel.swift */; };
 		BC636135287DB47300DFA6D2 /* AddPofolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC636134287DB47300DFA6D2 /* AddPofolViewController.swift */; };
-		BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC636136287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift */; };
 		BC6DD51F28785D030067D6B5 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = BC6DD51E28785D030067D6B5 /* KakaoSDK */; };
 		BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC6DD520287861EE0067D6B5 /* ApiKey.plist */; };
 		BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */; };
@@ -175,7 +174,6 @@
 		BC4B5C1D2871C4510072A5FF /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		BC636131287DA62400DFA6D2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		BC636134287DB47300DFA6D2 /* AddPofolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPofolViewController.swift; sourceTree = "<group>"; };
-		BC636136287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAccessTokenAdapter.swift; sourceTree = "<group>"; };
 		BC6DD520287861EE0067D6B5 /* ApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EraOfBand_iOS++Bundle.swift"; sourceTree = "<group>"; };
 		BC8502FE287732200022EA7B /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				A809A7BC286F283400B9E08D /* ViewController.swift */,
 				A809A7C6286F283600B9E08D /* Info.plist */,
 				BC6DD520287861EE0067D6B5 /* ApiKey.plist */,
-				BC636136287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift */,
 			);
 			path = EraOfBand_iOS;
 			sourceTree = "<group>";
@@ -625,7 +622,6 @@
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
 				A81351B0288561E000078C9E /* SessionChangeCollectionViewCell.swift in Sources */,
-				BC636137287DDB8200DFA6D2 /* JWTAccessTokenAdapter.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
 				A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */,
@@ -833,7 +829,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MMM58CZBQF;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -864,7 +860,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MMM58CZBQF;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
