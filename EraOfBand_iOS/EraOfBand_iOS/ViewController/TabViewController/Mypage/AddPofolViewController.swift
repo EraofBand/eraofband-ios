@@ -42,33 +42,35 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     
     @IBAction func saveBtnTapped(_ sender: Any) {
 
-        /*
-        do{
-            let videoData = try NSData(contentsOf: currentVideoUrl!)
-            PostUserService.getVideoUrl(videoData: videoData!)
-        }catch{
-            print(error)
-            return
+        PostUserService.getVideoUrl(videoUrl: self.currentVideoUrl!) { [self] (isSuccess, result) in
+            if isSuccess {
+                let header : HTTPHeaders = [
+                    "x-access-token": appDelegate.jwt,
+                    "Content-Type": "application/json"]
+                 
+                AF.request(appDelegate.baseUrl + "/pofols",
+                           method: .post,
+                           parameters: [
+                            "content": descriptionTextView.text ?? "",
+                            "imgUrl": "",
+                            "title": titleTextField.text ?? "",
+                            "userIdx": appDelegate.userIdx!,
+                            "videoUrl": result
+                            ],
+                           encoding: JSONEncoding.default,
+                            headers: header
+                ).responseJSON{ response in
+                    switch response.result {
+                    case .success:
+                        print("POST success")
+                    case .failure(let err):
+                        print(err)
+                    }
+                }
+                
+            }
         }
-        */
-        let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
-            "Content-Type": "application/json"]
-         
-        AF.request(appDelegate.baseUrl + "/pofols",
-                   method: .post,
-                   parameters: [
-                    "content": descriptionTextView.text ?? "",
-                    "imgUrl": "",
-                    "title": titleTextField.text ?? "",
-                    "userIdx": appDelegate.userIdx!,
-                    "videoUrl": ""
-                    ],
-                   encoding: JSONEncoding.default,
-                    headers: header
-        ).responseJSON{ response in
-            print(response)
-        }
+        
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -128,7 +130,6 @@ extension AddPofolViewController: MediaPickerDelegate{
         //let videoData = NSData(contentsOf: currentVideoUrl!)!
         //PostUserService.getVideoUrl(videoData: videoData)
         
-        PostUserService.getVideoUrl(videoUrl: currentVideoUrl!)
         
     }
     
@@ -138,7 +139,7 @@ extension AddPofolViewController: MediaPickerDelegate{
         
         self.currentVideoUrl = movieUrl
         
-        print(movieUrl)
+        //print(movieUrl)
         
         picker.dismiss(animated: true, completion: nil)
         self.didFinishPickingMedia(videoURL: movieUrl)
@@ -204,7 +205,7 @@ extension AddPofolViewController: MediaPickerDelegate{
                 let time = endDate.timeIntervalSince(startDate)
                 print(time)
                 print("Successful!")
-                print(exportSession.outputURL ?? "NO OUTPUT URL")
+                print("URL 보여줘 : ", exportSession.outputURL ?? "NO OUTPUT URL")
                 completionHandler?(exportSession.outputURL, nil)
                 
                 self.currentVideoUrl = exportSession.outputURL!
