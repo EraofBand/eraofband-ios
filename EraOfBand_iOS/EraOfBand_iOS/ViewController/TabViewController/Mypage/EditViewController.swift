@@ -19,6 +19,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
+    var fileName: String = ""
     
     @IBOutlet weak var birthTextField: UITextField!
     
@@ -41,24 +42,28 @@ class EditViewController: UIViewController {
   
     
     func getImgUrl(_ imageData: UIImage?) {
-                
+        //print("img url 함수 실행")
+        
+        let imageData = imageData!.jpegData(compressionQuality: 0.50)!
+        let imgString = imageData.base64EncodedString(options: .init(rawValue: 0))
+        
+        //print(imgString)
+        
         let urlString = appDelegate.baseUrl + "/api/v1/upload"
         let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
         
-        let upload = AF.upload(multipartFormData: { multipartFormData in
-            if let image = imageData?.jpegData(compressionQuality: 1.0) {
-                multipartFormData.append(image, withName: "testImg", fileName: "\(image).jpg", mimeType: "image/jpg")
-            } else {
-                print("이미지 파일변환 실패")
-            }
-            
-        }, to: urlString, method: .post, headers: header)
         
-        upload.responseDecodable(of: ImgUrlModel.self) { response in
-            guard let imgInfo = response.value else { return }
+        AF.upload(multipartFormData: {(multipart) in
             
-            print(imgInfo.message)
+            multipart.append(imageData, withName: "profile", fileName: self.fileName)
         }
+                  , to: urlString
+                  , method: .post
+                  , headers: header).responseJSON{ response in
+            
+            print(response)
+        }
+        
     }
     
     /*레이아웃 구성 함수*/
@@ -200,6 +205,8 @@ class EditViewController: UIViewController {
     
     @IBAction func saveAction(_ sender: Any) {
         
+        getImgUrl(profileImageView.image)
+        
         let region: String = cityTextField.text! + " " + districtTextField.text!
         
         let params: Dictionary<String, Any?> = ["birth": birthTextField.text!,
@@ -224,12 +231,19 @@ class EditViewController: UIViewController {
             print("http Body Error")
         }
         
-        AF.request(request).responseString { (response) in
+        AF.request(request).responseJSON { response in
             switch response.result {
-            case .success:
-                print("POST 성공")
-            case .failure(let error):
-                print(error.errorDescription!)
+            case .success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(ImgUrlModel.self, from: dataJSON)
+                    
+                    print(getData)
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
             }
         }
         
@@ -271,7 +285,7 @@ extension EditViewController: PHPickerViewControllerDelegate {
         
         if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     self.profileImageView.image = image as? UIImage
                     
                     self.getImgUrl(self.profileImageView.image)
@@ -281,6 +295,12 @@ extension EditViewController: PHPickerViewControllerDelegate {
                     if let filename = fetchResult.firstObject?.value(forKey: "filename") as? String {
                         
                         print("가져온 파일의 이름 : \(filename)")
+                        
+                        /*
+                        var imageData: NSData = self.profileImageView.image!.jpegData(compressionQuality: 0.5)! as NSData
+                        var imgString = imageData.base64EncodedString(options: .init(rawValue: 0))
+                        print("imageData: \(imageData)")
+                        print("imgString: \(imgString)")*/
                         
                     }
             
@@ -310,6 +330,7 @@ extension EditViewController: UIImagePickerControllerDelegate, UINavigationContr
             if let asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset{
                 fileName = asset.value(forKey: "filename") as? String ?? ""
                 print(fileName)
+                self.fileName = fileName
             }
             
         }
@@ -349,5 +370,20 @@ extension EditViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         
         self.view.endEditing(true)
+    }
+}
+
+extension UIImage{
+    var base64: String? {
+            self.jpegData(compressionQuality: 1)?.base64EncodedString()
+        }
+}
+
+extension String {
+    var imageFromBase64: UIImage? {
+        guard let imageData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
+            return nil
+        }
+        return UIImage(data: imageData)
     }
 }
