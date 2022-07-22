@@ -11,5 +11,9 @@ class PorfolCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var pofolImage: UIImageView!
     
-    
+    override func prepareForReuse() {
+        super .prepareForReuse()
+        
+        pofolImage.image = nil
+    }
 }
