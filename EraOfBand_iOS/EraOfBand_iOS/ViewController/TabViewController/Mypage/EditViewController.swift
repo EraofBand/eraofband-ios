@@ -15,6 +15,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var introduceView: UIView!
     @IBOutlet weak var introduceTextField: UITextField!
+    @IBOutlet weak var textCount: UILabel!
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -140,9 +141,7 @@ class EditViewController: UIViewController {
         }
         
         /*프로필 편집 기본 레이아웃*/
-        self.navigationItem.title = "프로필 변경"
-        self.navigationItem.titleView?.tintColor = .white
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.title = "프로필 편집"
         
         introduceView.layer.cornerRadius = 15
         setLayout()
@@ -217,7 +216,7 @@ class EditViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard(_:)))
         view.addGestureRecognizer(tapGesture)
     }
-
+    
     @objc
     private func hideKeyboard(_ sender: Any) {
         view.endEditing(true)
