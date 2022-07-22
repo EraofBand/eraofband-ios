@@ -963,6 +963,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <action selector="logOutBtnTapped:" destination="Aa8-Yx-xvZ" eventType="touchUpInside" id="wob-2a-y41"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logout" translatesAutoresizingMaskIntoConstraints="NO" id="LIK-MR-4NF">
                                                 <rect key="frame" x="25" y="17.5" width="20" height="20"/>
@@ -997,6 +1000,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <action selector="deleteUserBtnTapped:" destination="Aa8-Yx-xvZ" eventType="touchUpInside" id="W4p-Do-hui"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_secession" translatesAutoresizingMaskIntoConstraints="NO" id="050-pB-yxi">
                                                 <rect key="frame" x="25" y="17.5" width="20" height="20"/>
