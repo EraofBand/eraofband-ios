@@ -12,6 +12,7 @@ class MypageTabViewController: UIViewController {
     
     // 레이아웃 변수
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var introductionView: UIView!
     @IBOutlet weak var sessionView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -44,6 +45,15 @@ class MypageTabViewController: UIViewController {
         sessionView.layer.cornerRadius = 15
         bottomView.layer.cornerRadius = 15
         containerView.layer.cornerRadius = 15
+        
+        let newSize = introductionLabel.sizeThatFits(introductionView.frame.size)
+        introductionLabel.frame.size = newSize
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        backBarButtonItem.tintColor = .white
+        
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         
         
     }
@@ -175,7 +185,15 @@ extension UIView {
     func updateHeight(_ height: NSLayoutConstraint, _ pofolCount: Int) {
         let cellHeight = self.frame.width / 3 - 2
         
-        let containerHeight = pofolCount % 3 == 0 ? cellHeight * CGFloat(pofolCount / 3) + 150 : cellHeight * CGFloat(pofolCount / 3 + 1) + 150
+        var containerHeight: CGFloat = 350
+        
+        if pofolCount > 3 {
+            if pofolCount % 3 == 0 {
+                containerHeight = cellHeight * CGFloat(pofolCount / 3) + 150
+            } else {
+                containerHeight = cellHeight * CGFloat(pofolCount / 3 + 1) + 150
+            }
+        }
         
         height.constant = containerHeight
     }
