@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class PortfolioViewController: UIViewController{
     
@@ -77,6 +78,8 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .gray
+        
+        cell.pofolImage.image = KF.url(URL(string: pofolList[indexPath.row].))
         
         return cell
     }
