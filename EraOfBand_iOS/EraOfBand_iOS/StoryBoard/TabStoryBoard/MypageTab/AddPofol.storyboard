@@ -47,6 +47,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zc-g1-Rrs">
                                 <rect key="frame" x="20" y="123" width="374" height="252"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abr-0w-osM">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="addFileBtnTapped:" destination="uWp-o4-iET" eventType="touchUpInside" id="aeK-Lz-GVE"/>
+                                        </connections>
+                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down.doc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-nL-ajp">
                                         <rect key="frame" x="154" y="71" width="66" height="77"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -61,13 +69,24 @@
                                         <color key="textColor" name="on_icon_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bif-y7-zRw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16290172929999999" green="0.16290172929999999" blue="0.16290172929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Abr-0w-osM" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" id="1jf-Tc-UkF"/>
+                                    <constraint firstAttribute="trailing" secondItem="Abr-0w-osM" secondAttribute="trailing" id="3wh-h6-Xvg"/>
                                     <constraint firstItem="1cP-Bj-EYt" firstAttribute="centerX" secondItem="7Zc-g1-Rrs" secondAttribute="centerX" id="Ikm-WO-vGp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bif-y7-zRw" secondAttribute="bottom" id="N2O-c9-cEA"/>
                                     <constraint firstAttribute="height" constant="252" id="NTC-SF-OrQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Abr-0w-osM" secondAttribute="bottom" id="Sk9-tg-Egr"/>
+                                    <constraint firstItem="Abr-0w-osM" firstAttribute="leading" secondItem="7Zc-g1-Rrs" secondAttribute="leading" id="Uf8-hI-dkx"/>
                                     <constraint firstItem="xIV-nL-ajp" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" constant="71" id="WC3-if-snf"/>
+                                    <constraint firstItem="Bif-y7-zRw" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" id="bxV-q7-GVb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bif-y7-zRw" secondAttribute="trailing" id="kMC-VZ-XF0"/>
                                     <constraint firstItem="1cP-Bj-EYt" firstAttribute="top" secondItem="xIV-nL-ajp" secondAttribute="bottom" constant="11" id="oJx-vb-KGH"/>
+                                    <constraint firstItem="Bif-y7-zRw" firstAttribute="leading" secondItem="7Zc-g1-Rrs" secondAttribute="leading" id="pSE-6c-84T"/>
                                     <constraint firstItem="xIV-nL-ajp" firstAttribute="centerX" secondItem="7Zc-g1-Rrs" secondAttribute="centerX" id="vKL-Yj-cqm"/>
                                 </constraints>
                             </view>
@@ -110,6 +129,7 @@
                     <connections>
                         <outlet property="addFileView" destination="7Zc-g1-Rrs" id="bLh-od-1Br"/>
                         <outlet property="descriptionTextView" destination="1ex-Em-ws9" id="xaq-EX-WB6"/>
+                        <outlet property="thumbNailImageView" destination="Bif-y7-zRw" id="iKq-1a-m9u"/>
                         <outlet property="titleTextField" destination="snl-19-tw2" id="RAC-7f-Tk7"/>
                     </connections>
                 </viewController>
