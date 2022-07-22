@@ -33,37 +33,36 @@ class PostUserService {
         }
         
     }
-    /*
-    static func getVideoUrl(videoData: NSData){
+    
+    
+    static func getVideoUrl(videoUrl: URL, completion: @escaping (Bool, String) -> Void){
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let urlString = appDelegate.baseUrl + "/api/v1/upload"
         let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
         
         print("get video url test")
+        print("비디오 url 잘 들어오는지 확인 : \(videoUrl)")
         
-        AF.upload(multipartFormData: { multipartFormData in
+        let upload = AF.upload(multipartFormData: { multipartFormData in
             
-            multipartFormData.append(videoData as Data, withName: "video")
+            multipartFormData.append(videoUrl, withName: "file" , fileName: "movie.mp4", mimeType: "video/mp4")
             
-        }, to: urlString, method: .post, headers: header).responseJSON {response in
+        }, to: urlString, method: .post, headers: header)
+            
+        upload.uploadProgress(queue: .main, closure: { progress in
+            print("Upload Progress: (progress.fractionCompleted)")
+        }).responseJSON { response in
             print(response)
         }
         
-    }*/
-    
-    static func getVideoUrl(videoUrl: URL){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let urlString = appDelegate.baseUrl + "/api/v1/upload"
-        let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
-        
-        print("get video url test")
-        
-        AF.upload(multipartFormData: { multipartFormData in
+        upload.responseDecodable(of: ImgUrlModel.self) { response in
             
-            multipartFormData.append(videoUrl, withName: "video")
+            guard let videoUrl = response.value else { return }
+            print(videoUrl.result)
             
-        }, to: urlString, method: .post, headers: header).responseJSON {response in
-            print(response)
+            completion(true, videoUrl.result)
+            
         }
         
     }
