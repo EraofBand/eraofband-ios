@@ -33,6 +33,40 @@ class PostUserService {
         }
         
     }
+    /*
+    static func getVideoUrl(videoData: NSData){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let urlString = appDelegate.baseUrl + "/api/v1/upload"
+        let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
+        
+        print("get video url test")
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            
+            multipartFormData.append(videoData as Data, withName: "video")
+            
+        }, to: urlString, method: .post, headers: header).responseJSON {response in
+            print(response)
+        }
+        
+    }*/
+    
+    static func getVideoUrl(videoUrl: URL){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let urlString = appDelegate.baseUrl + "/api/v1/upload"
+        let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
+        
+        print("get video url test")
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            
+            multipartFormData.append(videoUrl, withName: "video")
+            
+        }, to: urlString, method: .post, headers: header).responseJSON {response in
+            print(response)
+        }
+        
+    }
     
     static func postUserInfo(_ params: Dictionary<String, Any?>, completion: @escaping(Bool) -> Void) {
         
