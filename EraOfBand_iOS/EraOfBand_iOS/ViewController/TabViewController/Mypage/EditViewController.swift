@@ -39,31 +39,12 @@ class EditViewController: UIViewController {
     
     var gender: String = "MALE"
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  
+    var imgUrl: String = ""
     
-    func getImgUrl(_ imageData: UIImage?) {
-        //print("img url 함수 실행")
-        
-        let imageData = imageData!.jpegData(compressionQuality: 0.50)!
-        let imgString = imageData.base64EncodedString(options: .init(rawValue: 0))
-        
-        //print(imgString)
-        
-        let urlString = appDelegate.baseUrl + "/api/v1/upload"
-        let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
-        
-        
-        AF.upload(multipartFormData: {(multipart) in
-            
-            multipart.append(imageData, withName: "profile", fileName: self.fileName)
-        }
-                  , to: urlString
-                  , method: .post
-                  , headers: header).responseJSON{ response in
-            
-            print(response)
-        }
-        
+    func documentDirectoryPath() -> URL? {
+        let path = FileManager.default.urls(for: .documentDirectory,
+                                            in: .userDomainMask)
+        return path.first
     }
     
     /*레이아웃 구성 함수*/
@@ -205,45 +186,28 @@ class EditViewController: UIViewController {
     
     @IBAction func saveAction(_ sender: Any) {
         
-        getImgUrl(profileImageView.image)
-        
-        let region: String = cityTextField.text! + " " + districtTextField.text!
-        
-        let params: Dictionary<String, Any?> = ["birth": birthTextField.text!,
-                                               "gender": gender,
-                                               "introduction": introduceTextField.text,
-                                               "nickName": nickNameTextField.text!,
-                                               "profileImgUrl": "",
-                                               "region": region,
-                                               "userIdx": appDelegate.userIdx!]
-        
-        let urlString = appDelegate.baseUrl + "/users/user-info"
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
-                                    "Content-Type": "application/json"]
-        
-        var request = URLRequest(url: URL(string: urlString)!)
-        request.httpMethod = "PATCH"
-        request.headers = header
-        
-        do {
-            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
-        } catch {
-            print("http Body Error")
-        }
-        
-        AF.request(request).responseJSON { response in
-            switch response.result {
-            case .success(let obj):
-                do{
-                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(ImgUrlModel.self, from: dataJSON)
+        PostUserService.getImgUrl(profileImageView.image) { [self] (isSuccess, result) in
+            if isSuccess {
+                imgUrl = result
+                
+                let region: String = cityTextField.text! + " " + districtTextField.text!
+                
+                let params: Dictionary<String, Any?> = ["birth": birthTextField.text!,
+                                                       "gender": gender,
+                                                       "introduction": introduceTextField.text,
+                                                       "nickName": nickNameTextField.text!,
+                                                       "profileImgUrl": imgUrl,
+                                                       "region": region,
+                                                       "userIdx": appDelegate.userIdx!]
+                
+                PostUserService.postUserInfo(params) { response in
+                    if response {
+                        print("어헣ㅎ 잘되네")
+                    } else {
+                        print("뭐가 문제야")
+                    }
                     
-                    print(getData)
-                }catch{
-                    print(error.localizedDescription)
                 }
-            default:
-                return
             }
         }
         
@@ -287,8 +251,6 @@ extension EditViewController: PHPickerViewControllerDelegate {
             itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
                 DispatchQueue.main.async { [self] in
                     self.profileImageView.image = image as? UIImage
-                    
-                    self.getImgUrl(self.profileImageView.image)
                     
                     let identifiers = results.compactMap(\.assetIdentifier)
                     let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
