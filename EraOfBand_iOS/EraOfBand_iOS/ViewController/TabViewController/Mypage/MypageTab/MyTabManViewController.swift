@@ -79,8 +79,8 @@ func settingTabBar (ctBar : TMBar.ButtonBar) {
     
     // 선택 / 안선택 색 + font size
     ctBar.buttons.customize { (button) in
-        button.tintColor = UIColor(named: "on_icon_color")
-        button.selectedTintColor = .white
+        button.tintColor = .white
+        button.selectedTintColor = UIColor(named: "on_icon_color")
         button.font = UIFont.systemFont(ofSize: 16)
         button.selectedFont = UIFont.systemFont(ofSize: 16, weight: .medium)
     }
