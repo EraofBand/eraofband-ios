@@ -490,7 +490,7 @@
         <!--프로필 편집-->
         <scene sceneID="Quh-xJ-27n">
             <objects>
-                <viewController storyboardIdentifier="EditViewController" id="K4F-Y0-7eY" customClass="EditViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditViewController" hidesBottomBarWhenPushed="YES" id="K4F-Y0-7eY" customClass="EditViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Ud-sV-foC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
