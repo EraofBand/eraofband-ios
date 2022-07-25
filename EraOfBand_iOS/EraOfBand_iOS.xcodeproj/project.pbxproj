@@ -62,8 +62,8 @@
 		A858BC6C288EE59C00B87E30 /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC6B288EE59C00B87E30 /* BaseListViewController.swift */; };
 		A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC6D288EE5B700B87E30 /* KeyboardListViewController.swift */; };
 		A858BC70288EE5C500B87E30 /* DrumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC6F288EE5C400B87E30 /* DrumListViewController.swift */; };
+		A858BC72288EF3F100B87E30 /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC71288EF3F100B87E30 /* BandListViewController.swift */; };
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
-		A86FFB88288EBCED00F57F5A /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86FFB87288EBCED00F57F5A /* BandListViewController.swift */; };
 		A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */; };
 		A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */; };
 		A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */; };
@@ -178,8 +178,8 @@
 		A858BC6B288EE59C00B87E30 /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		A858BC6D288EE5B700B87E30 /* KeyboardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardListViewController.swift; sourceTree = "<group>"; };
 		A858BC6F288EE5C400B87E30 /* DrumListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumListViewController.swift; sourceTree = "<group>"; };
+		A858BC71288EF3F100B87E30 /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
-		A86FFB87288EBCED00F57F5A /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
 		A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabManViewController.swift; sourceTree = "<group>"; };
 		A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionMatch.storyboard; sourceTree = "<group>"; };
 		A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonMatch.storyboard; sourceTree = "<group>"; };
@@ -383,7 +383,6 @@
 		A858BC62288EE15600B87E30 /* BandListTab */ = {
 			isa = PBXGroup;
 			children = (
-				A86FFB87288EBCED00F57F5A /* BandListViewController.swift */,
 				A858BC63288EE37E00B87E30 /* BandListTanManController.swift */,
 				A858BC65288EE57B00B87E30 /* AllListViewController.swift */,
 				A858BC67288EE58900B87E30 /* VocalListViewController.swift */,
@@ -400,12 +399,9 @@
 			children = (
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
 				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
-
+				A858BC71288EF3F100B87E30 /* BandListViewController.swift */,
 				A858BC62288EE15600B87E30 /* BandListTab */,
-
-				
 				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
-
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -753,16 +749,15 @@
 				BC1ED494288027A100A5B931 /* PofolData.swift in Sources */,
 				A858BC68288EE58900B87E30 /* VocalListViewController.swift in Sources */,
 				BC2E99212886F72F0034CBD9 /* FollowTableViewCell.swift in Sources */,
+				A858BC72288EF3F100B87E30 /* BandListViewController.swift in Sources */,
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
-				A86FFB88288EBCED00F57F5A /* BandListViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
-
 				A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */,
-
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
-
+				A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */,
+				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
@@ -960,7 +955,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7RWD3A283;
+				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -991,7 +986,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7RWD3A283;
+				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
