@@ -36,10 +36,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paP-Sv-d5t" userLabel="Inner Scroll View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="803"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="784"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8c4-sd-HlP">
-                                                <rect key="frame" x="20" y="34" width="374" height="271.5"/>
+                                                <rect key="frame" x="20" y="15" width="374" height="271.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wxa-35-dtc">
                                                         <rect key="frame" x="23" y="40" width="100" height="100"/>
@@ -210,13 +210,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세션" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb2-SY-DxD">
-                                                <rect key="frame" x="20" y="320.5" width="28" height="19.5"/>
+                                                <rect key="frame" x="20" y="301.5" width="28" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFK-w8-6Xf">
-                                                <rect key="frame" x="20" y="355.5" width="374" height="64.5"/>
+                                                <rect key="frame" x="20" y="336.5" width="374" height="64.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkl-bp-g0o">
                                                         <rect key="frame" x="286.5" y="16.5" width="72.5" height="31.5"/>
@@ -255,14 +255,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RF-gf-HwR">
-                                                <rect key="frame" x="0.0" y="450" width="414" height="65"/>
+                                                <rect key="frame" x="0.0" y="431" width="414" height="65"/>
                                                 <color key="backgroundColor" red="0.12549019607843137" green="0.13333333333333333" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="65" id="bHK-w0-0vp"/>
                                                 </constraints>
                                             </view>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-pz-2O3">
-                                                <rect key="frame" x="0.0" y="483" width="414" height="370"/>
+                                                <rect key="frame" x="0.0" y="464" width="414" height="370"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="250" constant="370" id="hMg-0J-3BF"/>
                                                 </constraints>
@@ -275,7 +275,7 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="WB4-pz-2O3" secondAttribute="bottom" constant="-50" id="6r6-SE-t5a"/>
                                             <constraint firstItem="oFK-w8-6Xf" firstAttribute="centerX" secondItem="8c4-sd-HlP" secondAttribute="centerX" id="Ejk-mm-oXE"/>
-                                            <constraint firstItem="8c4-sd-HlP" firstAttribute="top" secondItem="paP-Sv-d5t" secondAttribute="top" constant="34" id="KUI-cO-4cO"/>
+                                            <constraint firstItem="8c4-sd-HlP" firstAttribute="top" secondItem="paP-Sv-d5t" secondAttribute="top" constant="15" id="KUI-cO-4cO"/>
                                             <constraint firstItem="WB4-pz-2O3" firstAttribute="top" secondItem="3RF-gf-HwR" secondAttribute="bottom" constant="-32" id="Qmh-Nu-6i1"/>
                                             <constraint firstItem="oFK-w8-6Xf" firstAttribute="top" secondItem="8c4-sd-HlP" secondAttribute="bottom" constant="50" id="aJr-oB-Kh7"/>
                                             <constraint firstItem="3RF-gf-HwR" firstAttribute="top" secondItem="oFK-w8-6Xf" secondAttribute="bottom" constant="30" id="aZa-Z0-QZu"/>
@@ -1182,7 +1182,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dtA-Xj-mGe"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgN-KE-LFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
