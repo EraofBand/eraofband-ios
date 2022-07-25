@@ -108,6 +108,8 @@
 		BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3C22D2882FAC100562FB4 /* PorfolCommentViewController.swift */; };
 		BCD3C2302882FBB600562FB4 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3C22F2882FBB600562FB4 /* CommentTableViewCell.swift */; };
 		BCD3C2322882FE3B00562FB4 /* CommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3C2312882FE3B00562FB4 /* CommentData.swift */; };
+		BCE57816288ECBED00D441EB /* CreateBand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE57815288ECBED00D441EB /* CreateBand.storyboard */; };
+		BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE57817288EE52500D441EB /* CreateBandViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +216,8 @@
 		BCD3C22D2882FAC100562FB4 /* PorfolCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorfolCommentViewController.swift; sourceTree = "<group>"; };
 		BCD3C22F2882FBB600562FB4 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		BCD3C2312882FE3B00562FB4 /* CommentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentData.swift; sourceTree = "<group>"; };
+		BCE57815288ECBED00D441EB /* CreateBand.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateBand.storyboard; sourceTree = "<group>"; };
+		BCE57817288EE52500D441EB /* CreateBandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBandViewController.swift; sourceTree = "<group>"; };
 		D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.release.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -368,6 +372,7 @@
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
 				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
 				A86FFB87288EBCED00F57F5A /* BandListViewController.swift */,
+				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				A8BD5CB5288BEA66009E7A1B /* WishBand.storyboard */,
 				A8BD5CB7288BEA6F009E7A1B /* WishLesson.storyboard */,
 				A86FFB85288EBC3D00F57F5A /* BandList.storyboard */,
+				BCE57815288ECBED00D441EB /* CreateBand.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -506,12 +512,9 @@
 				A81351AF288561E000078C9E /* SessionChangeCollectionViewCell.swift */,
 				BCD3C22F2882FBB600562FB4 /* CommentTableViewCell.swift */,
 				BC2E99202886F72F0034CBD9 /* FollowTableViewCell.swift */,
-
 				A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */,
 				A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */,
-
 				BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */,
-
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				BC2E99162886CCDB0034CBD9 /* FollowingTable.storyboard in Resources */,
+				BCE57816288ECBED00D441EB /* CreateBand.storyboard in Resources */,
 				A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */,
 				A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */,
 				A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */,
@@ -718,6 +722,7 @@
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A86FFB88288EBCED00F57F5A /* BandListViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
+				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
@@ -912,7 +917,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MMM58CZBQF;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -927,7 +932,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.EOS.EraOfBand-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeonghyeon.EraOfBand-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -943,7 +948,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MMM58CZBQF;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -958,7 +963,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.EOS.EraOfBand-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeonghyeon.EraOfBand-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
