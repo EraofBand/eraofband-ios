@@ -77,6 +77,14 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="titleOnChanged:" destination="Sx6-De-L4h" eventType="editingChanged" id="pgm-rp-J4k"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="밴드를 표현하는 한 줄 소개를 작성해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tb2-bq-gPC">
                                                 <rect key="frame" x="20" y="220" width="374" height="42"/>
@@ -87,6 +95,14 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="shortIntroOnChanged:" destination="Sx6-De-L4h" eventType="editingChanged" id="HvW-x1-MKu"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="한 줄 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkJ-HB-DRJ">
                                                 <rect key="frame" x="20" y="279" width="79" height="18"/>
@@ -158,9 +174,55 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCg-Ej-NLe">
                                                 <rect key="frame" x="20" y="423" width="374" height="252"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_pic" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-2z-rxX">
+                                                        <rect key="frame" x="154.5" y="77" width="65" height="65"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="65" id="EES-DJ-5dS"/>
+                                                            <constraint firstAttribute="width" constant="65" id="vKX-3N-SIj"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진 추가하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84g-VD-f6q">
+                                                        <rect key="frame" x="138" y="162" width="98" height="21.5"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
+                                                        <color key="textColor" red="0.19215688110000001" green="0.38431376220000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드를 대표하는 사진 한 장을 추가해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjR-Cr-u5L">
+                                                        <rect key="frame" x="83" y="193.5" width="208" height="14.5"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
+                                                        <color key="textColor" red="0.88627451660000001" green="0.88627451660000001" blue="0.88627451660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qah-Z5-s7v">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBJ-Rg-F80">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="addImageBtnTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="K7V-Kp-Chz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Qah-Z5-s7v" secondAttribute="bottom" id="1gY-nX-GB6"/>
+                                                    <constraint firstItem="nB7-2z-rxX" firstAttribute="centerX" secondItem="CCg-Ej-NLe" secondAttribute="centerX" id="F1p-bB-VtA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cBJ-Rg-F80" secondAttribute="trailing" id="GaG-1V-ffl"/>
+                                                    <constraint firstItem="QjR-Cr-u5L" firstAttribute="top" secondItem="84g-VD-f6q" secondAttribute="bottom" constant="10" id="Phu-CO-QVW"/>
+                                                    <constraint firstItem="cBJ-Rg-F80" firstAttribute="leading" secondItem="CCg-Ej-NLe" secondAttribute="leading" id="S32-Y4-ybG"/>
                                                     <constraint firstAttribute="height" constant="252" id="THD-Yu-vuV"/>
+                                                    <constraint firstAttribute="bottom" secondItem="cBJ-Rg-F80" secondAttribute="bottom" id="Vea-mK-ryB"/>
+                                                    <constraint firstItem="nB7-2z-rxX" firstAttribute="top" secondItem="CCg-Ej-NLe" secondAttribute="top" constant="77" id="ae1-rE-vVc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Qah-Z5-s7v" secondAttribute="trailing" id="eBK-dm-DEQ"/>
+                                                    <constraint firstItem="Qah-Z5-s7v" firstAttribute="top" secondItem="CCg-Ej-NLe" secondAttribute="top" id="eLR-uL-x14"/>
+                                                    <constraint firstItem="QjR-Cr-u5L" firstAttribute="centerX" secondItem="CCg-Ej-NLe" secondAttribute="centerX" id="eQu-b8-5n6"/>
+                                                    <constraint firstItem="Qah-Z5-s7v" firstAttribute="leading" secondItem="CCg-Ej-NLe" secondAttribute="leading" id="m1g-qu-veS"/>
+                                                    <constraint firstItem="84g-VD-f6q" firstAttribute="centerX" secondItem="CCg-Ej-NLe" secondAttribute="centerX" id="nmF-d1-fVZ"/>
+                                                    <constraint firstItem="84g-VD-f6q" firstAttribute="top" secondItem="nB7-2z-rxX" secondAttribute="bottom" constant="20" id="t5i-9D-IFe"/>
+                                                    <constraint firstItem="cBJ-Rg-F80" firstAttribute="top" secondItem="CCg-Ej-NLe" secondAttribute="top" id="wBS-pV-Kya"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNg-to-eYp">
@@ -186,7 +248,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세션 모집 인원을 정해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFj-dy-RVk">
-                                                <rect key="frame" x="20" y="997" width="200" height="22"/>
+                                                <rect key="frame" x="20" y="997" width="199.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -200,9 +262,14 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="희망하는 세션의 특징을 간단하게 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="szT-pQ-g1k">
-                                                <rect key="frame" x="20" y="1112" width="374" height="42"/>
+                                                <rect key="frame" x="20" y="1111" width="374" height="42"/>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="Jm9-nF-Sjx"/>
@@ -210,24 +277,29 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자신의 세션 제외" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h9-uf-veZ">
-                                                <rect key="frame" x="20" y="1024" width="66" height="12"/>
+                                                <rect key="frame" x="20" y="1023" width="66" height="12"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="10"/>
                                                 <color key="textColor" red="0.73333334920000004" green="0.73333334920000004" blue="0.73333334920000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보컬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSx-2D-KFJ">
-                                                <rect key="frame" x="20" y="1068" width="35" height="24"/>
+                                                <rect key="frame" x="20" y="1067" width="35" height="24"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCk-bt-PNM">
-                                                <rect key="frame" x="295" y="1061" width="99" height="38"/>
+                                                <rect key="frame" x="295" y="1060" width="99" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoN-Kk-UdK">
-                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21.5"/>
+                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -240,6 +312,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus_icon"/>
+                                                        <connections>
+                                                            <action selector="vocalPlusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="XKP-ZE-GOO"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ul-ai-VUt">
                                                         <rect key="frame" x="15" y="15" width="8" height="8"/>
@@ -249,6 +324,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="minus_icon"/>
+                                                        <connections>
+                                                            <action selector="vocalMinusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="RbR-6D-qNa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -264,7 +342,7 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="희망하는 세션의 특징을 간단하게 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jop-b4-PH4">
-                                                <rect key="frame" x="20" y="1226" width="374" height="42"/>
+                                                <rect key="frame" x="20" y="1225" width="374" height="42"/>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="ZDb-WZ-sjN"/>
@@ -272,18 +350,23 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4a-QJ-TK5">
-                                                <rect key="frame" x="20" y="1182" width="35" height="24"/>
+                                                <rect key="frame" x="20" y="1181" width="35" height="24"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQR-Va-2zP">
-                                                <rect key="frame" x="295" y="1175" width="99" height="38"/>
+                                                <rect key="frame" x="295" y="1174" width="99" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4by-Jd-PdZ">
-                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21.5"/>
+                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -293,9 +376,13 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="8" id="81b-UC-L9N"/>
                                                             <constraint firstAttribute="width" constant="8" id="QKc-Ly-csm"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="8" id="t3k-ub-rux"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus_icon"/>
+                                                        <connections>
+                                                            <action selector="guitarPlusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="pHi-uP-AqK"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-jl-sGV">
                                                         <rect key="frame" x="15" y="15" width="8" height="8"/>
@@ -305,6 +392,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="minus_icon"/>
+                                                        <connections>
+                                                            <action selector="guitarMinusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="2gb-rg-oXb"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -320,7 +410,7 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="희망하는 세션의 특징을 간단하게 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-lp-hU4">
-                                                <rect key="frame" x="20" y="1339" width="374" height="42"/>
+                                                <rect key="frame" x="20" y="1338" width="374" height="42"/>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="RQk-7R-SQZ"/>
@@ -328,18 +418,23 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="베이스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM7-2c-ncN">
-                                                <rect key="frame" x="20" y="1295" width="52" height="24"/>
+                                                <rect key="frame" x="20" y="1294" width="52" height="24"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMu-LO-7aM">
-                                                <rect key="frame" x="295" y="1288" width="99" height="38"/>
+                                                <rect key="frame" x="295" y="1287" width="99" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5i-Gw-Pab">
-                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21.5"/>
+                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -352,6 +447,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus_icon"/>
+                                                        <connections>
+                                                            <action selector="bassPlusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="Kra-5T-Txv"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="425-oN-sd4">
                                                         <rect key="frame" x="15" y="15" width="8" height="8"/>
@@ -361,6 +459,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="minus_icon"/>
+                                                        <connections>
+                                                            <action selector="bassMinusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="iLO-17-pg6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -376,7 +477,7 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="희망하는 세션의 특징을 간단하게 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1m0-iM-QSN">
-                                                <rect key="frame" x="20" y="1452" width="374" height="42"/>
+                                                <rect key="frame" x="20" y="1451" width="374" height="42"/>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="Wd3-1n-g7S"/>
@@ -384,18 +485,23 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키보드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IC5-8A-wyE">
-                                                <rect key="frame" x="20" y="1408" width="52" height="24"/>
+                                                <rect key="frame" x="20" y="1407" width="52" height="24"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYR-RG-cs6">
-                                                <rect key="frame" x="295" y="1401" width="99" height="38"/>
+                                                <rect key="frame" x="295" y="1400" width="99" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYI-hr-rDw">
-                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21.5"/>
+                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -408,6 +514,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus_icon"/>
+                                                        <connections>
+                                                            <action selector="keyboardPlusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="Itb-Vy-Eiu"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSd-lb-JOp">
                                                         <rect key="frame" x="15" y="15" width="8" height="8"/>
@@ -417,6 +526,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="minus_icon"/>
+                                                        <connections>
+                                                            <action selector="keyboardMinusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="AYx-Ai-CXr"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -432,7 +544,7 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="희망하는 세션의 특징을 간단하게 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckn-Ah-wzK">
-                                                <rect key="frame" x="20" y="1565" width="374" height="42"/>
+                                                <rect key="frame" x="20" y="1564" width="374" height="42"/>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="hyV-UW-uMf"/>
@@ -440,18 +552,23 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="드럼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEC-gl-Mx5">
-                                                <rect key="frame" x="20" y="1521" width="35" height="24"/>
+                                                <rect key="frame" x="20" y="1520" width="35" height="24"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-Pg-AGI">
-                                                <rect key="frame" x="295" y="1514" width="99" height="38"/>
+                                                <rect key="frame" x="295" y="1513" width="99" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4m-0w-9MR">
-                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21.5"/>
+                                                        <rect key="frame" x="44" y="8.5" width="11.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -464,6 +581,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus_icon"/>
+                                                        <connections>
+                                                            <action selector="drumPlusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="eiO-aU-W1s"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngH-Sz-IAn">
                                                         <rect key="frame" x="15" y="15" width="8" height="8"/>
@@ -473,6 +593,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="minus_icon"/>
+                                                        <connections>
+                                                            <action selector="drumMinusTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="nbQ-OZ-oen"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -608,21 +731,36 @@
                         <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="kQH-Jt-b8T">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="backBtnTapped:" destination="Sx6-De-L4h" id="5nD-TE-t6W"/>
+                                <action selector="backBtnTapped:" destination="Sx6-De-L4h" id="2V9-vg-dHt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="bandImageView" destination="Qah-Z5-s7v" id="qtZ-H3-mEC"/>
+                        <outlet property="bassNumLabel" destination="L5i-Gw-Pab" id="aWx-8J-HcV"/>
+                        <outlet property="bassNumView" destination="TMu-LO-7aM" id="iIA-CK-dsT"/>
                         <outlet property="bassTextField" destination="iTh-lp-hU4" id="5Uv-u7-2il"/>
                         <outlet property="chatLinkTextField" destination="zSy-KX-zKn" id="y4K-Oo-mFr"/>
+                        <outlet property="cityTextField" destination="e1j-mw-OFb" id="UdZ-YK-geV"/>
+                        <outlet property="districtTextField" destination="0G2-Hi-p2P" id="BrV-Yi-5LA"/>
+                        <outlet property="drumNumLabel" destination="W4m-0w-9MR" id="vfe-Uk-WOF"/>
+                        <outlet property="drumNumView" destination="hGD-Pg-AGI" id="JtX-4j-zls"/>
                         <outlet property="drumTextField" destination="ckn-Ah-wzK" id="DZ3-es-xdc"/>
+                        <outlet property="guitarNumLabel" destination="4by-Jd-PdZ" id="Tfc-ui-z6N"/>
+                        <outlet property="guitarNumView" destination="PQR-Va-2zP" id="TE1-AB-0OB"/>
                         <outlet property="guitarTextField" destination="jop-b4-PH4" id="Vid-KT-TVe"/>
                         <outlet property="imageView" destination="CCg-Ej-NLe" id="4jc-Os-TW2"/>
                         <outlet property="introTextView" destination="U1R-cs-iol" id="bsr-k4-HVy"/>
+                        <outlet property="keyboardNumLabel" destination="LYI-hr-rDw" id="agl-7N-Kjz"/>
+                        <outlet property="keyboardNumView" destination="XYR-RG-cs6" id="i4x-Rt-VfX"/>
                         <outlet property="keyboardTextField" destination="1m0-iM-QSN" id="gcp-kH-k7S"/>
+                        <outlet property="longIntroLengthLabel" destination="hh7-H1-fl1" id="Zcn-df-uVi"/>
+                        <outlet property="shortIntroLengthLabel" destination="Who-22-NAL" id="07a-J1-9z9"/>
                         <outlet property="shortIntroTextField" destination="Tb2-bq-gPC" id="HXy-Vy-J0v"/>
+                        <outlet property="titleLengthLabel" destination="8NC-oL-YGn" id="jsh-a3-oke"/>
                         <outlet property="titleTextField" destination="MDg-ov-eKn" id="6dt-yi-3dS"/>
+                        <outlet property="vocalNumLabel" destination="IoN-Kk-UdK" id="XTj-BD-1nz"/>
                         <outlet property="vocalNumView" destination="DCk-bt-PNM" id="h7b-rE-MVR"/>
                         <outlet property="vocalTextField" destination="szT-pQ-g1k" id="WHh-CL-vHw"/>
                     </connections>
@@ -633,6 +771,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_pic" width="66.5" height="66.5"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="minus_icon" width="9.5" height="1.5"/>
