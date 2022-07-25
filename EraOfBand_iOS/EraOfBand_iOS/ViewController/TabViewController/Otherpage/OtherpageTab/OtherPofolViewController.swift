@@ -10,7 +10,8 @@ import Alamofire
 
 class OtherPofolViewController: UIViewController {
     
-    var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
+    var pofolList: [GetUserPofol] = [GetUserPofol(imgUrl: "", pofolIdx: 0)]
+    var thumbNailList: [String] = [""]
     
     
     @IBOutlet weak var pofolCollectionView: UICollectionView!
@@ -22,27 +23,17 @@ class OtherPofolViewController: UIViewController {
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofols/info/" + String(appDelegate.otherUserIdx!),
+        AF.request(appDelegate.baseUrl + "/users/info/" + String(appDelegate.otherUserIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
-        ).responseJSON{ response in
-            switch response.result{
-            case.success(let obj):
-                do{
-                    let dataJSON = try JSONSerialization.data(withJSONObject: obj,
-                                           options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(PofolData.self, from: dataJSON)
-                    //print(response)
-                    self.pofolList = getData.result
-                    print(self.pofolList)
-                    self.pofolCollectionView.reloadData()
-                }catch{
-                    print(error.localizedDescription)
-                }
-            default:
-                return
-            }
+        ).responseDecodable(of: OtherUserDataModel.self){ response in
+            
+            let responseData = response.value
+            print(responseData!)
+            self.pofolList = (responseData?.result.getUserPofol)!
+            
+            self.pofolCollectionView.reloadData()
         }
     }
     
@@ -75,13 +66,27 @@ extension OtherPofolViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .gray
         
+        if(pofolList[indexPath.row].imgUrl != ""){
+            cell.pofolImage.kf.setImage(with: URL(string: pofolList[indexPath.row].imgUrl))
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if(pofolList.count != 0){
+            self.thumbNailList[0] = pofolList[0].imgUrl
+        }
+        
+        for i in 1...pofolList.count - 1{
+            self.thumbNailList.append(pofolList[i].imgUrl)
+        }
+        
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
         myPofolTableVC.selectedIndex = indexPath
         myPofolTableVC.userIdx = appDelegate.otherUserIdx ?? 0
+        myPofolTableVC.thumbNailList = self.thumbNailList
                 
         self.navigationController?.pushViewController(myPofolTableVC, animated: true)
     }

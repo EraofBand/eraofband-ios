@@ -12,6 +12,7 @@ import Kingfisher
 class PortfolioViewController: UIViewController{
     
     var pofolList: [GetUserPofol] = [GetUserPofol(imgUrl: "", pofolIdx: 0)]
+    var thumbNailList: [String] = [""]
     
     @IBOutlet weak var porfolCollectionView: UICollectionView!
     
@@ -77,9 +78,21 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //print(pofolList)
+        
+        if(pofolList.count != 0){
+            self.thumbNailList[0] = pofolList[0].imgUrl
+        }
+        
+        for i in 1...pofolList.count - 1{
+            self.thumbNailList.append(pofolList[i].imgUrl)
+        }
+        
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
         myPofolTableVC.selectedIndex = indexPath
         myPofolTableVC.userIdx = appDelegate.userIdx ?? 0
+        myPofolTableVC.thumbNailList = self.thumbNailList
                 
         self.navigationController?.pushViewController(myPofolTableVC, animated: true)
     }

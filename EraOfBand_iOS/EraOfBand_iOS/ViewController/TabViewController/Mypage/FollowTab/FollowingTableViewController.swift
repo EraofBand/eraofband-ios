@@ -33,7 +33,7 @@ class FollowingTableViewController: UIViewController{
                     let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                     let getData = try JSONDecoder().decode(FollowData.self, from: dataJSON)
                     
-                    //print(getData)
+                    print(getData)
                     self.followingUserList = (getData.result?.getfollowing)!
                     //print(self.followingUserList)
                     self.filteredData = self.followingUserList
