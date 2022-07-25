@@ -55,6 +55,19 @@
 		A8573625287C49F800E2F0AB /* MyTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573624287C49F800E2F0AB /* MyTabManViewController.swift */; };
 		A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573626287D2F5300E2F0AB /* EditViewController.swift */; };
 		A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573628287DB2C500E2F0AB /* UserDataModel.swift */; };
+		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
+		A86FFB88288EBCED00F57F5A /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86FFB87288EBCED00F57F5A /* BandListViewController.swift */; };
+		A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */; };
+		A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */; };
+		A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */; };
+		A8BD5CB6288BEA66009E7A1B /* WishBand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB5288BEA66009E7A1B /* WishBand.storyboard */; };
+		A8BD5CB8288BEA6F009E7A1B /* WishLesson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB7288BEA6F009E7A1B /* WishLesson.storyboard */; };
+		A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CBA288BEAB5009E7A1B /* SessionMatchViewController.swift */; };
+		A8BD5CBD288BEAE8009E7A1B /* LessonMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CBC288BEAE8009E7A1B /* LessonMatchViewController.swift */; };
+		A8BD5CBF288BEAF2009E7A1B /* WishBandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CBE288BEAF2009E7A1B /* WishBandViewController.swift */; };
+		A8BD5CC1288BEAFB009E7A1B /* WishLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */; };
+		A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */; };
+		A8BD5CC5288BF588009E7A1B /* HomeBandCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
@@ -149,6 +162,19 @@
 		A8573624287C49F800E2F0AB /* MyTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabManViewController.swift; sourceTree = "<group>"; };
 		A8573626287D2F5300E2F0AB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		A8573628287DB2C500E2F0AB /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
+		A86FFB87288EBCED00F57F5A /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
+		A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabManViewController.swift; sourceTree = "<group>"; };
+		A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionMatch.storyboard; sourceTree = "<group>"; };
+		A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonMatch.storyboard; sourceTree = "<group>"; };
+		A8BD5CB5288BEA66009E7A1B /* WishBand.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishBand.storyboard; sourceTree = "<group>"; };
+		A8BD5CB7288BEA6F009E7A1B /* WishLesson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishLesson.storyboard; sourceTree = "<group>"; };
+		A8BD5CBA288BEAB5009E7A1B /* SessionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMatchViewController.swift; sourceTree = "<group>"; };
+		A8BD5CBC288BEAE8009E7A1B /* LessonMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonMatchViewController.swift; sourceTree = "<group>"; };
+		A8BD5CBE288BEAF2009E7A1B /* WishBandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishBandViewController.swift; sourceTree = "<group>"; };
+		A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishLessonViewController.swift; sourceTree = "<group>"; };
+		A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandCollectionViewCell.xib; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
@@ -262,7 +288,7 @@
 				BC1ED49528803F3900A5B931 /* MypageTab */,
 				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				A809A7D42871537B00B9E08D /* NoticeTab.storyboard */,
-				A809A7D62871538400B9E08D /* HomeTab.storyboard */,
+				A8BD5CB0288BE9E8009E7A1B /* HomeTab */,
 				A809A7D82871538D00B9E08D /* MessageTab.storyboard */,
 			);
 			path = TabStoryBoard;
@@ -313,7 +339,7 @@
 			children = (
 				A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */,
 				A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */,
-				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
+				A8BD5CAD288BE8CB009E7A1B /* Home */,
 				A85736102874C68C00E2F0AB /* MessageTabViewController.swift */,
 				A857361D287C43E100E2F0AB /* Mypage */,
 				BC636133287DB45F00DFA6D2 /* PorfolViewController */,
@@ -334,6 +360,41 @@
 				A81351AC2884150100078C9E /* MypageTab */,
 			);
 			path = Mypage;
+			sourceTree = "<group>";
+		};
+		A8BD5CAD288BE8CB009E7A1B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
+				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
+				A86FFB87288EBCED00F57F5A /* BandListViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A8BD5CB0288BE9E8009E7A1B /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				A809A7D62871538400B9E08D /* HomeTab.storyboard */,
+				A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */,
+				A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */,
+				A8BD5CB5288BEA66009E7A1B /* WishBand.storyboard */,
+				A8BD5CB7288BEA6F009E7A1B /* WishLesson.storyboard */,
+				A86FFB85288EBC3D00F57F5A /* BandList.storyboard */,
+			);
+			path = HomeTab;
+			sourceTree = "<group>";
+		};
+		A8BD5CB9288BEA86009E7A1B /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */,
+				A8BD5CBA288BEAB5009E7A1B /* SessionMatchViewController.swift */,
+				A8BD5CBC288BEAE8009E7A1B /* LessonMatchViewController.swift */,
+				A8BD5CBE288BEAF2009E7A1B /* WishBandViewController.swift */,
+				A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */,
+			);
+			path = HomeTab;
 			sourceTree = "<group>";
 		};
 		B71A2707C3ED5E437AF76117 /* Pods */ = {
@@ -445,7 +506,12 @@
 				A81351AF288561E000078C9E /* SessionChangeCollectionViewCell.swift */,
 				BCD3C22F2882FBB600562FB4 /* CommentTableViewCell.swift */,
 				BC2E99202886F72F0034CBD9 /* FollowTableViewCell.swift */,
+
+				A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */,
+				A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */,
+
 				BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */,
+
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -546,6 +612,7 @@
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
+				A8BD5CB6288BEA66009E7A1B /* WishBand.storyboard in Resources */,
 				A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */,
 				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
@@ -553,6 +620,8 @@
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				BC2E99162886CCDB0034CBD9 /* FollowingTable.storyboard in Resources */,
 				A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */,
+				A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */,
+				A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */,
 				BCD3C22C2882FA2F00562FB4 /* CommentTable.storyboard in Resources */,
 				A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */,
 				A8573618287534EF00E2F0AB /* Pretendard-Light.otf in Resources */,
@@ -565,6 +634,9 @@
 				BC1ED499288041B300A5B931 /* MyPofolTable.storyboard in Resources */,
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
 				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
+				A8BD5CB8288BEA6F009E7A1B /* WishLesson.storyboard in Resources */,
+				A8BD5CC5288BF588009E7A1B /* HomeBandCollectionViewCell.xib in Resources */,
+				A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */,
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
 				A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */,
 				BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */,
@@ -644,10 +716,12 @@
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
+				A86FFB88288EBCED00F57F5A /* BandListViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
+				A8BD5CC1288BEAFB009E7A1B /* WishLessonViewController.swift in Sources */,
 				BC2E991D2886CFF90034CBD9 /* FollowerTableViewController.swift in Sources */,
 				BC636135287DB47300DFA6D2 /* AddPofolViewController.swift in Sources */,
 				A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */,
@@ -657,6 +731,8 @@
 				A8573625287C49F800E2F0AB /* MyTabManViewController.swift in Sources */,
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
+				A8BD5CBD288BEAE8009E7A1B /* LessonMatchViewController.swift in Sources */,
+				A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
 				A81351B42886742900078C9E /* OtherTabmanViewController.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
@@ -675,6 +751,7 @@
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC8502FF287732200022EA7B /* SessionModel.swift in Sources */,
 				BC2E99182886CD960034CBD9 /* FollowTabManViewController.swift in Sources */,
+				A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
@@ -682,8 +759,10 @@
 				A81351AE2884572D00078C9E /* SessionViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
+				A8BD5CBF288BEAF2009E7A1B /* WishBandViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
+				A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
@@ -833,7 +912,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7RWD3A283;
+				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -864,7 +943,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7RWD3A283;
+				DEVELOPMENT_TEAM = MMM58CZBQF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";

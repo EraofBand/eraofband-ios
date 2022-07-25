@@ -41,6 +41,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
+
         PostUserService.getImgUrl(self.thumbNailImageView.image){
             [self] (isSuccess, imgResult) in
             if isSuccess{
@@ -74,6 +75,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
             }
         }
         
+
     }
 
     @IBAction func addFileBtnTapped(_ sender: Any) {
@@ -124,6 +126,7 @@ extension AddPofolViewController: MediaPickerDelegate{
     func didFinishPickingMedia(videoURL: URL) {
         self.thumbNailImageView.image = self.getThumbnailImage(forUrl: videoURL)
         
+
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -132,7 +135,7 @@ extension AddPofolViewController: MediaPickerDelegate{
         
         self.currentVideoUrl = movieUrl
         
-        print(movieUrl)
+        //print(movieUrl)
         
         picker.dismiss(animated: true, completion: nil)
         self.didFinishPickingMedia(videoURL: movieUrl)
@@ -152,6 +155,7 @@ extension AddPofolViewController: MediaPickerDelegate{
         return nil
     }
     
+
 }
 
 extension AddPofolViewController: UITextViewDelegate{

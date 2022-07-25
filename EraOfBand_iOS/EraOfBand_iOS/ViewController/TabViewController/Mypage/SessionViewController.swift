@@ -24,6 +24,8 @@ class SessionViewController: UIViewController {
 
         sessionCollectionView.delegate = self
         sessionCollectionView.dataSource = self
+        
+        self.navigationItem.title = "세션 변경"
 
         saveButton.layer.cornerRadius = 13
         
