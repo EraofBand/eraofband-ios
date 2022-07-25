@@ -1,53 +1,56 @@
 //
-//  TabmanViewController.swift
+//  HomeTabManViewController.swift
 //  EraOfBand_iOS
 //
-//  Created by 김영현 on 2022/07/11.
+//  Created by 김영현 on 2022/07/23.
 //
 
 import UIKit
 import Tabman
 import Pageboy
 
-class MyTabManViewController: TabmanViewController {
-
+class HomaeTabManViewController: TabmanViewController {
+    
     var viewControllers: Array<UIViewController> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+        let sessionMatchVC = UIStoryboard.init(name: "SessionMatch", bundle: nil).instantiateViewController(withIdentifier: "SessionMatchViewController")
+        let lessonMatchVC = UIStoryboard.init(name: "LessonMatch", bundle: nil).instantiateViewController(withIdentifier: "LessonMatchViewController")
+        let wishBandVC = UIStoryboard.init(name: "WishBand", bundle: nil).instantiateViewController(withIdentifier: "WishBandViewController")
+        let wishLessonVC = UIStoryboard.init(name: "WishLesson", bundle: nil).instantiateViewController(withIdentifier: "WishLessonViewController")
         
-        let portfolioVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "PortfolioViewController")
-        let bandVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "BandViewController")
-        let lessonVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "LessonViewController")
-        
-        viewControllers.append(portfolioVC)
-        viewControllers.append(bandVC)
-        viewControllers.append(lessonVC)
+        viewControllers.append(sessionMatchVC)
+        viewControllers.append(lessonMatchVC)
+        viewControllers.append(wishBandVC)
+        viewControllers.append(wishLessonVC)
+
         
         self.dataSource = self
         
         // MARK: 페이지 하단 탭 바
         let bar = TMBar.ButtonBar()
-        settingMypageTabBar(ctBar: bar) //함수 추후 구현
+        settingHomeTabBar(ctBar: bar) //함수 추후 구현
         addBar(bar, dataSource: self, at: .top)
        
     }
     
 }
 
-extension MyTabManViewController: PageboyViewControllerDataSource, TMBarDataSource {
+extension HomaeTabManViewController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         // MARK: - Tab 안 글씨들
         switch index {
         case 0:
-            return TMBarItem(title: "포트폴리오")
+            return TMBarItem(title: "세션 매칭")
         case 1:
-            return TMBarItem(title: "소속밴드")
+            return TMBarItem(title: "레슨 매칭")
         case 2:
-            return TMBarItem(title: "신청 레슨")
+            return TMBarItem(title: "찜한 밴드")
+        case 3:
+            return TMBarItem(title: "찜한 레슨")
         default:
             let title = "Page \(index)"
             return TMBarItem(title: title)
@@ -71,13 +74,12 @@ extension MyTabManViewController: PageboyViewControllerDataSource, TMBarDataSour
     
 }
 
-
-func settingMypageTabBar (ctBar : TMBar.ButtonBar) {
+func settingHomeTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.transitionStyle = .snap
     
-    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     
-    ctBar.layout.interButtonSpacing = 70
+    ctBar.layout.interButtonSpacing = 35
     
     ctBar.backgroundView.style = .clear
     
@@ -85,8 +87,8 @@ func settingMypageTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.buttons.customize { (button) in
         button.tintColor = .white
         button.selectedTintColor = UIColor(named: "on_icon_color")
-        button.font = UIFont(name: "Pretendard-Medium", size: 14)!
-        button.selectedFont = UIFont(name: "Pretendard-Bold", size: 14)!
+        button.font = UIFont(name: "Pretendard-Medium", size: 17)!
+        button.selectedFont = UIFont(name: "Pretendard-Medium", size: 17)!
     }
     
     // 인디케이터

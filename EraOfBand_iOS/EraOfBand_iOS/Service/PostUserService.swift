@@ -36,15 +36,18 @@ class PostUserService {
     
     
     static func getVideoUrl(videoUrl: URL, completion: @escaping (Bool, String) -> Void){
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let urlString = appDelegate.baseUrl + "/api/v1/upload"
         let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
         
         print("get video url test")
-        print(videoUrl)
+        print("비디오 url 잘 들어오는지 확인 : \(videoUrl)")
+
         
-        AF.upload(multipartFormData: { multipartFormData in
+        let upload = AF.upload(multipartFormData: { multipartFormData in
             
+
             multipartFormData.append(videoUrl, withName: "file", fileName: "video.mp4", mimeType: "video/mp4")
             
         }, to: urlString, method: .post, headers: header).responseDecodable(of: ImgUrlModel.self) {response in
@@ -53,6 +56,7 @@ class PostUserService {
             print(videoInfo.result)
             
             completion(true, videoInfo.result)
+
         }
         
     }

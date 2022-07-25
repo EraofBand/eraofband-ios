@@ -1,18 +1,18 @@
 //
-//  BandViewController.swift
+//  WishBandViewController.swift
 //  EraOfBand_iOS
 //
-//  Created by 김영현 on 2022/07/11.
+//  Created by 김영현 on 2022/07/23.
 //
 
 import UIKit
 
-class BandViewController: UIViewController {
+class WishBandViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+        // Do any additional setup after loading the view.
     }
     
 

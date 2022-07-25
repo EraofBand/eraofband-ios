@@ -12,8 +12,10 @@ class MypageTabViewController: UIViewController {
     
     // 레이아웃 변수
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var introductionView: UIView!
     @IBOutlet weak var sessionView: UIView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var tabConerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
@@ -36,14 +38,55 @@ class MypageTabViewController: UIViewController {
     var session: Int = 0
     var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
     
+    @IBAction func followingBtnTapped(_ sender: Any) {
+        
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        followVC.myNickName = nickNameLabel.text
+        followVC.currentPage = "Following"
+        
+        navigationController?.pushViewController(followVC, animated: true)
+    }
+    @IBAction func followerBtnTapped(_ sender: Any) {
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        followVC.myNickName = nickNameLabel.text
+        followVC.currentPage = "Follower"
+        
+        navigationController?.pushViewController(followVC, animated: true)
+    }
+    
+    
+    @IBAction func changeSession(_ sender: Any) {
+        
+        guard let sessionVC = storyboard?.instantiateViewController(withIdentifier: "SessionViewController") as? SessionViewController else { return }
+        
+        sessionVC.session = session
+        
+        self.navigationController?.pushViewController(sessionVC, animated: true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNavigationBar()
         
         // 프로필 view, 세션 view 모서리 둥글게
         infoView.layer.cornerRadius = 15
         sessionView.layer.cornerRadius = 15
         bottomView.layer.cornerRadius = 15
         containerView.layer.cornerRadius = 15
+        tabConerView.layer.cornerRadius = 15
+        
+        let newSize = introductionLabel.sizeThatFits(introductionView.frame.size)
+        introductionLabel.frame.size = newSize
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        backBarButtonItem.tintColor = .white
+        
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         
         
     }
@@ -120,33 +163,77 @@ class MypageTabViewController: UIViewController {
         }
     }
     
-    @IBAction func followingBtnTapped(_ sender: Any) {
+    func setNavigationBar() {
         
-        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        var leftBarButtons: [UIBarButtonItem] = []
+        var rightBarButtons: [UIBarButtonItem] = []
         
-        followVC.myNickName = nickNameLabel.text
-        followVC.currentPage = "Following"
+        let mypageLabel = UILabel()
+        mypageLabel.text = "마이페이지"
+        mypageLabel.font = UIFont(name: "Pretendard-Medium", size: 25)
+        mypageLabel.textColor = .white
         
-        navigationController?.pushViewController(followVC, animated: true)
-    }
-    @IBAction func followerBtnTapped(_ sender: Any) {
-        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        let mypageBarButton = UIBarButtonItem(customView: mypageLabel)
         
-        followVC.myNickName = nickNameLabel.text
-        followVC.currentPage = "Follower"
+        leftBarButtons.append(mypageBarButton)
         
-        navigationController?.pushViewController(followVC, animated: true)
+        self.navigationItem.leftBarButtonItems = leftBarButtons
+        
+        let settingImage = UIImage(named: "ic_setting")
+        let settingButton = UIButton()
+        settingButton.backgroundColor = .clear
+        settingButton.setImage(settingImage, for: .normal)
+        settingButton.addTarget(self, action: #selector(settingAction(_:)), for: .touchUpInside)
+        
+        let settingBarButton = UIBarButtonItem(customView: settingButton)
+        var currWidth = settingBarButton.customView?.widthAnchor.constraint(equalToConstant: 22)
+        currWidth?.isActive = true
+        var currHeight = settingBarButton.customView?.heightAnchor.constraint(equalToConstant: 22)
+        currHeight?.isActive = true
+        
+        let editingImage = UIImage(named: "ic_editing")
+        let editingButton = UIButton()
+        editingButton.backgroundColor = .clear
+        editingButton.setImage(editingImage, for: .normal)
+        editingButton.addTarget(self, action: #selector(editingAction(_:)), for: .touchUpInside)
+        
+        let editingBarButton = UIBarButtonItem(customView: editingButton)
+        currWidth = editingBarButton.customView?.widthAnchor.constraint(equalToConstant: 22)
+        currWidth?.isActive = true
+        currHeight = editingBarButton.customView?.heightAnchor.constraint(equalToConstant: 22)
+        currHeight?.isActive = true
+        
+        let negativeSpacer1 = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                             target: nil, action: nil)
+        negativeSpacer1.width = 15
+        
+        let negativeSpacer2 = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                             target: nil, action: nil)
+        negativeSpacer2.width = 30
+        
+        rightBarButtons.append(negativeSpacer1)
+        rightBarButtons.append(settingBarButton)
+        rightBarButtons.append(negativeSpacer2)
+        rightBarButtons.append(editingBarButton)
+        
+        self.navigationItem.rightBarButtonItems = rightBarButtons
+        
+        
     }
     
+    @objc func settingAction(_ sender: UIButton) {
+        
+        guard let setVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else { return }
+        
+        self.navigationController?.pushViewController(setVC, animated: true)
+        
+    }
     
-    @IBAction func changeSession(_ sender: Any) {
+    @objc func editingAction(_ sender: UIButton) {
         
-        guard let sessionVC = storyboard?.instantiateViewController(withIdentifier: "SessionViewController") as? SessionViewController else { return }
+        guard let editVC = self.storyboard?.instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
         
-        sessionVC.session = session
-        
-        self.navigationController?.pushViewController(sessionVC, animated: true)
-        
+        self.navigationController?.pushViewController(editVC, animated: true)
     }
     
 }
@@ -175,7 +262,15 @@ extension UIView {
     func updateHeight(_ height: NSLayoutConstraint, _ pofolCount: Int) {
         let cellHeight = self.frame.width / 3 - 2
         
-        let containerHeight = pofolCount % 3 == 0 ? cellHeight * CGFloat(pofolCount / 3) + 150 : cellHeight * CGFloat(pofolCount / 3 + 1) + 150
+        var containerHeight: CGFloat = 350
+        
+        if pofolCount > 3 {
+            if pofolCount % 3 == 0 {
+                containerHeight = cellHeight * CGFloat(pofolCount / 3) + 150
+            } else {
+                containerHeight = cellHeight * CGFloat(pofolCount / 3 + 1) + 150
+            }
+        }
         
         height.constant = containerHeight
     }
