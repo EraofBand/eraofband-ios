@@ -11,7 +11,6 @@ class MyPofolTableViewCell: UITableViewCell{
     
     @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var pofolImgView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -20,6 +19,13 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var likeImg: UIImageView!
+    @IBOutlet weak var thumbNailImg: UIImageView!
+    @IBOutlet weak var playBtn: UIButton!
+    
+    /*
+    public func setupURL (_ urlStr: String){
+        self.videoPlayerView = VideoPlayerView(frame: .zero, urlStr: urlStr)
+    }*/
     
     override class func awakeFromNib() {
         super.awakeFromNib()
