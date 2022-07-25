@@ -31,7 +31,7 @@ class HomaeTabManViewController: TabmanViewController {
         
         // MARK: 페이지 하단 탭 바
         let bar = TMBar.ButtonBar()
-        settingTabBar(ctBar: bar) //함수 추후 구현
+        settingHomeTabBar(ctBar: bar) //함수 추후 구현
         addBar(bar, dataSource: self, at: .top)
        
     }
@@ -72,4 +72,26 @@ extension HomaeTabManViewController: PageboyViewControllerDataSource, TMBarDataS
     }
     
     
+}
+
+func settingHomeTabBar (ctBar : TMBar.ButtonBar) {
+    ctBar.layout.transitionStyle = .snap
+    
+    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+    
+    ctBar.layout.interButtonSpacing = 35
+    
+    ctBar.backgroundView.style = .clear
+    
+    // 선택 / 안선택 색 + font size
+    ctBar.buttons.customize { (button) in
+        button.tintColor = .white
+        button.selectedTintColor = UIColor(named: "on_icon_color")
+        button.font = UIFont(name: "Pretendard-Medium", size: 17)!
+        button.selectedFont = UIFont(name: "Pretendard-Medium", size: 17)!
+    }
+    
+    // 인디케이터
+    ctBar.indicator.weight = .custom(value: 2)
+    ctBar.indicator.tintColor = UIColor(named: "on_icon_color")
 }

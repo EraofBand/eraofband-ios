@@ -25,7 +25,7 @@ class OtherTabmanViewController: TabmanViewController {
         self.dataSource = self
         
         let bar = TMBar.ButtonBar()
-        settingTabBar(ctBar: bar)
+        settingMypageTabBar(ctBar: bar)
         addBar(bar, dataSource: self, at: .top)
         
     }

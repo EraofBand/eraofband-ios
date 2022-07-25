@@ -28,7 +28,7 @@ class MyTabManViewController: TabmanViewController {
         
         // MARK: 페이지 하단 탭 바
         let bar = TMBar.ButtonBar()
-        settingTabBar(ctBar: bar) //함수 추후 구현
+        settingMypageTabBar(ctBar: bar) //함수 추후 구현
         addBar(bar, dataSource: self, at: .top)
        
     }
@@ -70,7 +70,7 @@ extension MyTabManViewController: PageboyViewControllerDataSource, TMBarDataSour
 }
 
 
-func settingTabBar (ctBar : TMBar.ButtonBar) {
+func settingMypageTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.transitionStyle = .snap
     
     ctBar.layout.contentMode = .fit

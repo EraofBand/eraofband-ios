@@ -15,6 +15,7 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var introductionView: UIView!
     @IBOutlet weak var sessionView: UIView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var tabConerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
@@ -45,6 +46,7 @@ class MypageTabViewController: UIViewController {
         sessionView.layer.cornerRadius = 15
         bottomView.layer.cornerRadius = 15
         containerView.layer.cornerRadius = 15
+        tabConerView.layer.cornerRadius = 15
         
         let newSize = introductionLabel.sizeThatFits(introductionView.frame.size)
         introductionLabel.frame.size = newSize
