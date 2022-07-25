@@ -119,6 +119,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
         setLayout()
         
         imagePicker.delegate = self
+        
     }
 }
 

@@ -72,7 +72,7 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .gray
         
-        if(pofolList[indexPath.row].imgUrl != ""){
+        if( (pofolList[indexPath.row].imgUrl != "") && (pofolList[indexPath.row].imgUrl.prefix(20) == "https://eraofband.s3") ){
             cell.pofolImage.kf.setImage(with: URL(string: pofolList[indexPath.row].imgUrl))
         }
         
