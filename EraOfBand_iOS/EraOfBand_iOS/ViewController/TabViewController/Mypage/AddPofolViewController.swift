@@ -34,7 +34,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     }()
     
     var currentVideoUrl: URL?
-    
+
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -42,37 +42,40 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     
     @IBAction func saveBtnTapped(_ sender: Any) {
 
-        PostUserService.getVideoUrl(videoUrl: self.currentVideoUrl!) { [self] (isSuccess, result) in
-            if isSuccess {
-                let header : HTTPHeaders = [
-                    "x-access-token": appDelegate.jwt,
-                    "Content-Type": "application/json"]
-                 
-                AF.request(appDelegate.baseUrl + "/pofols",
-                           method: .post,
-                           parameters: [
-                            "content": descriptionTextView.text ?? "",
-                            "imgUrl": "",
-                            "title": titleTextField.text ?? "",
-                            "userIdx": appDelegate.userIdx!,
-                            "videoUrl": result
-                            ],
-                           encoding: JSONEncoding.default,
-                            headers: header
-                ).responseJSON{ response in
-                    switch response.result {
-                    case .success:
-                        print("POST success")
-                    case .failure(let err):
-                        print(err)
+        PostUserService.getImgUrl(self.thumbNailImageView.image){
+            [self] (isSuccess, imgResult) in
+            if isSuccess{
+                
+                PostUserService.getVideoUrl(videoUrl: currentVideoUrl!){
+                    (isSuccess, videoResult) in
+                    if isSuccess{
+ 
+                        let header : HTTPHeaders = [
+                            "x-access-token": self.appDelegate.jwt,
+                            "Content-Type": "application/json"]
+                         
+                        AF.request(self.appDelegate.baseUrl + "/pofols",
+                                   method: .post,
+                                   parameters: [
+                                    "content": self.descriptionTextView.text ?? "",
+                                    "imgUrl": imgResult,
+                                    "title": self.titleTextField.text ?? "",
+                                    "userIdx": self.appDelegate.userIdx!,
+                                    "videoUrl": videoResult
+                                    ],
+                                   encoding: JSONEncoding.default,
+                                    headers: header
+                        ).responseJSON{ response in
+                            print(response)
+                        }
+                        
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
-                
             }
         }
         
-        
-        self.navigationController?.popViewController(animated: true)
+
     }
 
     @IBAction func addFileBtnTapped(_ sender: Any) {
@@ -123,14 +126,7 @@ extension AddPofolViewController: MediaPickerDelegate{
     func didFinishPickingMedia(videoURL: URL) {
         self.thumbNailImageView.image = self.getThumbnailImage(forUrl: videoURL)
         
-        self.encodeVideo(at: currentVideoUrl!, completionHandler: nil)
-        
-        //let nsUrl = NSURL(string: currentVideoUrl!.absoluteString)
-        
-        //let videoData = NSData(contentsOf: currentVideoUrl!)!
-        //PostUserService.getVideoUrl(videoData: videoData)
-        
-        
+
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -159,62 +155,7 @@ extension AddPofolViewController: MediaPickerDelegate{
         return nil
     }
     
-    func encodeVideo(at videoURL: URL, completionHandler: ((URL?, Error?) -> Void)?)  {
-        let avAsset = AVURLAsset(url: videoURL, options: nil)
-            
-        let startDate = Date()
-            
-        //Create Export session
-        guard let exportSession = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetPassthrough) else {
-            completionHandler?(nil, nil)
-            return
-        }
-            
-        //Creating temp path to save the converted video
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
-        let filePath = documentsDirectory.appendingPathComponent("rendered-Video.mp4")
-            
-        //Check if the file already exists then remove the previous file
-        if FileManager.default.fileExists(atPath: filePath.path) {
-            do {
-                try FileManager.default.removeItem(at: filePath)
-            } catch {
-                completionHandler?(nil, error)
-            }
-        }
-            
-        exportSession.outputURL = filePath
-        exportSession.outputFileType = AVFileType.mp4
-        exportSession.shouldOptimizeForNetworkUse = true
-        let start = CMTimeMakeWithSeconds(0.0, preferredTimescale: 0)
-        let range = CMTimeRangeMake(start: start, duration: avAsset.duration)
-        exportSession.timeRange = range
-            
-        exportSession.exportAsynchronously(completionHandler: {() -> Void in
-            switch exportSession.status {
-            case .failed:
-                print(exportSession.error ?? "NO ERROR")
-                completionHandler?(nil, exportSession.error)
-            case .cancelled:
-                print("Export canceled")
-                completionHandler?(nil, nil)
-            case .completed:
-                //Video conversion finished
-                let endDate = Date()
-                    
-                let time = endDate.timeIntervalSince(startDate)
-                print(time)
-                print("Successful!")
-                print("URL 보여줘 : ", exportSession.outputURL ?? "NO OUTPUT URL")
-                completionHandler?(exportSession.outputURL, nil)
-                
-                self.currentVideoUrl = exportSession.outputURL!
-                
-                default: break
-            }
-                
-        })
-    }
+
 }
 
 extension AddPofolViewController: UITextViewDelegate{
