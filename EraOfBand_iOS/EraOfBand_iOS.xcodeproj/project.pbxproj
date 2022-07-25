@@ -55,6 +55,8 @@
 		A8573625287C49F800E2F0AB /* MyTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573624287C49F800E2F0AB /* MyTabManViewController.swift */; };
 		A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573626287D2F5300E2F0AB /* EditViewController.swift */; };
 		A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573628287DB2C500E2F0AB /* UserDataModel.swift */; };
+		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
+		A86FFB88288EBCED00F57F5A /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86FFB87288EBCED00F57F5A /* BandListViewController.swift */; };
 		A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */; };
 		A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */; };
 		A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */; };
@@ -159,6 +161,8 @@
 		A8573624287C49F800E2F0AB /* MyTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabManViewController.swift; sourceTree = "<group>"; };
 		A8573626287D2F5300E2F0AB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		A8573628287DB2C500E2F0AB /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
+		A86FFB87288EBCED00F57F5A /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
 		A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabManViewController.swift; sourceTree = "<group>"; };
 		A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionMatch.storyboard; sourceTree = "<group>"; };
 		A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonMatch.storyboard; sourceTree = "<group>"; };
@@ -361,6 +365,7 @@
 			children = (
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
 				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
+				A86FFB87288EBCED00F57F5A /* BandListViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */,
 				A8BD5CB5288BEA66009E7A1B /* WishBand.storyboard */,
 				A8BD5CB7288BEA6F009E7A1B /* WishLesson.storyboard */,
+				A86FFB85288EBC3D00F57F5A /* BandList.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -624,6 +630,7 @@
 				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
 				A8BD5CB8288BEA6F009E7A1B /* WishLesson.storyboard in Resources */,
 				A8BD5CC5288BF588009E7A1B /* HomeBandCollectionViewCell.xib in Resources */,
+				A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */,
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
 				A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */,
 				BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */,
@@ -703,6 +710,7 @@
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
+				A86FFB88288EBCED00F57F5A /* BandListViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
@@ -912,7 +920,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yeonghyeon.EraOfBand-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.EOS.EraOfBand-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -943,7 +951,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yeonghyeon.EraOfBand-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.EOS.EraOfBand-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
