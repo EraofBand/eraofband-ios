@@ -17,7 +17,7 @@ class HomeTabViewController: UIViewController {
     
     lazy var floatingDimView: UIView = {
         let view = UIView(frame: self.view.frame)
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         view.alpha = 0
         view.isHidden = true
         
