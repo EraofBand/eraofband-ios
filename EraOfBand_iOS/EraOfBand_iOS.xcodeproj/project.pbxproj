@@ -403,6 +403,12 @@
 				A858BC62288EE15600B87E30 /* BandListTab */,
 				A86FFB87288EBCED00F57F5A /* BandListViewController.swift */,
 				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
+
+				A858BC62288EE15600B87E30 /* BandListTab */,
+
+				
+				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
+
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -757,6 +763,11 @@
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */,
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
+
+				A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */,
+
+				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
+
 				BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
