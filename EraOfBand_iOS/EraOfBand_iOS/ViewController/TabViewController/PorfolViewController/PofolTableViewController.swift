@@ -8,10 +8,15 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import AVKit
+import AVFoundation
 
 class PofolTableViewController: UIViewController{
     
     var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
+    
+    var thumbNailList: [String] = [""]
+    
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var userIdx: Int = 0
@@ -91,6 +96,8 @@ class PofolTableViewController: UIViewController{
         
         getPofolList()
         
+        print(thumbNailList)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = UIView()
@@ -106,6 +113,11 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPofolTableViewCell", for: indexPath) as! MyPofolTableViewCell
         
+        cell.thumbNailImg.kf.setImage(with: URL(string: (thumbNailList[indexPath.row])))
+        
+        cell.playBtn.tag = indexPath.row
+        cell.playBtn.addTarget(self, action: #selector(playBtnTapped), for: .touchUpInside)
+        
         cell.nameLabel.text = pofolList[indexPath.row].nickName
         cell.titleLabel.text = pofolList[indexPath.row].title
         cell.dateLabel.text = pofolList[indexPath.row].updatedAt
@@ -114,12 +126,10 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         cell.likeLabel.text = String(pofolList[indexPath.row].pofolLikeCount!)
         cell.commentLabel.text = String(pofolList[indexPath.row].commentCount!)
         
-        let profileImgUrl = URL(string: "https://i.discogs.com/djxaXzopa-ITbJTjpeTBgXlR81XYu9egAYkhkZUvYbM/rs:fit/g:sm/q:90/h:674/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQ4NTQt/MTUxNTUxODIzNS02/ODI4LmpwZWc.jpeg")
-        cell.profileImgView.kf.setImage(with: profileImgUrl)
-        cell.profileImgView.layer.cornerRadius = 35/2
+        cell.profileImgView.kf.setImage(with: URL(string: pofolList[indexPath.row].profileImgUrl!))
         
-        let pofolImgUrl = URL(string: "https://mblogthumb-phinf.pstatic.net/20130602_46/unrealaisle_1370152094130HHCmf_JPEG/gongsil_dooli_640.jpg?type=w2")
-        cell.pofolImgView.kf.setImage(with: pofolImgUrl)
+        cell.profileImgView.layer.cornerRadius = 35/2
+
         
         cell.selectionStyle = .none
         
@@ -141,13 +151,24 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
+    @objc func playBtnTapped(sender: UIButton){
+        let videoURL = URL(string: self.pofolList[sender.tag].videoUrl ?? "")!
+        let player = AVPlayer(url: videoURL)
+        let playerVC = AVPlayerViewController()
+        playerVC.player = player
+        
+        self.present(playerVC, animated: true){
+            player.play()
+        }
+    }
+    
     /*좋아요 취소*/
     @objc func deleteLike(sender: UIButton){
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/" + String(sender.tag) + "/unlikes",
+        AF.request(appDelegate.baseUrl + "/pofols/unlikes/" + String(sender.tag),
                    method: .delete,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -168,7 +189,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofol/" + String(sender.tag) + "/likes",
+        AF.request(appDelegate.baseUrl + "/pofols/likes/" + String(sender.tag),
                    method: .post,
                    encoding: JSONEncoding.default,
                    headers: header
