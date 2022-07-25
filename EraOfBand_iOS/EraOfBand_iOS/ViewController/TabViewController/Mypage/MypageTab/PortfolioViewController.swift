@@ -7,10 +7,12 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class PortfolioViewController: UIViewController{
     
-    var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
+    var pofolList: [GetUserPofol] = [GetUserPofol(imgUrl: "", pofolIdx: 0)]
+    var thumbNailList: [String] = [""]
     
     @IBOutlet weak var porfolCollectionView: UICollectionView!
     
@@ -21,28 +23,18 @@ class PortfolioViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofols/info/" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/users/info/my-page/" + String(appDelegate.userIdx!),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
-        ).responseJSON{ response in
-            switch response.result{
-            case.success(let obj):
-                do{
-                    let dataJSON = try JSONSerialization.data(withJSONObject: obj,
-                                           options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(PofolData.self, from: dataJSON)
-                    //print(response)
-                    self.pofolList = getData.result
-                    //print(self.pofolList)
-                    self.porfolCollectionView.reloadData()
-                }catch{
-                    print(error.localizedDescription)
-                }
-            default:
-                return
-            }
+        ).responseDecodable(of: UserDataModel.self){ response in
+            
+            let responseData = response.value
+            self.pofolList = (responseData?.result.getUserPofol)!
+            
+            self.porfolCollectionView.reloadData()
         }
+        
     }
     
     var pofolCount: Int = 0
@@ -80,13 +72,29 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .gray
         
+        if(pofolList[indexPath.row].imgUrl != ""){
+            cell.pofolImage.kf.setImage(with: URL(string: pofolList[indexPath.row].imgUrl))
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //print(pofolList)
+        
+        if(pofolList.count != 0){
+            self.thumbNailList[0] = pofolList[0].imgUrl
+        }
+        
+        for i in 1...pofolList.count - 1{
+            self.thumbNailList.append(pofolList[i].imgUrl)
+        }
+        
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
         myPofolTableVC.selectedIndex = indexPath
         myPofolTableVC.userIdx = appDelegate.userIdx ?? 0
+        myPofolTableVC.thumbNailList = self.thumbNailList
                 
         self.navigationController?.pushViewController(myPofolTableVC, animated: true)
     }
@@ -109,7 +117,7 @@ extension PortfolioViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.width / 3 - 2 ///  3등분하여 배치, 옆 간격이 1이므로 1을 빼줌
 
         let size = CGSize(width: width, height: width)
-
+        
         return size
     }
 }

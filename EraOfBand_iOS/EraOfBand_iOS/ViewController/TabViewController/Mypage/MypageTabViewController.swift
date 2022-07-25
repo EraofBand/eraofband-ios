@@ -97,7 +97,7 @@ class MypageTabViewController: UIViewController {
             
             switch(response) {
             case .success(let userData):
-                print(userData)
+                //print(userData)
                 /*서버 연동 성공*/
                 if let data = userData as? User {
                     let data = data.getUser
