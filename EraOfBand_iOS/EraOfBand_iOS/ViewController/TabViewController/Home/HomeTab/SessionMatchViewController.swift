@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SessionMatchViewController: UIViewController {
 
@@ -13,6 +14,16 @@ class SessionMatchViewController: UIViewController {
     @IBOutlet weak var firstBandImageView: UIImageView!
     @IBOutlet weak var secondBandImageView: UIImageView!
     @IBOutlet weak var thirdBandImageView: UIImageView!
+    
+    @IBAction func bandListAction(_ sender: Any) {
+        
+        guard let bandListVC = storyboard?.instantiateViewController(withIdentifier: "BandListViewController") as? BandListViewController else { return }
+        
+        navigationController?.pushViewController(bandListVC, animated: true)
+        
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
