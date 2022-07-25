@@ -24,6 +24,7 @@ class OtherUserViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
     
@@ -174,6 +175,7 @@ class OtherUserViewController: UIViewController {
         infoView.layer.cornerRadius = 15
         followButton.layer.cornerRadius = 15
         messageButton.layer.cornerRadius = 15
+        topView.layer.cornerRadius = 15
         
         userSessionLabel.layer.cornerRadius = 10
         userSessionLabel.layer.borderWidth = 1

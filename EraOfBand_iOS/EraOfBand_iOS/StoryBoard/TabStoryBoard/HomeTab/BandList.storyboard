@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,14 +15,73 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-XK-JfS">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <connections>
+                                    <segue destination="obx-qb-SnA" kind="embed" id="DHc-ON-afx"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4f-Z2-hFW">
+                                <rect key="frame" x="31" y="64" width="53.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="titleEdgeInsets" minX="-40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-80" maxY="0.0"/>
+                                <state key="normal" title="전체" image="chevron.down" catalog="system"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Up3-XK-JfS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="Ca7-f1-NUx"/>
+                            <constraint firstItem="Up3-XK-JfS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XKg-KH-hoQ"/>
+                            <constraint firstItem="D4f-Z2-hFW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="hgI-wL-VRZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Up3-XK-JfS" secondAttribute="trailing" id="hsX-qg-UMT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Up3-XK-JfS" secondAttribute="bottom" id="rEi-wD-ZP9"/>
+                            <constraint firstItem="D4f-Z2-hFW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="31" id="rzh-Ky-qtW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gQg-qo-qM8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="47"/>
+            <point key="canvasLocation" x="56.521739130434788" y="46.875"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iyb-FS-sZa">
+            <objects>
+                <viewController id="obx-qb-SnA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Gw-wS-l2h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0P-1b-wY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896" y="47"/>
+        </scene>
+        <!--All List View Controller-->
+        <scene sceneID="OmM-21-gp1">
+            <objects>
+                <viewController storyboardIdentifier="AllListViewController" id="1NG-xJ-z4X" customClass="AllListViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dgw-b0-iNh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="f62-O9-paE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mlg-k4-WCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="47"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
