@@ -26,44 +26,54 @@
                                     <segue destination="DlP-QO-8gw" kind="embed" id="wGD-6q-ibt"/>
                                 </connections>
                             </containerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GXf-vG-2tC">
-                                <rect key="frame" x="293" y="639" width="116" height="169"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GXf-vG-2tC">
+                                <rect key="frame" x="344" y="748" width="60" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="77L-le-P0J">
-                                        <rect key="frame" x="0.0" y="0.0" width="116" height="101"/>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="77L-le-P0J">
+                                        <rect key="frame" x="-80" y="0.0" width="140" height="101"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbX-RS-IA7" userLabel="CreatBandView">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_creat_band" translatesAutoresizingMaskIntoConstraints="NO" id="ira-cB-zXb">
-                                                        <rect key="frame" x="12" y="16" width="18" height="18"/>
+                                                        <rect key="frame" x="17" y="16" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="5CO-5G-bky"/>
                                                             <constraint firstAttribute="height" constant="18" id="QcW-Gd-PG6"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gix-6X-9Tx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="밴드 생성">
+                                                        <state key="normal">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 생성" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE5-uI-tWs">
+                                                        <rect key="frame" x="54" y="16" width="56" height="18"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="KE5-uI-tWs" secondAttribute="trailing" constant="30" id="71X-La-q3F"/>
+                                                    <constraint firstAttribute="width" constant="140" id="9Oy-3c-6Kd"/>
                                                     <constraint firstItem="Gix-6X-9Tx" firstAttribute="top" secondItem="FbX-RS-IA7" secondAttribute="top" id="Juh-bt-DZM"/>
                                                     <constraint firstAttribute="trailing" secondItem="Gix-6X-9Tx" secondAttribute="trailing" id="UBO-Cj-qkB"/>
                                                     <constraint firstItem="ira-cB-zXb" firstAttribute="centerY" secondItem="FbX-RS-IA7" secondAttribute="centerY" id="Vcy-Jk-VO8"/>
                                                     <constraint firstAttribute="bottom" secondItem="Gix-6X-9Tx" secondAttribute="bottom" id="Vz8-Vx-PvF"/>
-                                                    <constraint firstItem="ira-cB-zXb" firstAttribute="leading" secondItem="FbX-RS-IA7" secondAttribute="leading" constant="12" id="gxO-5P-rl7"/>
+                                                    <constraint firstItem="KE5-uI-tWs" firstAttribute="centerY" secondItem="FbX-RS-IA7" secondAttribute="centerY" id="dJ7-Dr-IMy"/>
+                                                    <constraint firstItem="ira-cB-zXb" firstAttribute="leading" secondItem="FbX-RS-IA7" secondAttribute="leading" constant="17" id="gxO-5P-rl7"/>
                                                     <constraint firstItem="Gix-6X-9Tx" firstAttribute="leading" secondItem="FbX-RS-IA7" secondAttribute="leading" id="tZR-HY-dyz"/>
+                                                    <constraint firstAttribute="height" constant="50" id="wJs-eI-jlL"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWW-QG-OVC">
-                                                <rect key="frame" x="8" y="50" width="100" height="1"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWW-QG-OVC" userLabel="Line">
+                                                <rect key="frame" x="20" y="50" width="100" height="1"/>
                                                 <color key="backgroundColor" red="0.1764705882352941" green="0.19215686274509802" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="CSB-oU-6YR"/>
@@ -71,30 +81,42 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NET-lf-HLR" userLabel="CreatLessonView">
-                                                <rect key="frame" x="0.0" y="51" width="116" height="50"/>
+                                                <rect key="frame" x="0.0" y="51" width="140" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_creat_lesson" translatesAutoresizingMaskIntoConstraints="NO" id="ZX1-ef-Sgk">
-                                                        <rect key="frame" x="12" y="16" width="18" height="18"/>
+                                                        <rect key="frame" x="17" y="16" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="7dc-2o-Z9X"/>
                                                             <constraint firstAttribute="width" constant="18" id="8Qo-IT-zUp"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4My-vd-cmF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="140" id="Cem-Y6-CLJ"/>
+                                                            <constraint firstAttribute="height" constant="50" id="e45-YC-KMz"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="레슨 생성">
+                                                        <state key="normal">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="레슨 생성" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XK7-HI-SRN">
+                                                        <rect key="frame" x="54" y="16" width="56" height="18"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="4My-vd-cmF" firstAttribute="leading" secondItem="NET-lf-HLR" secondAttribute="leading" id="ARc-DZ-YNT"/>
                                                     <constraint firstItem="4My-vd-cmF" firstAttribute="top" secondItem="NET-lf-HLR" secondAttribute="top" id="Ian-c5-q1o"/>
-                                                    <constraint firstItem="ZX1-ef-Sgk" firstAttribute="leading" secondItem="NET-lf-HLR" secondAttribute="leading" constant="12" id="VA7-ug-BuV"/>
+                                                    <constraint firstItem="ZX1-ef-Sgk" firstAttribute="leading" secondItem="NET-lf-HLR" secondAttribute="leading" constant="17" id="VA7-ug-BuV"/>
+                                                    <constraint firstItem="XK7-HI-SRN" firstAttribute="centerY" secondItem="NET-lf-HLR" secondAttribute="centerY" id="sHl-zg-jst"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XK7-HI-SRN" secondAttribute="trailing" constant="30" id="sW5-OA-0M6"/>
                                                     <constraint firstAttribute="bottom" secondItem="4My-vd-cmF" secondAttribute="bottom" id="snJ-0g-olk"/>
                                                     <constraint firstItem="ZX1-ef-Sgk" firstAttribute="centerY" secondItem="NET-lf-HLR" secondAttribute="centerY" id="ymI-4c-Fc1"/>
                                                     <constraint firstAttribute="trailing" secondItem="4My-vd-cmF" secondAttribute="trailing" id="zlI-ke-Xlt"/>
@@ -102,15 +124,22 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.12549019607843137" green="0.13333333333333333" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="6rc-gv-FUN"/>
+                                            <constraint firstAttribute="height" constant="101" id="UY6-ly-z12"/>
+                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2H-BV-ODA">
-                                        <rect key="frame" x="56" y="109" width="60" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="o2i-c3-Ttx"/>
                                             <constraint firstAttribute="width" constant="60" id="van-U9-Knv"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="ic_floating"/>
+                                        <connections>
+                                            <action selector="floatingAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QUg-ZG-apD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -120,7 +149,7 @@
                         <constraints>
                             <constraint firstItem="GXf-vG-2tC" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-5" id="0cJ-Xe-tzU"/>
                             <constraint firstItem="6ls-jB-0uu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1Xt-Eh-aGk"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GXf-vG-2tC" secondAttribute="trailing" constant="5" id="Nfz-sq-UQY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GXf-vG-2tC" secondAttribute="trailing" constant="10" id="Nfz-sq-UQY"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="6ls-jB-0uu" secondAttribute="bottom" id="Peq-jj-GaR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6ls-jB-0uu" secondAttribute="trailing" id="cxO-SY-7Mq"/>
                             <constraint firstItem="6ls-jB-0uu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qam-oV-TCG"/>
@@ -129,6 +158,11 @@
                     <tabBarItem key="tabBarItem" title="Item" id="1Gh-HI-vXb"/>
                     <navigationItem key="navigationItem" id="Xcr-Ng-Ysj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="creatStackView" destination="77L-le-P0J" id="KHV-le-rDM"/>
+                        <outlet property="floatingButton" destination="a2H-BV-ODA" id="Y8I-Lx-Pwq"/>
+                        <outlet property="floatingStackView" destination="GXf-vG-2tC" id="j5d-dy-HkP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
