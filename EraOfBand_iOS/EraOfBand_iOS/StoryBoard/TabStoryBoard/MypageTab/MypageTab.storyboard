@@ -299,13 +299,6 @@
                                     <constraint firstItem="paP-Sv-d5t" firstAttribute="trailing" secondItem="FcL-0F-h6g" secondAttribute="trailing" id="wND-JE-JSw"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="마이페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJJ-pC-dsS">
-                                <rect key="frame" x="20" y="51" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27e-bY-MnU">
                                 <rect key="frame" x="349" y="748" width="60" height="60"/>
                                 <constraints>
@@ -332,22 +325,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="lpN-nv-Gb9"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ioS-Hd-LBc">
-                        <rightBarButtonItems>
-                            <barButtonItem title="setting" image="ic_setting" id="Xa4-WA-LCZ">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="Aa8-Yx-xvZ" kind="show" id="Dxg-Un-Wtm"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="edit" image="ic_editing" id="ApM-s3-VRY">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="K4F-Y0-7eY" kind="show" id="sZZ-61-z5Z"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ioS-Hd-LBc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
@@ -518,7 +496,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCn-Ac-3tA">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-Gg-vvK">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
@@ -835,7 +813,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CZf-Et-D3q">
-                                <rect key="frame" x="39" y="118" width="336" height="330"/>
+                                <rect key="frame" x="39" y="74" width="336" height="330"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSz-e0-L8e" userLabel="NoticeVIew">
                                         <rect key="frame" x="0.0" y="0.0" width="336" height="55"/>
@@ -1218,14 +1196,12 @@
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="ic_alarm" width="170.5" height="183"/>
-        <image name="ic_editing" width="28" height="28"/>
         <image name="ic_floating" width="84" height="84"/>
         <image name="ic_guitar" width="38.5" height="42.5"/>
         <image name="ic_logout" width="170.5" height="170.5"/>
         <image name="ic_mail" width="170.5" height="160"/>
         <image name="ic_notice" width="170.5" height="160"/>
         <image name="ic_secession" width="170.5" height="170.5"/>
-        <image name="ic_setting" width="28.5" height="27.5"/>
         <image name="ic_version" width="170.5" height="170.5"/>
         <namedColor name="on_icon_color">
             <color red="0.093999996781349182" green="0.3919999897480011" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

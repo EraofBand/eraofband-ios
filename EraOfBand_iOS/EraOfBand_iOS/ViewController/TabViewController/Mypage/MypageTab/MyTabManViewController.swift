@@ -16,6 +16,8 @@ class MyTabManViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+        
         let portfolioVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "PortfolioViewController")
         let bandVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "BandViewController")
         let lessonVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "LessonViewController")
@@ -73,7 +75,9 @@ extension MyTabManViewController: PageboyViewControllerDataSource, TMBarDataSour
 func settingMypageTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.transitionStyle = .snap
     
-    ctBar.layout.contentMode = .fit
+    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+    
+    ctBar.layout.interButtonSpacing = 70
     
     ctBar.backgroundView.style = .clear
     
@@ -81,8 +85,8 @@ func settingMypageTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.buttons.customize { (button) in
         button.tintColor = .white
         button.selectedTintColor = UIColor(named: "on_icon_color")
-        button.font = UIFont.systemFont(ofSize: 16)
-        button.selectedFont = UIFont.systemFont(ofSize: 16, weight: .medium)
+        button.font = UIFont(name: "Pretendard-Medium", size: 14)!
+        button.selectedFont = UIFont(name: "Pretendard-Bold", size: 14)!
     }
     
     // 인디케이터
