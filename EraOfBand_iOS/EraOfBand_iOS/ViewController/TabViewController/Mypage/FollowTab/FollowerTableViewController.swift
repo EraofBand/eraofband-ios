@@ -13,38 +13,24 @@ class FollowerTableViewController: UIViewController{
     var followerUserList: [FollowUserList] = [FollowUserList(nickName: "테스트1", profileImgUrl: "", userIdx: 0), FollowUserList(nickName: "테스트2", profileImgUrl: "", userIdx: 0)]
     var filteredData: [FollowUserList] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var userIdx: Int?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     func getFollowerList(){
-        let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
-            "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/users/info/follow/" + String(appDelegate.userIdx!),
-                   method: .get,
-                   encoding: JSONEncoding.default,
-                   headers: header
-        ).responseJSON{ response in
-            switch response.result{
-            case.success(let obj):
-                do{
-                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(FollowData.self, from: dataJSON)
-                    
-                    //print(getData)
-                    self.followerUserList = (getData.result?.getfollower)!
-                    //print(self.followerUserList)
-                    self.filteredData = self.followerUserList
-                    self.tableView.reloadData()
-                }catch{
-                    print(error.localizedDescription)
-                }
-            default:
-                return
+        print("userIdx: \(userIdx)")
+        
+        GetFollowService.getFollowerList(userIdx!) { (isSuccess, getData) in
+            if isSuccess {
+                self.followerUserList = (getData.result?.getfollower)!
+                self.filteredData = self.followerUserList
+                self.tableView.reloadData()
             }
+            
         }
+        
     }
     
     override func viewDidLoad() {
@@ -92,8 +78,11 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell", for: indexPath) as! FollowTableViewCell
         
         cell.nickNameLabel.text = filteredData[indexPath.row].nickName
-        cell.followBtn.layer.cornerRadius = 15
         
+        if userIdx == appDelegate.userIdx {
+            cell.followBtn.isHidden = false
+            cell.followBtn.layer.cornerRadius = 15
+        }        
         
         cell.profileBtn.tag = filteredData[indexPath.row].userIdx ?? 0
         cell.profileBtn.addTarget(self, action: #selector(otherUserTapped(sender:)), for: .touchUpInside)

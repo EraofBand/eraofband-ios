@@ -14,8 +14,6 @@ class PorfolCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super .prepareForReuse()
         
-
-        //pofolImage.image = nil
-
+        
     }
 }

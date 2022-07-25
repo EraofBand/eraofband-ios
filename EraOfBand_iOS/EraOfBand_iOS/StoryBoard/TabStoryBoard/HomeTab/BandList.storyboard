@@ -65,7 +65,7 @@
         <!--All List View Controller-->
         <scene sceneID="OmM-21-gp1">
             <objects>
-                <viewController storyboardIdentifier="AllListViewController" id="1NG-xJ-z4X" customClass="AllListViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AllListViewController" hidesBottomBarWhenPushed="YES" id="1NG-xJ-z4X" customClass="AllListViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dgw-b0-iNh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
