@@ -51,6 +51,8 @@ class BandListViewController: UIViewController {
         
         self.navigationItem.title = "생성된 밴드 목록"
         
+        var rightBarButtons: [UIBarButtonItem] = []
+        
         let searchImage = UIImage(named: "ic_search")
         let searchButton = UIButton()
         searchButton.backgroundColor = .clear
@@ -63,7 +65,14 @@ class BandListViewController: UIViewController {
         let currheight = searchBarButton.customView?.heightAnchor.constraint(equalToConstant: 20)
         currheight?.isActive = true
         
-        self.navigationItem.rightBarButtonItem = searchBarButton
+        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                             target: nil, action: nil)
+        negativeSpacer.width = 15
+        
+        rightBarButtons.append(negativeSpacer)
+        rightBarButtons.append(searchBarButton)
+        
+        self.navigationItem.rightBarButtonItems = rightBarButtons
         
     }
     

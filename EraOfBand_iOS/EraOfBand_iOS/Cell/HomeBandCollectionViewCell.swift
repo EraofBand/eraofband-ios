@@ -11,6 +11,10 @@ class HomeBandCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var bandImageView: UIImageView!
     
+    @IBOutlet weak var bandDistrictLabel: UILabel!
+    @IBOutlet weak var bandTitleLabel: UILabel!
+    @IBOutlet weak var bandCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
