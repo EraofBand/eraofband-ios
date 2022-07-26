@@ -156,6 +156,7 @@ class OtherUserViewController: UIViewController {
         guard let imageUrl = userData?.result.getUser.profileImgUrl else { return }
         if let url = URL(string: imageUrl) {
             userImageView.load(url: url)
+            userImageView.contentMode = .scaleAspectFill
         } else {
             userImageView.image = UIImage(named: "default_image")
         }

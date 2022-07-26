@@ -144,6 +144,7 @@ class MypageTabViewController: UIViewController {
                     let imageUrl = data.profileImgUrl
                     if let url = URL(string: imageUrl) {
                         userImageView.load(url: url)
+                        userImageView.contentMode = .scaleAspectFill
                     } else {
                         userImageView.image = UIImage(named: "default_image")
                     }
