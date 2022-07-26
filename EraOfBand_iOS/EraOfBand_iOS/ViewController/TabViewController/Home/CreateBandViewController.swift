@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CreateBandViewController: UIViewController{
     @IBOutlet weak var titleTextField: UITextField!
@@ -34,14 +35,64 @@ class CreateBandViewController: UIViewController{
     @IBOutlet weak var keyboardNumLabel: UILabel!
     @IBOutlet weak var drumNumLabel: UILabel!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     let imagePickerController = UIImagePickerController()
     @IBOutlet weak var bandImageView: UIImageView!
+    var imgUrl: String = ""
     
     let city = ["서울", "경기"]
     let districtSeoul = ["강서구", "광진구", "강남구"]
     
     var cityPickerView = UIPickerView()
     var districtPickerView = UIPickerView()
+    
+    
+    @IBAction func registerBtnTapped(_ sender: Any) {
+        PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
+            if isSuccess{
+                imgUrl = result
+                
+                let header : HTTPHeaders = [
+                    "x-access-token": self.appDelegate.jwt,
+                    "Content-Type": "application/json"]
+                
+                AF.request(appDelegate.baseUrl + "/sessions",
+                           method: .post,
+                           parameters: [
+                            "bandContent": introTextView.text ?? "",
+                            "bandImgUrl": imgUrl,
+                            "bandIntroduction": shortIntroTextField.text ?? "",
+                            "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
+                            "bandTitle": titleTextField.text ?? "",
+                            "base": Int(bassNumLabel.text ?? "0") ?? 0,
+                            "baseComment": bassTextField.text ?? "",
+                            "chatRoomLink": chatLinkTextField.text ?? "",
+                            "drum": Int(drumNumLabel.text ?? "0") ?? 0,
+                            "drumComment": drumTextField.text ?? "",
+                            "guitar": Int(guitarNumLabel.text ?? "0") ?? 0,
+                            "guitarComment": guitarTextField.text ?? "",
+                            "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
+                            "keyboardComment": keyboardTextField.text ?? "",
+                            "mySession": appDelegate.userSession ?? 0,
+                            "userIdx": appDelegate.userIdx ?? 0,
+                            "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
+                            "vocalComment": vocalTextField.text ?? ""
+                           ],
+                           encoding: JSONEncoding.default,
+                           headers: header).responseJSON{ response in
+                    switch response.result{
+                    case .success:
+                        self.navigationController?.popViewController(animated: true)
+                        print(response)
+                    default:
+                    return
+                }
+            }
+            
+        }
+    }
+    }
     
     /*세션 인원 변경 함수*/
     @IBAction func vocalMinusTapped(_ sender: Any) {
