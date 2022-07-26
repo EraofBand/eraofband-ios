@@ -620,6 +620,9 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="등록하기">
                                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="registerBtnTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="xFG-dK-JjJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
