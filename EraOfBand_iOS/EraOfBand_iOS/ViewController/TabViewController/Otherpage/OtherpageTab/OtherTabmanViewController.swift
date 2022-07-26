@@ -25,7 +25,7 @@ class OtherTabmanViewController: TabmanViewController {
         self.dataSource = self
         
         let bar = TMBar.ButtonBar()
-        settingMypageTabBar(ctBar: bar)
+        settingOtherTabBar(ctBar: bar)
         addBar(bar, dataSource: self, at: .top)
         
     }
@@ -60,4 +60,26 @@ extension OtherTabmanViewController: PageboyViewControllerDataSource, TMBarDataS
         return nil
     }
     
+}
+
+func settingOtherTabBar (ctBar : TMBar.ButtonBar) {
+    ctBar.layout.transitionStyle = .snap
+    
+    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+    
+    ctBar.layout.contentMode = .fit
+    
+    ctBar.backgroundView.style = .clear
+    
+    // 선택 / 안선택 색 + font size
+    ctBar.buttons.customize { (button) in
+        button.tintColor = .white
+        button.selectedTintColor = UIColor(named: "on_icon_color")
+        button.font = UIFont(name: "Pretendard-Medium", size: 14)!
+        button.selectedFont = UIFont(name: "Pretendard-Bold", size: 14)!
+    }
+    
+    // 인디케이터
+    ctBar.indicator.weight = .custom(value: 2)
+    ctBar.indicator.tintColor = UIColor(named: "on_icon_color")
 }
