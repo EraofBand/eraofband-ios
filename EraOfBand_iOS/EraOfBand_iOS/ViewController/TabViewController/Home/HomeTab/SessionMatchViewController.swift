@@ -94,14 +94,17 @@ class SessionMatchViewController: UIViewController {
         getfameBand() { [self] in
             
             firstBandImageView.load(url: URL(string: fameBandList[0].bandImgUrl)!)
+            firstBandImageView.contentMode = .scaleAspectFill
             firstBandTitleLabel.text = fameBandList[0].bandTitle
             firstBandIntro.text = fameBandList[0].bandIntroduction
             
             secondBandImageView.load(url: URL(string: fameBandList[1].bandImgUrl)!)
+            secondBandImageView.contentMode = .scaleAspectFill
             secondBandTitleLabel.text = fameBandList[1].bandTitle
             secondBandIntro.text = fameBandList[1].bandIntroduction
             
             thirdBandImageView.load(url: URL(string: fameBandList[2].bandImgUrl)!)
+            thirdBandImageView.contentMode = .scaleAspectFill
             thirdBandTitleLabel.text = fameBandList[2].bandTitle
             thirdBandIntro.text = fameBandList[2].bandIntroduction
             
@@ -131,6 +134,7 @@ extension SessionMatchViewController: UICollectionViewDelegate, UICollectionView
         let url = URL(string: newBand.bandImgUrl)
         
         cell.bandImageView.load(url: url!)
+        cell.bandImageView.contentMode = .scaleAspectFill
         cell.bandTitleLabel.text = newBand.bandTitle
         cell.bandDistrictLabel.text = newBand.bandRegion
         
