@@ -115,6 +115,10 @@ class HomeTabViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItems = rightBarButtons
         
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .white
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
     }
     
     @objc func searchButtonClicked(_ sender: UIButton) {

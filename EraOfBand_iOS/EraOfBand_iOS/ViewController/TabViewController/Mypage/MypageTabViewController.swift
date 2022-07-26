@@ -38,20 +38,26 @@ class MypageTabViewController: UIViewController {
     var session: Int = 0
     var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBAction func followingBtnTapped(_ sender: Any) {
         
-        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else { return }
         
         followVC.myNickName = nickNameLabel.text
         followVC.currentPage = "Following"
+        followVC.userIdx = appDelegate.userIdx
         
         navigationController?.pushViewController(followVC, animated: true)
     }
+    
     @IBAction func followerBtnTapped(_ sender: Any) {
-        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else { return }
         
         followVC.myNickName = nickNameLabel.text
         followVC.currentPage = "Follower"
+        followVC.userIdx = appDelegate.userIdx
         
         navigationController?.pushViewController(followVC, animated: true)
     }
@@ -138,6 +144,7 @@ class MypageTabViewController: UIViewController {
                     let imageUrl = data.profileImgUrl
                     if let url = URL(string: imageUrl) {
                         userImageView.load(url: url)
+                        userImageView.contentMode = .scaleAspectFill
                     } else {
                         userImageView.image = UIImage(named: "default_image")
                     }

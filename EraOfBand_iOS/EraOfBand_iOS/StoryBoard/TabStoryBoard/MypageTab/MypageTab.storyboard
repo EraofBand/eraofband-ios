@@ -372,7 +372,7 @@
         <!--Session View Controller-->
         <scene sceneID="qiS-gr-Nsb">
             <objects>
-                <viewController storyboardIdentifier="SessionViewController" id="gmh-LS-nCE" customClass="SessionViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SessionViewController" hidesBottomBarWhenPushed="YES" id="gmh-LS-nCE" customClass="SessionViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vUG-Nm-auL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -807,7 +807,7 @@
         <!--설정-->
         <scene sceneID="NMM-UB-ic6">
             <objects>
-                <viewController storyboardIdentifier="SettingViewController" id="Aa8-Yx-xvZ" customClass="SettingViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" hidesBottomBarWhenPushed="YES" id="Aa8-Yx-xvZ" customClass="SettingViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PM7-nf-GSB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
