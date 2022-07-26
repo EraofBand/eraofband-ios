@@ -16,19 +16,20 @@ class BandListTabManController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let entireVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "AllListViewController")
+        let bandListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController")
         
-        viewControllers.append(entireVC)
-        viewControllers.append(entireVC)
-        viewControllers.append(entireVC)
-        viewControllers.append(entireVC)
-        viewControllers.append(entireVC)
-        viewControllers.append(entireVC)
+        viewControllers.append(bandListVC)
+        viewControllers.append(bandListVC)
+        viewControllers.append(bandListVC)
+        viewControllers.append(bandListVC)
+        viewControllers.append(bandListVC)
+        viewControllers.append(bandListVC)
         
         self.dataSource = self
         
         // MARK: 페이지 하단 탭 바
-        let bar = TMBar.ButtonBar()
+        
+        let bar = TMBarView<TMHorizontalBarLayout, TMLabelBarButton, TMBlockBarIndicator>()
         settingBandListTabBar(ctBar: bar) //함수 추후 구현
         addBar(bar, dataSource: self, at: .top)
        
@@ -76,24 +77,23 @@ extension BandListTabManController: PageboyViewControllerDataSource, TMBarDataSo
     
 }
 
-func settingBandListTabBar(ctBar : TMBar.ButtonBar) {
+func settingBandListTabBar(ctBar : TMBarView<TMHorizontalBarLayout, TMLabelBarButton, TMBlockBarIndicator>) {
     ctBar.layout.transitionStyle = .snap
     
-    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     
-    ctBar.layout.interButtonSpacing = 70
+    ctBar.layout.contentMode = .fit
     
     ctBar.backgroundView.style = .clear
     
     // 선택 / 안선택 색 + font size
     ctBar.buttons.customize { (button) in
         button.tintColor = .white
-        button.selectedTintColor = UIColor(named: "on_icon_color")
+        button.selectedTintColor = .white
         button.font = UIFont(name: "Pretendard-Medium", size: 14)!
-        button.selectedFont = UIFont(name: "Pretendard-Bold", size: 14)!
     }
     
-    // 인디케이터
-    ctBar.indicator.weight = .custom(value: 2)
-    ctBar.indicator.tintColor = UIColor(named: "on_icon_color")
+    ctBar.indicator.cornerStyle = .eliptical
+    ctBar.indicator.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+    
 }

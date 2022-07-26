@@ -24,9 +24,40 @@ class SessionMatchViewController: UIViewController {
         
     }
     
+    func getNewBand() {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let url = appDelegate.baseUrl + "​/sessions​/home​/new"
+        let header: HTTPHeaders = ["Content-Type": "application/json"]
+        
+        let request = AF.request(url,
+                                 method: .get,
+                                 encoding: JSONEncoding.default,
+                                 headers: header)
+        
+        request.responseJSON { response in
+            print(response)
+        }
+        
+        request.responseDecodable(of: NewBandData.self) { response in
+            switch response.result{
+            case .success(let data):
+                let bandList = data.result
+                print(bandList)
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+        
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getNewBand()
         
         newBandCollectionView.delegate = self
         newBandCollectionView.dataSource = self
