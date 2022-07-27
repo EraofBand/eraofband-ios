@@ -9,6 +9,8 @@ import UIKit
 
 class BandListViewController: UIViewController {
     
+    static let shared = BandListViewController()
+    
     @IBOutlet weak var choiceCityButton: UIButton!
     
     func setCityButton() {
@@ -17,7 +19,14 @@ class BandListViewController: UIViewController {
         let commandList: [String] = ["전체", "서울", "경기도"]
         
         for name in commandList {
-            let command = UIAction(title: name, handler: {_ in print("name: \(name)")})
+            let command = UIAction(title: name, handler: {_ in
+                print("name: \(name)")
+                
+                let bandListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTabManController") as! BandListTabManController
+                bandListVC.region = name
+                bandListVC.viewDidLoad()
+                
+            })
             
             commands.append(command)
         }
@@ -40,10 +49,6 @@ class BandListViewController: UIViewController {
         
         choiceCityButton.configuration = configuration
         choiceCityButton.tintColor = .white
-        
-    }
-    
-    @objc func refreshData() {
         
     }
     

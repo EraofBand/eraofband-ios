@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9DD28607C26E2D073BAC5914 /* Pods_EraOfBand_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */; };
+		A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802D8EF28910DB5001A2F65 /* GetBandListService.swift */; };
+		A802D8F228910FB9001A2F65 /* BandListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802D8F128910FB9001A2F65 /* BandListData.swift */; };
 		A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7B8286F283400B9E08D /* AppDelegate.swift */; };
 		A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7BA286F283400B9E08D /* SceneDelegate.swift */; };
 		A809A7BD286F283400B9E08D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7BC286F283400B9E08D /* ViewController.swift */; };
@@ -126,6 +128,8 @@
 /* Begin PBXFileReference section */
 		1190870D647DF9114CDC66E6 /* Pods-EraOfBand_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.debug.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EraOfBand_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A802D8EF28910DB5001A2F65 /* GetBandListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBandListService.swift; sourceTree = "<group>"; };
+		A802D8F128910FB9001A2F65 /* BandListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListData.swift; sourceTree = "<group>"; };
 		A809A7B5286F283400B9E08D /* EraOfBand_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraOfBand_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A809A7B8286F283400B9E08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A809A7BA286F283400B9E08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				A81351A42882A79400078C9E /* GetUserDataService.swift */,
 				A80B79CF288A8F850061D516 /* PostUserService.swift */,
 				A858BC73288F04EA00B87E30 /* GetFollowService.swift */,
+				A802D8EF28910DB5001A2F65 /* GetBandListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 				BC2E991E2886F48C0034CBD9 /* FollowData.swift */,
 				A87A835528900F5400130B8F /* NewBandData.swift */,
 				A88B49922890330F0029A2BF /* FameBandData.swift */,
+				A802D8F128910FB9001A2F65 /* BandListData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -746,6 +752,7 @@
 				A81351B0288561E000078C9E /* SessionChangeCollectionViewCell.swift in Sources */,
 				A858BC6A288EE59300B87E30 /* GuitarListViewController.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
+				A802D8F228910FB9001A2F65 /* BandListData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
 				A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */,
 				BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */,
@@ -822,6 +829,7 @@
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
 				A858BC6C288EE59C00B87E30 /* BaseListViewController.swift in Sources */,
 				A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */,
+				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
