@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TF-m2-WKF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOS-E2-SCb" userLabel="InnerScrollView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
@@ -44,6 +44,9 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="bandListAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ghg-Y3-1Np"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sA6-yW-oc0">
                                                         <rect key="frame" x="21" y="57" width="372" height="61.5"/>
@@ -188,22 +191,22 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoM-3o-Xmc">
-                                                        <rect key="frame" x="110" y="19" width="59.5" height="19.5"/>
+                                                        <rect key="frame" x="92" y="19" width="59.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rt-bn-BPd">
-                                                        <rect key="frame" x="110" y="47.5" width="44.5" height="14.5"/>
+                                                        <rect key="frame" x="92" y="47.5" width="44.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" red="0.71764705882352942" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YQl-gc-Rep">
-                                                        <rect key="frame" x="44" y="12.5" width="50" height="50"/>
+                                                        <rect key="frame" x="44" y="21.5" width="32" height="32"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="LTv-yi-41W"/>
+                                                            <constraint firstAttribute="width" constant="32" id="LTv-yi-41W"/>
                                                             <constraint firstAttribute="width" secondItem="YQl-gc-Rep" secondAttribute="height" multiplier="1:1" id="lmm-2I-OnA"/>
                                                         </constraints>
                                                     </imageView>
@@ -231,23 +234,23 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ur-aN-CT1">
-                                                        <rect key="frame" x="110" y="19" width="59.5" height="19.5"/>
+                                                        <rect key="frame" x="92" y="19" width="59.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-8k-LJE">
-                                                        <rect key="frame" x="110" y="47.5" width="44.5" height="14.5"/>
+                                                        <rect key="frame" x="92" y="47.5" width="44.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MzG-P1-zEv">
-                                                        <rect key="frame" x="44" y="12.5" width="50" height="50"/>
+                                                        <rect key="frame" x="44" y="21.5" width="32" height="32"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="MzG-P1-zEv" secondAttribute="height" multiplier="1:1" id="4Hm-NM-xAt"/>
-                                                            <constraint firstAttribute="width" constant="50" id="FLc-zo-PMU"/>
+                                                            <constraint firstAttribute="width" constant="32" id="FLc-zo-PMU"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -273,23 +276,23 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeA-Vp-w3J">
-                                                        <rect key="frame" x="110" y="19" width="59.5" height="19.5"/>
+                                                        <rect key="frame" x="92" y="19" width="59.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuF-i1-NCJ">
-                                                        <rect key="frame" x="110" y="47.5" width="44.5" height="14.5"/>
+                                                        <rect key="frame" x="92" y="47.5" width="44.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E5i-Ve-8Tq">
-                                                        <rect key="frame" x="44" y="12.5" width="50" height="50"/>
+                                                        <rect key="frame" x="44" y="21.5" width="32" height="32"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="E5i-Ve-8Tq" secondAttribute="height" multiplier="1:1" id="EeA-Jl-xL5"/>
-                                                            <constraint firstAttribute="width" constant="50" id="ZR7-zO-qHz"/>
+                                                            <constraint firstAttribute="width" constant="32" id="ZR7-zO-qHz"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -354,22 +357,46 @@
                     <navigationItem key="navigationItem" id="UEX-oi-kOp"/>
                     <connections>
                         <outlet property="firstBandImageView" destination="YQl-gc-Rep" id="LhG-Je-qih"/>
+                        <outlet property="firstBandIntro" destination="9rt-bn-BPd" id="lew-h5-eii"/>
+                        <outlet property="firstBandTitleLabel" destination="GoM-3o-Xmc" id="E3I-aM-cr6"/>
                         <outlet property="newBandCollectionView" destination="HIx-nX-g7w" id="eUD-EQ-LEU"/>
                         <outlet property="secondBandImageView" destination="MzG-P1-zEv" id="x3l-li-AhT"/>
+                        <outlet property="secondBandIntro" destination="bpt-8k-LJE" id="2B8-CK-Roq"/>
+                        <outlet property="secondBandTitleLabel" destination="3ur-aN-CT1" id="DSZ-Eo-X2u"/>
                         <outlet property="thirdBandImageView" destination="E5i-Ve-8Tq" id="WXS-tv-eOD"/>
+                        <outlet property="thirdBandIntro" destination="BuF-i1-NCJ" id="otq-vA-WOG"/>
+                        <outlet property="thirdBandTitleLabel" destination="HeA-Vp-w3J" id="0UW-Pw-vSs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966.66666666666674" y="63.616071428571423"/>
+            <point key="canvasLocation" x="1876.8115942028987" y="63.616071428571423"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--BandList-->
         <scene sceneID="l4r-aI-lxf">
             <objects>
-                <viewControllerPlaceholder id="jrh-rZ-gW9" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="BandListViewController" storyboardName="BandList" id="jrh-rZ-gW9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIF-Jj-Ahd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694.9275362318842" y="63.616071428571423"/>
+            <point key="canvasLocation" x="2581" y="64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zBG-XT-w0U">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m2X-aE-Xe6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fiA-01-pqw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="kt2-eq-V5t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDw-xh-dLM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966.66666666666674" y="63.616071428571423"/>
         </scene>
     </scenes>
     <resources>

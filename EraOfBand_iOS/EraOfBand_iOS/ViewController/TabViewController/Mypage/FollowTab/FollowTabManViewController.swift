@@ -15,6 +15,7 @@ class FollowTabManViewController: TabmanViewController{
     
     private var viewControllers: Array<UIViewController> = []
     var myNickName: String?
+    var userIdx: Int?
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -25,8 +26,10 @@ class FollowTabManViewController: TabmanViewController{
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         let followingVC = UIStoryboard.init(name: "FollowingTable", bundle: nil).instantiateViewController(withIdentifier: "FollowingTableViewController") as! FollowingTableViewController
+        followingVC.userIdx = userIdx
         
         let followerVC = UIStoryboard.init(name: "FollowingTable", bundle: nil).instantiateViewController(withIdentifier: "FollowerTableViewController") as! FollowerTableViewController
+        followerVC.userIdx = userIdx
         
         viewControllers.append(followingVC)
         viewControllers.append(followerVC)

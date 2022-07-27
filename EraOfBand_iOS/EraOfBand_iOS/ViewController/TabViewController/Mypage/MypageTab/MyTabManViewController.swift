@@ -75,9 +75,9 @@ extension MyTabManViewController: PageboyViewControllerDataSource, TMBarDataSour
 func settingMypageTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.transitionStyle = .snap
     
-    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+    ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     
-    ctBar.layout.interButtonSpacing = 70
+    ctBar.layout.contentMode = .fit
     
     ctBar.backgroundView.style = .clear
     
