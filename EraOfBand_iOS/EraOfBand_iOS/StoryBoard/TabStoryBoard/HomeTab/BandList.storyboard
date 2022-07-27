@@ -35,14 +35,25 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="전체"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOj-jp-Lif">
+                                <rect key="frame" x="339" y="807" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Dfx-KQ-Y0u"/>
+                                    <constraint firstAttribute="width" constant="55" id="vAr-Vl-2xa"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="ic_floating"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Up3-XK-JfS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="Ca7-f1-NUx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DOj-jp-Lif" secondAttribute="trailing" constant="20" id="Lse-fz-D5I"/>
                             <constraint firstItem="Up3-XK-JfS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XKg-KH-hoQ"/>
                             <constraint firstItem="GIz-e2-PdA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="31" id="g6X-Sh-1N2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Up3-XK-JfS" secondAttribute="trailing" id="hsX-qg-UMT"/>
+                            <constraint firstItem="DOj-jp-Lif" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="iFh-bA-Ykh"/>
                             <constraint firstItem="GIz-e2-PdA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="pOs-yQ-JV5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Up3-XK-JfS" secondAttribute="bottom" id="rEi-wD-ZP9"/>
                         </constraints>
@@ -80,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OVz-ZG-BEk">
-                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <rect key="frame" x="20" y="44" width="374" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BandListTableViewCell" rowHeight="127" id="W2c-uM-IuZ" customClass="BandListTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
@@ -158,7 +169,7 @@
                         <viewLayoutGuide key="safeArea" id="YqT-I9-tTK"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YqT-I9-tTK" firstAttribute="bottom" secondItem="OVz-ZG-BEk" secondAttribute="bottom" id="0Pi-eN-kVg"/>
+                            <constraint firstAttribute="bottom" secondItem="OVz-ZG-BEk" secondAttribute="bottom" id="0Pi-eN-kVg"/>
                             <constraint firstItem="OVz-ZG-BEk" firstAttribute="top" secondItem="YqT-I9-tTK" secondAttribute="top" id="HbA-Zn-Esf"/>
                             <constraint firstItem="OVz-ZG-BEk" firstAttribute="leading" secondItem="YqT-I9-tTK" secondAttribute="leading" constant="20" id="n9w-CD-Wu6"/>
                             <constraint firstItem="YqT-I9-tTK" firstAttribute="trailing" secondItem="OVz-ZG-BEk" secondAttribute="trailing" constant="20" id="vAT-fP-Qkl"/>
@@ -174,6 +185,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_floating" width="84" height="84"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>

@@ -40,10 +40,6 @@ class SessionMatchViewController: UIViewController {
         url = url.encodeUrl()!
         let header: HTTPHeaders = ["Content-Type": "application/json"]
         
-        //print(url)
-        //정상 "https://eraofband.shop/sessions/home/new"
-        //이상 https://eraofband.shop​/sessions​/home​/new
-        
         let request = AF.request(url,
                                  method: .get,
                                  encoding: JSONEncoding.default,
