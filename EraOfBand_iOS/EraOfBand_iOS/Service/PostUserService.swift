@@ -45,14 +45,13 @@ class PostUserService {
         print("비디오 url 잘 들어오는지 확인 : \(videoUrl)")
 
         
-        let upload = AF.upload(multipartFormData: { multipartFormData in
+        AF.upload(multipartFormData: { multipartFormData in
             
-
             multipartFormData.append(videoUrl, withName: "file", fileName: "video.mp4", mimeType: "video/mp4")
             
-        }, to: urlString, method: .post, headers: header).responseDecodable(of: ImgUrlModel.self) {response in
+        }, to: urlString, method: .post, headers: header).responseDecodable(of: ImgUrlModel.self) { response in
             
-            guard let videoInfo = response.value else {return}
+            guard let videoInfo = response.value else { return }
             print(videoInfo.result)
             
             completion(true, videoInfo.result)

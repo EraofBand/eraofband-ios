@@ -24,6 +24,7 @@ class OtherUserViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
     
@@ -34,6 +35,26 @@ class OtherUserViewController: UIViewController {
 
     var userData: OtherUserDataModel?
 
+    
+    @IBAction func followingBtnTapped(_ sender: Any) {
+        
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        followVC.myNickName = userNickNameLabel.text
+        followVC.currentPage = "Following"
+        followVC.userIdx = userIdx
+        
+        navigationController?.pushViewController(followVC, animated: true)
+    }
+    @IBAction func followerBtnTapped(_ sender: Any) {
+        guard let followVC = storyboard?.instantiateViewController(withIdentifier: "FollowTabManViewController") as? FollowTabManViewController else {return}
+        
+        followVC.myNickName = userNickNameLabel.text
+        followVC.currentPage = "Follower"
+        followVC.userIdx = userIdx
+        
+        navigationController?.pushViewController(followVC, animated: true)
+    }
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -52,7 +73,8 @@ class OtherUserViewController: UIViewController {
             switch response.result{
             case.success:
                 self.followButton.setTitle("팔로우", for: .normal)
-                
+                self.followButton.tintColor = .white
+                self.followButton.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
             default:
                 return
             }
@@ -60,6 +82,7 @@ class OtherUserViewController: UIViewController {
     }
     
     func doFollow(){
+        
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
@@ -72,7 +95,8 @@ class OtherUserViewController: UIViewController {
             switch response.result{
             case.success:
                 self.followButton.setTitle("언팔로우", for: .normal)
-                
+                self.followButton.tintColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+                self.followButton.backgroundColor = .clear
             default:
                 return
             }
@@ -105,8 +129,11 @@ class OtherUserViewController: UIViewController {
         
         if userData?.result.getUser.follow == 0{
             followButton.setTitle("팔로우", for: .normal)
+            followButton.tintColor = .white
+            followButton.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         }else{
             followButton.setTitle("언팔로우", for: .normal)
+            followButton.backgroundColor = .clear
         }
         
         self.title = userData?.result.getUser.nickName
@@ -129,6 +156,7 @@ class OtherUserViewController: UIViewController {
         guard let imageUrl = userData?.result.getUser.profileImgUrl else { return }
         if let url = URL(string: imageUrl) {
             userImageView.load(url: url)
+            userImageView.contentMode = .scaleAspectFill
         } else {
             userImageView.image = UIImage(named: "default_image")
         }
@@ -174,10 +202,19 @@ class OtherUserViewController: UIViewController {
         infoView.layer.cornerRadius = 15
         followButton.layer.cornerRadius = 15
         messageButton.layer.cornerRadius = 15
+        topView.layer.cornerRadius = 15
         
         userSessionLabel.layer.cornerRadius = 10
         userSessionLabel.layer.borderWidth = 1
-        userSessionLabel.layer.borderColor = UIColor(named: "on_icon_color")?.cgColor
+        userSessionLabel.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        
+        followButton.layer.cornerRadius = 15
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        
+        messageButton.layer.cornerRadius = 15
+        messageButton.layer.borderWidth = 1
+        messageButton.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         
     }
     
