@@ -12,18 +12,41 @@ import UIKit
 class BandListTabManController: TabmanViewController {
     
     var viewControllers: [UIViewController] = []
+    var region: String = "전체"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let bandListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController")
+        let bandListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController") as! BandListTableViewController
+        bandListVC.tabNum = 5
+        bandListVC.region = region
+        
+        let vocalListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController") as! BandListTableViewController
+        vocalListVC.tabNum = 0
+        vocalListVC.region = region
+        
+        let guitarListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController") as! BandListTableViewController
+        guitarListVC.tabNum = 1
+        guitarListVC.region = region
+        
+        let baseListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController") as! BandListTableViewController
+        baseListVC.tabNum = 2
+        baseListVC.region = region
+        
+        let keyboardListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController") as! BandListTableViewController
+        keyboardListVC.tabNum = 3
+        keyboardListVC.region = region
+        
+        let drumListVC = UIStoryboard.init(name: "BandList", bundle: nil).instantiateViewController(withIdentifier: "BandListTableViewController") as! BandListTableViewController
+        drumListVC.tabNum = 4
+        drumListVC.region = region
         
         viewControllers.append(bandListVC)
-        viewControllers.append(bandListVC)
-        viewControllers.append(bandListVC)
-        viewControllers.append(bandListVC)
-        viewControllers.append(bandListVC)
-        viewControllers.append(bandListVC)
+        viewControllers.append(vocalListVC)
+        viewControllers.append(guitarListVC)
+        viewControllers.append(baseListVC)
+        viewControllers.append(keyboardListVC)
+        viewControllers.append(drumListVC)
         
         self.dataSource = self
         

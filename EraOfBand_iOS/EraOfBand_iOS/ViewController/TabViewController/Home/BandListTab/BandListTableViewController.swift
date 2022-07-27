@@ -8,14 +8,31 @@
 import UIKit
 
 class BandListTableViewController: UIViewController {
-
+    
     @IBOutlet weak var bandTableView: UITableView!
+    
+    var tabNum: Int?
+    var region: String?
+    var bandList: [bandInfo] = []
+
+    func getBandList() {
+        
+        GetBandListService.getBandInfoList(region!, String(tabNum!)) { [self] (isSuccess, response) in
+            if isSuccess {
+                bandList = response.result
+                
+                bandTableView.delegate = self
+                bandTableView.dataSource = self
+            }
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        bandTableView.delegate = self
-        bandTableView.dataSource = self
+        
+        getBandList()
         
     }
     
@@ -24,13 +41,20 @@ class BandListTableViewController: UIViewController {
 extension BandListTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return bandList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BandListTableViewCell", for: indexPath) as! BandListTableViewCell
         
         cell.backgroundColor = .clear
+        
+        let bandinfo = bandList[indexPath.item]
+        let url = URL(string: bandinfo.bandImgUrl)!
+        cell.bandImageView.load(url: url)
+        cell.districtLabel.text = bandinfo.bandRegion
+        cell.bandNameLabel.text = bandinfo.bandTitle
+        cell.bandIntroLabel.text = bandinfo.bandIntroduction
         
         return cell
     }
