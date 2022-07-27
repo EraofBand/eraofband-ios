@@ -114,6 +114,7 @@ class PorfolCommentViewController: UIViewController{
         commentTextField.leftViewMode = .always
         commentTextField.rightViewMode = .always
         commentTextField.layer.backgroundColor = UIColor.white.cgColor
+        
     }
     
     
@@ -144,11 +145,14 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as! CommentTableViewCell
         
+        cell.profileImgView.layer.cornerRadius = 35/2
+        
+        
         cell.nicknameLabel.text = commentList[indexPath.row].nickName
         cell.contentLabel.text = commentList[indexPath.row].content
         cell.dateLabel.text = commentList[indexPath.row].updatedAt
         
-        let pofolImgUrl = URL(string: "https://mblogthumb-phinf.pstatic.net/20130602_46/unrealaisle_1370152094130HHCmf_JPEG/gongsil_dooli_640.jpg?type=w2")
+        let pofolImgUrl = URL(string: commentList[indexPath.row].profileImgUrl)
         cell.profileImgView.kf.setImage(with: pofolImgUrl)
         
         cell.selectionStyle = .none
@@ -156,9 +160,56 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
         cell.profileBtn.tag = commentList[indexPath.row].userIdx
         cell.profileBtn.addTarget(self, action: #selector(profileBtnTapped(sender:)), for: .touchUpInside)
         
+        /*댓글 메뉴 처리*/
+        cell.menuBtn.tag = commentList[indexPath.row].pofolCommentIdx
+        if(appDelegate.userIdx == commentList[indexPath.row].userIdx){
+            cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
+        }
+        
         return cell
     }
     
+    func deleteComment(commentIdx: Int){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request("https://eraofband.shop/pofols/comment/status/" + String(commentIdx),
+                   method: .patch,
+                   parameters: [
+                    "userIdx": appDelegate.userIdx!
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success :
+                self.getCommentList()
+            default:
+                return
+            }
+            
+        }
+    }
+    
+    /*댓글 메뉴 클릭시*/
+    @objc func menuBtnTapped(sender: UIButton){
+        let optionMenu = UIAlertController(title: nil, message: "댓글", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+            self.deleteComment(commentIdx: sender.tag)
+                })
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+              })
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    /*다른 유저 프로필로 넘어가기*/
     @objc func profileBtnTapped(sender: UIButton){
         guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
         otherUserVC.userIdx = sender.tag
@@ -202,29 +253,4 @@ extension PorfolCommentViewController{
         }
     }
     
-    /*텍스트필드만 올라오게 하기.. 일단 보류
-    @objc func keyboardWillShow(notification: NSNotification){
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if textViewYValue == 0{
-                textViewYValue = self.textFieldView.frame.origin.y
-            }
-            
-            if self.textFieldView.frame.origin.y == textViewYValue {
-                textViewYValue = self.textFieldView.frame.origin.y
-                self.textFieldView.frame.origin.y -= keyboardSize.height - (view.window?.windowScene?.keyWindow?.safeAreaInsets.bottom)!
-                
-                
-            }
-        }
-        
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification){
-        
-        if self.textFieldView.frame.origin.y != textViewYValue {
-            self.textFieldView.frame.origin.y = textViewYValue
-        }
-        
-    }
-     */
 }

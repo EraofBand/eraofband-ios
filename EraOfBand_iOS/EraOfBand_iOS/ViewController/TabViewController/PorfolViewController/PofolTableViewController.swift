@@ -103,6 +103,12 @@ class PofolTableViewController: UIViewController{
         tableView.tableHeaderView = UIView()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        reloadPofolList()
+    }
 }
 
 extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{

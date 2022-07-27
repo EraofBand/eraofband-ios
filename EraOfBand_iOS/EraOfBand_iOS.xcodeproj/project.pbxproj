@@ -77,10 +77,11 @@
 		A8BD5CC1288BEAFB009E7A1B /* WishLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */; };
 		A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */; };
 		A8BD5CC5288BF588009E7A1B /* HomeBandCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */; };
-		BC0728BD28901CB0007EA95D /* CreateLesson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */; };
-		BC0728BF28902AF9007EA95D /* CreateLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */; };
 		A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7E100288FC734009809EB /* BandListTableViewCell.swift */; };
 		A8C7E103288FC85C009809EB /* BandListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7E102288FC85C009809EB /* BandListTableViewController.swift */; };
+		BC0728BD28901CB0007EA95D /* CreateLesson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */; };
+		BC0728BF28902AF9007EA95D /* CreateLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */; };
+		BC0728C2289125EF007EA95D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0728C1289125EF007EA95D /* Extension.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
@@ -199,10 +200,11 @@
 		A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishLessonViewController.swift; sourceTree = "<group>"; };
 		A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandCollectionViewCell.xib; sourceTree = "<group>"; };
-		BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateLesson.storyboard; sourceTree = "<group>"; };
-		BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLessonViewController.swift; sourceTree = "<group>"; };
 		A8C7E100288FC734009809EB /* BandListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTableViewCell.swift; sourceTree = "<group>"; };
 		A8C7E102288FC85C009809EB /* BandListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTableViewController.swift; sourceTree = "<group>"; };
+		BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateLesson.storyboard; sourceTree = "<group>"; };
+		BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLessonViewController.swift; sourceTree = "<group>"; };
+		BC0728C1289125EF007EA95D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		A809A7B7286F283400B9E08D /* EraOfBand_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BC0728C0289125D1007EA95D /* Extension */,
 				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
 				A81351A32882A76B00078C9E /* Service */,
 				BC4B5C192871C24E0072A5FF /* Cell */,
@@ -454,6 +457,14 @@
 				D5F38F906F075729C96B5D7B /* Pods-EraOfBand_iOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BC0728C0289125D1007EA95D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BC0728C1289125EF007EA95D /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		BC1ED49528803F3900A5B931 /* MypageTab */ = {
@@ -760,6 +771,7 @@
 				BC2E991B2886CFED0034CBD9 /* FollowingTableViewController.swift in Sources */,
 				BC2E991F2886F48C0034CBD9 /* FollowData.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
+				BC0728C2289125EF007EA95D /* Extension.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
