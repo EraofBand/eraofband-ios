@@ -121,11 +121,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.thumbNailImg.kf.setImage(with: URL(string: (thumbNailList[indexPath.row])))
         
-        /*
-        if((pofolList[indexPath.row].videoUrl!.prefix(20) == "https://eraofband.s3")){
-            let videoURL = URL(string: pofolList[indexPath.row].videoUrl ?? "")
-            cell.thumbNailImg.image = getThumbnailImage(forUrl: videoURL!)
-        }*/
+        cell.thumbNailImg.layer.cornerRadius = 10
         
         cell.playBtn.tag = indexPath.row
         cell.playBtn.addTarget(self, action: #selector(playBtnTapped), for: .touchUpInside)
