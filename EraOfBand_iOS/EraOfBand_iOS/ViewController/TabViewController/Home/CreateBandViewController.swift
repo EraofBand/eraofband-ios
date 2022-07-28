@@ -74,7 +74,6 @@ class CreateBandViewController: UIViewController{
                             "guitarComment": guitarTextField.text ?? "",
                             "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
                             "keyboardComment": keyboardTextField.text ?? "",
-                            "mySession": appDelegate.userSession ?? 0,
                             "userIdx": appDelegate.userIdx ?? 0,
                             "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
                             "vocalComment": vocalTextField.text ?? ""
