@@ -57,13 +57,14 @@
 		A8573625287C49F800E2F0AB /* MyTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573624287C49F800E2F0AB /* MyTabManViewController.swift */; };
 		A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573626287D2F5300E2F0AB /* EditViewController.swift */; };
 		A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573628287DB2C500E2F0AB /* UserDataModel.swift */; };
-		A858BC64288EE37E00B87E30 /* BandListTanManController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC63288EE37E00B87E30 /* BandListTanManController.swift */; };
 		A858BC72288EF3F100B87E30 /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC71288EF3F100B87E30 /* BandListViewController.swift */; };
 		A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC73288F04EA00B87E30 /* GetFollowService.swift */; };
+		A86D277028928112005CDDA4 /* SessionChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */; };
+		A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */; };
+		A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27732892A556005CDDA4 /* LessonListData.swift */; };
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
 		A87A835628900F5400130B8F /* NewBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A835528900F5400130B8F /* NewBandData.swift */; };
 		A88B49932890330F0029A2BF /* FameBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B49922890330F0029A2BF /* FameBandData.swift */; };
-		A8A6017A2891851900CCD871 /* LessonListTabManController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A601792891851900CCD871 /* LessonListTabManController.swift */; };
 		A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */; };
 		A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */; };
 		A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */; };
@@ -76,7 +77,6 @@
 		A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */; };
 		A8BD5CC5288BF588009E7A1B /* HomeBandCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */; };
 		A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7E100288FC734009809EB /* BandListTableViewCell.swift */; };
-		A8C7E103288FC85C009809EB /* BandListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7E102288FC85C009809EB /* BandListTableViewController.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
@@ -175,13 +175,14 @@
 		A8573624287C49F800E2F0AB /* MyTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabManViewController.swift; sourceTree = "<group>"; };
 		A8573626287D2F5300E2F0AB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		A8573628287DB2C500E2F0AB /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
-		A858BC63288EE37E00B87E30 /* BandListTanManController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTanManController.swift; sourceTree = "<group>"; };
-		A858BC71288EF3F100B87E30 /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BandListViewController.swift; path = ../BandListViewController.swift; sourceTree = "<group>"; };
+		A858BC71288EF3F100B87E30 /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
 		A858BC73288F04EA00B87E30 /* GetFollowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowService.swift; sourceTree = "<group>"; };
+		A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonListService.swift; sourceTree = "<group>"; };
+		A86D27732892A556005CDDA4 /* LessonListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListData.swift; sourceTree = "<group>"; };
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
 		A87A835528900F5400130B8F /* NewBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBandData.swift; sourceTree = "<group>"; };
 		A88B49922890330F0029A2BF /* FameBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameBandData.swift; sourceTree = "<group>"; };
-		A8A601792891851900CCD871 /* LessonListTabManController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListTabManController.swift; sourceTree = "<group>"; };
 		A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabManViewController.swift; sourceTree = "<group>"; };
 		A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionMatch.storyboard; sourceTree = "<group>"; };
 		A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonMatch.storyboard; sourceTree = "<group>"; };
@@ -194,7 +195,6 @@
 		A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandCollectionViewCell.xib; sourceTree = "<group>"; };
 		A8C7E100288FC734009809EB /* BandListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTableViewCell.swift; sourceTree = "<group>"; };
-		A8C7E102288FC85C009809EB /* BandListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTableViewController.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 			children = (
 				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
 				A81351A32882A76B00078C9E /* Service */,
-				BC4B5C192871C24E0072A5FF /* Cell */,
 				BC4B5C1C2871C4210072A5FF /* Model */,
+				BC4B5C192871C24E0072A5FF /* Cell */,
 				BC4B5C032871A6CD0072A5FF /* Resources */,
 				BC4B5BFE287199550072A5FF /* ViewController */,
 				BC4B5BFA28716A0B0072A5FF /* StoryBoard */,
@@ -324,6 +324,7 @@
 				A80B79CF288A8F850061D516 /* PostUserService.swift */,
 				A858BC73288F04EA00B87E30 /* GetFollowService.swift */,
 				A802D8EF28910DB5001A2F65 /* GetBandListService.swift */,
+				A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -386,31 +387,11 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
-		A858BC62288EE15600B87E30 /* BandListTab */ = {
-			isa = PBXGroup;
-			children = (
-				A858BC71288EF3F100B87E30 /* BandListViewController.swift */,
-				A858BC63288EE37E00B87E30 /* BandListTanManController.swift */,
-				A8C7E102288FC85C009809EB /* BandListTableViewController.swift */,
-			);
-			path = BandListTab;
-			sourceTree = "<group>";
-		};
-		A8A60178289184E600CCD871 /* LessonListTab */ = {
-			isa = PBXGroup;
-			children = (
-				A8A601792891851900CCD871 /* LessonListTabManController.swift */,
-			);
-			path = LessonListTab;
-			sourceTree = "<group>";
-		};
 		A8BD5CAD288BE8CB009E7A1B /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
 				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
-				A858BC62288EE15600B87E30 /* BandListTab */,
-				A8A60178289184E600CCD871 /* LessonListTab */,
 				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
 			);
 			path = Home;
@@ -438,6 +419,7 @@
 				A8BD5CBC288BEAE8009E7A1B /* LessonMatchViewController.swift */,
 				A8BD5CBE288BEAF2009E7A1B /* WishBandViewController.swift */,
 				A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */,
+				A858BC71288EF3F100B87E30 /* BandListViewController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -555,6 +537,7 @@
 				A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */,
 				BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */,
 				A8C7E100288FC734009809EB /* BandListTableViewCell.swift */,
+				A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -576,6 +559,7 @@
 				A87A835528900F5400130B8F /* NewBandData.swift */,
 				A88B49922890330F0029A2BF /* FameBandData.swift */,
 				A802D8F128910FB9001A2F65 /* BandListData.swift */,
+				A86D27732892A556005CDDA4 /* LessonListData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -740,7 +724,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C7E103288FC85C009809EB /* BandListTableViewController.swift in Sources */,
 				A88B49932890330F0029A2BF /* FameBandData.swift in Sources */,
 				BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
@@ -756,8 +739,10 @@
 				BC2E991F2886F48C0034CBD9 /* FollowData.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
+				A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */,
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
+				A86D277028928112005CDDA4 /* SessionChoiceCollectionViewCell.swift in Sources */,
 				A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */,
 				A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */,
 				BCA3DA37287941B30031028E /* RegisterData.swift in Sources */,
@@ -769,6 +754,7 @@
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
+				A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */,
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */,
@@ -790,14 +776,12 @@
 				A81351B42886742900078C9E /* OtherTabmanViewController.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				A8545D96288156DD003E076A /* PorfolCollectionViewCell.swift in Sources */,
-				A8A6017A2891851900CCD871 /* LessonListTabManController.swift in Sources */,
 				BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				BCD3C2302882FBB600562FB4 /* CommentTableViewCell.swift in Sources */,
-				A858BC64288EE37E00B87E30 /* BandListTanManController.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
 				A80B79D0288A8F850061D516 /* PostUserService.swift in Sources */,
 				A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */,
