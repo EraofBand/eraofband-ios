@@ -380,6 +380,14 @@
             </objects>
             <point key="canvasLocation" x="2581" y="64"/>
         </scene>
+        <!--BandRecruit-->
+        <scene sceneID="xfF-Xm-sJU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="BandRecruitViewController" storyboardName="BandRecruit" id="2xp-LH-MC5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eIs-rh-ylH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2437" y="197"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="zBG-XT-w0U">
             <objects>
