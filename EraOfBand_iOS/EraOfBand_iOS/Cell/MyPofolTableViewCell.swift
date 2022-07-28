@@ -21,11 +21,8 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var likeImg: UIImageView!
     @IBOutlet weak var thumbNailImg: UIImageView!
     @IBOutlet weak var playBtn: UIButton!
+    @IBOutlet weak var menuBtn: PofolMenuButton!
     
-    /*
-    public func setupURL (_ urlStr: String){
-        self.videoPlayerView = VideoPlayerView(frame: .zero, urlStr: urlStr)
-    }*/
     
     override class func awakeFromNib() {
         super.awakeFromNib()

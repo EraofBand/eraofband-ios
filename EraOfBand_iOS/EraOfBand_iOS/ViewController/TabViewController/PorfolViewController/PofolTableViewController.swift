@@ -103,6 +103,12 @@ class PofolTableViewController: UIViewController{
         tableView.tableHeaderView = UIView()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        reloadPofolList()
+    }
 }
 
 extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
@@ -114,6 +120,8 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPofolTableViewCell", for: indexPath) as! MyPofolTableViewCell
         
         cell.thumbNailImg.kf.setImage(with: URL(string: (thumbNailList[indexPath.row])))
+        
+        cell.thumbNailImg.layer.cornerRadius = 10
         
         cell.playBtn.tag = indexPath.row
         cell.playBtn.addTarget(self, action: #selector(playBtnTapped), for: .touchUpInside)
@@ -133,6 +141,8 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.selectionStyle = .none
         
+        
+        
         cell.commentBtn.tag = pofolList[indexPath.row].pofolIdx!
         cell.commentBtn.addTarget(self, action: #selector(commentBtnTapped(sender:)), for: .touchUpInside)
         
@@ -148,7 +158,71 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
             cell.likeBtn.addTarget(self, action: #selector(postLike(sender:)), for: .touchUpInside)
         }
         
+        cell.menuBtn.pofolIdx = pofolList[indexPath.row].pofolIdx ?? 0
+        cell.menuBtn.thumbIdx = indexPath.row
+        if(appDelegate.userIdx == pofolList[indexPath.row].userIdx){
+            cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
+        }
+        
         return cell
+    }
+    
+    func deletePofol(pofolIdx: Int, thumbIdx: Int){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
+                   method: .patch,
+                   parameters: [
+                    "userIdx": appDelegate.userIdx!
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success :
+                self.thumbNailList.remove(at: thumbIdx)
+                self.reloadPofolList()
+            default:
+                return
+            }
+            
+        }
+    }
+    
+    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
+        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else {return}
+                
+        addPofolVC.isModifying = true
+        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
+        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
+        addPofolVC.currentThumbNailUrl = thumbNailList[thumbIdx]
+        addPofolVC.pofolIdx = pofolIdx
+        
+        self.navigationController?.pushViewController(addPofolVC, animated: true)
+    }
+    
+    @objc func menuBtnTapped(sender: PofolMenuButton){
+        let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
+        
+        let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
+                (alert: UIAlertAction!) -> Void in
+            self.modifyPofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
+            })
+        let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+            self.deletePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
+                })
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+              })
+        
+        optionMenu.addAction(modifyAction)
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
     }
     
     @objc func playBtnTapped(sender: UIButton){
@@ -213,5 +287,19 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 520
+    }
+    
+    func getThumbnailImage(forUrl url: URL) -> UIImage? {
+        let asset: AVAsset = AVAsset(url: url)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+
+        do {
+            let thumbnailImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 1, timescale: 60), actualTime: nil)
+            return UIImage(cgImage: thumbnailImage)
+        } catch let error {
+            print(error)
+        }
+
+        return nil
     }
 }
