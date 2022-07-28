@@ -232,6 +232,14 @@
             </objects>
             <point key="canvasLocation" x="792.75362318840587" y="178.79464285714286"/>
         </scene>
+        <!--AddPofol-->
+        <scene sceneID="laF-We-jL5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AddPofolViewController" storyboardName="AddPofol" id="DY4-RW-jZZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AmJ-yb-AGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303" y="166"/>
+        </scene>
         <!--CommentTable-->
         <scene sceneID="Owu-Aj-4xz">
             <objects>
