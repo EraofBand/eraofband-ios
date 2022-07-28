@@ -83,12 +83,15 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         
         //print(pofolList)
         
-        if(pofolList.count != 0){
+        if(pofolList.count == 1){
             self.thumbNailList[0] = pofolList[0].imgUrl
         }
         
-        for i in 1...pofolList.count - 1{
-            self.thumbNailList.append(pofolList[i].imgUrl)
+        if(pofolList.count > 1){
+            self.thumbNailList[0] = pofolList[0].imgUrl
+            for i in 1...pofolList.count - 1{
+                self.thumbNailList.append(pofolList[i].imgUrl)
+            }
         }
         
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}

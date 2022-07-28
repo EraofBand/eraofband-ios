@@ -1,51 +1,43 @@
 //
-//  CreateBandViewController.swift
+//  CreateLessonViewController.swift
 //  EraOfBand_iOS
 //
-//  Created by 송재민 on 2022/07/25.
+//  Created by 송재민 on 2022/07/26.
 //
 
 import UIKit
 import Alamofire
 
-class CreateBandViewController: UIViewController{
+class CreateLessonViewController: UIViewController{
+    
+    @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var shortIntroTextField: UITextField!
-    @IBOutlet weak var imageView: UIView!
-    @IBOutlet weak var introTextView: UITextView!
-    @IBOutlet weak var chatLinkTextField: UITextField!
-    @IBOutlet weak var vocalTextField: UITextField!
-    @IBOutlet weak var guitarTextField: UITextField!
-    @IBOutlet weak var bassTextField: UITextField!
-    @IBOutlet weak var keyboardTextField: UITextField!
-    @IBOutlet weak var drumTextField: UITextField!
-    @IBOutlet weak var vocalNumView: UIView!
-    @IBOutlet weak var guitarNumView: UIView!
-    @IBOutlet weak var bassNumView: UIView!
-    @IBOutlet weak var keyboardNumView: UIView!
-    @IBOutlet weak var drumNumView: UIView!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var districtTextField: UITextField!
+    @IBOutlet weak var introTextView: UITextView!
+    @IBOutlet weak var chatLinkTextField: UITextField!
+    @IBOutlet weak var numLabel: UILabel!
     @IBOutlet weak var titleLengthLabel: UILabel!
     @IBOutlet weak var shortIntroLengthLabel: UILabel!
     @IBOutlet weak var longIntroLengthLabel: UILabel!
-    @IBOutlet weak var vocalNumLabel: UILabel!
-    @IBOutlet weak var guitarNumLabel: UILabel!
-    @IBOutlet weak var bassNumLabel: UILabel!
-    @IBOutlet weak var keyboardNumLabel: UILabel!
-    @IBOutlet weak var drumNumLabel: UILabel!
+    @IBOutlet weak var imageView: UIView!
+    @IBOutlet weak var bandImageView: UIImageView!
+    @IBOutlet weak var peopleNumView: UIView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    let imagePickerController = UIImagePickerController()
-    @IBOutlet weak var bandImageView: UIImageView!
     var imgUrl: String = ""
+    let imagePickerController = UIImagePickerController()
     
     let city = ["서울", "경기"]
     let districtSeoul = ["강서구", "광진구", "강남구"]
+    let category = ["보컬", "기타", "베이스", "드럼", "키보드"]
+    var currentCategory: Int = 0
     
     var cityPickerView = UIPickerView()
     var districtPickerView = UIPickerView()
+    var categoryPickerView = UIPickerView()
+    
     
     
     @IBAction func registerBtnTapped(_ sender: Any) {
@@ -57,26 +49,18 @@ class CreateBandViewController: UIViewController{
                     "x-access-token": self.appDelegate.jwt,
                     "Content-Type": "application/json"]
                 
-                AF.request(appDelegate.baseUrl + "/sessions",
+                AF.request(appDelegate.baseUrl + "/lessons",
                            method: .post,
                            parameters: [
-                            "bandContent": introTextView.text ?? "",
-                            "bandImgUrl": imgUrl,
-                            "bandIntroduction": shortIntroTextField.text ?? "",
-                            "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
-                            "bandTitle": titleTextField.text ?? "",
-                            "base": Int(bassNumLabel.text ?? "0") ?? 0,
-                            "baseComment": bassTextField.text ?? "",
+                            "capacity": Int(numLabel.text ?? "0") ?? 0,
                             "chatRoomLink": chatLinkTextField.text ?? "",
-                            "drum": Int(drumNumLabel.text ?? "0") ?? 0,
-                            "drumComment": drumTextField.text ?? "",
-                            "guitar": Int(guitarNumLabel.text ?? "0") ?? 0,
-                            "guitarComment": guitarTextField.text ?? "",
-                            "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
-                            "keyboardComment": keyboardTextField.text ?? "",
-                            "userIdx": appDelegate.userIdx ?? 0,
-                            "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
-                            "vocalComment": vocalTextField.text ?? ""
+                            "lessonContent": introTextView.text ?? "",
+                            "lessonImgUrl": imgUrl,
+                            "lessonIntroduction": shortIntroTextField.text ?? "",
+                            "lessonRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
+                            "lessonSession": currentCategory,
+                            "lessonTitle": titleTextField.text ?? "",
+                            "userIdx": appDelegate.userIdx ?? 0
                            ],
                            encoding: JSONEncoding.default,
                            headers: header).responseJSON{ response in
@@ -93,59 +77,20 @@ class CreateBandViewController: UIViewController{
         }
     }
     
-    /*세션 인원 변경 함수*/
-    @IBAction func vocalMinusTapped(_ sender: Any) {
-        if(Int(vocalNumLabel.text ?? "0")! > 0){
-            vocalNumLabel.text = String(Int(vocalNumLabel.text ?? "0")! - 1)
-        }
-    }
-    @IBAction func vocalPlusTapped(_ sender: Any) {
-        vocalNumLabel.text = String(Int(vocalNumLabel.text ?? "0")! + 1)
-    }
-    
-    @IBAction func guitarMinusTapped(_ sender: Any) {
-        if(Int(guitarNumLabel.text ?? "0")! > 0){
-            guitarNumLabel.text = String(Int(guitarNumLabel.text ?? "0")! - 1)
-        }
-    }
-    @IBAction func guitarPlusTapped(_ sender: Any) {
-        guitarNumLabel.text = String(Int(guitarNumLabel.text ?? "0")! + 1)
-    }
-    
-    @IBAction func bassMinusTapped(_ sender: Any) {
-        if(Int(bassNumLabel.text ?? "0")! > 0){
-            bassNumLabel.text = String(Int(bassNumLabel.text ?? "0")! - 1)
-        }
-    }
-    @IBAction func bassPlusTapped(_ sender: Any) {
-        bassNumLabel.text = String(Int(bassNumLabel.text ?? "0")! + 1)
-    }
-    
-    @IBAction func keyboardMinusTapped(_ sender: Any) {
-        if(Int(keyboardNumLabel.text ?? "0")! > 0){
-            keyboardNumLabel.text = String(Int(keyboardNumLabel.text ?? "0")! - 1)
-        }
-    }
-    @IBAction func keyboardPlusTapped(_ sender: Any) {
-        keyboardNumLabel.text = String(Int(keyboardNumLabel.text ?? "0")! + 1)
-    }
-    
-    @IBAction func drumMinusTapped(_ sender: Any) {
-        if(Int(drumNumLabel.text ?? "0")! > 0){
-            drumNumLabel.text = String(Int(drumNumLabel.text ?? "0")! - 1)
-        }
-    }
-    @IBAction func drumPlusTapped(_ sender: Any) {
-        drumNumLabel.text = String(Int(drumNumLabel.text ?? "0")! + 1)
-    }
-    
-    /*텍스트필드 카운트*/
     @IBAction func titleOnChanged(_ sender: Any) {
         titleLengthLabel.text = String(titleTextField.text?.count ?? 0) + " / 20"
-        
     }
     @IBAction func shortIntroOnChanged(_ sender: Any) {
         shortIntroLengthLabel.text = String(shortIntroTextField.text?.count ?? 0) + " / 20"
+    }
+    
+    @IBAction func minusTapped(_ sender: Any) {
+        if(Int(numLabel.text ?? "0")! > 0){
+            numLabel.text = String(Int(numLabel.text ?? "0")! - 1)
+        }
+    }
+    @IBAction func plusTapped(_ sender: Any) {
+        numLabel.text = String(Int(numLabel.text ?? "0")! + 1)
     }
     
     @IBAction func addImageBtnTapped(_ sender: Any) {
@@ -157,46 +102,23 @@ class CreateBandViewController: UIViewController{
         self.navigationController?.popViewController(animated: true)
     }
     
-    
     func setLayout(){
-        self.title = "밴드 생성"
+        self.title = "레슨 생성"
         
-        /*코너 radius 값 조정*/
         titleTextField.borderStyle = .none
         titleTextField.layer.cornerRadius = 15
         shortIntroTextField.borderStyle = .none
         shortIntroTextField.layer.cornerRadius = 15
         chatLinkTextField.borderStyle = .none
         chatLinkTextField.layer.cornerRadius = 15
-        vocalTextField.borderStyle = .none
-        vocalTextField.layer.cornerRadius = 15
-        guitarTextField.borderStyle = .none
-        guitarTextField.layer.cornerRadius = 15
-        bassTextField.borderStyle = .none
-        bassTextField.layer.cornerRadius = 15
-        keyboardTextField.borderStyle = .none
-        keyboardTextField.layer.cornerRadius = 15
-        drumTextField.borderStyle = .none
-        drumTextField.layer.cornerRadius = 15
         introTextView.layer.cornerRadius = 15
-        
         imageView.layer.cornerRadius = 15
+        bandImageView.layer.cornerRadius = 15
+        peopleNumView.layer.cornerRadius = 15
         
-        vocalNumView.layer.cornerRadius = 15
-        guitarNumView.layer.cornerRadius = 15
-        bassNumView.layer.cornerRadius = 15
-        keyboardNumView.layer.cornerRadius = 15
-        drumNumView.layer.cornerRadius = 15
-        
-        /*padding 넣어주기*/
         titleTextField.addPadding()
         shortIntroTextField.addPadding()
         chatLinkTextField.addPadding()
-        vocalTextField.addPadding()
-        guitarTextField.addPadding()
-        bassTextField.addPadding()
-        keyboardTextField.addPadding()
-        drumTextField.addPadding()
         
         introTextView.textContainerInset = UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
     }
@@ -216,32 +138,24 @@ class CreateBandViewController: UIViewController{
         
         districtTextField.inputView = districtPickerView
         
+        categoryPickerView.delegate = self
+        categoryPickerView.dataSource = self
+        
+        categoryTextField.inputView = categoryPickerView
+        
+        introTextView.delegate = self
+        introTextView.text = "레슨을 소개해주세요!"
+        introTextView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
+        
         titleTextField.delegate = self
         shortIntroTextField.delegate = self
         
         imagePickerController.delegate = self
-        bandImageView.layer.cornerRadius = 15
-        
-        introTextView.delegate = self
-        introTextView.text = "밴드를 소개해주세요!"
-        introTextView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
     }
-}
-
-extension UITextField{
-    func addPadding(){
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: self.frame.height))
-        
-        self.leftView = paddingView
-        self.rightView = paddingView
-        self.leftViewMode = ViewMode.always
-        self.rightViewMode = ViewMode.always
-    }
-    
 }
 
 /*picker뷰 설정*/
-extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+extension CreateLessonViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -249,24 +163,31 @@ extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == cityPickerView{
             return city.count
-        } else{
+        } else if pickerView == districtPickerView{
             return districtSeoul.count
+        }else{
+            return category.count
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == cityPickerView{
             return city[row]
-        }else{
+        }else if pickerView == districtPickerView{
             return districtSeoul[row]
+        }else{
+            return category[row]
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == cityPickerView{
             cityTextField.text = city[row]
-        }else{
+        }else if pickerView == districtPickerView{
             districtTextField.text = districtSeoul[row]
+        }else{
+            categoryTextField.text = category[row]
+            currentCategory = row
         }
         
         self.view.endEditing(true)
@@ -274,7 +195,7 @@ extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource
 }
 
 /*textfield 글자수 제한*/
-extension CreateBandViewController: UITextFieldDelegate{
+extension CreateLessonViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
                 let rangeOfTextToReplace = Range(range, in: textFieldText) else {
@@ -286,7 +207,7 @@ extension CreateBandViewController: UITextFieldDelegate{
     }
 }
 
-extension CreateBandViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+extension CreateLessonViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage]{
             bandImageView.image = (image as! UIImage)
@@ -295,7 +216,7 @@ extension CreateBandViewController: UIImagePickerControllerDelegate & UINavigati
     }
 }
 
-extension CreateBandViewController: UITextViewDelegate{
+extension CreateLessonViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         if introTextView.textColor == UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1){
             introTextView.text = nil
@@ -305,7 +226,7 @@ extension CreateBandViewController: UITextViewDelegate{
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if introTextView.text.isEmpty{
-            textView.text = "밴드를 소개해주세요!"
+            textView.text = "레슨을 소개해주세요!"
             textView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
         }
     }

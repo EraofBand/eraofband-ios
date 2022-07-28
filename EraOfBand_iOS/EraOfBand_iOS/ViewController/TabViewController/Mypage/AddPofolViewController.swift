@@ -10,6 +10,7 @@ import Alamofire
 import Photos
 import AVFoundation
 import AVKit
+import Kingfisher
 
 protocol MediaPickerDelegate: AnyObject {
     func didFinishPickingMedia(videoURL: URL)
@@ -20,6 +21,12 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var addFileView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var thumbNailImageView: UIImageView!
+    
+    var currentTitle: String = ""
+    var currentThumbNailUrl: String = ""
+    var currentDescription: String = ""
+    var isModifying: Bool = false
+    var pofolIdx: Int = 0
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var imagePicker: UIImagePickerController = {
@@ -41,7 +48,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
-
+        if isModifying == false{
         PostUserService.getImgUrl(self.thumbNailImageView.image){
             [self] (isSuccess, imgResult) in
             if isSuccess{
@@ -53,7 +60,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
                         let header : HTTPHeaders = [
                             "x-access-token": self.appDelegate.jwt,
                             "Content-Type": "application/json"]
-                         
+                        
                         AF.request(self.appDelegate.baseUrl + "/pofols",
                                    method: .post,
                                    parameters: [
@@ -73,21 +80,48 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
                     }
                 }
             }
+            }
+        }
+        else{
+            let header : HTTPHeaders = [
+                "x-access-token": self.appDelegate.jwt,
+                "Content-Type": "application/json"]
+            
+            AF.request(self.appDelegate.baseUrl + "/pofols/pofol-info/\(pofolIdx)/",
+                       method: .patch,
+                       parameters: [
+                        "content": self.descriptionTextView.text ?? "",
+                        "title": self.titleTextField.text ?? "",
+                        "userIdx": self.appDelegate.userIdx!,
+                        ],
+                       encoding: JSONEncoding.default,
+                        headers: header
+            ).responseJSON{ response in
+                print(response)
+            }
+            
+            self.navigationController?.popViewController(animated: true)
         }
         
 
     }
 
     @IBAction func addFileBtnTapped(_ sender: Any) {
-        
-        self.present(self.imagePicker, animated: true, completion: nil)
+        if(isModifying == false){
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
     }
     
     
     func setLayout(){
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 42))
         
-        self.title = "포트폴리오 추가"
+        
+        if(isModifying == false){
+            self.title = "포트폴리오 추가"
+        }else{
+            self.title = "포트폴리오 수정"
+        }
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         titleTextField.borderStyle = .none
@@ -117,6 +151,13 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
         super.viewDidLoad()
         
         setLayout()
+        
+        titleTextField.text = currentTitle
+        descriptionTextView.text = currentDescription
+        
+        if(currentThumbNailUrl != ""){
+            thumbNailImageView.kf.setImage(with: URL(string: currentThumbNailUrl))
+        }
         
         imagePicker.delegate = self
         
