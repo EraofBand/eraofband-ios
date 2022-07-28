@@ -9,17 +9,17 @@ import UIKit
 
 class BandListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var bandImageView: UIImageView!
-    @IBOutlet weak var districtLabel: UILabel!
-    @IBOutlet weak var bandNameLabel: UILabel!
-    @IBOutlet weak var bandIntroLabel: UILabel!
+    @IBOutlet weak var tableImageView: UIImageView!
+    @IBOutlet weak var tableRegionLabel: UILabel!
+    @IBOutlet weak var tableTitleLabel: UILabel!
+    @IBOutlet weak var tableIntroLabel: UILabel!
     @IBOutlet weak var memberNumLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        bandImageView.layer.cornerRadius = 10
+        tableImageView.layer.cornerRadius = 10
         
     }
 
