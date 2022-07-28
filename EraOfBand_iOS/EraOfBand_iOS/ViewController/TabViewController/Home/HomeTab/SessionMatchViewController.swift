@@ -35,11 +35,12 @@ class SessionMatchViewController: UIViewController {
     
     func getNewBand(completion: @escaping() -> Void) {
         
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //let url = appDelegate.baseUrl + "​/sessions​/home​/new"
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var url = appDelegate.baseUrl + "/sessions/home/new"
+        url = url.encodeUrl()!
         let header: HTTPHeaders = ["Content-Type": "application/json"]
         
-        let request = AF.request("https://eraofband.shop/sessions/home/new",
+        let request = AF.request(url,
                                  method: .get,
                                  encoding: JSONEncoding.default,
                                  headers: header)
@@ -61,9 +62,12 @@ class SessionMatchViewController: UIViewController {
     
     func getfameBand(completion: @escaping () -> Void) {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var url = appDelegate.baseUrl + "/sessions/home/fame"
+        url = url.encodeUrl()!
         let header: HTTPHeaders = ["Content-Type": "application/json"]
         
-        let request = AF.request("https://eraofband.shop/sessions/home/fame",
+        let request = AF.request(url,
                                  method: .get,
                                  encoding: JSONEncoding.default,
                                  headers: header)

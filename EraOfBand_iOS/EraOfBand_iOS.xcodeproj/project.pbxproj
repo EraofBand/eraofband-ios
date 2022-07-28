@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9DD28607C26E2D073BAC5914 /* Pods_EraOfBand_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */; };
+		A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802D8EF28910DB5001A2F65 /* GetBandListService.swift */; };
+		A802D8F228910FB9001A2F65 /* BandListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802D8F128910FB9001A2F65 /* BandListData.swift */; };
 		A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7B8286F283400B9E08D /* AppDelegate.swift */; };
 		A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7BA286F283400B9E08D /* SceneDelegate.swift */; };
 		A809A7BD286F283400B9E08D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7BC286F283400B9E08D /* ViewController.swift */; };
@@ -55,14 +57,13 @@
 		A8573625287C49F800E2F0AB /* MyTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573624287C49F800E2F0AB /* MyTabManViewController.swift */; };
 		A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573626287D2F5300E2F0AB /* EditViewController.swift */; };
 		A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8573628287DB2C500E2F0AB /* UserDataModel.swift */; };
-		A858BC64288EE37E00B87E30 /* BandListTanManController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC63288EE37E00B87E30 /* BandListTanManController.swift */; };
-		A858BC68288EE58900B87E30 /* VocalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC67288EE58900B87E30 /* VocalListViewController.swift */; };
-		A858BC6A288EE59300B87E30 /* GuitarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC69288EE59300B87E30 /* GuitarListViewController.swift */; };
-		A858BC6C288EE59C00B87E30 /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC6B288EE59C00B87E30 /* BaseListViewController.swift */; };
-		A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC6D288EE5B700B87E30 /* KeyboardListViewController.swift */; };
-		A858BC70288EE5C500B87E30 /* DrumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC6F288EE5C400B87E30 /* DrumListViewController.swift */; };
 		A858BC72288EF3F100B87E30 /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC71288EF3F100B87E30 /* BandListViewController.swift */; };
 		A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC73288F04EA00B87E30 /* GetFollowService.swift */; };
+		A86D277028928112005CDDA4 /* SessionChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */; };
+		A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */; };
+		A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27732892A556005CDDA4 /* LessonListData.swift */; };
+		A86D27762892B6A0005CDDA4 /* SessionRecruit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */; };
+		A86D27782892B6F3005CDDA4 /* SessionRecruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27772892B6F3005CDDA4 /* SessionRecruitViewController.swift */; };
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
 		A87A835628900F5400130B8F /* NewBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A835528900F5400130B8F /* NewBandData.swift */; };
 		A88B49932890330F0029A2BF /* FameBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B49922890330F0029A2BF /* FameBandData.swift */; };
@@ -132,6 +133,8 @@
 /* Begin PBXFileReference section */
 		1190870D647DF9114CDC66E6 /* Pods-EraOfBand_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.debug.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EraOfBand_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A802D8EF28910DB5001A2F65 /* GetBandListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBandListService.swift; sourceTree = "<group>"; };
+		A802D8F128910FB9001A2F65 /* BandListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListData.swift; sourceTree = "<group>"; };
 		A809A7B5286F283400B9E08D /* EraOfBand_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraOfBand_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A809A7B8286F283400B9E08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A809A7BA286F283400B9E08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,14 +184,13 @@
 		A8573624287C49F800E2F0AB /* MyTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabManViewController.swift; sourceTree = "<group>"; };
 		A8573626287D2F5300E2F0AB /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		A8573628287DB2C500E2F0AB /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
-		A858BC63288EE37E00B87E30 /* BandListTanManController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTanManController.swift; sourceTree = "<group>"; };
-		A858BC67288EE58900B87E30 /* VocalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocalListViewController.swift; sourceTree = "<group>"; };
-		A858BC69288EE59300B87E30 /* GuitarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarListViewController.swift; sourceTree = "<group>"; };
-		A858BC6B288EE59C00B87E30 /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
-		A858BC6D288EE5B700B87E30 /* KeyboardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardListViewController.swift; sourceTree = "<group>"; };
-		A858BC6F288EE5C400B87E30 /* DrumListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumListViewController.swift; sourceTree = "<group>"; };
 		A858BC71288EF3F100B87E30 /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
 		A858BC73288F04EA00B87E30 /* GetFollowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowService.swift; sourceTree = "<group>"; };
+		A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonListService.swift; sourceTree = "<group>"; };
+		A86D27732892A556005CDDA4 /* LessonListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListData.swift; sourceTree = "<group>"; };
+		A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionRecruit.storyboard; sourceTree = "<group>"; };
+		A86D27772892B6F3005CDDA4 /* SessionRecruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitViewController.swift; sourceTree = "<group>"; };
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
 		A87A835528900F5400130B8F /* NewBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBandData.swift; sourceTree = "<group>"; };
 		A88B49922890330F0029A2BF /* FameBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameBandData.swift; sourceTree = "<group>"; };
@@ -300,8 +302,8 @@
 				BC0728C3289150F8007EA95D /* CustomClass */,
 				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
 				A81351A32882A76B00078C9E /* Service */,
-				BC4B5C192871C24E0072A5FF /* Cell */,
 				BC4B5C1C2871C4210072A5FF /* Model */,
+				BC4B5C192871C24E0072A5FF /* Cell */,
 				BC4B5C032871A6CD0072A5FF /* Resources */,
 				BC4B5BFE287199550072A5FF /* ViewController */,
 				BC4B5BFA28716A0B0072A5FF /* StoryBoard */,
@@ -324,10 +326,10 @@
 		A809A7D1287152F800B9E08D /* TabStoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				A8BD5CB0288BE9E8009E7A1B /* HomeTab */,
 				BC1ED49528803F3900A5B931 /* MypageTab */,
 				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				A809A7D42871537B00B9E08D /* NoticeTab.storyboard */,
-				A8BD5CB0288BE9E8009E7A1B /* HomeTab */,
 				A809A7D82871538D00B9E08D /* MessageTab.storyboard */,
 			);
 			path = TabStoryBoard;
@@ -340,6 +342,8 @@
 				A81351A42882A79400078C9E /* GetUserDataService.swift */,
 				A80B79CF288A8F850061D516 /* PostUserService.swift */,
 				A858BC73288F04EA00B87E30 /* GetFollowService.swift */,
+				A802D8EF28910DB5001A2F65 /* GetBandListService.swift */,
+				A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -402,28 +406,13 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
-		A858BC62288EE15600B87E30 /* BandListTab */ = {
-			isa = PBXGroup;
-			children = (
-				A858BC63288EE37E00B87E30 /* BandListTanManController.swift */,
-				A8C7E102288FC85C009809EB /* BandListTableViewController.swift */,
-				A858BC67288EE58900B87E30 /* VocalListViewController.swift */,
-				A858BC69288EE59300B87E30 /* GuitarListViewController.swift */,
-				A858BC6B288EE59C00B87E30 /* BaseListViewController.swift */,
-				A858BC6D288EE5B700B87E30 /* KeyboardListViewController.swift */,
-				A858BC6F288EE5C400B87E30 /* DrumListViewController.swift */,
-			);
-			path = BandListTab;
-			sourceTree = "<group>";
-		};
 		A8BD5CAD288BE8CB009E7A1B /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
 				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
-				A858BC71288EF3F100B87E30 /* BandListViewController.swift */,
-				A858BC62288EE15600B87E30 /* BandListTab */,
 				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
+				A86D27772892B6F3005CDDA4 /* SessionRecruitViewController.swift */,
 				BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */,
 				BC0728C82892CFFD007EA95D /* BandRecruitViewController.swift */,
 			);
@@ -440,6 +429,7 @@
 				A8BD5CB7288BEA6F009E7A1B /* WishLesson.storyboard */,
 				A86FFB85288EBC3D00F57F5A /* BandList.storyboard */,
 				BCE57815288ECBED00D441EB /* CreateBand.storyboard */,
+				A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */,
 				BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */,
 				BC0728C62892C51D007EA95D /* BandRecruit.storyboard */,
 			);
@@ -454,6 +444,7 @@
 				A8BD5CBC288BEAE8009E7A1B /* LessonMatchViewController.swift */,
 				A8BD5CBE288BEAF2009E7A1B /* WishBandViewController.swift */,
 				A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */,
+				A858BC71288EF3F100B87E30 /* BandListViewController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -483,6 +474,7 @@
 				BC1ED498288041B300A5B931 /* MyPofolTable.storyboard */,
 				BCD3C22B2882FA2F00562FB4 /* CommentTable.storyboard */,
 				BC2E99152886CCDB0034CBD9 /* FollowingTable.storyboard */,
+				A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */,
 			);
 			path = MypageTab;
 			sourceTree = "<group>";
@@ -518,9 +510,8 @@
 				A809A7BE286F283400B9E08D /* Main.storyboard */,
 				BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */,
 				BC4B5BFC287192190072A5FF /* login.storyboard */,
-				A809A7D1287152F800B9E08D /* TabStoryBoard */,
 				BCA6646B287306F500136D1B /* Register.storyboard */,
-				A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */,
+				A809A7D1287152F800B9E08D /* TabStoryBoard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -579,6 +570,7 @@
 				A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */,
 				BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */,
 				A8C7E100288FC734009809EB /* BandListTableViewCell.swift */,
+				A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -599,6 +591,8 @@
 				BC2E991E2886F48C0034CBD9 /* FollowData.swift */,
 				A87A835528900F5400130B8F /* NewBandData.swift */,
 				A88B49922890330F0029A2BF /* FameBandData.swift */,
+				A802D8F128910FB9001A2F65 /* BandListData.swift */,
+				A86D27732892A556005CDDA4 /* LessonListData.swift */,
 				BC0728CA2892D48D007EA95D /* BandInfoData.swift */,
 			);
 			path = Model;
@@ -700,6 +694,7 @@
 				BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */,
 				A8573614287534E200E2F0AB /* Pretendard-Black.otf in Resources */,
 				A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */,
+				A86D27762892B6A0005CDDA4 /* SessionRecruit.storyboard in Resources */,
 				A857361A287534F500E2F0AB /* Pretendard-Regular.otf in Resources */,
 				A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */,
 				A8573616287534EA00E2F0AB /* Pretendard-ExtraBold.otf in Resources */,
@@ -766,14 +761,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C7E103288FC85C009809EB /* BandListTableViewController.swift in Sources */,
 				A88B49932890330F0029A2BF /* FameBandData.swift in Sources */,
 				BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */,
+				A86D27782892B6F3005CDDA4 /* SessionRecruitViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
 				A81351B0288561E000078C9E /* SessionChangeCollectionViewCell.swift in Sources */,
-				A858BC6A288EE59300B87E30 /* GuitarListViewController.swift in Sources */,
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
+				A802D8F228910FB9001A2F65 /* BandListData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
 				A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */,
 				BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */,
@@ -782,22 +777,23 @@
 				BC2E991F2886F48C0034CBD9 /* FollowData.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
+				A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */,
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
+				A86D277028928112005CDDA4 /* SessionChoiceCollectionViewCell.swift in Sources */,
 				A809A7B9286F283400B9E08D /* AppDelegate.swift in Sources */,
 				A8573627287D2F5300E2F0AB /* EditViewController.swift in Sources */,
 				BCA3DA37287941B30031028E /* RegisterData.swift in Sources */,
 				A87A835628900F5400130B8F /* NewBandData.swift in Sources */,
 				BC0728CB2892D48D007EA95D /* BandInfoData.swift in Sources */,
 				BC1ED494288027A100A5B931 /* PofolData.swift in Sources */,
-				A858BC68288EE58900B87E30 /* VocalListViewController.swift in Sources */,
 				BC2E99212886F72F0034CBD9 /* FollowTableViewCell.swift in Sources */,
 				A858BC72288EF3F100B87E30 /* BandListViewController.swift in Sources */,
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
-				A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */,
+				A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */,
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				A858BC6E288EE5B700B87E30 /* KeyboardListViewController.swift in Sources */,
 				BC0728C52891510F007EA95D /* PofolMenuButton.swift in Sources */,
@@ -828,7 +824,6 @@
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				BCD3C2302882FBB600562FB4 /* CommentTableViewCell.swift in Sources */,
-				A858BC64288EE37E00B87E30 /* BandListTanManController.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
 				A80B79D0288A8F850061D516 /* PostUserService.swift in Sources */,
 				A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */,
@@ -840,7 +835,6 @@
 				BC2E99182886CD960034CBD9 /* FollowTabManViewController.swift in Sources */,
 				A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */,
 				A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */,
-				A858BC70288EE5C500B87E30 /* DrumListViewController.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
@@ -852,8 +846,8 @@
 				A8BD5CBF288BEAF2009E7A1B /* WishBandViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
-				A858BC6C288EE59C00B87E30 /* BaseListViewController.swift in Sources */,
 				A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */,
+				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);

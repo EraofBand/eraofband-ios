@@ -73,7 +73,6 @@ class OtherUserViewController: UIViewController {
             switch response.result{
             case.success:
                 self.followButton.setTitle("팔로우", for: .normal)
-                self.followButton.tintColor = .white
                 self.followButton.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
             default:
                 return
@@ -95,8 +94,7 @@ class OtherUserViewController: UIViewController {
             switch response.result{
             case.success:
                 self.followButton.setTitle("언팔로우", for: .normal)
-                self.followButton.tintColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
-                self.followButton.backgroundColor = .clear
+                self.followButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
             default:
                 return
             }
@@ -129,11 +127,10 @@ class OtherUserViewController: UIViewController {
         
         if userData?.result.getUser.follow == 0{
             followButton.setTitle("팔로우", for: .normal)
-            followButton.tintColor = .white
             followButton.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         }else{
             followButton.setTitle("언팔로우", for: .normal)
-            followButton.backgroundColor = .clear
+            followButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
         }
         
         self.title = userData?.result.getUser.nickName
@@ -205,16 +202,16 @@ class OtherUserViewController: UIViewController {
         topView.layer.cornerRadius = 15
         
         userSessionLabel.layer.cornerRadius = 10
-        userSessionLabel.layer.borderWidth = 1
-        userSessionLabel.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        userSessionLabel.layer.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        userSessionLabel.textColor = .white
+        userSessionLabel.font = UIFont(name: "Pretendard-Medium", size: 12)
         
         followButton.layer.cornerRadius = 15
-        followButton.layer.borderWidth = 1
-        followButton.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        followButton.tintColor = .white
         
         messageButton.layer.cornerRadius = 15
-        messageButton.layer.borderWidth = 1
-        messageButton.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        messageButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+        messageButton.tintColor = #colorLiteral(red: 0.7675942779, green: 0.7675942779, blue: 0.7675942779, alpha: 1)
         
     }
     
