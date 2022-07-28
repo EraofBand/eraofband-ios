@@ -195,11 +195,24 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
+        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else {return}
+                
+        addPofolVC.isModifying = true
+        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
+        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
+        addPofolVC.currentThumbNailUrl = thumbNailList[thumbIdx]
+        addPofolVC.pofolIdx = pofolIdx
+        
+        self.navigationController?.pushViewController(addPofolVC, animated: true)
+    }
+    
     @objc func menuBtnTapped(sender: PofolMenuButton){
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
         let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
+            self.modifyPofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
             })
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
                     (alert: UIAlertAction!) -> Void in
