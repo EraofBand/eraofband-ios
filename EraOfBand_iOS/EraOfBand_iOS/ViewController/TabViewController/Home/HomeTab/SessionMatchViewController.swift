@@ -151,6 +151,14 @@ extension SessionMatchViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let bandRecruitVC = storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        bandRecruitVC.bandIdx = newBandList[indexPath.row].bandIdx
+        
+        navigationController?.pushViewController(bandRecruitVC, animated: true)
+    }
+    
 }
 
 extension SessionMatchViewController: UICollectionViewDelegateFlowLayout {

@@ -40,6 +40,26 @@ class LoginViewController: UIViewController{
                         self.appDelegate.jwt = getData.result.jwt ?? ""
                         self.appDelegate.userIdx = getData.result.userIdx!
                         
+                        GetUserDataService.shared.getUserInfo{ [self](response) in
+                            switch(response) {
+                            case .success(let userData):
+                                if let data = userData as? User {
+                                    let data = data.getUser
+                                    
+                                    appDelegate.userSession = data.userSession
+                                }
+                            case .requestErr(let message) :
+                                print("requestErr", message)
+                            case .pathErr :
+                                print("pathErr")
+                            case .serverErr :
+                                print("serveErr")
+                            case .networkFail:
+                                print("networkFail")
+                            }
+                            
+                        }
+                        
                         guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
                         mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
                     

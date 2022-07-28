@@ -182,7 +182,11 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키보드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrQ-Kn-6Z9" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
+<<<<<<< HEAD:EraOfBand_iOS/EraOfBand_iOS/StoryBoard/TabStoryBoard/MypageTab/OtherUser.storyboard
                                                         <rect key="frame" x="284" y="37.5" width="55" height="22"/>
+=======
+                                                        <rect key="frame" x="281" y="202" width="55" height="22"/>
+>>>>>>> 90ca511f2d4957148e4f7c56b8b81d48417c2919:EraOfBand_iOS/EraOfBand_iOS/StoryBoard/OtherUser.storyboard
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
                                                         <color key="textColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
