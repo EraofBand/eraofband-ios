@@ -79,16 +79,16 @@ func settingHomeTabBar (ctBar : TMBar.ButtonBar) {
     
     ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     
-    ctBar.layout.interButtonSpacing = 35
+    ctBar.layout.contentMode = .fit
     
     ctBar.backgroundView.style = .clear
     
     // 선택 / 안선택 색 + font size
     ctBar.buttons.customize { (button) in
         button.tintColor = .white
-        button.selectedTintColor = UIColor(named: "on_icon_color")
-        button.font = UIFont(name: "Pretendard-Medium", size: 17)!
-        button.selectedFont = UIFont(name: "Pretendard-Medium", size: 17)!
+        button.selectedTintColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        button.font = UIFont(name: "Pretendard-Medium", size: 18)!
+        button.selectedFont = UIFont(name: "Pretendard-Bold", size: 18)!
     }
     
     // 인디케이터
