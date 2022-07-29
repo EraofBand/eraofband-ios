@@ -54,7 +54,6 @@ class SessionViewController: UIViewController {
             case .success:
                 print("POST한 세션 번호: \(self.session)")
                 print("POST 성공")
-                self.appDelegate.userSession = self.session
             case .failure(let error):
                 print(error.errorDescription!)
             }
