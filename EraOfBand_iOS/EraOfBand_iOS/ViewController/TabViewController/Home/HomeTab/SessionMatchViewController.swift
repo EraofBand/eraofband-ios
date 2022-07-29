@@ -25,15 +25,41 @@ class SessionMatchViewController: UIViewController {
     var fameBandList: [fameBandInfo] = []
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    @IBAction func bandListAction(_ sender: Any) {
+
+    func setBandListVC(_ session: Int) {
         
         guard let bandListVC = storyboard?.instantiateViewController(withIdentifier: "BandListViewController") as? BandListViewController else { return }
         
+        bandListVC.sessionNum = session
+        
         navigationController?.pushViewController(bandListVC, animated: true)
         
-        
     }
+    
+    @IBAction func bandListAction(_ sender: Any) {
+        setBandListVC(0)
+    }
+    
+    @IBAction func vocalListAction(_ sender: Any) {
+        setBandListVC(1)
+    }
+    
+    @IBAction func guitarListAction(_ sender: Any) {
+        setBandListVC(2)
+    }
+    
+    @IBAction func baseListAction(_ sender: Any) {
+        setBandListVC(3)
+    }
+    
+    @IBAction func keyboardListAction(_ sender: Any) {
+        setBandListVC(4)
+    }
+    
+    @IBAction func drumListAction(_ sender: Any) {
+        setBandListVC(5)
+    }
+    
     
     func getNewBand(completion: @escaping() -> Void) {
         
@@ -51,7 +77,6 @@ class SessionMatchViewController: UIViewController {
             switch response.result{
             case .success(let data):
                 newBandList = data.result
-                print(newBandList)
                 completion()
                 
             case .failure(let err):
@@ -78,7 +103,6 @@ class SessionMatchViewController: UIViewController {
             switch response.result{
             case .success(let data):
                 fameBandList = data.result
-                print(fameBandList)
                 completion()
                 
             case .failure(let err):

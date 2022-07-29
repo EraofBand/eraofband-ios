@@ -67,6 +67,7 @@
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
 		A87A835628900F5400130B8F /* NewBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A835528900F5400130B8F /* NewBandData.swift */; };
 		A88B49932890330F0029A2BF /* FameBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B49922890330F0029A2BF /* FameBandData.swift */; };
+		A89381B328940549002D55EF /* SessionRecruitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */; };
 		A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */; };
 		A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */; };
 		A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */; };
@@ -198,6 +199,7 @@
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
 		A87A835528900F5400130B8F /* NewBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBandData.swift; sourceTree = "<group>"; };
 		A88B49922890330F0029A2BF /* FameBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameBandData.swift; sourceTree = "<group>"; };
+		A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitTableViewCell.swift; sourceTree = "<group>"; };
 		A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabManViewController.swift; sourceTree = "<group>"; };
 		A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionMatch.storyboard; sourceTree = "<group>"; };
 		A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonMatch.storyboard; sourceTree = "<group>"; };
@@ -439,9 +441,9 @@
 				A8BD5CB7288BEA6F009E7A1B /* WishLesson.storyboard */,
 				A86FFB85288EBC3D00F57F5A /* BandList.storyboard */,
 				BCE57815288ECBED00D441EB /* CreateBand.storyboard */,
-				A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */,
 				BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */,
 				BC0728C62892C51D007EA95D /* BandRecruit.storyboard */,
+				A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -592,6 +594,7 @@
 				BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */,
 				A8C7E100288FC734009809EB /* BandListTableViewCell.swift */,
 				A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */,
+				A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				A858BC72288EF3F100B87E30 /* BandListViewController.swift in Sources */,
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
+				A89381B328940549002D55EF /* SessionRecruitTableViewCell.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */,

@@ -6,24 +6,79 @@
 //
 
 import UIKit
+import Alamofire
 
 class WishLessonViewController: UIViewController {
-
+    
+    @IBOutlet weak var wishLessonTableView: UITableView!
+    
+    var lessonList: [lessonInfo] = []
+    
+    func getWishLessonList() {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var url = appDelegate.baseUrl + "/lessons/info/likes"
+        print("url: \(url)")
+        
+        url = url.encodeUrl()!
+        let header: HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                   "Content-Type": "application/json"]
+        
+        let request = AF.request(url,
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header)
+        
+        request.responseDecodable(of: LessonListData.self) { [self] response in
+            switch response.result {
+            case .success(let lessonListData):
+                lessonList = lessonListData.result
+                print(lessonList)
+            case .failure(let err):
+                print(err)
+            }
+        }
+        
+        wishLessonTableView.delegate = self
+        wishLessonTableView.dataSource = self
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        getWishLessonList()
+        
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension WishLessonViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lessonList.count
     }
-    */
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BandListTableViewCell", for: indexPath) as! BandListTableViewCell
+        
+        cell.backgroundColor = .clear
+        
+        let lessoninfo = lessonList[indexPath.item]
+        let url = URL(string: lessoninfo.lessonImgUrl)!
+        cell.tableImageView.load(url: url)
+        cell.tableImageView.contentMode = .scaleAspectFill
+        cell.tableRegionLabel.text = lessoninfo.lessonRegion
+        cell.tableTitleLabel.text = lessoninfo.lessonTitle
+        cell.tableIntroLabel.text = lessoninfo.lessonIntroduction
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 147
+    }
+    
 
 }
