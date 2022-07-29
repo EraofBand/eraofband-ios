@@ -20,10 +20,12 @@ struct BandInfoResult: Codable{
     var bandIdx: Int?
     var bandImgUrl: String?
     var bandIntroduction: String?
+    var bandLikeCount: Int?
     var bandRegion: String?
     var bandTitle: String?
     var base: Int?
     var baseComment: String?
+    var capacity: Int?
     var chatRoomLink: String?
     var drum: Int?
     var drumComment: String?
@@ -31,14 +33,17 @@ struct BandInfoResult: Codable{
     var guitarComment: String?
     var keyboard: Int?
     var keyboardComment: String?
-    var mySession: Int?
+    var likeOrNot: String?
+    var memberCount: Int?
     var nickName: String?
     var performDate: String?
     var performFee: Int?
     var performLocation: String?
     var performTime: String?
+    var profileImgUrl: String?
     var sessionMembers: [SessionMember]?
     var userIdx: Int?
+    var userIntroduction: String?
     var vocal: Int?
     var vocalComment: String?
 }
