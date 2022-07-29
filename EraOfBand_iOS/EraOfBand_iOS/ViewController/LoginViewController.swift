@@ -46,7 +46,7 @@ class LoginViewController: UIViewController{
                                 if let data = userData as? User {
                                     let data = data.getUser
                                     
-                                    appDelegate.userSession = data.userSession
+                                    //appDelegate.userSession = data.userSession
                                 }
                             case .requestErr(let message) :
                                 print("requestErr", message)
