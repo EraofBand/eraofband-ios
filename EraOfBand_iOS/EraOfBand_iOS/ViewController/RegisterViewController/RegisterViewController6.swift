@@ -46,7 +46,7 @@ class RegisterViewController6: UIViewController{
                     
                     self.appDelegate.jwt = getData.result.jwt ?? ""
                     self.appDelegate.userIdx = getData.result.userIdx!
-                    self.appDelegate.userSession = self.myRegisterData.userSession
+                    //self.appDelegate.userSession = self.myRegisterData.userSession
                     
                     guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else {return}
                     mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
