@@ -9,6 +9,8 @@ import UIKit
 
 class RecruitViewController: UIViewController{
     
+    @IBOutlet weak var recruitTableViewController: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
