@@ -12,6 +12,7 @@ import Pageboy
 class BandRecruitTabmanViewController: TabmanViewController{
     
     private var viewControllers: Array<UIViewController> = []
+    var bandIdx: Int?
     var bandInfo: BandInfoResult?
     
     func setTabBarLayout(ctBar : TMBar.ButtonBar){
@@ -38,10 +39,12 @@ class BandRecruitTabmanViewController: TabmanViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let introVC = UIStoryboard.init(name: "BandRecruit", bundle: nil).instantiateViewController(withIdentifier: "BandIntroViewController") as! BandIntroViewController
         let recruitVC = UIStoryboard.init(name: "BandRecruit", bundle: nil).instantiateViewController(withIdentifier: "RecruitViewController") as! RecruitViewController
         let albumVC = UIStoryboard.init(name: "BandRecruit", bundle: nil).instantiateViewController(withIdentifier: "BandAlbumViewController") as! BandAlbumViewController
+        
+        introVC.bandInfo = bandInfo
+        albumVC.bandInfo = bandInfo
         
         viewControllers.append(introVC)
         viewControllers.append(recruitVC)
@@ -53,7 +56,10 @@ class BandRecruitTabmanViewController: TabmanViewController{
         setTabBarLayout(ctBar: bar)
         
         addBar(bar, dataSource: self, at: .top)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
     
 }

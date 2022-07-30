@@ -34,8 +34,19 @@ class CreateBandViewController: UIViewController{
     @IBOutlet weak var bassNumLabel: UILabel!
     @IBOutlet weak var keyboardNumLabel: UILabel!
     @IBOutlet weak var drumNumLabel: UILabel!
+    @IBOutlet weak var performTitleTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var timeTextField: UITextField!
+    @IBOutlet weak var performPlaceTextField: UITextField!
+    @IBOutlet weak var performFeeTextField: UITextField!
+    @IBOutlet weak var performTitleLengthLabel: UILabel!
+    @IBOutlet weak var performPlaceLengthLabel: UILabel!
+    @IBOutlet weak var performFeeLengthLabel: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var isModifying: Bool = false
+    var bandInfo: BandInfoResult?
     
     let imagePickerController = UIImagePickerController()
     @IBOutlet weak var bandImageView: UIImageView!
@@ -201,6 +212,12 @@ class CreateBandViewController: UIViewController{
         introTextView.textContainerInset = UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
     }
     
+    func setModifyData(){
+        self.titleTextField.text = self.bandInfo?.bandTitle ?? ""
+        self.shortIntroTextField.text = self.bandInfo?.bandIntroduction ?? ""
+        //self.cityTextField.text = self.bandInfo?.
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -225,6 +242,10 @@ class CreateBandViewController: UIViewController{
         introTextView.delegate = self
         introTextView.text = "밴드를 소개해주세요!"
         introTextView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
+        
+        if(isModifying){
+            setModifyData()
+        }
     }
 }
 
