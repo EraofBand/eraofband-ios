@@ -21,8 +21,11 @@ class BandRecruitViewController: UIViewController{
     
     var bandIdx: Int?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    @IBOutlet weak var containerView: UIView!
     
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    @IBOutlet weak var containerView: UIView!
+    var bandInfo: BandInfoResult?
     
     
     func likeSession(){
@@ -77,11 +80,13 @@ class BandRecruitViewController: UIViewController{
     }
     
     func setLayout(){
+        //self.view.translatesAutoresizingMaskIntoConstraints = false
+        
         likeBtnView.layer.cornerRadius = 10
         shareBtn.layer.cornerRadius = 10
         bandImageView.layer.cornerRadius = 15
         
-        if(appDelegate.currentBandInfo?.likeOrNot == "N"){
+        if(bandInfo?.likeOrNot == "N"){
             likeIcon.image = UIImage(systemName: "heart")
         }else{
             likeIcon.image = UIImage(systemName: "heart.fill")
@@ -89,14 +94,28 @@ class BandRecruitViewController: UIViewController{
     }
     
     func setData(){
-        self.title = appDelegate.currentBandInfo?.bandTitle
-        bandImageView.kf.setImage(with: URL(string: appDelegate.currentBandInfo?.bandImgUrl ?? ""))
-        titleLabel.text = appDelegate.currentBandInfo?.bandTitle
-        introductionLabel.text = appDelegate.currentBandInfo?.bandIntroduction
+        self.title = bandInfo?.bandTitle
+        bandImageView.kf.setImage(with: URL(string: bandInfo?.bandImgUrl ?? ""))
+        titleLabel.text = bandInfo?.bandTitle
+        introductionLabel.text = bandInfo?.bandIntroduction
         
-        memberNumLabel.text = "\(appDelegate.currentBandInfo?.memberCount ?? 0) / \(appDelegate.currentBandInfo?.capacity ?? 0)명"
+        memberNumLabel.text = "\(bandInfo?.memberCount ?? 0) / \(bandInfo?.capacity ?? 0)명"
     }
     
+    /*
+    func getBandInfo(completion: @escaping () -> Void){
+
+        GetBandInfoService.getBandInfo(self.bandIdx ?? 0){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandInfo = response.result
+                viewDidLoad()
+                
+                completion()
+            }
+        }
+    
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,17 +124,14 @@ class BandRecruitViewController: UIViewController{
         
     }
     
-    /*
-    override func viewDidLayoutSubviews() {
-        self.containerView.frame = CGRect(x: 0, y: 0, width: self.containerView.frame.width, height: self.containerView.frame.height)
-    }
-    */
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let childViewController = segue.destination as? BandRecruitTabmanViewController {
-            childViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        if segue.identifier == "bandRecruitEmbed"{
+            let containerVC = segue.destination as!BandRecruitTabmanViewController
+            
+            containerVC.bandInfo = self.bandInfo
         }
+        
     }
 }

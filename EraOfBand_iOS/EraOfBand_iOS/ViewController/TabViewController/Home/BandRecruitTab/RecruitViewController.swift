@@ -9,6 +9,8 @@ import UIKit
 
 class RecruitViewController: UIViewController{
     
+    var bandInfo: BandInfoResult?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
