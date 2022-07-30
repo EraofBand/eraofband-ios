@@ -138,7 +138,7 @@ extension BandListViewController: UICollectionViewDelegate, UICollectionViewData
         cell.sessionLabel.text = session[indexPath.item]
         cell.layer.cornerRadius = 14
         
-        if indexPath.item == 0 {
+        if indexPath.item == sessionNum {
             cell.isSelected = true
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
