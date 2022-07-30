@@ -155,31 +155,16 @@ extension SessionMatchViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
         
-        let header : HTTPHeaders = [
-            "x-access-token": self.appDelegate.jwt,
-            "Content-Type": "application/json"]
-        AF.request("\(appDelegate.baseUrl)/sessions/info/\(newBandList[indexPath.row].bandIdx ?? 0)",
-                   method: .get,
-                   encoding: JSONEncoding.default,
-                   headers: header).responseDecodable(of: BandInfoData.self){ [self] response in
-            
-                switch response.result{
-                case .success(let data):
-                    self.appDelegate.currentBandInfo = data.result!
-                    guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
-                    print(self.appDelegate.currentBandInfo!)
-                    
-                    bandRecruitVC.bandIdx = newBandList[indexPath.row].bandIdx
-                    
-                    self.navigationController?.pushViewController(bandRecruitVC, animated: true)
-                    
-                case .failure(let err):
-                    print(err)
+        GetBandInfoService.getBandInfo(newBandList[indexPath.row].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = newBandList[indexPath.row].bandIdx
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
             }
         }
-        
-       
     }
     
 }
