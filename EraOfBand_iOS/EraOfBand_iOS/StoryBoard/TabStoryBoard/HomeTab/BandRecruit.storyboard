@@ -530,13 +530,25 @@
                                                                 <color key="textColor" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPZ-Q2-4ic">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="chatLinkBtnTapped:" destination="q52-k6-LWi" eventType="touchUpInside" id="m1c-ti-lWs"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.12549020350000001" green="0.13333332540000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="4QC-ct-w6B"/>
+                                                            <constraint firstAttribute="bottom" secondItem="DPZ-Q2-4ic" secondAttribute="bottom" id="5VB-jQ-Moo"/>
+                                                            <constraint firstItem="DPZ-Q2-4ic" firstAttribute="leading" secondItem="72g-vr-I7y" secondAttribute="leading" id="IaK-Th-Vds"/>
                                                             <constraint firstItem="gdX-kL-f8O" firstAttribute="leading" secondItem="72g-vr-I7y" secondAttribute="leading" constant="23" id="NwF-Bg-EFZ"/>
+                                                            <constraint firstItem="DPZ-Q2-4ic" firstAttribute="top" secondItem="72g-vr-I7y" secondAttribute="top" id="R52-kC-lYC"/>
                                                             <constraint firstItem="gdX-kL-f8O" firstAttribute="centerY" secondItem="72g-vr-I7y" secondAttribute="centerY" id="ZX9-K0-4pc"/>
                                                             <constraint firstItem="tgz-BZ-QPh" firstAttribute="leading" secondItem="gdX-kL-f8O" secondAttribute="trailing" constant="15" id="eqi-No-ohF"/>
+                                                            <constraint firstAttribute="trailing" secondItem="DPZ-Q2-4ic" secondAttribute="trailing" id="nEh-tQ-m8Q"/>
                                                             <constraint firstItem="tgz-BZ-QPh" firstAttribute="centerY" secondItem="72g-vr-I7y" secondAttribute="centerY" id="nH7-tu-mdX"/>
                                                         </constraints>
                                                     </view>
@@ -576,6 +588,7 @@
                     </view>
                     <connections>
                         <outlet property="bandIntroLabel" destination="sbC-kg-8F8" id="pBB-22-1TQ"/>
+                        <outlet property="chatLinkBtn" destination="DPZ-Q2-4ic" id="WiZ-sj-LPO"/>
                         <outlet property="chatLinkContainerLabel" destination="72g-vr-I7y" id="hGY-ZS-ceu"/>
                         <outlet property="chatLinkLabel" destination="tgz-BZ-QPh" id="2S7-c0-xRA"/>
                         <outlet property="leaderIntroLabel" destination="nlW-y3-dm6" id="yI1-3Z-x70"/>
