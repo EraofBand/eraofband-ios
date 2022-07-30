@@ -62,8 +62,6 @@
 		A86D277028928112005CDDA4 /* SessionChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */; };
 		A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */; };
 		A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27732892A556005CDDA4 /* LessonListData.swift */; };
-		A86D27762892B6A0005CDDA4 /* SessionRecruit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */; };
-		A86D27782892B6F3005CDDA4 /* SessionRecruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27772892B6F3005CDDA4 /* SessionRecruitViewController.swift */; };
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
 		A87A835628900F5400130B8F /* NewBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A835528900F5400130B8F /* NewBandData.swift */; };
 		A88B49932890330F0029A2BF /* FameBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B49922890330F0029A2BF /* FameBandData.swift */; };
@@ -194,8 +192,6 @@
 		A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonListService.swift; sourceTree = "<group>"; };
 		A86D27732892A556005CDDA4 /* LessonListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListData.swift; sourceTree = "<group>"; };
-		A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionRecruit.storyboard; sourceTree = "<group>"; };
-		A86D27772892B6F3005CDDA4 /* SessionRecruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitViewController.swift; sourceTree = "<group>"; };
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
 		A87A835528900F5400130B8F /* NewBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBandData.swift; sourceTree = "<group>"; };
 		A88B49922890330F0029A2BF /* FameBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameBandData.swift; sourceTree = "<group>"; };
@@ -424,7 +420,6 @@
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
 				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
 				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
-				A86D27772892B6F3005CDDA4 /* SessionRecruitViewController.swift */,
 				BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */,
 				BC0728C82892CFFD007EA95D /* BandRecruitViewController.swift */,
 			);
@@ -443,7 +438,6 @@
 				BCE57815288ECBED00D441EB /* CreateBand.storyboard */,
 				BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */,
 				BC0728C62892C51D007EA95D /* BandRecruit.storyboard */,
-				A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -718,7 +712,6 @@
 				BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */,
 				A8573614287534E200E2F0AB /* Pretendard-Black.otf in Resources */,
 				A857361C287534F900E2F0AB /* Pretendard-Thin.otf in Resources */,
-				A86D27762892B6A0005CDDA4 /* SessionRecruit.storyboard in Resources */,
 				A857361A287534F500E2F0AB /* Pretendard-Regular.otf in Resources */,
 				A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */,
 				A8573616287534EA00E2F0AB /* Pretendard-ExtraBold.otf in Resources */,
@@ -787,7 +780,6 @@
 			files = (
 				A88B49932890330F0029A2BF /* FameBandData.swift in Sources */,
 				BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */,
-				A86D27782892B6F3005CDDA4 /* SessionRecruitViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
 				BC0728D22892FC8E007EA95D /* RecruitViewController.swift in Sources */,
