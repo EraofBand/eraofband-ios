@@ -81,6 +81,8 @@ extension WishBandViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tableTitleLabel.text = bandinfo.bandTitle
         cell.tableIntroLabel.text = bandinfo.bandIntroduction
         
+        cell.selectionStyle = .none
+        
         return cell
     }
     
@@ -88,5 +90,17 @@ extension WishBandViewController: UITableViewDelegate, UITableViewDataSource {
         return 147
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(bandList[indexPath.row].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = bandList[indexPath.row].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
+    }
 }
