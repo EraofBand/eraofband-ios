@@ -116,6 +116,14 @@
             </objects>
             <point key="canvasLocation" x="57" y="64"/>
         </scene>
+        <!--BandRecruit-->
+        <scene sceneID="4dG-78-4qM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="BandRecruitViewController" storyboardName="BandRecruit" id="Bmw-1n-tP3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vpG-B6-fSV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="76"/>
+        </scene>
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
