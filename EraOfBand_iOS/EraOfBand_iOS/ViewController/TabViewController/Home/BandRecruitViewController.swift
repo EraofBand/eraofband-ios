@@ -22,11 +22,33 @@ class BandRecruitViewController: UIViewController{
     var bandIdx: Int?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    let semaphore = DispatchSemaphore(value: 0)
     
     @IBOutlet weak var containerView: UIView!
     var bandInfo: BandInfoResult?
     
+    func modifyRecruit(){
+        guard let modifyVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyBandViewController") as? CreateBandViewController else {return}
+        
+        modifyVC.bandInfo = self.bandInfo
+        modifyVC.isModifying = true
+        
+        self.navigationController?.pushViewController(modifyVC, animated: true)
+    }
+    
+    @IBAction func menuBtnTapped(_ sender: Any) {
+        
+        if(bandInfo?.userIdx == appDelegate.userIdx){
+        
+            let optionMenu = UIAlertController(title: nil, message: "밴드 모집", preferredStyle: .actionSheet)
+            let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                self.modifyRecruit()
+            })
+            optionMenu.addAction(modifyAction)
+        
+            self.present(optionMenu, animated: true, completion: nil)
+        }
+    }
     
     func likeSession(){
         let header : HTTPHeaders = [
@@ -91,6 +113,9 @@ class BandRecruitViewController: UIViewController{
         }else{
             likeIcon.image = UIImage(systemName: "heart.fill")
         }
+        
+        containerView.heightAnchor.constraint(equalToConstant: 900 + CGFloat(bandInfo?.memberCount ?? 0) * 80).isActive = true
+        
     }
     
     func setData(){
@@ -101,21 +126,6 @@ class BandRecruitViewController: UIViewController{
         
         memberNumLabel.text = "\(bandInfo?.memberCount ?? 0) / \(bandInfo?.capacity ?? 0)명"
     }
-    
-    /*
-    func getBandInfo(completion: @escaping () -> Void){
-
-        GetBandInfoService.getBandInfo(self.bandIdx ?? 0){ [self]
-            (isSuccess, response) in
-            if isSuccess{
-                bandInfo = response.result
-                viewDidLoad()
-                
-                completion()
-            }
-        }
-    
-    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()

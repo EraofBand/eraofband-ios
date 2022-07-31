@@ -94,6 +94,11 @@
 		BC0ADB7528944F9A0028F57C /* GetBandInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB7428944F9A0028F57C /* GetBandInfoService.swift */; };
 		BC0ADB7728954C100028F57C /* BandModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB7628954C100028F57C /* BandModifyViewController.swift */; };
 		BC0ADB7928954C260028F57C /* ModifyBand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0ADB7828954C260028F57C /* ModifyBand.storyboard */; };
+		BC0ADB7D289642390028F57C /* SessionMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB7C289642390028F57C /* SessionMemberTableViewCell.swift */; };
+		BC0ADB7F28966EDF0028F57C /* LessonRecruit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0ADB7E28966EDF0028F57C /* LessonRecruit.storyboard */; };
+		BC0ADB81289672870028F57C /* LessonInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB80289672870028F57C /* LessonInfoData.swift */; };
+		BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */; };
+		BC0ADB85289675270028F57C /* LessonRecruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
@@ -229,6 +234,11 @@
 		BC0ADB7428944F9A0028F57C /* GetBandInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBandInfoService.swift; sourceTree = "<group>"; };
 		BC0ADB7628954C100028F57C /* BandModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandModifyViewController.swift; sourceTree = "<group>"; };
 		BC0ADB7828954C260028F57C /* ModifyBand.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModifyBand.storyboard; sourceTree = "<group>"; };
+		BC0ADB7C289642390028F57C /* SessionMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMemberTableViewCell.swift; sourceTree = "<group>"; };
+		BC0ADB7E28966EDF0028F57C /* LessonRecruit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonRecruit.storyboard; sourceTree = "<group>"; };
+		BC0ADB80289672870028F57C /* LessonInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonInfoData.swift; sourceTree = "<group>"; };
+		BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonInfoService.swift; sourceTree = "<group>"; };
+		BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRecruitViewController.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
@@ -362,6 +372,7 @@
 				A802D8EF28910DB5001A2F65 /* GetBandListService.swift */,
 				A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */,
 				BC0ADB7428944F9A0028F57C /* GetBandInfoService.swift */,
+				BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -435,6 +446,7 @@
 				BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */,
 				BC0728C82892CFFD007EA95D /* BandRecruitViewController.swift */,
 				BC0ADB7628954C100028F57C /* BandModifyViewController.swift */,
+				BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -453,6 +465,7 @@
 				BC0728C62892C51D007EA95D /* BandRecruit.storyboard */,
 				BC0ADB7828954C260028F57C /* ModifyBand.storyboard */,
 				A86D27752892B6A0005CDDA4 /* SessionRecruit.storyboard */,
+				BC0ADB7E28966EDF0028F57C /* LessonRecruit.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -604,6 +617,7 @@
 				A8C7E100288FC734009809EB /* BandListTableViewCell.swift */,
 				A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */,
 				A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */,
+				BC0ADB7C289642390028F57C /* SessionMemberTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -627,6 +641,7 @@
 				A802D8F128910FB9001A2F65 /* BandListData.swift */,
 				A86D27732892A556005CDDA4 /* LessonListData.swift */,
 				BC0728CA2892D48D007EA95D /* BandInfoData.swift */,
+				BC0ADB80289672870028F57C /* LessonInfoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -709,6 +724,7 @@
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
+				BC0ADB7F28966EDF0028F57C /* LessonRecruit.storyboard in Resources */,
 				A8BD5CB6288BEA66009E7A1B /* WishBand.storyboard in Resources */,
 				A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */,
 				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
@@ -836,6 +852,7 @@
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
+				BC0ADB81289672870028F57C /* LessonInfoData.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
 				A8BD5CC1288BEAFB009E7A1B /* WishLessonViewController.swift in Sources */,
 				BC2E991D2886CFF90034CBD9 /* FollowerTableViewController.swift in Sources */,
@@ -849,6 +866,7 @@
 				BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */,
 				A8BD5CBD288BEAE8009E7A1B /* LessonMatchViewController.swift in Sources */,
 				BC0728CD2892FB52007EA95D /* BandRecruitTabmanViewController.swift in Sources */,
+				BC0ADB85289675270028F57C /* LessonRecruitViewController.swift in Sources */,
 				BC0728C92892CFFD007EA95D /* BandRecruitViewController.swift in Sources */,
 				A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */,
 				BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */,
@@ -880,6 +898,7 @@
 				A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
 				BC0728D42892FC9D007EA95D /* BandAlbumViewController.swift in Sources */,
+				BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */,
 				A81351AE2884572D00078C9E /* SessionViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC0ADB7528944F9A0028F57C /* GetBandInfoService.swift in Sources */,
@@ -887,6 +906,7 @@
 				A8BD5CBF288BEAF2009E7A1B /* WishBandViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
+				BC0ADB7D289642390028F57C /* SessionMemberTableViewCell.swift in Sources */,
 				A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */,
 				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,

@@ -170,6 +170,14 @@
             </objects>
             <point key="canvasLocation" x="964" y="64"/>
         </scene>
+        <!--LessonRecruit-->
+        <scene sceneID="Zto-PD-9OF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LessonRecruitViewController" storyboardName="LessonRecruit" id="9lo-oW-mpk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmW-zh-RMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1569" y="99"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xW0-7o-b8i">
             <objects>
