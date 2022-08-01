@@ -61,16 +61,16 @@ class RecruitViewController: UIViewController{
         super.viewDidLoad()
         
         setCell()
-        
+        print(sessionCount)
         applicantsInfo = bandInfo!.applicants ?? []
         
         applicantTableView.delegate = self
         applicantTableView.dataSource = self
-        applicantTableView.register(ApplicantsTableViewCell.self, forCellReuseIdentifier: "applicantcell")
+        //applicantTableView.register(ApplicantsTableViewCell.self, forCellReuseIdentifier: "cell")
         
         recruitTableView.delegate = self
         recruitTableView.dataSource = self
-        recruitTableView.register(SessionRecruitTableViewCell.self, forCellReuseIdentifier: "cell")
+        //recruitTableView.register(SessionRecruitTableViewCell.self, forCellReuseIdentifier: "cell")
         
         applicantTableView.tag = 1
         recruitTableView.tag = 2
@@ -102,8 +102,8 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if tableView.tag == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "applicantcell", for: indexPath) as! ApplicantsTableViewCell
+        if tableView == applicantTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ApplicantsTableViewCell
             
             let session = ["보컬", "기타", "베이스", "키보드", "드럼"]
             
@@ -126,8 +126,8 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
         
-        if tableView.tag == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SessionRecruitTableViewCell
+        if tableView == recruitTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SessionRecruitTableViewCell
             
             cell.titleLabel.text = "\(bandInfo!.bandTitle!) \(sessionName[indexPath.item]) 모집"
             cell.titleLabel.sizeToFit()
