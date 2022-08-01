@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import SafariServices
+import Alamofire
 
 class LessonRecruitViewController: UIViewController{
     @IBOutlet weak var lessonImgView: UIImageView!
@@ -38,23 +39,79 @@ class LessonRecruitViewController: UIViewController{
     var lessonMemberArr: [Int] = []
     
     func modifyRecruit(){
+        guard let modifyVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyLessonViewController") as? CreateLessonViewController else {return}
         
+        modifyVC.lessonInfo = self.lessonInfo
+        modifyVC.isModifying = true
+        
+        self.navigationController?.pushViewController(modifyVC, animated: true)
     }
     
     @IBAction func menuBtnTapped(_ sender: Any) {
         if(lessonInfo?.userIdx == appDelegate.userIdx){
         
-            let optionMenu = UIAlertController(title: nil, message: "밴드 모집", preferredStyle: .actionSheet)
+            let optionMenu = UIAlertController(title: nil, message: "레슨 모집", preferredStyle: .actionSheet)
             let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                     (alert: UIAlertAction!) -> Void in
                 self.modifyRecruit()
             })
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                  })
+            optionMenu.addAction(cancelAction)
             optionMenu.addAction(modifyAction)
+            
         
             self.present(optionMenu, animated: true, completion: nil)
         }
     }
     
+    func likeLesson(){
+        let header : HTTPHeaders = [
+            "x-access-token": self.appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request("\(appDelegate.baseUrl)/lessons/likes/\(lessonIdx ?? 0)",
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success:
+                self.likeIcon.image = UIImage(systemName: "heart.fill")
+            default:
+                return
+            }
+        }
+    }
+    
+    func dislikeLesson(){
+        let header : HTTPHeaders = [
+            "x-access-token": self.appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request("\(appDelegate.baseUrl)/lessons/unlikes/\(lessonIdx ?? 0)",
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+
+            switch(response.result){
+            case.success:
+                self.likeIcon.image = UIImage(systemName: "heart")
+            default:
+                return
+            }
+        }
+    }
+    
+    @IBAction func likeBtnTapped(_ sender: Any) {
+        if(likeIcon.image == UIImage(systemName: "heart")){
+            likeLesson()
+        }else{
+            dislikeLesson()
+        }
+    }
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -90,6 +147,12 @@ class LessonRecruitViewController: UIViewController{
             self.noMemberLabel.text = "아직 수강생이 존재하지 않습니다"
         }else{
             memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))).isActive = true
+        }
+        
+        if(lessonInfo?.likeOrNot == "Y"){
+            likeIcon.image = UIImage(systemName: "heart.fill")
+        }else{
+            likeIcon.image = UIImage(systemName: "heart")
         }
     }
     
