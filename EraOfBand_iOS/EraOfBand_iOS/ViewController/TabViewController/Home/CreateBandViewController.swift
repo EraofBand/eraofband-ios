@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class CreateBandViewController: UIViewController{
     @IBOutlet weak var titleTextField: UITextField!
@@ -42,11 +43,18 @@ class CreateBandViewController: UIViewController{
     @IBOutlet weak var performTitleLengthLabel: UILabel!
     @IBOutlet weak var performPlaceLengthLabel: UILabel!
     @IBOutlet weak var performFeeLengthLabel: UILabel!
+    @IBOutlet weak var performDateView: UIView!
+    @IBOutlet weak var performTimeView: UIView!
+    @IBOutlet weak var registerBtn: UIButton!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    let datePicker = UIDatePicker()
+    let timePicker = UIDatePicker()
+    
     var isModifying: Bool = false
     var bandInfo: BandInfoResult?
+    var currentImg: UIImage?
     
     let imagePickerController = UIImagePickerController()
     @IBOutlet weak var bandImageView: UIImageView!
@@ -60,19 +68,65 @@ class CreateBandViewController: UIViewController{
     
     
     @IBAction func registerBtnTapped(_ sender: Any) {
-        PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
-            if isSuccess{
-                imgUrl = result
+        
+        if(!isModifying){
+            PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
+                if isSuccess{
+                    imgUrl = result
+                    
+                    let header : HTTPHeaders = [
+                        "x-access-token": self.appDelegate.jwt,
+                        "Content-Type": "application/json"]
+                    
+                    AF.request(appDelegate.baseUrl + "/sessions",
+                               method: .post,
+                               parameters: [
+                                "bandContent": introTextView.text ?? "",
+                                "bandImgUrl": imgUrl,
+                                "bandIntroduction": shortIntroTextField.text ?? "",
+                                "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
+                                "bandTitle": titleTextField.text ?? "",
+                                "base": Int(bassNumLabel.text ?? "0") ?? 0,
+                                "baseComment": bassTextField.text ?? "",
+                                "chatRoomLink": chatLinkTextField.text ?? "",
+                                "drum": Int(drumNumLabel.text ?? "0") ?? 0,
+                                "drumComment": drumTextField.text ?? "",
+                                "guitar": Int(guitarNumLabel.text ?? "0") ?? 0,
+                                "guitarComment": guitarTextField.text ?? "",
+                                "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
+                                "keyboardComment": keyboardTextField.text ?? "",
+                                "userIdx": appDelegate.userIdx ?? 0,
+                                "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
+                                "vocalComment": vocalTextField.text ?? ""
+                               ],
+                               encoding: JSONEncoding.default,
+                               headers: header).responseJSON{ response in
+                        switch response.result{
+                        case .success:
+                            self.navigationController?.popViewController(animated: true)
+                            print(response)
+                        default:
+                            return
+                        }
+                    }
+                    
+                }
+            }
+        }
+        else{
+            if currentImg == self.bandImageView.image{
+                
+                print(appDelegate.baseUrl + "/sessions/band-info/" + String(bandInfo?.bandIdx ?? 0))
                 
                 let header : HTTPHeaders = [
                     "x-access-token": self.appDelegate.jwt,
                     "Content-Type": "application/json"]
                 
-                AF.request(appDelegate.baseUrl + "/sessions",
-                           method: .post,
+                AF.request(appDelegate.baseUrl + "/sessions/band-info/" + String(bandInfo?.bandIdx ?? 0),
+                           method: .patch,
                            parameters: [
                             "bandContent": introTextView.text ?? "",
-                            "bandImgUrl": imgUrl,
+                            "bandImgUrl": bandInfo?.bandImgUrl,
                             "bandIntroduction": shortIntroTextField.text ?? "",
                             "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
                             "bandTitle": titleTextField.text ?? "",
@@ -85,6 +139,11 @@ class CreateBandViewController: UIViewController{
                             "guitarComment": guitarTextField.text ?? "",
                             "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
                             "keyboardComment": keyboardTextField.text ?? "",
+                            "performDate": dateTextField.text ?? "",
+                            "performFee": Int(performFeeTextField.text ?? ""),
+                            "performLocation": performPlaceTextField.text ?? "",
+                            "performTime": timeTextField.text ?? "",
+                            "performTitle": performTitleTextField.text ?? "",
                             "userIdx": appDelegate.userIdx ?? 0,
                             "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
                             "vocalComment": vocalTextField.text ?? ""
@@ -96,10 +155,58 @@ class CreateBandViewController: UIViewController{
                         self.navigationController?.popViewController(animated: true)
                         print(response)
                     default:
-                    return
+                        return
+                    }
                 }
-            }
-            
+            }else{
+                
+                PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
+                    if isSuccess{
+                        imgUrl = result
+                        let header : HTTPHeaders = [
+                            "x-access-token": self.appDelegate.jwt,
+                            "Content-Type": "application/json"]
+                        
+                        AF.request(appDelegate.baseUrl + "/sessions/band-info/" + String(bandInfo?.bandIdx ?? 0),
+                                   method: .patch,
+                                   parameters: [
+                                    "bandContent": introTextView.text ?? "",
+                                    "bandImgUrl": imgUrl,
+                                    "bandIntroduction": shortIntroTextField.text ?? "",
+                                    "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
+                                    "bandTitle": titleTextField.text ?? "",
+                                    "base": Int(bassNumLabel.text ?? "0") ?? 0,
+                                    "baseComment": bassTextField.text ?? "",
+                                    "chatRoomLink": chatLinkTextField.text ?? "",
+                                    "drum": Int(drumNumLabel.text ?? "0") ?? 0,
+                                    "drumComment": drumTextField.text ?? "",
+                                    "guitar": Int(guitarNumLabel.text ?? "0") ?? 0,
+                                    "guitarComment": guitarTextField.text ?? "",
+                                    "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
+                                    "keyboardComment": keyboardTextField.text ?? "",
+                                    "performDate": dateTextField.text ?? "",
+                                    "performFee": Int(performFeeTextField.text ?? ""),
+                                    "performLocation": performPlaceTextField.text ?? "",
+                                    "performTime": timeTextField.text ?? "",
+                                    "performTitle": performTitleTextField.text ?? "",
+                                    "userIdx": appDelegate.userIdx ?? 0,
+                                    "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
+                                    "vocalComment": vocalTextField.text ?? ""
+                                   ],
+                                   encoding: JSONEncoding.default,
+                                   headers: header).responseJSON{ response in
+                            switch response.result{
+                            case .success:
+                                self.navigationController?.popViewController(animated: true)
+                                print(response)
+                            default:
+                                return
+                            }
+                        }
+                    }
+                }
+                
+                
             }
         }
     }
@@ -170,7 +277,11 @@ class CreateBandViewController: UIViewController{
     
     
     func setLayout(){
-        self.title = "밴드 생성"
+        if(isModifying){
+            self.title = "밴드 수정"
+        }else{
+            self.title = "밴드 생성"
+        }
         
         /*코너 radius 값 조정*/
         titleTextField.borderStyle = .none
@@ -210,12 +321,123 @@ class CreateBandViewController: UIViewController{
         drumTextField.addPadding()
         
         introTextView.textContainerInset = UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
+        
+        if(isModifying){
+            performTitleTextField.borderStyle = .none
+            performTitleTextField.layer.cornerRadius = 15
+            performTitleTextField.addPadding()
+            
+            performPlaceTextField.borderStyle = .none
+            performPlaceTextField.layer.cornerRadius = 15
+            performPlaceTextField.addPadding()
+            
+            performFeeTextField.borderStyle = .none
+            performFeeTextField.layer.cornerRadius = 15
+            performFeeTextField.addPadding()
+            
+            performDateView.layer.borderWidth = 1.5
+            performDateView.layer.borderColor = UIColor(red: 0.162, green: 0.162, blue: 0.162, alpha: 1).cgColor
+            performDateView.layer.cornerRadius = 15
+            
+            performTimeView.layer.borderWidth = 1.5
+            performTimeView.layer.borderColor = UIColor(red: 0.162, green: 0.162, blue: 0.162, alpha: 1).cgColor
+            performTimeView.layer.cornerRadius = 15
+            
+        }
     }
     
     func setModifyData(){
         self.titleTextField.text = self.bandInfo?.bandTitle ?? ""
         self.shortIntroTextField.text = self.bandInfo?.bandIntroduction ?? ""
-        //self.cityTextField.text = self.bandInfo?.
+        
+        let region = self.bandInfo?.bandRegion!
+        self.cityTextField.text = region!.components(separatedBy: " ")[0]
+        self.districtTextField.text = region!.components(separatedBy: " ")[1]
+        
+        self.bandImageView.kf.setImage(with: URL(string: (self.bandInfo?.bandImgUrl)!))
+        
+        self.introTextView.text = self.bandInfo?.bandContent
+        
+        self.chatLinkTextField.text = self.bandInfo?.chatRoomLink
+        
+        self.vocalNumLabel.text = String(self.bandInfo?.vocal ?? 0)
+        self.vocalTextField.text = self.bandInfo?.vocalComment
+        
+        self.guitarNumLabel.text = String(self.bandInfo?.guitar ?? 0)
+        self.guitarTextField.text = self.bandInfo?.guitarComment
+        
+        self.bassNumLabel.text = String(self.bandInfo?.base ?? 0)
+        self.bassTextField.text = self.bandInfo?.baseComment
+        
+        self.keyboardNumLabel.text = String(self.bandInfo?.keyboard ?? 0)
+        self.keyboardTextField.text = self.bandInfo?.keyboardComment
+        
+        self.drumNumLabel.text = String(self.bandInfo?.drum ?? 0)
+        self.drumTextField.text = self.bandInfo?.drumComment
+        
+        self.performPlaceTextField.text = self.bandInfo?.performLocation
+        self.performTitleTextField.text = self.bandInfo?.performTitle
+        if(self.bandInfo?.performFee! != 0){
+            self.performFeeTextField.text = String(self.bandInfo?.performFee ?? 0)
+        }
+        
+        self.dateTextField.text = self.bandInfo?.performDate
+        self.timeTextField.text = self.bandInfo?.performTime
+        
+    }
+    
+    @objc func doneBtnTapped(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy-MM-dd"
+        
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    /*date picker 만드는 함수*/
+    func createDatePicker(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBtnTapped))
+        
+        dateTextField.inputAccessoryView = toolbar
+        
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.datePickerMode = .date
+        dateTextField.inputView = datePicker
+        
+        toolbar.setItems([doneBtn], animated: true)
+    }
+    
+    @objc func timeDoneBtnTapped(){
+        let dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateFormatter_db = DateFormatter()
+        dateFormatter_db.dateFormat = dateFormat
+        let dateFormatter_eventDate = DateFormatter()
+        dateFormatter_eventDate.dateFormat = "a hh:mm" //Your time format
+        let date = dateFormatter_db.date(from: timePicker.date.toString())
+        
+        timeTextField.text = dateFormatter_eventDate.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    func createTimePicker(){
+        let toolbar2 = UIToolbar()
+        toolbar2.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(timeDoneBtnTapped))
+        
+        timeTextField.inputAccessoryView = toolbar2
+        
+        timePicker.preferredDatePickerStyle = .wheels
+        timePicker.locale = Locale(identifier: "ko-KR")
+        timePicker.datePickerMode = .time
+        timeTextField.inputView = timePicker
+        
+        toolbar2.setItems([doneBtn], animated: true)
+        
     }
     
     override func viewDidLoad() {
@@ -245,6 +467,14 @@ class CreateBandViewController: UIViewController{
         
         if(isModifying){
             setModifyData()
+            createDatePicker()
+            createTimePicker()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yy-MM-dd"
+            dateTextField.text = dateFormatter.string(from: Date())
+            timeTextField.text = "오전 11:00"
+            
+            self.currentImg = self.bandImageView.image!
         }
     }
 }
@@ -298,12 +528,12 @@ extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource
 extension CreateBandViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
-                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
-                    return false
-            }
-            let substringToReplace = textFieldText[rangeOfTextToReplace]
-            let count = textFieldText.count - substringToReplace.count + string.count
-            return count <= 20
+              let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+            return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        return count <= 20
     }
 }
 
@@ -337,11 +567,11 @@ extension CreateBandViewController: UITextViewDelegate{
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let textViewText = textView.text,
-                let rangeOfTextToReplace = Range(range, in: textViewText) else {
-                    return false
-            }
-            let substringToReplace = textViewText[rangeOfTextToReplace]
-            let count = textViewText.count - substringToReplace.count + text.count
-            return count <= 500
+              let rangeOfTextToReplace = Range(range, in: textViewText) else {
+            return false
+        }
+        let substringToReplace = textViewText[rangeOfTextToReplace]
+        let count = textViewText.count - substringToReplace.count + text.count
+        return count <= 500
     }
 }

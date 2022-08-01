@@ -181,6 +181,14 @@
             </objects>
             <point key="canvasLocation" x="966.66666666666674" y="46.875"/>
         </scene>
+        <!--BandRecruit-->
+        <scene sceneID="REb-Ti-VN6">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="BandRecruitViewController" storyboardName="BandRecruit" id="iOV-aq-AXs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qrX-nG-gsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1560" y="116"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_floating" width="84" height="84"/>

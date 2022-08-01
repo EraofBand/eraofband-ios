@@ -116,6 +116,14 @@
             </objects>
             <point key="canvasLocation" x="56.521739130434788" y="63.616071428571423"/>
         </scene>
+        <!--LessonRecruit-->
+        <scene sceneID="1W0-J1-OcQ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LessonRecruitViewController" storyboardName="LessonRecruit" id="pvo-V6-5kV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEu-sa-SzQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="104"/>
+        </scene>
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
