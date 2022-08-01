@@ -19,6 +19,16 @@ class SessionRecruitTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        recruitLabel.layer.cornerRadius = 10
+        recruitLabel.layer.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        recruitLabel.textColor = .white
+        recruitLabel.font = UIFont(name: "Pretendard-Medium", size: 12)
+        
+        sessionLabel.layer.cornerRadius = 10
+        sessionLabel.layer.borderWidth = 1
+        sessionLabel.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        sessionLabel.textColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+        sessionLabel.font = UIFont(name: "Pretendard-Medium", size: 12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
