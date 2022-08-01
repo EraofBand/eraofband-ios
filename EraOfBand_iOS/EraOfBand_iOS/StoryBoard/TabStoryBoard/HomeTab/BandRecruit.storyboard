@@ -1132,6 +1132,7 @@
             </objects>
             <point key="canvasLocation" x="171" y="-175"/>
         </scene>
+
         <!--SessionRecruit-->
         <scene sceneID="eFO-AK-evy">
             <objects>
@@ -1141,6 +1142,7 @@
             <point key="canvasLocation" x="833" y="96"/>
 
         </scene>
+
     </scenes>
     <designables>
         <designable name="DpQ-U0-bDD">

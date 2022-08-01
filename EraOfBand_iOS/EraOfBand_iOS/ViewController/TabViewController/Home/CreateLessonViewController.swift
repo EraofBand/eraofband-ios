@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class CreateLessonViewController: UIViewController{
     
@@ -38,24 +39,64 @@ class CreateLessonViewController: UIViewController{
     var districtPickerView = UIPickerView()
     var categoryPickerView = UIPickerView()
     
-    
+    var isModifying: Bool = false
+    var lessonInfo: LessonInfoResult?
+    var currentImg: UIImage?
     
     @IBAction func registerBtnTapped(_ sender: Any) {
-        PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
-            if isSuccess{
-                imgUrl = result
+        
+        if(!isModifying){
+            PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
+                if isSuccess{
+                    imgUrl = result
+                    
+                    let header : HTTPHeaders = [
+                        "x-access-token": self.appDelegate.jwt,
+                        "Content-Type": "application/json"]
+                    
+                    AF.request(appDelegate.baseUrl + "/lessons",
+                               method: .post,
+                               parameters: [
+                                "capacity": Int(numLabel.text ?? "0") ?? 0,
+                                "chatRoomLink": chatLinkTextField.text ?? "",
+                                "lessonContent": introTextView.text ?? "",
+                                "lessonImgUrl": imgUrl,
+                                "lessonIntroduction": shortIntroTextField.text ?? "",
+                                "lessonRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
+                                "lessonSession": currentCategory,
+                                "lessonTitle": titleTextField.text ?? "",
+                                "userIdx": appDelegate.userIdx ?? 0
+                               ],
+                               encoding: JSONEncoding.default,
+                               headers: header).responseJSON{ response in
+                        switch response.result{
+                        case .success:
+                            self.navigationController?.popViewController(animated: true)
+                            print(response)
+                        default:
+                            return
+                        }
+                    }
+                    
+                }
+            }
+        }
+        else{
+            if currentImg == self.bandImageView.image{
+                
+                print("test")
                 
                 let header : HTTPHeaders = [
                     "x-access-token": self.appDelegate.jwt,
                     "Content-Type": "application/json"]
                 
-                AF.request(appDelegate.baseUrl + "/lessons",
-                           method: .post,
+                AF.request(appDelegate.baseUrl + "/lessons/lesson-info/" + String(lessonInfo?.lessonIdx ?? 0),
+                           method: .patch,
                            parameters: [
                             "capacity": Int(numLabel.text ?? "0") ?? 0,
                             "chatRoomLink": chatLinkTextField.text ?? "",
                             "lessonContent": introTextView.text ?? "",
-                            "lessonImgUrl": imgUrl,
+                            "lessonImgUrl": lessonInfo?.lessonImgUrl,
                             "lessonIntroduction": shortIntroTextField.text ?? "",
                             "lessonRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
                             "lessonSession": currentCategory,
@@ -69,10 +110,45 @@ class CreateLessonViewController: UIViewController{
                         self.navigationController?.popViewController(animated: true)
                         print(response)
                     default:
-                    return
+                        return
+                    }
                 }
-            }
-            
+            }else{
+                
+                PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
+                    if isSuccess{
+                        imgUrl = result
+                        let header : HTTPHeaders = [
+                            "x-access-token": self.appDelegate.jwt,
+                            "Content-Type": "application/json"]
+                        
+                        AF.request(appDelegate.baseUrl + "/lessons/lesson-info/" + String(lessonInfo?.lessonIdx ?? 0),
+                                   method: .patch,
+                                   parameters: [
+                                    "capacity": Int(numLabel.text ?? "0") ?? 0,
+                                    "chatRoomLink": chatLinkTextField.text ?? "",
+                                    "lessonContent": introTextView.text ?? "",
+                                    "lessonImgUrl": imgUrl,
+                                    "lessonIntroduction": shortIntroTextField.text ?? "",
+                                    "lessonRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
+                                    "lessonSession": currentCategory,
+                                    "lessonTitle": titleTextField.text ?? "",
+                                    "userIdx": appDelegate.userIdx ?? 0
+                                   ],
+                                   encoding: JSONEncoding.default,
+                                   headers: header).responseJSON{ response in
+                            switch response.result{
+                            case .success:
+                                self.navigationController?.popViewController(animated: true)
+                                print(response)
+                            default:
+                                return
+                            }
+                        }
+                    }
+                }
+                
+                
             }
         }
     }
@@ -123,6 +199,41 @@ class CreateLessonViewController: UIViewController{
         introTextView.textContainerInset = UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
     }
     
+    func setModifyData(){
+        var sessionStr = ""
+        
+        switch(lessonInfo?.lessonSession){
+        case 0:
+            sessionStr = "보컬"
+        case 1:
+            sessionStr = "기타"
+        case 2:
+            sessionStr = "베이스"
+        case 3:
+            sessionStr = "드럼"
+        case 4:
+            sessionStr = "키보드"
+        default:
+            sessionStr = ""
+        }
+        categoryTextField.text = sessionStr
+        
+        titleTextField.text = lessonInfo?.lessonTitle
+        shortIntroTextField.text = lessonInfo?.lessonIntroduction
+        
+        let region = self.lessonInfo?.lessonRegion
+        self.cityTextField.text = region!.components(separatedBy: " ")[0]
+        self.districtTextField.text = region!.components(separatedBy: " ")[1]
+        
+        numLabel.text = String(lessonInfo?.capacity ?? 0)
+        
+        bandImageView.kf.setImage(with: URL(string: lessonInfo?.lessonImgUrl ?? ""))
+        
+        introTextView.text = lessonInfo?.lessonContent
+        
+        chatLinkTextField.text = lessonInfo?.chatRoomLink
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -145,12 +256,19 @@ class CreateLessonViewController: UIViewController{
         
         introTextView.delegate = self
         introTextView.text = "레슨을 소개해주세요!"
-        introTextView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
+        
+        if(!isModifying){
+            introTextView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
+        }
         
         titleTextField.delegate = self
         shortIntroTextField.delegate = self
         
         imagePickerController.delegate = self
+        
+        isModifying ? setModifyData() : nil
+        
+        currentImg = bandImageView.image
     }
 }
 
@@ -198,12 +316,12 @@ extension CreateLessonViewController: UIPickerViewDelegate, UIPickerViewDataSour
 extension CreateLessonViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
-                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
-                    return false
-            }
-            let substringToReplace = textFieldText[rangeOfTextToReplace]
-            let count = textFieldText.count - substringToReplace.count + string.count
-            return count <= 20
+              let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+            return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        return count <= 20
     }
 }
 
@@ -237,11 +355,11 @@ extension CreateLessonViewController: UITextViewDelegate{
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let textViewText = textView.text,
-                let rangeOfTextToReplace = Range(range, in: textViewText) else {
-                    return false
-            }
-            let substringToReplace = textViewText[rangeOfTextToReplace]
-            let count = textViewText.count - substringToReplace.count + text.count
-            return count <= 500
+              let rangeOfTextToReplace = Range(range, in: textViewText) else {
+            return false
+        }
+        let substringToReplace = textViewText[rangeOfTextToReplace]
+        let count = textViewText.count - substringToReplace.count + text.count
+        return count <= 500
     }
 }
