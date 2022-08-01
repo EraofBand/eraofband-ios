@@ -791,148 +791,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ybf-V2-P8H">
-                                <rect key="frame" x="0.0" y="313" width="414" height="583"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="2wk-VR-JpI" customClass="SessionRecruitTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2wk-VR-JpI" id="vRn-KN-IOL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집 중" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHu-l7-yZI" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="25" y="27" width="54.5" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
-                                                            <real key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
-                                                            <real key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보컬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OO7-b1-tcA" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="90.5" y="27" width="41" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
-                                                    <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
-                                                            <real key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
-                                                            <real key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이틀 적어주쇼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLh-Kl-kSZ">
-                                                    <rect key="frame" x="25" y="61" width="101" height="19"/>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집인원 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz3-ji-Xnq">
-                                                    <rect key="frame" x="25" y="114" width="52" height="14"/>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
-                                                    <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUC-Wg-rJu">
-                                                    <rect key="frame" x="0.0" y="150" width="207" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="ISO-E0-589"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="공유하기"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc7-Xf-Udm">
-                                                    <rect key="frame" x="207" y="150" width="207" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="SP2-aV-pDv"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="지원하기"/>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-Vt-yrG">
-                                                    <rect key="frame" x="0.0" y="150" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.19215686269999999" green="0.20392156859999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="D1q-uq-o78"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-9V-i27">
-                                                    <rect key="frame" x="206.5" y="157.5" width="1" height="35"/>
-                                                    <color key="backgroundColor" red="0.19215686269999999" green="0.20392156859999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="ZgX-Ni-SOo"/>
-                                                        <constraint firstAttribute="width" constant="1" id="gbx-me-KEY"/>
-                                                    </constraints>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한줄 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvv-7m-rmn">
-                                                    <rect key="frame" x="25" y="86" width="45" height="14"/>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
-                                                    <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.12549019610000001" green="0.1333333333" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="bc7-Xf-Udm" firstAttribute="width" secondItem="vRn-KN-IOL" secondAttribute="width" multiplier="0.5" id="3k4-0D-mSE"/>
-                                                <constraint firstAttribute="bottom" secondItem="bc7-Xf-Udm" secondAttribute="bottom" id="3zi-BO-Cl0"/>
-                                                <constraint firstItem="Lvv-7m-rmn" firstAttribute="leading" secondItem="KLh-Kl-kSZ" secondAttribute="leading" id="4fE-vd-oud"/>
-                                                <constraint firstItem="PHu-l7-yZI" firstAttribute="top" secondItem="vRn-KN-IOL" secondAttribute="topMargin" constant="16" id="9Xi-b3-Q8F"/>
-                                                <constraint firstItem="KpK-9V-i27" firstAttribute="centerX" secondItem="vRn-KN-IOL" secondAttribute="centerX" id="B9B-wb-BpX"/>
-                                                <constraint firstItem="lz3-ji-Xnq" firstAttribute="top" secondItem="Lvv-7m-rmn" secondAttribute="bottom" constant="14" id="CFD-O3-JI6"/>
-                                                <constraint firstItem="lz3-ji-Xnq" firstAttribute="leading" secondItem="Lvv-7m-rmn" secondAttribute="leading" id="ElQ-St-1FZ"/>
-                                                <constraint firstItem="YUC-Wg-rJu" firstAttribute="leading" secondItem="vRn-KN-IOL" secondAttribute="leading" id="JzN-Ll-3Bu"/>
-                                                <constraint firstItem="OO7-b1-tcA" firstAttribute="centerY" secondItem="PHu-l7-yZI" secondAttribute="centerY" id="NIb-JG-cE0"/>
-                                                <constraint firstItem="PHu-l7-yZI" firstAttribute="leading" secondItem="vRn-KN-IOL" secondAttribute="leading" constant="25" id="Qml-Hu-aqO"/>
-                                                <constraint firstAttribute="bottom" secondItem="YUC-Wg-rJu" secondAttribute="bottom" id="Rlx-DU-mX4"/>
-                                                <constraint firstAttribute="trailing" secondItem="bc7-Xf-Udm" secondAttribute="trailing" id="SGr-QJ-ceV"/>
-                                                <constraint firstItem="OO7-b1-tcA" firstAttribute="leading" secondItem="PHu-l7-yZI" secondAttribute="trailing" constant="11" id="TxX-my-q7f"/>
-                                                <constraint firstItem="bDF-Vt-yrG" firstAttribute="top" secondItem="YUC-Wg-rJu" secondAttribute="top" id="UGZ-od-V6j"/>
-                                                <constraint firstItem="KpK-9V-i27" firstAttribute="centerY" secondItem="YUC-Wg-rJu" secondAttribute="centerY" id="Woc-Jz-hGs"/>
-                                                <constraint firstItem="YUC-Wg-rJu" firstAttribute="width" secondItem="vRn-KN-IOL" secondAttribute="width" multiplier="0.5" id="XiP-8m-Jfo"/>
-                                                <constraint firstItem="KLh-Kl-kSZ" firstAttribute="top" secondItem="PHu-l7-yZI" secondAttribute="bottom" constant="14" id="ZcE-tv-QH7"/>
-                                                <constraint firstItem="bDF-Vt-yrG" firstAttribute="leading" secondItem="vRn-KN-IOL" secondAttribute="leading" id="f8F-b5-xAu"/>
-                                                <constraint firstAttribute="trailing" secondItem="bDF-Vt-yrG" secondAttribute="trailing" id="fDO-5D-C9u"/>
-                                                <constraint firstItem="KLh-Kl-kSZ" firstAttribute="leading" secondItem="PHu-l7-yZI" secondAttribute="leading" id="fZu-MG-iKV"/>
-                                                <constraint firstItem="Lvv-7m-rmn" firstAttribute="top" secondItem="KLh-Kl-kSZ" secondAttribute="bottom" constant="6" id="rex-uU-rJZ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="introLabel" destination="Lvv-7m-rmn" id="GGE-xo-4YI"/>
-                                            <outlet property="recruitLabel" destination="PHu-l7-yZI" id="hSI-pn-rWc"/>
-                                            <outlet property="recruitNumLabel" destination="lz3-ji-Xnq" id="rKv-Ml-z6H"/>
-                                            <outlet property="sessionLabel" destination="OO7-b1-tcA" id="0ss-Jn-pPk"/>
-                                            <outlet property="titleLabel" destination="KLh-Kl-kSZ" id="AsZ-ev-Yqe"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <view contentMode="scaleToFill" id="T8O-Ye-lWm" userLabel="ApplicantsView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="269"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지원자 목록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPr-2j-gP7">
                                         <rect key="frame" x="23" y="22" width="83" height="21"/>
@@ -952,7 +813,7 @@
                                         <rect key="frame" x="0.0" y="55" width="414" height="214"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="applicantcell" rowHeight="86" id="Vjp-yk-OgX" customClass="ApplicantsTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="Vjp-yk-OgX" customClass="ApplicantsTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="414" height="86"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vjp-yk-OgX" id="Ewl-UV-2Pi">
@@ -967,7 +828,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpQ-U0-bDD" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="67" y="16" width="41" height="20"/>
+                                                            <rect key="frame" x="67" y="16" width="41" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                             <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="0.69803921570000005" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -987,19 +848,19 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wl3-xQ-xUX">
-                                                            <rect key="frame" x="123" y="16.5" width="42" height="19"/>
+                                                            <rect key="frame" x="123" y="17" width="42" height="19"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 줄 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBG-9Z-4HN">
-                                                            <rect key="frame" x="67" y="39.5" width="55.5" height="17"/>
+                                                            <rect key="frame" x="67" y="40" width="55.5" height="17"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                                             <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ 분 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-pw-B8m">
-                                                            <rect key="frame" x="67" y="58.5" width="29.5" height="13"/>
+                                                            <rect key="frame" x="67" y="59" width="29.5" height="13"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="11"/>
                                                             <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1049,7 +910,7 @@
                                 <constraints>
                                     <constraint firstItem="BqP-5z-aI9" firstAttribute="centerY" secondItem="QPr-2j-gP7" secondAttribute="centerY" id="2ic-LS-tyO"/>
                                     <constraint firstAttribute="bottom" secondItem="RFJ-fL-scL" secondAttribute="bottom" id="Gu5-OS-cJP"/>
-                                    <constraint firstAttribute="trailing" secondItem="BqP-5z-aI9" secondAttribute="trailing" constant="15" id="OEf-3g-6w1"/>
+                                    <constraint firstItem="RFJ-fL-scL" firstAttribute="trailing" secondItem="BqP-5z-aI9" secondAttribute="trailing" constant="15" id="OEf-3g-6w1"/>
                                     <constraint firstItem="RFJ-fL-scL" firstAttribute="leading" secondItem="T8O-Ye-lWm" secondAttribute="leading" id="X3d-Mf-es3"/>
                                     <constraint firstItem="QPr-2j-gP7" firstAttribute="leading" secondItem="T8O-Ye-lWm" secondAttribute="leading" constant="23" id="ZHr-zR-JPV"/>
                                     <constraint firstItem="QPr-2j-gP7" firstAttribute="top" secondItem="T8O-Ye-lWm" secondAttribute="top" constant="22" id="dJZ-yB-svt"/>
@@ -1057,6 +918,145 @@
                                     <constraint firstAttribute="trailing" secondItem="RFJ-fL-scL" secondAttribute="trailing" id="kqa-jU-o41"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ybf-V2-P8H">
+                                <rect key="frame" x="0.0" y="313" width="414" height="583"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="2wk-VR-JpI" customClass="SessionRecruitTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2wk-VR-JpI" id="vRn-KN-IOL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집 중" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHu-l7-yZI" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="25" y="27" width="54.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보컬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OO7-b1-tcA" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="90.5" y="27" width="41" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                                                    <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이틀 적어주쇼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLh-Kl-kSZ">
+                                                    <rect key="frame" x="25" y="61.5" width="101" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집인원 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz3-ji-Xnq">
+                                                    <rect key="frame" x="25" y="114.5" width="52" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                                                    <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUC-Wg-rJu">
+                                                    <rect key="frame" x="0.0" y="150" width="207" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="ISO-E0-589"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="공유하기"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc7-Xf-Udm">
+                                                    <rect key="frame" x="207" y="150" width="207" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="SP2-aV-pDv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="지원하기"/>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-Vt-yrG">
+                                                    <rect key="frame" x="0.0" y="150" width="414" height="1"/>
+                                                    <color key="backgroundColor" red="0.19215686269999999" green="0.20392156859999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="D1q-uq-o78"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-9V-i27">
+                                                    <rect key="frame" x="206.5" y="157.5" width="1" height="35"/>
+                                                    <color key="backgroundColor" red="0.19215686269999999" green="0.20392156859999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="ZgX-Ni-SOo"/>
+                                                        <constraint firstAttribute="width" constant="1" id="gbx-me-KEY"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한줄 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvv-7m-rmn">
+                                                    <rect key="frame" x="25" y="86.5" width="45" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                                                    <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.12549019610000001" green="0.1333333333" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="bc7-Xf-Udm" firstAttribute="width" secondItem="vRn-KN-IOL" secondAttribute="width" multiplier="0.5" id="3k4-0D-mSE"/>
+                                                <constraint firstAttribute="bottom" secondItem="bc7-Xf-Udm" secondAttribute="bottom" id="3zi-BO-Cl0"/>
+                                                <constraint firstItem="Lvv-7m-rmn" firstAttribute="leading" secondItem="KLh-Kl-kSZ" secondAttribute="leading" id="4fE-vd-oud"/>
+                                                <constraint firstItem="PHu-l7-yZI" firstAttribute="top" secondItem="vRn-KN-IOL" secondAttribute="topMargin" constant="16" id="9Xi-b3-Q8F"/>
+                                                <constraint firstItem="KpK-9V-i27" firstAttribute="centerX" secondItem="vRn-KN-IOL" secondAttribute="centerX" id="B9B-wb-BpX"/>
+                                                <constraint firstItem="lz3-ji-Xnq" firstAttribute="top" secondItem="Lvv-7m-rmn" secondAttribute="bottom" constant="14" id="CFD-O3-JI6"/>
+                                                <constraint firstItem="lz3-ji-Xnq" firstAttribute="leading" secondItem="Lvv-7m-rmn" secondAttribute="leading" id="ElQ-St-1FZ"/>
+                                                <constraint firstItem="YUC-Wg-rJu" firstAttribute="leading" secondItem="vRn-KN-IOL" secondAttribute="leading" id="JzN-Ll-3Bu"/>
+                                                <constraint firstItem="OO7-b1-tcA" firstAttribute="centerY" secondItem="PHu-l7-yZI" secondAttribute="centerY" id="NIb-JG-cE0"/>
+                                                <constraint firstItem="PHu-l7-yZI" firstAttribute="leading" secondItem="vRn-KN-IOL" secondAttribute="leading" constant="25" id="Qml-Hu-aqO"/>
+                                                <constraint firstAttribute="bottom" secondItem="YUC-Wg-rJu" secondAttribute="bottom" id="Rlx-DU-mX4"/>
+                                                <constraint firstAttribute="trailing" secondItem="bc7-Xf-Udm" secondAttribute="trailing" id="SGr-QJ-ceV"/>
+                                                <constraint firstItem="OO7-b1-tcA" firstAttribute="leading" secondItem="PHu-l7-yZI" secondAttribute="trailing" constant="11" id="TxX-my-q7f"/>
+                                                <constraint firstItem="bDF-Vt-yrG" firstAttribute="top" secondItem="YUC-Wg-rJu" secondAttribute="top" id="UGZ-od-V6j"/>
+                                                <constraint firstItem="KpK-9V-i27" firstAttribute="centerY" secondItem="YUC-Wg-rJu" secondAttribute="centerY" id="Woc-Jz-hGs"/>
+                                                <constraint firstItem="YUC-Wg-rJu" firstAttribute="width" secondItem="vRn-KN-IOL" secondAttribute="width" multiplier="0.5" id="XiP-8m-Jfo"/>
+                                                <constraint firstItem="KLh-Kl-kSZ" firstAttribute="top" secondItem="PHu-l7-yZI" secondAttribute="bottom" constant="14" id="ZcE-tv-QH7"/>
+                                                <constraint firstItem="bDF-Vt-yrG" firstAttribute="leading" secondItem="vRn-KN-IOL" secondAttribute="leading" id="f8F-b5-xAu"/>
+                                                <constraint firstAttribute="trailing" secondItem="bDF-Vt-yrG" secondAttribute="trailing" id="fDO-5D-C9u"/>
+                                                <constraint firstItem="KLh-Kl-kSZ" firstAttribute="leading" secondItem="PHu-l7-yZI" secondAttribute="leading" id="fZu-MG-iKV"/>
+                                                <constraint firstItem="Lvv-7m-rmn" firstAttribute="top" secondItem="KLh-Kl-kSZ" secondAttribute="bottom" constant="6" id="rex-uU-rJZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="introLabel" destination="Lvv-7m-rmn" id="GGE-xo-4YI"/>
+                                            <outlet property="recruitLabel" destination="PHu-l7-yZI" id="hSI-pn-rWc"/>
+                                            <outlet property="recruitNumLabel" destination="lz3-ji-Xnq" id="rKv-Ml-z6H"/>
+                                            <outlet property="sessionLabel" destination="OO7-b1-tcA" id="0ss-Jn-pPk"/>
+                                            <outlet property="titleLabel" destination="KLh-Kl-kSZ" id="AsZ-ev-Yqe"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tHD-ki-SP0"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1121,8 +1121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xc-mA-cKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
-            <point key="canvasLocation" x="942" y="199"/>
+            <point key="canvasLocation" x="964" y="199"/>
         </scene>
         <!--ModifyBand-->
         <scene sceneID="poi-80-6nH">
@@ -1132,17 +1131,6 @@
             </objects>
             <point key="canvasLocation" x="171" y="-175"/>
         </scene>
-
-        <!--SessionRecruit-->
-        <scene sceneID="eFO-AK-evy">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SessionRecruit" storyboardName="SessionRecruit" id="0zQ-Wi-UAq" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cpI-VA-tsv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="833" y="96"/>
-
-        </scene>
-
     </scenes>
     <designables>
         <designable name="DpQ-U0-bDD">
