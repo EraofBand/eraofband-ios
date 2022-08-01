@@ -44,6 +44,10 @@ class BandRecruitViewController: UIViewController{
                     (alert: UIAlertAction!) -> Void in
                 self.modifyRecruit()
             })
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                  })
+            optionMenu.addAction(cancelAction)
             optionMenu.addAction(modifyAction)
         
             self.present(optionMenu, animated: true, completion: nil)

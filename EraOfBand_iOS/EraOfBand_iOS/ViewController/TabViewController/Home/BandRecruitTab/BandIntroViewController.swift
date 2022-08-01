@@ -88,7 +88,7 @@ class BandIntroViewController: UIViewController{
             performView.heightAnchor.constraint(equalToConstant: 192).isActive = true
             
             performContentView.layer.cornerRadius = 15
-            dDayView.layer.cornerRadius = 15
+            dDayView.layer.cornerRadius = 10
             /*디데이 계산하기 추가해야지*/
             
             performTitleLabel.text = self.bandInfo?.performTitle ?? ""

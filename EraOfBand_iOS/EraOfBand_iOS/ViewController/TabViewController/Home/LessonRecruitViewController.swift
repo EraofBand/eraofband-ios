@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import SafariServices
+import Alamofire
 
 class LessonRecruitViewController: UIViewController{
     @IBOutlet weak var lessonImgView: UIImageView!
@@ -37,27 +38,155 @@ class LessonRecruitViewController: UIViewController{
     
     var lessonMemberArr: [Int] = []
     
-    func modifyRecruit(){
+    var header : HTTPHeaders?
+    
+    @IBAction func applyBtnTapped(_ sender: Any) {
         
+        AF.request("\(appDelegate.baseUrl)/lessons/\(lessonIdx ?? 0)",
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success:
+                print(response)
+                self.applyBtn.isEnabled = false
+            default:
+                return
+            }
+        }
+    }
+    /*수정 버튼 눌렀을 때*/
+    func modifyRecruit(){
+        guard let modifyVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyLessonViewController") as? CreateLessonViewController else {return}
+        
+        modifyVC.lessonInfo = self.lessonInfo
+        modifyVC.isModifying = true
+        
+        self.navigationController?.pushViewController(modifyVC, animated: true)
     }
     
+    func quitLesson(){
+        
+        AF.request("\(appDelegate.baseUrl)/lessons/out/\(lessonIdx ?? 0)",
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success:
+                self.navigationController?.popViewController(animated: true)
+            default:
+                return
+            }
+        }
+    }
+    
+    func deleteLesson(){
+        AF.request("\(appDelegate.baseUrl)/lessons/status/\(lessonIdx ?? 0)",
+                   method: .patch,
+                   parameters: [
+                    "userIdx": appDelegate.userIdx
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success:
+                self.navigationController?.popViewController(animated: true)
+            default:
+                return
+            }
+        }
+    }
+    
+    /*우측 상단 메뉴 버튼 눌렀을 때*/
     @IBAction func menuBtnTapped(_ sender: Any) {
         if(lessonInfo?.userIdx == appDelegate.userIdx){
         
-            let optionMenu = UIAlertController(title: nil, message: "밴드 모집", preferredStyle: .actionSheet)
+            let optionMenu = UIAlertController(title: nil, message: "레슨 모집", preferredStyle: .actionSheet)
             let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                     (alert: UIAlertAction!) -> Void in
                 self.modifyRecruit()
             })
+            let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                self.deleteLesson()
+            })
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                  })
+            optionMenu.addAction(cancelAction)
             optionMenu.addAction(modifyAction)
+            optionMenu.addAction(deleteAction)
+            
         
+            self.present(optionMenu, animated: true, completion: nil)
+        }else if(lessonMemberArr.contains(appDelegate.userIdx!)){
+            let optionMenu = UIAlertController(title: nil, message: "레슨 모집", preferredStyle: .actionSheet)
+            let quitAction = UIAlertAction(title: "탈퇴하기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                self.quitLesson()
+            })
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                  })
+            optionMenu.addAction(cancelAction)
+            optionMenu.addAction(quitAction)
+            
             self.present(optionMenu, animated: true, completion: nil)
         }
     }
     
+    /*좋아요 처리*/
+    func likeLesson(){
+        
+        AF.request("\(appDelegate.baseUrl)/lessons/likes/\(lessonIdx ?? 0)",
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success:
+                self.likeIcon.image = UIImage(systemName: "heart.fill")
+            default:
+                return
+            }
+        }
+    }
+    
+    /*좋아요 취소*/
+    func dislikeLesson(){
+        
+        AF.request("\(appDelegate.baseUrl)/lessons/unlikes/\(lessonIdx ?? 0)",
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+
+            switch(response.result){
+            case.success:
+                self.likeIcon.image = UIImage(systemName: "heart")
+            default:
+                return
+            }
+        }
+    }
+    
+    /*좋아요 버튼 눌렀을 때*/
+    @IBAction func likeBtnTapped(_ sender: Any) {
+        if(likeIcon.image == UIImage(systemName: "heart")){
+            likeLesson()
+        }else{
+            dislikeLesson()
+        }
+    }
+    
+    /*좌측상단 뒤로가기 버튼*/
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    /*채팅방 링크 눌렀을 때*/
     @IBAction func chatLinkTapped(_ sender: Any) {
         var url = lessonInfo?.chatRoomLink
         
@@ -91,6 +220,14 @@ class LessonRecruitViewController: UIViewController{
         }else{
             memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))).isActive = true
         }
+        
+        if(lessonInfo?.likeOrNot == "Y"){
+            likeIcon.image = UIImage(systemName: "heart.fill")
+        }else{
+            likeIcon.image = UIImage(systemName: "heart")
+        }
+        
+        
     }
     
     func setData(){
@@ -123,6 +260,7 @@ class LessonRecruitViewController: UIViewController{
         
         if(lessonMemberArr.contains(appDelegate.userIdx!)){
             chatLinkLabel.text = lessonInfo?.chatRoomLink
+            applyBtn.isEnabled = false
         }else{
             chatLinkLabel.text = "수강생에게만 공개됩니다"
             chatLinkBtn.isEnabled = false
@@ -133,6 +271,10 @@ class LessonRecruitViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        header = [
+            "x-access-token": self.appDelegate.jwt,
+            "Content-Type": "application/json"]
         
         lessonMemberArr.append(lessonInfo?.userIdx ?? 0)
         for i in 0..<(lessonInfo?.memberCount ?? 1){
