@@ -111,6 +111,45 @@ class SessionMatchViewController: UIViewController {
             
         }
     }
+    @IBAction func firstFameBandTapped(_ sender: Any) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(fameBandList[0].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = fameBandList[0].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
+    }
+    @IBAction func secondFameBandTapped(_ sender: Any) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(fameBandList[1].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = fameBandList[1].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
+    }
+    @IBAction func thirdFameBandTapped(_ sender: Any) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(fameBandList[2].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = fameBandList[2].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

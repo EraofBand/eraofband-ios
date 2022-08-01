@@ -155,6 +155,8 @@ extension LessonMatchViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tableTitleLabel.text = lessoninfo.lessonTitle
         cell.tableIntroLabel.text = lessoninfo.lessonIntroduction
         
+        cell.selectionStyle = .none
+        
         return cell
     }
     
@@ -162,5 +164,18 @@ extension LessonMatchViewController: UITableViewDelegate, UITableViewDataSource 
         return 147
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let lessonRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "LessonRecruitViewController") as? LessonRecruitViewController else { return }
+        
+        GetLessonInfoService.getLessonInfo(lessonList[indexPath.row].lessonIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                lessonRecruitVC.lessonInfo = response.result
+                lessonRecruitVC.lessonIdx = lessonList[indexPath.row].lessonIdx
+
+                self.navigationController?.pushViewController(lessonRecruitVC, animated: true)
+            }
+        }
+    }
 
 }

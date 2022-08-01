@@ -34,6 +34,7 @@ struct BandInfoResult: Codable{
     var performFee: Int?
     var performLocation: String?
     var performTime: String?
+    var performTitle: String?
     var profileImgUrl: String?
     var userIdx: Int?
     var userIntroduction: String?
