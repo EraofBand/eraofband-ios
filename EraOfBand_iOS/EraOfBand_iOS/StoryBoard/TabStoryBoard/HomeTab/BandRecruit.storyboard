@@ -1196,14 +1196,6 @@
             </objects>
             <point key="canvasLocation" x="171" y="-175"/>
         </scene>
-        <!--SessionRecruit-->
-        <scene sceneID="eFO-AK-evy">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SessionRecruit" storyboardName="SessionRecruit" id="0zQ-Wi-UAq" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cpI-VA-tsv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="833" y="96"/>
-        </scene>
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
