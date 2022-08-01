@@ -22,4 +22,7 @@ class HomeBandCollectionViewCell: UICollectionViewCell {
         bandImageView.layer.cornerRadius = 10
     }
 
+    override func prepareForReuse() {
+        bandImageView.image = nil
+    }
 }

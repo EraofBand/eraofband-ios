@@ -37,4 +37,8 @@ class BandListTableViewCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
     }
     
+    override func prepareForReuse() {
+        tableImageView.image = nil
+    }
+    
 }
