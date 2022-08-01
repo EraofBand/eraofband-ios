@@ -71,6 +71,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="likeBtnTapped:" destination="lnU-SZ-58E" eventType="touchUpInside" id="AGK-dY-ETX"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.1235707179" green="0.1335714757" blue="0.15807771679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -568,6 +571,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7I-xw-5HO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-319" y="50"/>
+        </scene>
+        <!--CreateLesson-->
+        <scene sceneID="5Dk-9O-pmd">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ModifyLessonViewController" storyboardName="CreateLesson" id="6we-Ej-6nU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frD-ti-p1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="44"/>
         </scene>
     </scenes>
     <resources>
