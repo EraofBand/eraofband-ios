@@ -15,7 +15,9 @@ struct BandInfoData: Codable{
 }
 
 struct BandInfoResult: Codable{
-    var applicants: [Applicant]?
+    
+    // band introduction data
+    var sessionMembers: [SessionMember]?
     var bandContent: String?
     var bandIdx: Int?
     var bandImgUrl: String?
@@ -23,16 +25,8 @@ struct BandInfoResult: Codable{
     var bandLikeCount: Int?
     var bandRegion: String?
     var bandTitle: String?
-    var base: Int?
-    var baseComment: String?
-    var capacity: Int?
     var chatRoomLink: String?
-    var drum: Int?
-    var drumComment: String?
-    var guitar: Int?
-    var guitarComment: String?
-    var keyboard: Int?
-    var keyboardComment: String?
+    var capacity: Int?
     var likeOrNot: String?
     var memberCount: Int?
     var nickName: String?
@@ -41,11 +35,22 @@ struct BandInfoResult: Codable{
     var performLocation: String?
     var performTime: String?
     var profileImgUrl: String?
-    var sessionMembers: [SessionMember]?
     var userIdx: Int?
     var userIntroduction: String?
-    var vocal: Int?
-    var vocalComment: String?
+    
+    // session recruit data
+    var applicants: [Applicant]?
+    var vocal: Int
+    var vocalComment: String
+    var guitar: Int
+    var guitarComment: String
+    var base: Int
+    var baseComment: String
+    var keyboard: Int
+    var keyboardComment: String
+    var drum: Int
+    var drumComment: String
+    
 }
 
 struct Applicant: Codable{

@@ -44,6 +44,7 @@ class BandRecruitTabmanViewController: TabmanViewController{
         let albumVC = UIStoryboard.init(name: "BandRecruit", bundle: nil).instantiateViewController(withIdentifier: "BandAlbumViewController") as! BandAlbumViewController
         
         introVC.bandInfo = bandInfo
+        recruitVC.bandInfo = bandInfo
         albumVC.bandInfo = bandInfo
         
         viewControllers.append(introVC)
