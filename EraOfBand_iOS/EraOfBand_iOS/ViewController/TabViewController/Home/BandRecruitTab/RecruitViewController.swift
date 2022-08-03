@@ -12,6 +12,8 @@ class RecruitViewController: UIViewController{
     @IBOutlet weak var applicantView: UIView!
     @IBOutlet weak var applicantTableView: UITableView!
     @IBOutlet weak var recruitTableView: UITableView!
+    @IBOutlet weak var moreApplicantButton: UIButton!
+    @IBOutlet weak var line: UIView!
     
     var bandInfo: BandInfoResult?
     var recruitCellCount: Int = 0
@@ -61,21 +63,36 @@ class RecruitViewController: UIViewController{
         super.viewDidLoad()
         
         setCell()
-        print(sessionCount)
+        
         applicantsInfo = bandInfo!.applicants ?? []
+        print(applicantsInfo.count)
         
         applicantTableView.delegate = self
         applicantTableView.dataSource = self
-        //applicantTableView.register(ApplicantsTableViewCell.self, forCellReuseIdentifier: "cell")
         
         recruitTableView.delegate = self
         recruitTableView.dataSource = self
-        //recruitTableView.register(SessionRecruitTableViewCell.self, forCellReuseIdentifier: "cell")
         
-        applicantTableView.tag = 1
-        recruitTableView.tag = 2
+        if applicantsInfo.count == 0 {
+            
+            moreApplicantButton.isHidden = true
+            
+            let label = UILabel(frame: applicantView.bounds)
+            label.text = "아직 지원자가 존재하지 않습니다"
+            label.textColor = .white
+            label.font = UIFont(name: "Pretendard-Medium", size: 18)
+            label.textAlignment = .center
+            
+            applicantView.addSubview(label)
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: applicantView.centerXAnchor)
+            ])
+            
+            
+        }
         
         if appDelegate.userIdx != bandInfo!.userIdx {
+            line.isHidden = true
             applicantView.isHidden = true
             applicantView.height = 0
         }
@@ -128,6 +145,7 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tableView == recruitTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SessionRecruitTableViewCell
+            cell.cellDelegate = self
             
             cell.titleLabel.text = "\(bandInfo!.bandTitle!) \(sessionName[indexPath.item]) 모집"
             cell.titleLabel.sizeToFit()
@@ -162,4 +180,17 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
     
     }
     
+}
+
+extension RecruitViewController: CellButtonDelegate {
+    func shareButtonTapped() {
+        print("공유하기 버튼 누름")
+    }
+    
+    func recruitButtonTapped() {
+        let alert = self.storyboard?.instantiateViewController(withIdentifier: "SessionRecruitAlert") as? RecruitAlertViewController
+        alert?.bandIdx = bandInfo?.bandIdx
+        alert?.modalPresentationStyle = .overCurrentContext
+        present(alert!, animated: true)
+    }
 }
