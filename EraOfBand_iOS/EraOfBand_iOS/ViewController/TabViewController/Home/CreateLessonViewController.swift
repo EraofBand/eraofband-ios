@@ -161,8 +161,14 @@ class CreateLessonViewController: UIViewController{
     }
     
     @IBAction func minusTapped(_ sender: Any) {
-        if(Int(numLabel.text ?? "0")! > 0){
-            numLabel.text = String(Int(numLabel.text ?? "0")! - 1)
+        if(isModifying){
+            if(Int(numLabel.text ?? "0")! > lessonInfo?.memberCount ?? 0){
+                numLabel.text = String(Int(numLabel.text ?? "0")! - 1)
+            }
+        }else{
+            if(Int(numLabel.text ?? "0")! > 0){
+                numLabel.text = String(Int(numLabel.text ?? "0")! - 1)
+            }
         }
     }
     @IBAction func plusTapped(_ sender: Any) {
@@ -232,6 +238,11 @@ class CreateLessonViewController: UIViewController{
         introTextView.text = lessonInfo?.lessonContent
         
         chatLinkTextField.text = lessonInfo?.chatRoomLink
+        
+        /*텍스트 길이 정보? 수정*/
+        titleLengthLabel.text = String(lessonInfo?.lessonTitle?.count ?? 0) + " / 20"
+        shortIntroLengthLabel.text = String(lessonInfo?.lessonIntroduction?.count ?? 0) + " / 20"
+        longIntroLengthLabel.text = String(lessonInfo?.lessonContent?.count ?? 0) + " / 500"
     }
     
     override func viewDidLoad() {

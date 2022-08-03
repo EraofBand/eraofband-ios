@@ -1121,7 +1121,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xc-mA-cKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="942" y="199"/>
         </scene>
         <!--ModifyBand-->
@@ -1132,17 +1131,6 @@
             </objects>
             <point key="canvasLocation" x="171" y="-175"/>
         </scene>
-
-        <!--SessionRecruit-->
-        <scene sceneID="eFO-AK-evy">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SessionRecruit" storyboardName="SessionRecruit" id="0zQ-Wi-UAq" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cpI-VA-tsv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="833" y="96"/>
-
-        </scene>
-
     </scenes>
     <designables>
         <designable name="DpQ-U0-bDD">

@@ -47,6 +47,8 @@ class CreateBandViewController: UIViewController{
     @IBOutlet weak var performTimeView: UIView!
     @IBOutlet weak var registerBtn: UIButton!
     
+    var currentMemberSessionNum: [Int] = [0,0,0,0,0]
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     let datePicker = UIDatePicker()
@@ -213,17 +215,30 @@ class CreateBandViewController: UIViewController{
     
     /*세션 인원 변경 함수*/
     @IBAction func vocalMinusTapped(_ sender: Any) {
-        if(Int(vocalNumLabel.text ?? "0")! > 0){
-            vocalNumLabel.text = String(Int(vocalNumLabel.text ?? "0")! - 1)
+        if(isModifying){
+            if(Int(vocalNumLabel.text ?? "0")! > currentMemberSessionNum[0] ){
+                vocalNumLabel.text = String(Int(vocalNumLabel.text ?? "0")! - 1)
+            }
+        }else{
+            if(Int(vocalNumLabel.text ?? "0")! > 0){
+                vocalNumLabel.text = String(Int(vocalNumLabel.text ?? "0")! - 1)
+            }
         }
+        
     }
     @IBAction func vocalPlusTapped(_ sender: Any) {
         vocalNumLabel.text = String(Int(vocalNumLabel.text ?? "0")! + 1)
     }
     
     @IBAction func guitarMinusTapped(_ sender: Any) {
-        if(Int(guitarNumLabel.text ?? "0")! > 0){
-            guitarNumLabel.text = String(Int(guitarNumLabel.text ?? "0")! - 1)
+        if(isModifying){
+            if(Int(guitarNumLabel.text ?? "0")! > currentMemberSessionNum[1] ){
+                guitarNumLabel.text = String(Int(guitarNumLabel.text ?? "0")! - 1)
+            }
+        }else{
+            if(Int(guitarNumLabel.text ?? "0")! > 0){
+                guitarNumLabel.text = String(Int(guitarNumLabel.text ?? "0")! - 1)
+            }
         }
     }
     @IBAction func guitarPlusTapped(_ sender: Any) {
@@ -231,8 +246,14 @@ class CreateBandViewController: UIViewController{
     }
     
     @IBAction func bassMinusTapped(_ sender: Any) {
-        if(Int(bassNumLabel.text ?? "0")! > 0){
-            bassNumLabel.text = String(Int(bassNumLabel.text ?? "0")! - 1)
+        if(isModifying){
+            if(Int(bassNumLabel.text ?? "0")! > currentMemberSessionNum[2] ){
+                bassNumLabel.text = String(Int(bassNumLabel.text ?? "0")! - 1)
+            }
+        }else{
+            if(Int(bassNumLabel.text ?? "0")! > 0){
+                bassNumLabel.text = String(Int(bassNumLabel.text ?? "0")! - 1)
+            }
         }
     }
     @IBAction func bassPlusTapped(_ sender: Any) {
@@ -240,8 +261,14 @@ class CreateBandViewController: UIViewController{
     }
     
     @IBAction func keyboardMinusTapped(_ sender: Any) {
-        if(Int(keyboardNumLabel.text ?? "0")! > 0){
-            keyboardNumLabel.text = String(Int(keyboardNumLabel.text ?? "0")! - 1)
+        if(isModifying){
+            if(Int(keyboardNumLabel.text ?? "0")! > currentMemberSessionNum[3] ){
+                keyboardNumLabel.text = String(Int(keyboardNumLabel.text ?? "0")! - 1)
+            }
+        }else{
+            if(Int(keyboardNumLabel.text ?? "0")! > 0){
+                keyboardNumLabel.text = String(Int(keyboardNumLabel.text ?? "0")! - 1)
+            }
         }
     }
     @IBAction func keyboardPlusTapped(_ sender: Any) {
@@ -249,8 +276,14 @@ class CreateBandViewController: UIViewController{
     }
     
     @IBAction func drumMinusTapped(_ sender: Any) {
-        if(Int(drumNumLabel.text ?? "0")! > 0){
-            drumNumLabel.text = String(Int(drumNumLabel.text ?? "0")! - 1)
+        if(isModifying){
+            if(Int(drumNumLabel.text ?? "0")! > currentMemberSessionNum[4] ){
+                drumNumLabel.text = String(Int(drumNumLabel.text ?? "0")! - 1)
+            }
+        }else{
+            if(Int(drumNumLabel.text ?? "0")! > 0){
+                drumNumLabel.text = String(Int(drumNumLabel.text ?? "0")! - 1)
+            }
         }
     }
     @IBAction func drumPlusTapped(_ sender: Any) {
@@ -258,6 +291,16 @@ class CreateBandViewController: UIViewController{
     }
     
     /*텍스트필드 카운트*/
+    @IBAction func performTitleOnChanged(_ sender: Any) {
+        performTitleLengthLabel.text = String(performTitleTextField.text?.count ?? 0) + " / 20"
+    }
+    @IBAction func performLocationOnChanged(_ sender: Any) {
+        performPlaceLengthLabel.text = String(performPlaceTextField.text?.count ?? 0) + " / 20"
+    }
+    @IBAction func performFeeOnChanged(_ sender: Any) {
+        performFeeLengthLabel.text = String(performFeeTextField.text?.count ?? 0) + " / 20"
+    }
+    
     @IBAction func titleOnChanged(_ sender: Any) {
         titleLengthLabel.text = String(titleTextField.text?.count ?? 0) + " / 20"
         
@@ -384,6 +427,15 @@ class CreateBandViewController: UIViewController{
         self.dateTextField.text = self.bandInfo?.performDate
         self.timeTextField.text = self.bandInfo?.performTime
         
+        
+        titleLengthLabel.text = String(bandInfo?.bandTitle?.count ?? 0) + " / 20"
+        shortIntroLengthLabel.text = String(bandInfo?.bandIntroduction?.count ?? 0) + " / 20"
+        longIntroLengthLabel.text = String(bandInfo?.bandContent?.count ?? 0) + " / 500"
+        performTitleLengthLabel.text = String(bandInfo?.performTitle?.count ?? 0) + " / 20"
+        performPlaceLengthLabel.text = String(bandInfo?.performLocation?.count ?? 0) + " / 20"
+        
+        let feeString = String(bandInfo?.performFee ?? 0)
+        performFeeLengthLabel.text = String(feeString.count) + " / 20"
     }
     
     @objc func doneBtnTapped(){
@@ -443,6 +495,23 @@ class CreateBandViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        for i in 0..<(bandInfo?.memberCount)!{
+            switch(bandInfo?.sessionMembers![i].buSession){
+            case 0:
+                self.currentMemberSessionNum[0] += 1
+            case 1:
+                self.currentMemberSessionNum[1] += 1
+            case 2:
+                self.currentMemberSessionNum[2] += 1
+            case 3:
+                self.currentMemberSessionNum[3] += 1
+            case 4:
+                self.currentMemberSessionNum[4] += 1
+            default:
+                break
+            }
+        }
+        
         setLayout()
         
         cityPickerView.delegate = self
@@ -475,6 +544,10 @@ class CreateBandViewController: UIViewController{
             timeTextField.text = "오전 11:00"
             
             self.currentImg = self.bandImageView.image!
+            
+            self.performTitleTextField.delegate = self
+            self.performPlaceTextField.delegate = self
+            self.performFeeTextField.delegate = self
         }
     }
 }
