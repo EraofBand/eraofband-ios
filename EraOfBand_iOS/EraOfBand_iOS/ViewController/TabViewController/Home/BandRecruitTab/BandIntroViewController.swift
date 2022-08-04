@@ -164,10 +164,26 @@ extension BandIntroViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.sessionLabel.text = sessionStr
         
+        cell.selectionStyle = .none
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+        
+        GetOtherUserDataService.getOtherUserInfo(bandInfo?.sessionMembers![indexPath.row].userIdx ?? 0){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = bandInfo?.sessionMembers![indexPath.row].userIdx
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+            
+        }
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class OtherBandViewController: UIViewController {
-
+    var userData: OtherUser?
     override func viewDidLoad() {
         super.viewDidLoad()
 
