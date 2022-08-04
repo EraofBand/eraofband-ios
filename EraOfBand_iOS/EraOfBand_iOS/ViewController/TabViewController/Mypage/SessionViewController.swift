@@ -52,6 +52,7 @@ class SessionViewController: UIViewController {
         AF.request(request).responseString { (response) in
             switch response.result {
             case .success:
+                self.appDelegate.userSession = self.session
                 print("POST한 세션 번호: \(self.session)")
                 print("POST 성공")
             case .failure(let error):
