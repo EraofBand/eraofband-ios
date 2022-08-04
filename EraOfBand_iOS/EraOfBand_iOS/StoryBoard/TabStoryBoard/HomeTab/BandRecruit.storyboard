@@ -792,7 +792,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="T8O-Ye-lWm" userLabel="ApplicantsView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="269"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="303"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지원자 목록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPr-2j-gP7">
@@ -810,7 +810,7 @@
                                         </state>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RFJ-fL-scL">
-                                        <rect key="frame" x="0.0" y="55" width="414" height="214"/>
+                                        <rect key="frame" x="0.0" y="55" width="414" height="245"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="Vjp-yk-OgX" customClass="ApplicantsTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
@@ -909,7 +909,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="BqP-5z-aI9" firstAttribute="centerY" secondItem="QPr-2j-gP7" secondAttribute="centerY" id="2ic-LS-tyO"/>
-                                    <constraint firstAttribute="bottom" secondItem="RFJ-fL-scL" secondAttribute="bottom" id="Gu5-OS-cJP"/>
+                                    <constraint firstAttribute="bottom" secondItem="RFJ-fL-scL" secondAttribute="bottom" constant="3" id="Gu5-OS-cJP"/>
                                     <constraint firstItem="RFJ-fL-scL" firstAttribute="trailing" secondItem="BqP-5z-aI9" secondAttribute="trailing" constant="15" id="OEf-3g-6w1"/>
                                     <constraint firstItem="RFJ-fL-scL" firstAttribute="leading" secondItem="T8O-Ye-lWm" secondAttribute="leading" id="X3d-Mf-es3"/>
                                     <constraint firstItem="QPr-2j-gP7" firstAttribute="leading" secondItem="T8O-Ye-lWm" secondAttribute="leading" constant="23" id="ZHr-zR-JPV"/>
@@ -918,8 +918,13 @@
                                     <constraint firstAttribute="trailing" secondItem="RFJ-fL-scL" secondAttribute="trailing" id="kqa-jU-o41"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" id="3bV-h4-UoO">
+                                <rect key="frame" x="20" y="345" width="374" height="1"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ybf-V2-P8H">
-                                <rect key="frame" x="0.0" y="313" width="414" height="583"/>
+                                <rect key="frame" x="0.0" y="352" width="414" height="544"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="2wk-VR-JpI" customClass="SessionRecruitTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
@@ -1049,9 +1054,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="introLabel" destination="Lvv-7m-rmn" id="GGE-xo-4YI"/>
+                                            <outlet property="recruitButton" destination="bc7-Xf-Udm" id="PRv-6d-glW"/>
                                             <outlet property="recruitLabel" destination="PHu-l7-yZI" id="hSI-pn-rWc"/>
                                             <outlet property="recruitNumLabel" destination="lz3-ji-Xnq" id="rKv-Ml-z6H"/>
                                             <outlet property="sessionLabel" destination="OO7-b1-tcA" id="0ss-Jn-pPk"/>
+                                            <outlet property="shareButton" destination="YUC-Wg-rJu" id="H2n-09-KWM"/>
                                             <outlet property="titleLabel" destination="KLh-Kl-kSZ" id="AsZ-ev-Yqe"/>
                                         </connections>
                                     </tableViewCell>
@@ -1062,7 +1069,8 @@
                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ybf-V2-P8H" secondAttribute="bottom" id="E4S-pd-kL8"/>
-                            <constraint firstItem="ybf-V2-P8H" firstAttribute="top" secondItem="T8O-Ye-lWm" secondAttribute="bottom" id="REM-Kr-4w1"/>
+                            <constraint firstItem="ybf-V2-P8H" firstAttribute="top" secondItem="T8O-Ye-lWm" secondAttribute="bottom" constant="5" id="REM-Kr-4w1"/>
+                            <constraint firstItem="ybf-V2-P8H" firstAttribute="top" secondItem="3bV-h4-UoO" secondAttribute="bottom" constant="6" id="gNp-Ij-EhU"/>
                             <constraint firstItem="ybf-V2-P8H" firstAttribute="leading" secondItem="tHD-ki-SP0" secondAttribute="leading" id="jeD-t7-zo7"/>
                             <constraint firstItem="ybf-V2-P8H" firstAttribute="trailing" secondItem="tHD-ki-SP0" secondAttribute="trailing" id="up4-9U-kZm"/>
                         </constraints>
@@ -1070,12 +1078,30 @@
                     <connections>
                         <outlet property="applicantTableView" destination="RFJ-fL-scL" id="RXz-al-n1C"/>
                         <outlet property="applicantView" destination="T8O-Ye-lWm" id="Tgy-K4-Jim"/>
+                        <outlet property="line" destination="3bV-h4-UoO" id="W9W-1D-s7b"/>
+                        <outlet property="moreApplicantButton" destination="BqP-5z-aI9" id="KkW-a2-qwN"/>
                         <outlet property="recruitTableView" destination="ybf-V2-P8H" id="sJr-2o-YwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTS-MQ-pgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="111.59420289855073" y="950.89285714285711"/>
+        </scene>
+        <!--SessionRecruitAlert-->
+        <scene sceneID="iYB-9h-YwT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SessionRecruitAlert" storyboardName="SessionRecruitAlert" id="4uo-P3-ukY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qf-Oi-2vU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79" y="1421"/>
+        </scene>
+        <!--AcceptAlert-->
+        <scene sceneID="7om-mi-beM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AcceptAlert" storyboardName="AcceptAlert" id="8Eq-FV-ylK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAa-HO-VP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302" y="1421"/>
         </scene>
         <!--Band Album View Controller-->
         <scene sceneID="Gq6-Iz-Bwa">

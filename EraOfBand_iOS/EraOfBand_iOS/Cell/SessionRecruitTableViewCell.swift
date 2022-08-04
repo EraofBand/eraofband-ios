@@ -14,8 +14,18 @@ class SessionRecruitTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var recruitNumLabel: UILabel!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var recruitButton: UIButton!
     
-
+    var cellDelegate: CellButtonDelegate?
+    
+    @objc func recruitClicked() {
+        cellDelegate?.recruitButtonTapped()
+    }
+    @objc func shareClicked() {
+        cellDelegate?.shareButtonTapped()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,6 +39,9 @@ class SessionRecruitTableViewCell: UITableViewCell {
         sessionLabel.layer.borderColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         sessionLabel.textColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         sessionLabel.font = UIFont(name: "Pretendard-Medium", size: 12)
+        
+        self.recruitButton.addTarget(self, action: #selector(recruitClicked), for: .touchUpInside)
+        self.shareButton.addTarget(self, action: #selector(shareClicked), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,4 +59,11 @@ class SessionRecruitTableViewCell: UITableViewCell {
         
     }
 
+}
+
+protocol CellButtonDelegate: AnyObject {
+    
+    func recruitButtonTapped()
+    func shareButtonTapped()
+    
 }
