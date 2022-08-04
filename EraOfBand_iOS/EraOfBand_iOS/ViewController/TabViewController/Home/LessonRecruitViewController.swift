@@ -31,6 +31,7 @@ class LessonRecruitViewController: UIViewController{
     @IBOutlet weak var likeBtnView: UIView!
     @IBOutlet weak var noMemberLabel: UILabel!
     @IBOutlet weak var memberView: UIView!
+    @IBOutlet weak var memberViewHeight: NSLayoutConstraint!
     
     var lessonIdx: Int?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,6 +52,16 @@ class LessonRecruitViewController: UIViewController{
             case.success:
                 print(response)
                 self.applyBtn.isEnabled = false
+                GetLessonInfoService.getLessonInfo(self.lessonInfo!.lessonIdx!){ [self]
+                    (isSuccess, response) in
+                    if isSuccess{
+                        lessonInfo = response.result
+                        print(lessonInfo)
+                        memberTableView.reloadData()
+                        viewDidLoad()
+                        
+                    }
+                }
             default:
                 return
             }
@@ -215,10 +226,12 @@ class LessonRecruitViewController: UIViewController{
         chatLinkView.layer.cornerRadius = 15
         
         if(lessonInfo?.memberCount == 0){
-            memberView.heightAnchor.constraint(equalToConstant: 174).isActive = true
+            //memberView.heightAnchor.constraint(equalToConstant: 174).isActive = true
+            memberViewHeight.constant = 174
             self.noMemberLabel.text = "아직 수강생이 존재하지 않습니다"
         }else{
-            memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))).isActive = true
+            //memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))).isActive = true
+            memberViewHeight.constant = 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))
         }
         
         if(lessonInfo?.likeOrNot == "Y"){
@@ -287,6 +300,20 @@ class LessonRecruitViewController: UIViewController{
         memberTableView.delegate = self
         memberTableView.dataSource = self
         memberTableView.separatorStyle = .none
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        GetLessonInfoService.getLessonInfo((lessonInfo?.lessonIdx!)!){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                lessonInfo = response.result
+                setData()
+                setLayout()
+            }
+        }
+        
     }
 }
 

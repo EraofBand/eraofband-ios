@@ -403,19 +403,19 @@ class CreateBandViewController: UIViewController{
         
         self.chatLinkTextField.text = self.bandInfo?.chatRoomLink
         
-        self.vocalNumLabel.text = String(self.bandInfo?.vocal ?? 0)
+        self.vocalNumLabel.text = String((self.bandInfo?.vocal)! + currentMemberSessionNum[0])
         self.vocalTextField.text = self.bandInfo?.vocalComment
         
-        self.guitarNumLabel.text = String(self.bandInfo?.guitar ?? 0)
+        self.guitarNumLabel.text = String((self.bandInfo?.guitar)! + currentMemberSessionNum[1])
         self.guitarTextField.text = self.bandInfo?.guitarComment
         
-        self.bassNumLabel.text = String(self.bandInfo?.base ?? 0)
+        self.bassNumLabel.text = String((self.bandInfo?.base)! + currentMemberSessionNum[2])
         self.bassTextField.text = self.bandInfo?.baseComment
         
-        self.keyboardNumLabel.text = String(self.bandInfo?.keyboard ?? 0)
+        self.keyboardNumLabel.text = String((self.bandInfo?.keyboard)! + currentMemberSessionNum[3])
         self.keyboardTextField.text = self.bandInfo?.keyboardComment
         
-        self.drumNumLabel.text = String(self.bandInfo?.drum ?? 0)
+        self.drumNumLabel.text = String((self.bandInfo?.drum)! + currentMemberSessionNum[4])
         self.drumTextField.text = self.bandInfo?.drumComment
         
         self.performPlaceTextField.text = self.bandInfo?.performLocation
@@ -511,6 +511,7 @@ class CreateBandViewController: UIViewController{
                 break
             }
         }
+        print(currentMemberSessionNum)
         
         setLayout()
         
@@ -532,7 +533,10 @@ class CreateBandViewController: UIViewController{
         
         introTextView.delegate = self
         introTextView.text = "밴드를 소개해주세요!"
-        introTextView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
+        
+        if(!isModifying){
+            introTextView.textColor = UIColor(red: 0.733, green: 0.733, blue: 0.733, alpha: 1)
+        }
         
         if(isModifying){
             setModifyData()

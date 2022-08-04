@@ -24,10 +24,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7n7-7v-vam">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7n7-7v-vam">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4o0-en-Dr2">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4o0-en-Dr2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1184.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7z-30-ybM">
@@ -337,7 +337,7 @@
                                                     <constraint firstItem="1mq-sE-jGg" firstAttribute="leading" secondItem="0QG-SM-8Oi" secondAttribute="leading" constant="20" id="yrs-Iq-Pfc"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcP-pH-0jf">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcP-pH-0jf">
                                                 <rect key="frame" x="0.0" y="792" width="414" height="242"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수강생 목록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZk-J4-xeB">
@@ -346,8 +346,8 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ym8-64-Hlo">
-                                                        <rect key="frame" x="20" y="60" width="374" height="150"/>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ym8-64-Hlo">
+                                                        <rect key="frame" x="20" y="59.5" width="374" height="156.5"/>
                                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SessionMemberTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionMemberTableViewCell" rowHeight="81" id="02d-5E-enk" customClass="SessionMemberTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
@@ -431,6 +431,7 @@
                                                 <constraints>
                                                     <constraint firstItem="eZk-J4-xeB" firstAttribute="top" secondItem="lcP-pH-0jf" secondAttribute="top" constant="21" id="ESp-RQ-ZXA"/>
                                                     <constraint firstItem="9pW-cK-jzG" firstAttribute="centerX" secondItem="lcP-pH-0jf" secondAttribute="centerX" id="Kw9-qo-cxM"/>
+                                                    <constraint firstAttribute="height" constant="242" identifier="memberViewHeight" id="R2l-vO-ojX"/>
                                                     <constraint firstItem="eZk-J4-xeB" firstAttribute="leading" secondItem="lcP-pH-0jf" secondAttribute="leading" constant="20" id="Wrg-r9-7zN"/>
                                                     <constraint firstItem="9pW-cK-jzG" firstAttribute="top" secondItem="lcP-pH-0jf" secondAttribute="top" constant="80" id="Ybm-44-fRQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="ym8-64-Hlo" secondAttribute="trailing" constant="20" id="kht-0Z-faw"/>
@@ -439,7 +440,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="ym8-64-Hlo" secondAttribute="bottom" constant="26" id="wh6-ec-MaJ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojF-Zu-irq" userLabel="Border">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojF-Zu-irq" userLabel="Border">
                                                 <rect key="frame" x="0.0" y="1034" width="414" height="0.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2O-z6-rWc">
@@ -455,7 +456,7 @@
                                                     <constraint firstItem="z2O-z6-rWc" firstAttribute="leading" secondItem="ojF-Zu-irq" secondAttribute="leading" constant="20" id="vkt-gD-ivZ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nuN-jH-7LT">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuN-jH-7LT">
                                                 <rect key="frame" x="0.0" y="1034.5" width="414" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="채팅방 링크" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swq-qC-ALa">
@@ -565,6 +566,7 @@
                         <outlet property="memberNumLabel" destination="kqs-jI-5xT" id="IdF-Ou-nPU"/>
                         <outlet property="memberTableView" destination="ym8-64-Hlo" id="H5c-B0-RjA"/>
                         <outlet property="memberView" destination="lcP-pH-0jf" id="JUG-2M-f6a"/>
+                        <outlet property="memberViewHeight" destination="R2l-vO-ojX" id="fhJ-Bx-FSv"/>
                         <outlet property="noMemberLabel" destination="9pW-cK-jzG" id="FEZ-29-0iQ"/>
                         <outlet property="shareBtn" destination="CJg-DM-LVC" id="bxe-JM-LM9"/>
                         <outlet property="shortIntroLabel" destination="RfC-qN-GBb" id="2ch-et-f5l"/>

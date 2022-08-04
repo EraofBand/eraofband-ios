@@ -138,6 +138,18 @@ class BandRecruitViewController: UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        GetBandInfoService.getBandInfo((bandInfo?.bandIdx)!){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandInfo = response.result
+                setLayout()
+                setData()
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
