@@ -666,6 +666,9 @@
                                                         <color key="value" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="performTitleOnChanged:" destination="0ij-3G-xMb" eventType="editingChanged" id="1Sd-VB-P0d"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVp-C0-ABx">
                                                 <rect key="frame" x="20" y="2046.5" width="26" height="18"/>
@@ -694,6 +697,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="performLocationOnChanged:" destination="0ij-3G-xMb" eventType="editingChanged" id="CnA-9W-AAI"/>
                                                     <action selector="shortIntroOnChanged:" destination="0ij-3G-xMb" eventType="editingChanged" id="aJY-jT-cAg"/>
                                                 </connections>
                                             </textField>
@@ -800,7 +804,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="shortIntroOnChanged:" destination="0ij-3G-xMb" eventType="editingChanged" id="8JE-v4-zP0"/>
+                                                    <action selector="performFeeOnChanged:" destination="0ij-3G-xMb" eventType="editingChanged" id="lON-zN-fi4"/>
                                                 </connections>
                                             </textField>
                                         </subviews>

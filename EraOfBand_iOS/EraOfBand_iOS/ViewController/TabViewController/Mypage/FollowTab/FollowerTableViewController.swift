@@ -94,9 +94,16 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
     
     @objc func otherUserTapped(sender: UIButton){
         guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
-        appDelegate.otherUserIdx = sender.tag
-        otherUserVC.userIdx = sender.tag
-        self.navigationController?.pushViewController(otherUserVC, animated: true)
+        
+        GetOtherUserDataService.getOtherUserInfo(sender.tag){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = sender.tag
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -182,7 +182,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키보드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrQ-Kn-6Z9" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="284" y="37.5" width="55" height="22"/>
+                                                        <rect key="frame" x="284" y="39.5" width="39" height="18"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
                                                         <color key="textColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -263,7 +263,7 @@
                                                     <constraint firstAttribute="height" priority="250" constant="600" id="vnG-Ax-GeD"/>
                                                 </constraints>
                                                 <connections>
-                                                    <segue destination="hcV-3c-6S0" kind="embed" id="nEK-Gy-izG"/>
+                                                    <segue destination="hcV-3c-6S0" kind="embed" identifier="otherUserEmbed" id="nEK-Gy-izG"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -377,7 +377,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6sl-dJ-EjZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.12549019607843137" green="0.13333333333333333" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="URu-C8-vTY">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="URu-C8-vTY">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -391,7 +391,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-eF-gAE">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-eF-gAE">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
                                             </subviews>
@@ -402,6 +402,9 @@
                                                 <constraint firstItem="ITH-eF-gAE" firstAttribute="leading" secondItem="jaX-Go-SJB" secondAttribute="leading" id="jMZ-1Q-x1s"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="pofolImage" destination="ITH-eF-gAE" id="L4x-nq-Q6X"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -449,7 +452,7 @@
     </scenes>
     <designables>
         <designable name="xrQ-Kn-6Z9">
-            <size key="intrinsicContentSize" width="55" height="22"/>
+            <size key="intrinsicContentSize" width="39" height="18"/>
         </designable>
     </designables>
     <resources>
