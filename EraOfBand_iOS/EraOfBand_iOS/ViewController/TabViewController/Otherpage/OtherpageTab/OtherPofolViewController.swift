@@ -7,9 +7,11 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class OtherPofolViewController: UIViewController {
-    
+    var userData: OtherUser?
+    var userIdx: Int?
     var pofolList: [GetUserPofol] = [GetUserPofol(imgUrl: "", pofolIdx: 0)]
     var thumbNailList: [String] = [""]
     
@@ -18,6 +20,7 @@ class OtherPofolViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    /*
     func getPofolList(){
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
@@ -35,19 +38,25 @@ class OtherPofolViewController: UIViewController {
             
             self.pofolCollectionView.reloadData()
         }
-    }
+    }*/
     
     var pofolCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(userIdx)
+        pofolList = (userData?.getUserPofol)!
         
         pofolCollectionView.delegate = self
         pofolCollectionView.dataSource = self
-        getPofolList()
+        
+        //getPofolList()
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //getPofolList()
+    }
+
     
 }
 
@@ -55,7 +64,6 @@ extension OtherPofolViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return pofolList.count
-
 
     }
     
@@ -66,27 +74,29 @@ extension OtherPofolViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .gray
         
-        /*
         if( (pofolList[indexPath.row].imgUrl != "") && (pofolList[indexPath.row].imgUrl.prefix(20) == "https://eraofband.s3") ){
             cell.pofolImage.kf.setImage(with: URL(string: pofolList[indexPath.row].imgUrl))
-        }*/
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if(pofolList.count != 0){
+        if(pofolList.count == 1){
             self.thumbNailList[0] = pofolList[0].imgUrl
         }
         
-        for i in 1...pofolList.count - 1{
-            self.thumbNailList.append(pofolList[i].imgUrl)
+        if(pofolList.count > 1){
+            self.thumbNailList[0] = pofolList[0].imgUrl
+            for i in 1...pofolList.count - 1{
+                self.thumbNailList.append(pofolList[i].imgUrl)
+            }
         }
         
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
         myPofolTableVC.selectedIndex = indexPath
-        myPofolTableVC.userIdx = appDelegate.otherUserIdx ?? 0
+        myPofolTableVC.userIdx = self.userIdx ?? 0
         myPofolTableVC.thumbNailList = self.thumbNailList
                 
         self.navigationController?.pushViewController(myPofolTableVC, animated: true)

@@ -31,6 +31,7 @@ class LessonRecruitViewController: UIViewController{
     @IBOutlet weak var likeBtnView: UIView!
     @IBOutlet weak var noMemberLabel: UILabel!
     @IBOutlet weak var memberView: UIView!
+    @IBOutlet weak var memberViewHeight: NSLayoutConstraint!
     
     var lessonIdx: Int?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,6 +52,16 @@ class LessonRecruitViewController: UIViewController{
             case.success:
                 print(response)
                 self.applyBtn.isEnabled = false
+                GetLessonInfoService.getLessonInfo(self.lessonInfo!.lessonIdx!){ [self]
+                    (isSuccess, response) in
+                    if isSuccess{
+                        lessonInfo = response.result
+                        print(lessonInfo)
+                        memberTableView.reloadData()
+                        viewDidLoad()
+                        
+                    }
+                }
             default:
                 return
             }
@@ -215,10 +226,12 @@ class LessonRecruitViewController: UIViewController{
         chatLinkView.layer.cornerRadius = 15
         
         if(lessonInfo?.memberCount == 0){
-            memberView.heightAnchor.constraint(equalToConstant: 174).isActive = true
+            //memberView.heightAnchor.constraint(equalToConstant: 174).isActive = true
+            memberViewHeight.constant = 174
             self.noMemberLabel.text = "아직 수강생이 존재하지 않습니다"
         }else{
-            memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))).isActive = true
+            //memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))).isActive = true
+            memberViewHeight.constant = 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))
         }
         
         if(lessonInfo?.likeOrNot == "Y"){
@@ -288,6 +301,20 @@ class LessonRecruitViewController: UIViewController{
         memberTableView.dataSource = self
         memberTableView.separatorStyle = .none
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        GetLessonInfoService.getLessonInfo((lessonInfo?.lessonIdx!)!){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                lessonInfo = response.result
+                setData()
+                setLayout()
+            }
+        }
+        
+    }
 }
 
 extension LessonRecruitViewController: UITableViewDataSource, UITableViewDelegate{
@@ -302,6 +329,8 @@ extension LessonRecruitViewController: UITableViewDataSource, UITableViewDelegat
         cell.profileImgView.kf.setImage(with: URL(string: lessonInfo?.lessonMembers![indexPath.row].profileImgUrl ?? ""))
         cell.nickNameLabel.text = lessonInfo?.lessonMembers![indexPath.row].nickName ?? ""
         cell.introduceLabel.text = lessonInfo?.lessonMembers![indexPath.row].introduction ?? ""
+        
+        cell.selectionStyle = .none
         
         var sessionStr = ""
         
@@ -327,5 +356,20 @@ extension LessonRecruitViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+        
+        GetOtherUserDataService.getOtherUserInfo(lessonInfo?.lessonMembers![indexPath.row].userIdx ?? 0){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = lessonInfo?.lessonMembers![indexPath.row].userIdx
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+            
+        }
+        
     }
 }

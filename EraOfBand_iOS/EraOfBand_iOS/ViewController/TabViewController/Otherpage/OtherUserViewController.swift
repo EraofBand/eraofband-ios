@@ -33,7 +33,7 @@ class OtherUserViewController: UIViewController {
 
     var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
 
-    var userData: OtherUserDataModel?
+    var userData: OtherUser?
 
     
     @IBAction func followingBtnTapped(_ sender: Any) {
@@ -110,22 +110,22 @@ class OtherUserViewController: UIViewController {
     }
     
     func setUserInfo(){
-        userNickNameLabel.text = userData?.result.getUser.nickName
+        userNickNameLabel.text = userData?.getUser.nickName
         
         let year = DateFormatter()
         year.dateFormat = "yyyy"
         let currentYear = year.string(from: Date())
-        let birthYear = (userData?.result.getUser.birth.components(separatedBy: "-")[0])!
+        let birthYear = (userData?.getUser.birth.components(separatedBy: "-")[0])!
         let userAge = Int(currentYear)! - Int(birthYear)! + 1
         
         var userGender: String
-        if userData?.result.getUser.gender == "MALE"{
+        if userData?.getUser.gender == "MALE"{
             userGender = "남"
         }else{
             userGender = "여"
         }
         
-        if userData?.result.getUser.follow == 0{
+        if userData?.getUser.follow == 0{
             followButton.setTitle("팔로우", for: .normal)
             followButton.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         }else{
@@ -133,24 +133,24 @@ class OtherUserViewController: UIViewController {
             followButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
         }
         
-        self.title = userData?.result.getUser.nickName
+        self.title = userData?.getUser.nickName
         
-        userInfoLabel.text = "\(userData?.result.getUser.region ?? "") / \(userAge) / \(userGender)"
+        userInfoLabel.text = "\(userData?.getUser.region ?? "") / \(userAge) / \(userGender)"
 
-        userIntroLabel.text = userData?.result.getUser.introduction
+        userIntroLabel.text = userData?.getUser.introduction
         
-        userPofolLabel.text = String((userData?.result.getUser.pofolCount)!)
+        userPofolLabel.text = String((userData?.getUser.pofolCount)!)
         
-        userFollowerButton.setTitle(String((userData?.result.getUser.followeeCount)!), for: .normal)
+        userFollowerButton.setTitle(String((userData?.getUser.followeeCount)!), for: .normal)
         
-        userFollowingButton.setTitle(String((userData?.result.getUser.followerCount)!), for: .normal)
+        userFollowingButton.setTitle(String((userData?.getUser.followerCount)!), for: .normal)
         
-        let sessionNum: Int = (userData?.result.getUser.userSession)!
+        let sessionNum: Int = (userData?.getUser.userSession)!
         userSessionLabel.text = sessionData[sessionNum]
         
-        containerView.updateHeight(containerViewHeight, (userData?.result.getUser.pofolCount)!)
+        containerView.updateHeight(containerViewHeight, (userData?.getUser.pofolCount)!)
         
-        guard let imageUrl = userData?.result.getUser.profileImgUrl else { return }
+        guard let imageUrl = userData?.getUser.profileImgUrl else { return }
         if let url = URL(string: imageUrl) {
             userImageView.load(url: url)
             userImageView.contentMode = .scaleAspectFill
@@ -160,6 +160,7 @@ class OtherUserViewController: UIViewController {
         userImageView.setRounded()
     }
     
+    /*
     func getUserData(){
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
@@ -189,12 +190,11 @@ class OtherUserViewController: UIViewController {
             }
         }
     }
-    
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getUserData()
-
+        setUserInfo()
         
         infoView.layer.cornerRadius = 15
         followButton.layer.cornerRadius = 15
@@ -218,7 +218,18 @@ class OtherUserViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        appDelegate.otherUserIdx = self.userIdx
+        //appDelegate.otherUserIdx = self.userIdx
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "otherUserEmbed"{
+            let containerVC = segue.destination as!OtherTabmanViewController
+            
+            containerVC.userData = self.userData
+            containerVC.userIdx = self.userIdx
+        }
     }
     
 
