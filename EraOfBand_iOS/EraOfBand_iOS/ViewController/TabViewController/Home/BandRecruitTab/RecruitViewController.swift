@@ -69,6 +69,7 @@ class RecruitViewController: UIViewController{
         
         applicantTableView.delegate = self
         applicantTableView.dataSource = self
+        applicantTableView.alwaysBounceVertical = false
         
         recruitTableView.delegate = self
         recruitTableView.dataSource = self
@@ -82,11 +83,12 @@ class RecruitViewController: UIViewController{
             label.textColor = .white
             label.font = UIFont(name: "Pretendard-Medium", size: 18)
             label.textAlignment = .center
+//            label.translatesAutoresizingMaskIntoConstraints = false
+//            label.centerXAnchor.constraint(equalTo: applicantView.centerXAnchor).isActive = true
+//            label.centerYAnchor.constraint(equalTo: applicantView.centerYAnchor).isActive = true
             
             applicantView.addSubview(label)
-            NSLayoutConstraint.activate([
-                label.centerXAnchor.constraint(equalTo: applicantView.centerXAnchor)
-            ])
+            applicantView.frame = CGRect(x: 0, y: 44, width: applicantView.frame.width, height: 180)
             
             
         }
@@ -121,11 +123,20 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tableView == applicantTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ApplicantsTableViewCell
+            //cell.cellDelegate = self
+            
+            cell.recruitDicision.addTarget(self, action: #selector(acceptButtonTapped(sender:)), for: .touchUpInside)
             
             let session = ["보컬", "기타", "베이스", "키보드", "드럼"]
             
             let applicant = applicantsInfo[indexPath.item]
-            cell.applicantImageView.load(url: URL(string: applicant.profileImgUrl!)!)
+            
+            if let url = URL(string: applicant.profileImgUrl!) {
+                cell.applicantImageView.load(url: url)
+                cell.applicantImageView.contentMode = .scaleAspectFill
+            } else {
+                cell.applicantImageView.image = UIImage(named: "default_image")
+            }
             
             cell.applicantSession.text = session[applicant.buSession!]
             cell.applicantSession.sizeToFit()
@@ -138,6 +149,8 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.updateTimeLabel.text = applicant.updatedAt!
             cell.updateTimeLabel.sizeToFit()
+            
+            cell.selectionStyle = .none
             
             return cell
             
@@ -162,6 +175,8 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
             cell.recruitNumLabel.text = "모집인원 \(sessionCount[indexPath.item])"
             cell.recruitNumLabel.sizeToFit()
             
+            cell.selectionStyle = .none
+            
             return cell
         }
         
@@ -171,7 +186,7 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if tableView == applicantTableView {
-            return 100
+            return 80
         }
         if tableView == recruitTableView {
             return 220
@@ -180,9 +195,22 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
     
     }
     
+    @objc func acceptButtonTapped(sender: UIButton) {
+        let buttonNum = sender.tag
+        let applicantInfo = applicantsInfo[buttonNum]
+        
+        let alert = self.storyboard?.instantiateViewController(withIdentifier: "AcceptAlert") as? AcceptAlertViewController
+        alert?.bandIdx = bandInfo?.bandIdx
+        alert?.userIdx = applicantInfo.userIdx
+        alert?.userNickName = applicantInfo.nickName
+        alert?.modalPresentationStyle = .overCurrentContext
+        present(alert!, animated: true)
+    }
+    
 }
 
 extension RecruitViewController: CellButtonDelegate {
+    
     func shareButtonTapped() {
         print("공유하기 버튼 누름")
     }
@@ -193,4 +221,6 @@ extension RecruitViewController: CellButtonDelegate {
         alert?.modalPresentationStyle = .overCurrentContext
         present(alert!, animated: true)
     }
+    
+    
 }
