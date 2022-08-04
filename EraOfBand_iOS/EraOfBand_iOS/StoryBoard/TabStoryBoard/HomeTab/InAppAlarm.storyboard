@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--In App Alarm View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="InAppAlarmViewController" hidesBottomBarWhenPushed="YES" id="Y6W-OH-hqX" customClass="InAppAlarmViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="19W-pt-h2m">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InAppAlarmTableViewCell" rowHeight="105" id="Vj8-o8-kaB" customClass="InAppAlarmTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vj8-o8-kaB" id="lVT-Zf-G1C">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람 내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-FD-pam">
+                                                    <rect key="frame" x="83" y="57.5" width="49" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                                    <color key="textColor" red="0.71764705882352942" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sie-Q4-6qi">
+                                                    <rect key="frame" x="20" y="27.5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="EZ8-k0-lMl"/>
+                                                        <constraint firstAttribute="width" secondItem="Sie-Q4-6qi" secondAttribute="height" multiplier="1:1" id="n0m-u3-eRx"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-xr-n5u">
+                                                    <rect key="frame" x="83" y="33.5" width="28" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLE-t1-Kh4">
+                                                    <rect key="frame" x="348" y="33.5" width="41" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="11"/>
+                                                    <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pnc-xr-n5u" firstAttribute="leading" secondItem="Sie-Q4-6qi" secondAttribute="trailing" constant="13" id="HYJ-Yu-NFH"/>
+                                                <constraint firstItem="Sie-Q4-6qi" firstAttribute="centerY" secondItem="lVT-Zf-G1C" secondAttribute="centerY" id="LMq-vt-4qJ"/>
+                                                <constraint firstItem="pnc-xr-n5u" firstAttribute="top" secondItem="Sie-Q4-6qi" secondAttribute="top" constant="6" id="P4b-2u-F7k"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WLE-t1-Kh4" secondAttribute="trailing" constant="5" id="S82-Bh-hHq"/>
+                                                <constraint firstItem="Sie-Q4-6qi" firstAttribute="leading" secondItem="lVT-Zf-G1C" secondAttribute="leadingMargin" id="ipy-WT-Gd5"/>
+                                                <constraint firstItem="WLE-t1-Kh4" firstAttribute="top" secondItem="pnc-xr-n5u" secondAttribute="top" id="mQv-zr-gcQ"/>
+                                                <constraint firstItem="JSr-FD-pam" firstAttribute="top" secondItem="pnc-xr-n5u" secondAttribute="bottom" constant="4" id="pXB-fw-36n"/>
+                                                <constraint firstItem="JSr-FD-pam" firstAttribute="leading" secondItem="pnc-xr-n5u" secondAttribute="leading" id="xmc-sc-bSD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="alarmImageView" destination="Sie-Q4-6qi" id="t2w-3U-oPk"/>
+                                            <outlet property="alarmTime" destination="WLE-t1-Kh4" id="HJB-2Z-ier"/>
+                                            <outlet property="bottomLabel" destination="JSr-FD-pam" id="ERS-Xk-0MK"/>
+                                            <outlet property="topLabel" destination="pnc-xr-n5u" id="6yd-Iu-CNQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="19W-pt-h2m" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ger-Hw-Pyg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="19W-pt-h2m" secondAttribute="bottom" id="hwG-2C-uG4"/>
+                            <constraint firstItem="19W-pt-h2m" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="iKq-4v-PF1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="19W-pt-h2m" secondAttribute="trailing" id="xbv-hi-g8c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alarmTableView" destination="19W-pt-h2m" id="RZf-jx-ruW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.521739130434788" y="63.616071428571423"/>
+        </scene>
+    </scenes>
+</document>

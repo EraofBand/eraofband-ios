@@ -8,12 +8,18 @@
 import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public let baseUrl = "https://eraofband.shop" //rest api 베이스 url 전역변수
     public var myKakaoData: kakaoData!
+    public var jwt: String = ""
+    public var userIdx: Int?
+    public var userSession: Int?
+    
+    public var otherUserIdx: Int?
     
     let kakaoKey = Bundle.main.kakaoKey
 
@@ -29,6 +35,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         KakaoSDK.initSDK(appKey: kakaoKey)
+        FirebaseApp.configure()
+        
+        if #available(iOS 15, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            navigationBarAppearance.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor : UIColor.white
+            ]
+            navigationBarAppearance.backgroundColor = .clear
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+            
+        }
         
         sleep(1)
         return true

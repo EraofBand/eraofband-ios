@@ -23,7 +23,7 @@ class RegisterViewController4: UIViewController{
     
     @IBAction func nextBtnTapped(_ sender: Any) {
         
-        myRegisterData.setRegion(newRegion: (cityTextField.text ?? "") + "," + (districtTextField.text ?? ""))
+        myRegisterData.setRegion(newRegion: (cityTextField.text ?? "") + " " + (districtTextField.text ?? ""))
         
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController5") as? RegisterViewController5 else {return}
         nextVC.myRegisterData = myRegisterData
