@@ -13,15 +13,15 @@ struct RegisterData{
     var nickName: String
     var profileImgUrl: String
     var region: String
-    var session: Int
+    var userSession: Int
     
-    init(birth: String, gender: String, nickName: String, profileImgUrl: String, region: String, session: Int){
+    init(birth: String, gender: String, nickName: String, profileImgUrl: String, region: String, userSession: Int){
         self.birth = birth
         self.gender = gender
         self.nickName = nickName
         self.profileImgUrl = profileImgUrl
         self.region = region
-        self.session = session
+        self.userSession = userSession
     }
     
     mutating func setBirth(newBirth: String){
@@ -40,7 +40,7 @@ struct RegisterData{
         region = newRegion
     }
     mutating func setSession(newSession: Int){
-        session = newSession
+        userSession = newSession
     }
 
 }

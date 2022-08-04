@@ -9,44 +9,104 @@ import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import Alamofire
 
 class LoginViewController: UIViewController{
     
     @IBOutlet weak var backgroundImg: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let header : HTTPHeaders = ["Content-Type": "application/json"]
     
-    //카카오 데이터 구조체
-    /*
-    struct kakaoData{
-        var kakaoToken: String
-        var kakaoUserName: String
-        
-        init(kakaoToken: String, kakaoUserName: String){
-            self.kakaoToken = kakaoToken
-            self.kakaoUserName = kakaoUserName
+    //가입된 유저인지 판별
+    func checkRegistered(){
+ 
+        AF.request(appDelegate.baseUrl + "/users/login/" + appDelegate.myKakaoData.kakaoEmail,
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header).responseJSON { response in
+            switch response.result{
+            case .success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(LoginUserData.self, from: dataJSON)
+                    
+                    if(getData.result.jwt! == "NULL"){
+                        guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
+                        registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(registerVC, animated: true)
+                    }else{
+                        self.appDelegate.jwt = getData.result.jwt ?? ""
+                        self.appDelegate.userIdx = getData.result.userIdx!
+                        
+                        GetUserDataService.shared.getUserInfo{ [self](response) in
+                            switch(response) {
+                            case .success(let userData):
+                                if let data = userData as? User {
+                                    let data = data.getUser
+                                    
+                                    //appDelegate.userSession = data.userSession
+                                }
+                            case .requestErr(let message) :
+                                print("requestErr", message)
+                            case .pathErr :
+                                print("pathErr")
+                            case .serverErr :
+                                print("serveErr")
+                            case .networkFail:
+                                print("networkFail")
+                            }
+                            
+                        }
+                        
+                        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
+                        mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(mainTabBarVC, animated: true)
+                    }
+                    
+                } catch let DecodingError.dataCorrupted(context) {
+                    print(context)
+                } catch let DecodingError.keyNotFound(key, context) {
+                    print("Key '\(key)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.valueNotFound(value, context) {
+                    print("Value '\(value)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.typeMismatch(type, context)  {
+                    print("Type '\(type)' mismatch:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch {
+                    print("error: ", error)
+                }
+            default:
+                print("login failed")
+                return
+            }
         }
-    }*/
+    }
     
     //로그인 이후 카카오 유저 정보 가져오기
     func getKakaoData(kakaoToken: String){
-        UserApi.shared.me() {(user, error) in
+        
+        UserApi.shared.me() { [self](user, error) in
             if let error = error {
                 print(error)
             }
             else {
                 print("me() success.")
-                //self.kakaoUserName = (user?.kakaoAccount?.profile?.nickname)! as String
-            
-                //print("카카오정보:" + self.kakaoToken + self.kakaoUserName)
-                let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String)
+                
+                let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String, kakaoEmail: (user?.kakaoAccount?.email)! as String)
                 self.appDelegate.myKakaoData = myKakaoData
+                
+                checkRegistered()
+                
+                /*
                 guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
                 registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                
-                //registerVC.myKakaoData = myKakaoData
-                
-                self.present(registerVC, animated: true)
+            
+                self.present(registerVC, animated: true)*/
             }
         }
     }
