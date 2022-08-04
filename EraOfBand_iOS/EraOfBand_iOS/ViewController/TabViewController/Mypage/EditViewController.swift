@@ -5,6 +5,7 @@
 //  Created by 김영현 on 2022/07/12.
 //
 
+import Foundation
 import UIKit
 import PhotosUI
 import Alamofire
@@ -14,7 +15,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var introduceView: UIView!
-    @IBOutlet weak var introduceTextField: UITextField!
+    @IBOutlet weak var introduceTextView: UITextView!
     @IBOutlet weak var textCount: UILabel!
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
@@ -110,7 +111,10 @@ class EditViewController: UIViewController {
                     
                     self.nickNameTextField.text = data.nickName
                     
-                    self.introduceTextField.text = data.introduction
+                    self.introduceTextView.text = data.introduction
+                    
+                    let num = (self.introduceTextView.text?.count)!
+                    self.textCount.text = "\(num)/50"
                     
                     let userGender = data.gender
                     if userGender == "MALE" {
@@ -142,6 +146,8 @@ class EditViewController: UIViewController {
         }
         
         /*프로필 편집 기본 레이아웃*/
+        introduceTextView.delegate = self
+        
         self.navigationItem.title = "프로필 편집"
         
         introduceView.layer.cornerRadius = 15
@@ -193,7 +199,7 @@ class EditViewController: UIViewController {
                 
                 let params: Dictionary<String, Any?> = ["birth": birthTextField.text!,
                                                        "gender": gender,
-                                                       "introduction": introduceTextField.text,
+                                                       "introduction": introduceTextView.text,
                                                        "nickName": nickNameTextField.text!,
                                                        "profileImgUrl": imgUrl,
                                                        "region": region,
@@ -223,7 +229,19 @@ class EditViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
+}
+
+extension EditViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        
+        textCount.text = "\(changedText.count)/50"
+        
+        return changedText.count <= 50
+    }
 }
 
 extension EditViewController: PHPickerViewControllerDelegate {

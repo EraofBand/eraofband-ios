@@ -8,6 +8,7 @@
 import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public var myKakaoData: kakaoData!
     public var jwt: String = ""
     public var userIdx: Int?
-    //public var userSession: Int?
+    public var userSession: Int?
     
     public var otherUserIdx: Int?
     
@@ -34,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         KakaoSDK.initSDK(appKey: kakaoKey)
+        FirebaseApp.configure()
         
         if #available(iOS 15, *) {
             let navigationBarAppearance = UINavigationBarAppearance()

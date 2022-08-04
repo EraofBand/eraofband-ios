@@ -556,21 +556,21 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqE-PD-rR9" userLabel="introduceView">
                                                 <rect key="frame" x="25" y="321" width="364" height="120"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjr-Px-su0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="32a-RB-IiD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="120"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="yjr-Px-su0" secondAttribute="trailing" id="2im-vF-SV0"/>
-                                                    <constraint firstItem="yjr-Px-su0" firstAttribute="leading" secondItem="YqE-PD-rR9" secondAttribute="leading" id="IqY-QX-jI2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="32a-RB-IiD" secondAttribute="trailing" id="KBQ-iJ-aYx"/>
                                                     <constraint firstAttribute="height" constant="120" id="R3i-vx-IBG"/>
-                                                    <constraint firstItem="yjr-Px-su0" firstAttribute="top" secondItem="YqE-PD-rR9" secondAttribute="top" id="nso-N9-g1a"/>
+                                                    <constraint firstItem="32a-RB-IiD" firstAttribute="top" secondItem="YqE-PD-rR9" secondAttribute="top" id="gIL-TW-dZh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="32a-RB-IiD" secondAttribute="bottom" id="mDY-Fq-4pQ"/>
+                                                    <constraint firstItem="32a-RB-IiD" firstAttribute="leading" secondItem="YqE-PD-rR9" secondAttribute="leading" id="uMu-7A-cSX"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O3-Hu-D3G">
@@ -791,7 +791,7 @@
                         <outlet property="cityTextField" destination="7Z1-Qj-em4" id="YgX-9N-L7n"/>
                         <outlet property="districtTextField" destination="IJM-GX-SUm" id="rht-IL-U6B"/>
                         <outlet property="femaleButton" destination="wvg-0h-0LW" id="WHj-NT-7bz"/>
-                        <outlet property="introduceTextField" destination="yjr-Px-su0" id="tm4-Sl-48i"/>
+                        <outlet property="introduceTextView" destination="32a-RB-IiD" id="q0U-U5-XEn"/>
                         <outlet property="introduceView" destination="YqE-PD-rR9" id="tZd-Sm-kgG"/>
                         <outlet property="maleButton" destination="9Bo-DC-dAn" id="0Zs-3z-Ru9"/>
                         <outlet property="nickNameTextField" destination="DQR-j3-DaK" id="JrC-lF-dQa"/>
@@ -802,7 +802,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVt-uE-5KM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="-445"/>
+            <point key="canvasLocation" x="1927.5362318840582" y="-445.3125"/>
         </scene>
         <!--설정-->
         <scene sceneID="NMM-UB-ic6">
