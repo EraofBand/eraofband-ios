@@ -44,11 +44,11 @@ class SessionRecruitTableViewCell: UITableViewCell {
         self.shareButton.addTarget(self, action: #selector(shareClicked), for: .touchUpInside)
     }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

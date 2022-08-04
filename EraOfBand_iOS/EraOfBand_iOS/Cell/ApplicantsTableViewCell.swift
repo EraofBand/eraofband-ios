@@ -16,6 +16,11 @@ class ApplicantsTableViewCell: UITableViewCell {
     @IBOutlet weak var updateTimeLabel: UILabel!
     @IBOutlet weak var recruitDicision: UIButton!
     
+    var cellDelegate: AcceptCellDelegate?
+    
+    @objc func recruitClicked() {
+        cellDelegate?.acceptButtonTapped()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +33,7 @@ class ApplicantsTableViewCell: UITableViewCell {
         
         recruitDicision.layer.cornerRadius = 15
         
+        self.recruitDicision.addTarget(self, action: #selector(recruitClicked), for: .touchUpInside)
         
     }
 
@@ -45,4 +51,8 @@ class ApplicantsTableViewCell: UITableViewCell {
         
     }
 
+}
+
+protocol AcceptCellDelegate: AnyObject {
+    func acceptButtonTapped()
 }

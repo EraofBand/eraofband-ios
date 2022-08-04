@@ -70,6 +70,8 @@
 		A854A80A289A778700FDEB4D /* SessionRecruitAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A854A809289A778700FDEB4D /* SessionRecruitAlert.storyboard */; };
 		A854A80C289A7DF000FDEB4D /* RecruitAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A80B289A7DF000FDEB4D /* RecruitAlertViewController.swift */; };
 		A854A810289A9E5D00FDEB4D /* SessionRecruitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A80F289A9E5C00FDEB4D /* SessionRecruitData.swift */; };
+		A854A812289AAF8E00FDEB4D /* AcceptAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */; };
+		A854A814289AB07800FDEB4D /* AcceptAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */; };
 		A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */; };
 		A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */; };
 		A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */; };
@@ -222,6 +224,8 @@
 		A854A809289A778700FDEB4D /* SessionRecruitAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionRecruitAlert.storyboard; sourceTree = "<group>"; };
 		A854A80B289A7DF000FDEB4D /* RecruitAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitAlertViewController.swift; sourceTree = "<group>"; };
 		A854A80F289A9E5C00FDEB4D /* SessionRecruitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitData.swift; sourceTree = "<group>"; };
+		A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AcceptAlert.storyboard; sourceTree = "<group>"; };
+		A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptAlertViewController.swift; sourceTree = "<group>"; };
 		A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTabViewController.swift; sourceTree = "<group>"; };
 		A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTabViewController.swift; sourceTree = "<group>"; };
 		A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -508,6 +512,7 @@
 				BC0ADB7628954C100028F57C /* BandModifyViewController.swift */,
 				BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */,
 				A854A80B289A7DF000FDEB4D /* RecruitAlertViewController.swift */,
+				A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 				BC0ADB7828954C260028F57C /* ModifyBand.storyboard */,
 				BC0ADB7E28966EDF0028F57C /* LessonRecruit.storyboard */,
 				A854A809289A778700FDEB4D /* SessionRecruitAlert.storyboard */,
+				A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -841,6 +847,7 @@
 				A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */,
 				A8573616287534EA00E2F0AB /* Pretendard-ExtraBold.otf in Resources */,
 				BC1ED499288041B300A5B931 /* MyPofolTable.storyboard in Resources */,
+				A854A812289AAF8E00FDEB4D /* AcceptAlert.storyboard in Resources */,
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
 				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
 				A8BD5CB8288BEA6F009E7A1B /* WishLesson.storyboard in Resources */,
@@ -905,6 +912,7 @@
 			files = (
 				A88B49932890330F0029A2BF /* FameBandData.swift in Sources */,
 				BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */,
+				A854A814289AB07800FDEB4D /* AcceptAlertViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				A854A810289A9E5D00FDEB4D /* SessionRecruitData.swift in Sources */,
 				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
