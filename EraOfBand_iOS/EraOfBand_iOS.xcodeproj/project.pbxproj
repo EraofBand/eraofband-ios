@@ -72,6 +72,11 @@
 		A854A810289A9E5D00FDEB4D /* SessionRecruitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A80F289A9E5C00FDEB4D /* SessionRecruitData.swift */; };
 		A854A812289AAF8E00FDEB4D /* AcceptAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */; };
 		A854A814289AB07800FDEB4D /* AcceptAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */; };
+		A854A816289BC29E00FDEB4D /* InAppAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A854A815289BC29D00FDEB4D /* InAppAlarm.storyboard */; };
+		A854A818289BC4B200FDEB4D /* InAppAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A817289BC4B200FDEB4D /* InAppAlarmViewController.swift */; };
+		A854A81A289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A819289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift */; };
+		A854A81C289BECD100FDEB4D /* InAppAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A81B289BECD000FDEB4D /* InAppAlarmData.swift */; };
+		A854A81E289BF17300FDEB4D /* NewAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A81D289BF17300FDEB4D /* NewAlarmData.swift */; };
 		A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */; };
 		A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */; };
 		A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */; };
@@ -226,6 +231,11 @@
 		A854A80F289A9E5C00FDEB4D /* SessionRecruitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitData.swift; sourceTree = "<group>"; };
 		A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AcceptAlert.storyboard; sourceTree = "<group>"; };
 		A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptAlertViewController.swift; sourceTree = "<group>"; };
+		A854A815289BC29D00FDEB4D /* InAppAlarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InAppAlarm.storyboard; sourceTree = "<group>"; };
+		A854A817289BC4B200FDEB4D /* InAppAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppAlarmViewController.swift; sourceTree = "<group>"; };
+		A854A819289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppAlarmTableViewCell.swift; sourceTree = "<group>"; };
+		A854A81B289BECD000FDEB4D /* InAppAlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppAlarmData.swift; sourceTree = "<group>"; };
+		A854A81D289BF17300FDEB4D /* NewAlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlarmData.swift; sourceTree = "<group>"; };
 		A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTabViewController.swift; sourceTree = "<group>"; };
 		A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTabViewController.swift; sourceTree = "<group>"; };
 		A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -503,8 +513,8 @@
 		A8BD5CAD288BE8CB009E7A1B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BC0728CE2892FBFE007EA95D /* BandRecruitTab */,
 				A857360E2874C67E00E2F0AB /* HomeTabViewController.swift */,
+				BC0728CE2892FBFE007EA95D /* BandRecruitTab */,
 				A8BD5CB9288BEA86009E7A1B /* HomeTab */,
 				BCE57817288EE52500D441EB /* CreateBandViewController.swift */,
 				BC0728BE28902AF9007EA95D /* CreateLessonViewController.swift */,
@@ -513,6 +523,7 @@
 				BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */,
 				A854A80B289A7DF000FDEB4D /* RecruitAlertViewController.swift */,
 				A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */,
+				A854A817289BC4B200FDEB4D /* InAppAlarmViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -533,6 +544,7 @@
 				BC0ADB7E28966EDF0028F57C /* LessonRecruit.storyboard */,
 				A854A809289A778700FDEB4D /* SessionRecruitAlert.storyboard */,
 				A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */,
+				A854A815289BC29D00FDEB4D /* InAppAlarm.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -686,6 +698,7 @@
 				A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */,
 				A83E4CF82897B54D00806D92 /* ApplicantsTableViewCell.swift */,
 				BC0ADB7C289642390028F57C /* SessionMemberTableViewCell.swift */,
+				A854A819289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -711,6 +724,8 @@
 				BC0728CA2892D48D007EA95D /* BandInfoData.swift */,
 				BC0ADB80289672870028F57C /* LessonInfoData.swift */,
 				A854A80F289A9E5C00FDEB4D /* SessionRecruitData.swift */,
+				A854A81B289BECD000FDEB4D /* InAppAlarmData.swift */,
+				A854A81D289BF17300FDEB4D /* NewAlarmData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -821,6 +836,7 @@
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
+				A854A816289BC29E00FDEB4D /* InAppAlarm.storyboard in Resources */,
 				BC0ADB7F28966EDF0028F57C /* LessonRecruit.storyboard in Resources */,
 				A8BD5CB6288BEA66009E7A1B /* WishBand.storyboard in Resources */,
 				A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */,
@@ -946,6 +962,7 @@
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */,
+				A854A81E289BF17300FDEB4D /* NewAlarmData.swift in Sources */,
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				BC0ADB7728954C100028F57C /* BandModifyViewController.swift in Sources */,
 				BC0728C52891510F007EA95D /* PofolMenuButton.swift in Sources */,
@@ -960,6 +977,7 @@
 				A8573629287DB2C500E2F0AB /* UserDataModel.swift in Sources */,
 				A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */,
 				BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */,
+				A854A81C289BECD100FDEB4D /* InAppAlarmData.swift in Sources */,
 				A8573621287C442100E2F0AB /* BandViewController.swift in Sources */,
 				A8573625287C49F800E2F0AB /* MyTabManViewController.swift in Sources */,
 				BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */,
@@ -997,12 +1015,14 @@
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */,
+				A854A81A289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
 				BC0728D42892FC9D007EA95D /* BandAlbumViewController.swift in Sources */,
 				BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */,
 				A81351AE2884572D00078C9E /* SessionViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC0ADB7528944F9A0028F57C /* GetBandInfoService.swift in Sources */,
+				A854A818289BC4B200FDEB4D /* InAppAlarmViewController.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A8BD5CBF288BEAF2009E7A1B /* WishBandViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,
