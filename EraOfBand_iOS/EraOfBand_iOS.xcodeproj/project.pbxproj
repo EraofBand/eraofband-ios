@@ -142,6 +142,7 @@
 		BC0ADB81289672870028F57C /* LessonInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB80289672870028F57C /* LessonInfoData.swift */; };
 		BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */; };
 		BC0ADB85289675270028F57C /* LessonRecruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */; };
+		BC0ADB87289BD2F50028F57C /* GetOtherUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB86289BD2F50028F57C /* GetOtherUserDataService.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
@@ -298,6 +299,7 @@
 		BC0ADB80289672870028F57C /* LessonInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonInfoData.swift; sourceTree = "<group>"; };
 		BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonInfoService.swift; sourceTree = "<group>"; };
 		BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRecruitViewController.swift; sourceTree = "<group>"; };
+		BC0ADB86289BD2F50028F57C /* GetOtherUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOtherUserDataService.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */,
 				BC0ADB7428944F9A0028F57C /* GetBandInfoService.swift */,
 				BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */,
+				BC0ADB86289BD2F50028F57C /* GetOtherUserDataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */,
+				BC0ADB87289BD2F50028F57C /* GetOtherUserDataService.swift in Sources */,
 				A854A81A289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
 				BC0728D42892FC9D007EA95D /* BandAlbumViewController.swift in Sources */,
