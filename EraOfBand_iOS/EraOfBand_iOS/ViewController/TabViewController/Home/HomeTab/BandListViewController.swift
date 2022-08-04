@@ -165,7 +165,9 @@ extension BandListViewController: UICollectionViewDelegate, UICollectionViewData
 extension BandListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 50, height: 28)
+        let width = collectionView.width / 7
+        
+        return CGSize(width: width, height: 28)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
