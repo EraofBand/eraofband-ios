@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="Y6W-OH-hqX" customClass="SearchViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZF-TY-fYi">
+                                <rect key="frame" x="20" y="44" width="374" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBY-X0-8ET">
+                                        <rect key="frame" x="37" y="0.0" width="337" height="34"/>
+                                        <color key="backgroundColor" red="0.12549019607843137" green="0.13333333333333333" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="DIe-j7-TiO">
+                                        <rect key="frame" x="8" y="7" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="DIe-j7-TiO" secondAttribute="height" multiplier="1:1" id="QUE-eX-T59"/>
+                                            <constraint firstAttribute="width" constant="20" id="cC3-se-IR0"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.13333333333333333" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="yBY-X0-8ET" firstAttribute="top" secondItem="zZF-TY-fYi" secondAttribute="top" id="2WQ-hw-ESR"/>
+                                    <constraint firstAttribute="bottom" secondItem="yBY-X0-8ET" secondAttribute="bottom" id="EAG-gw-clM"/>
+                                    <constraint firstItem="DIe-j7-TiO" firstAttribute="centerY" secondItem="zZF-TY-fYi" secondAttribute="centerY" id="QPi-ia-16K"/>
+                                    <constraint firstAttribute="height" constant="34" id="RMD-G1-KMZ"/>
+                                    <constraint firstItem="DIe-j7-TiO" firstAttribute="leading" secondItem="zZF-TY-fYi" secondAttribute="leading" constant="8" id="YPk-Za-cwj"/>
+                                    <constraint firstAttribute="trailing" secondItem="yBY-X0-8ET" secondAttribute="trailing" id="b1d-ZP-6Q0"/>
+                                    <constraint firstItem="yBY-X0-8ET" firstAttribute="leading" secondItem="zZF-TY-fYi" secondAttribute="leading" constant="37" id="mrb-qa-W6k"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Up8-GX-Ufe">
+                                <rect key="frame" x="0.0" y="86" width="414" height="810"/>
+                                <connections>
+                                    <segue destination="ogp-cM-OkR" kind="embed" id="bXD-zu-yRw"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zZF-TY-fYi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QE2-tg-hlC"/>
+                            <constraint firstItem="Up8-GX-Ufe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="U1c-d8-4h0"/>
+                            <constraint firstItem="Up8-GX-Ufe" firstAttribute="top" secondItem="zZF-TY-fYi" secondAttribute="bottom" constant="8" symbolic="YES" id="beH-3m-QYA"/>
+                            <constraint firstAttribute="bottom" secondItem="Up8-GX-Ufe" secondAttribute="bottom" id="c2Q-CA-Gtf"/>
+                            <constraint firstItem="Up8-GX-Ufe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="h5m-S3-By1"/>
+                            <constraint firstItem="zZF-TY-fYi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="kcB-3A-sST"/>
+                            <constraint firstItem="zZF-TY-fYi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kx1-6D-osb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchTextField" destination="yBY-X0-8ET" id="OUW-w2-2Xc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.521739130434788" y="55.580357142857139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bWB-Op-8FS">
+            <objects>
+                <viewController id="ogp-cM-OkR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AiF-Ms-E7e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="810"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="W2X-US-SGr"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BsX-bb-Xlr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="56"/>
+        </scene>
+        <!--User Search View Controller-->
+        <scene sceneID="OnG-fT-fsP">
+            <objects>
+                <viewController storyboardIdentifier="UserSearchViewController" id="SMw-CK-Mtp" customClass="UserSearchViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sbd-U2-c5Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aVZ-bz-RUl"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzB-yN-87D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1881" y="-622"/>
+        </scene>
+        <!--Band Search View Controller-->
+        <scene sceneID="3IC-vY-2Zf">
+            <objects>
+                <viewController storyboardIdentifier="BandSearchViewController" id="pnT-BC-TFp" customClass="BandSearchViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y0D-Of-DuR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cwU-ob-X2D"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4R-0z-Kky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880" y="56"/>
+        </scene>
+        <!--Lesson Search View Controller-->
+        <scene sceneID="nTB-7a-B20">
+            <objects>
+                <viewController storyboardIdentifier="LessonSearchViewController" id="R3h-F3-HfG" customClass="LessonSearchViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ma3-4j-91w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="w5J-nb-7If"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fi1-Wa-PNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880" y="783"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_search" width="26" height="26"/>
+    </resources>
+</document>

@@ -155,7 +155,9 @@ class HomeTabViewController: UIViewController {
     
     @objc func searchButtonClicked(_ sender: UIButton) {
         
-        print("찾기 버튼 누름")
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeSearch") as! SearchViewController
+
+        self.navigationController?.pushViewController(searchVC, animated: true)
         
     }
     
