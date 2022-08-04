@@ -12,12 +12,18 @@ import Pageboy
 class OtherTabmanViewController: TabmanViewController {
     
     var viewControllers: Array<UIViewController> = []
+    var userData: OtherUser?
+    var userIdx: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let portfolioVC = UIStoryboard.init(name: "OtherUser", bundle: nil).instantiateViewController(withIdentifier: "OtherPofolViewController")
-        let bandVC = UIStoryboard.init(name: "OtherUser", bundle: nil).instantiateViewController(withIdentifier: "OtherBandViewController")
+        let portfolioVC = UIStoryboard.init(name: "OtherUser", bundle: nil).instantiateViewController(withIdentifier: "OtherPofolViewController") as! OtherPofolViewController
+        let bandVC = UIStoryboard.init(name: "OtherUser", bundle: nil).instantiateViewController(withIdentifier: "OtherBandViewController") as! OtherBandViewController
+        
+        portfolioVC.userData = self.userData
+        portfolioVC.userIdx = self.userIdx
+        bandVC.userData = self.userData
         
         viewControllers.append(portfolioVC)
         viewControllers.append(bandVC)
