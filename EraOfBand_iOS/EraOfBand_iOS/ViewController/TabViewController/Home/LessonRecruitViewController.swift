@@ -330,6 +330,8 @@ extension LessonRecruitViewController: UITableViewDataSource, UITableViewDelegat
         cell.nickNameLabel.text = lessonInfo?.lessonMembers![indexPath.row].nickName ?? ""
         cell.introduceLabel.text = lessonInfo?.lessonMembers![indexPath.row].introduction ?? ""
         
+        cell.selectionStyle = .none
+        
         var sessionStr = ""
         
         switch(lessonInfo?.lessonMembers![indexPath.row].mySession){
@@ -354,5 +356,20 @@ extension LessonRecruitViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+        
+        GetOtherUserDataService.getOtherUserInfo(lessonInfo?.lessonMembers![indexPath.row].userIdx ?? 0){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = lessonInfo?.lessonMembers![indexPath.row].userIdx
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+            
+        }
+        
     }
 }

@@ -1,21 +1,21 @@
 //
-//  GetBandInfoService.swift
+//  GetOtherUserDataService.swift
 //  EraOfBand_iOS
 //
-//  Created by 송재민 on 2022/07/30.
+//  Created by 송재민 on 2022/08/04.
 //
 
 import UIKit
 import Alamofire
 
-struct GetBandInfoService{
-    static let shared = GetBandInfoService()
+struct GetOtherUserDataService{
+    static let shared = GetOtherUserDataService()
     
-    static func getBandInfo(_ bandIdx: Int, completion: @escaping (Bool, BandInfoData) -> Void){
+    static func getOtherUserInfo(_ userIdx: Int, completion: @escaping (Bool, OtherUserDataModel) -> Void){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let url = "\(appDelegate.baseUrl)/sessions/info/\(bandIdx)"
-        //print(url)
+        let url = "\(appDelegate.baseUrl)/users/info/\(userIdx)"
+        
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
@@ -25,17 +25,17 @@ struct GetBandInfoService{
             method: .get,
             encoding: JSONEncoding.default,
             headers: header
-        ).responseDecodable(of: BandInfoData.self){ response in
+        ).responseDecodable(of: OtherUserDataModel.self){ response in
             switch response.result{
-            case .success(let bandInfoData):
-                print(bandInfoData)
-                completion(true, bandInfoData)
+            case .success(let userInfoData):
+                print(userInfoData)
+                completion(true, userInfoData)
                 
             case .failure(let err):
                 print(err)
             }
             
         }
-        
     }
+    
 }
