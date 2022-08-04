@@ -21,6 +21,8 @@ class RegisterViewController6: UIViewController{
     
     var admitBool: [Bool] = [false, false, false]
     
+    
+    
     @IBAction func startBtnTapped(_ sender: Any) {
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
@@ -32,12 +34,32 @@ class RegisterViewController6: UIViewController{
                     "nickName": myRegisterData.nickName,
                     "profileImgUrl": myRegisterData.profileImgUrl,
                     "region": myRegisterData.region,
-                    "session": 0
+                    "userSession": myRegisterData.userSession
                     ],
                    encoding: JSONEncoding.default,
-                   headers: header).response{response in
-            print(response.data!)
-                    }
+                   headers: header).responseJSON{ response in
+            switch response.result{
+            case .success(let obj):
+                do{
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode(LoginUserData.self, from: dataJSON)
+                    
+                    self.appDelegate.jwt = getData.result.jwt ?? ""
+                    self.appDelegate.userIdx = getData.result.userIdx!
+                    self.appDelegate.userSession = self.myRegisterData.userSession
+                    
+                    guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else {return}
+                    mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                
+                    self.present(mainTabBarVC, animated: true)
+                }catch{
+                    print(error.localizedDescription)
+                }
+            default:
+                return
+            }
+            
+        }
     }
     
     func checkForNextBtnEnabled(){
@@ -120,8 +142,8 @@ class RegisterViewController6: UIViewController{
         setLayout()
 
         
-        print(myRegisterData!)
-        print(appDelegate.myKakaoData.kakaoToken)
+        //print(myRegisterData!)
+        //print(appDelegate.myKakaoData.kakaoToken)
         
     }
 
