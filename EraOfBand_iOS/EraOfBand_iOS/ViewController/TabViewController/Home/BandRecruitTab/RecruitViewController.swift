@@ -228,10 +228,19 @@ extension RecruitViewController: CellButtonDelegate {
     }
     
     func recruitButtonTapped() {
+        
         let alert = self.storyboard?.instantiateViewController(withIdentifier: "SessionRecruitAlert") as? RecruitAlertViewController
         alert?.bandIdx = bandInfo?.bandIdx
         alert?.modalPresentationStyle = .overCurrentContext
+        
+        if bandInfo?.userIdx == appDelegate.userIdx {
+            alert?.validIdx = 0
+        } else {
+            alert?.validIdx = 1
+        }
+        
         present(alert!, animated: true)
+        
     }
     
     
