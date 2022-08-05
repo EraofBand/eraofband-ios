@@ -14,9 +14,52 @@ class InAppAlarmViewController: UIViewController {
     
     var alarmData: [alarmInfo] = []
     
+    @objc func moreButtonClicked() {
+        
+        let alert = UIAlertController()
+        
+        let deleteButton = UIAlertAction(title: "삭제하기", style: .destructive) { [self] (action) in
+            deleteAlarm() { [self] in
+                getAlarm() { [self] in
+                    alarmTableView.reloadData()
+                }
+            }
+        }
+        let cancelButton = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(deleteButton)
+        alert.addAction(cancelButton)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     func setNavigationBar() {
         
         self.navigationItem.title = "알림"
+        
+        var rightBarButtons: [UIBarButtonItem] = []
+        
+        let moreImage = UIImage(named: "ic_more")
+        let moreButton = UIButton()
+        moreButton.backgroundColor = .clear
+        moreButton.setImage(moreImage, for: .normal)
+        moreButton.addTarget(self, action: #selector(self.moreButtonClicked), for: .touchUpInside)
+        
+        let moreBarButton = UIBarButtonItem(customView: moreButton)
+        let currWidth = moreBarButton.customView?.widthAnchor.constraint(equalToConstant: 20)
+        currWidth?.isActive = true
+        let currheight = moreBarButton.customView?.heightAnchor.constraint(equalToConstant: 20)
+        currheight?.isActive = true
+        
+        let negativeSpacer1 = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                             target: nil, action: nil)
+        negativeSpacer1.width = 15
+        
+        rightBarButtons.append(negativeSpacer1)
+        rightBarButtons.append(moreBarButton)
+        
+        self.navigationItem.rightBarButtonItems = rightBarButtons
         
     }
     
@@ -41,9 +84,32 @@ class InAppAlarmViewController: UIViewController {
             case .failure(let err):
                 print(err)
             }
-            
         }
+    }
+    
+    func deleteAlarm(completion: @escaping () -> Void) {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let url = "\(appDelegate.baseUrl)/notice/status"
+        
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        AF.request(
+            url,
+            method: .delete,
+            encoding: JSONEncoding.default,
+            headers: header
+        ).responseJSON { response in
+            switch response.result{
+            case .success(let result):
+                print(result)
+                print("삭제 성공")
+                completion()
+            case .failure(let err):
+                print(err)
+                
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -80,6 +146,14 @@ extension InAppAlarmViewController: UITableViewDelegate, UITableViewDataSource {
         cell.topLabel.text = cellData.noticeHead
         cell.bottomLabel.text = cellData.noticeBody
         cell.alarmTime.text = cellData.updatedAt
+        
+        if cellData.status == "INACTIVE" {
+            cell.activeView.isHidden = true
+        } else {
+            cell.activeView.isHidden = false
+        }
+        
+        cell.selectionStyle = .none
         
         return cell
     }

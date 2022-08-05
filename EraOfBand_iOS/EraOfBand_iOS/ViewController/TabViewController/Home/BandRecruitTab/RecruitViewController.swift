@@ -195,6 +195,18 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
     
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == applicantTableView {
+            let applicant = applicantsInfo[indexPath.item]
+            
+            let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as! OtherUserViewController
+            otherUserVC.userIdx = applicant.userIdx
+            appDelegate.otherUserIdx = applicant.userIdx
+            
+            self.navigationController?.pushViewController(otherUserVC, animated: true)
+        }
+    }
+    
     @objc func acceptButtonTapped(sender: UIButton) {
         let buttonNum = sender.tag
         let applicantInfo = applicantsInfo[buttonNum]
@@ -216,10 +228,19 @@ extension RecruitViewController: CellButtonDelegate {
     }
     
     func recruitButtonTapped() {
+        
         let alert = self.storyboard?.instantiateViewController(withIdentifier: "SessionRecruitAlert") as? RecruitAlertViewController
         alert?.bandIdx = bandInfo?.bandIdx
         alert?.modalPresentationStyle = .overCurrentContext
+        
+        if bandInfo?.userIdx == appDelegate.userIdx {
+            alert?.validIdx = 0
+        } else {
+            alert?.validIdx = 1
+        }
+        
         present(alert!, animated: true)
+        
     }
     
     

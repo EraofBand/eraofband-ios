@@ -14,7 +14,7 @@ struct GetLessonInfoService{
     static func getLessonInfo(_ lessonIdx: Int, completion: @escaping (Bool, LessonInfoData) -> Void){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        var url = "\(appDelegate.baseUrl)/lessons/info/\(lessonIdx)"
+        let url = "\(appDelegate.baseUrl)/lessons/info/\(lessonIdx)"
         
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
