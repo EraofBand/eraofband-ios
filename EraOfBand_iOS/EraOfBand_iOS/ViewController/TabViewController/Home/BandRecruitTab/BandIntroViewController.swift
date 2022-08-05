@@ -113,8 +113,6 @@ class BandIntroViewController: UIViewController{
         
         bandMemberArr.append(bandInfo?.userIdx ?? 0)
         for i in 0..<(bandInfo?.memberCount ?? 1){
-            //print(i)
-            //print((bandInfo?.sessionMembers![i].userIdx)!)
             bandMemberArr.append((bandInfo?.sessionMembers![i].userIdx)!)
         }
         
