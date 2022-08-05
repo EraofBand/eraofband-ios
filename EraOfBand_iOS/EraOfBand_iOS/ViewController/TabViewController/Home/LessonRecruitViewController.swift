@@ -43,31 +43,6 @@ class LessonRecruitViewController: UIViewController{
     
     @IBAction func applyBtnTapped(_ sender: Any) {
         
-        /*
-        AF.request("\(appDelegate.baseUrl)/lessons/\(lessonIdx ?? 0)",
-                   method: .post,
-                   encoding: JSONEncoding.default,
-                   headers: header
-        ).responseJSON{ response in
-            switch(response.result){
-            case.success:
-                print(response)
-                self.applyBtn.isEnabled = false
-                GetLessonInfoService.getLessonInfo(self.lessonInfo!.lessonIdx!){ [self]
-                    (isSuccess, response) in
-                    if isSuccess{
-                        lessonInfo = response.result
-                        print(lessonInfo)
-                        memberTableView.reloadData()
-                        viewDidLoad()
-                        
-                    }
-                }
-            default:
-                return
-            }
-        }*/
-        
         let alert = self.storyboard?.instantiateViewController(withIdentifier: "LessonApplyAlertViewController") as? LessonApplyAlertViewController
         if(lessonMemberArr.contains(appDelegate.userIdx!)){
             alert?.isMember = true
