@@ -16,7 +16,6 @@ class MyTabManViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
         
         let portfolioVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "PortfolioViewController")
         let bandVC = UIStoryboard.init(name: "MypageTab", bundle: nil).instantiateViewController(withIdentifier: "BandViewController")

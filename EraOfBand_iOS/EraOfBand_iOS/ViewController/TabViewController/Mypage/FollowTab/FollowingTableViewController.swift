@@ -7,10 +7,11 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class FollowingTableViewController: UIViewController{
     
-    var followingUserList: [FollowUserList] = [FollowUserList(nickName: "테스트1", profileImgUrl: "", userIdx: 0), FollowUserList(nickName: "테스트2", profileImgUrl: "", userIdx: 0)]
+    var followingUserList: [FollowUserList] = [FollowUserList(nickName: "", profileImgUrl: "", userIdx: 0)]
     var filteredData: [FollowUserList] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var userIdx: Int?
@@ -79,11 +80,44 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell", for: indexPath) as! FollowTableViewCell
         
         cell.nickNameLabel.text = filteredData[indexPath.row].nickName
+        cell.profileImgView.kf.setImage(with: URL(string: filteredData[indexPath.row].profileImgUrl ?? ""))
+        cell.profileImgView.layer.cornerRadius = 20
         
         if userIdx == appDelegate.userIdx {
             cell.followBtn.isHidden = false
             cell.followBtn.layer.cornerRadius = 15
         }
+        
+        if filteredData[indexPath.row].follow == 0{
+            
+            cell.followBtn.setTitle("팔로우", for: .normal)
+            cell.followBtn.backgroundColor = UIColor(named: "on_icon_color")
+            cell.followBtn.addAction(for: .touchUpInside){
+                self.doFollow(targetIdx: self.filteredData[indexPath.row].userIdx!, completion: {
+                    //cell.followBtn.titleLabel?.text = "팔로잉"
+                    print("현재 언팔 상태")
+                    cell.followBtn.setTitle("팔로잉", for: .normal)
+                    cell.followBtn.backgroundColor = UIColor(named: "unfollow_btn_color")
+                    self.filteredData[indexPath.row].follow = 1
+                })
+            }
+        }else{
+            
+            //cell.followBtn.titleLabel?.text = "팔로잉"
+            cell.followBtn.setTitle("팔로잉", for: .normal)
+            cell.followBtn.backgroundColor = UIColor(named: "unfollow_btn_color")
+            cell.followBtn.addAction(for: .touchUpInside){
+                self.doUnFollow(targetIdx: self.filteredData[indexPath.row].userIdx!, completion: {
+                    //cell.followBtn.titleLabel?.text = "팔로우"
+                    print("현재 팔로 상태")
+                    cell.followBtn.setTitle("팔로우", for: .normal)
+                    cell.followBtn.backgroundColor = UIColor(named: "on_icon_color")
+                    self.filteredData[indexPath.row].follow = 0
+                })
+            }
+        }
+
+
         
         cell.profileBtn.tag = filteredData[indexPath.row].userIdx!
         cell.profileBtn.addTarget(self, action: #selector(otherUserTapped(sender:)), for: .touchUpInside)
@@ -91,6 +125,45 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
         cell.nickNameBtn.addTarget(self, action: #selector(otherUserTapped(sender:)), for: .touchUpInside)
         
         return cell
+    }
+    
+    func doUnFollow(targetIdx: Int, completion: @escaping() -> Void){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/users/unfollow/" + String(targetIdx),
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success:
+                completion()
+            default:
+                return
+            }
+        }
+    }
+    
+    func doFollow(targetIdx: Int, completion: @escaping() -> Void){
+        
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/users/follow/" + String(targetIdx),
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch response.result{
+            case.success:
+                completion()
+            default:
+                return
+            }
+        }
     }
     
     @objc func otherUserTapped(sender: UIButton){
@@ -112,3 +185,4 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
         return 64
     }
 }
+
