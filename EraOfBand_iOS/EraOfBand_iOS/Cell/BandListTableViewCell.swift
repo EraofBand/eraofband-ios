@@ -14,6 +14,8 @@ class BandListTableViewCell: UITableViewCell {
     @IBOutlet weak var tableTitleLabel: UILabel!
     @IBOutlet weak var tableIntroLabel: UILabel!
     @IBOutlet weak var memberNumLabel: UILabel!
+    @IBOutlet weak var sessionView: UIView!
+    @IBOutlet weak var sessionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
