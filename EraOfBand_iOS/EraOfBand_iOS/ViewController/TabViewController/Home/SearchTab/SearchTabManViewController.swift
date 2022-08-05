@@ -14,12 +14,17 @@ class SearchTabManViewController: TabmanViewController {
     
     var viewControllers: Array<UIViewController> = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    var userResult: [userResultInfo] = []
+    var bandResult: [bandInfo] = []
+    var lessonResult: [lessonInfo] = []
+    
+    func setTab(_ userResult: [userResultInfo], _ bandResult: [bandInfo], _ lessonResult: [lessonInfo]) {
         let userVC = self.storyboard?.instantiateViewController(withIdentifier: "UserSearchViewController") as! UserSearchViewController
+        userVC.userResult = userResult
         let bandVC = self.storyboard?.instantiateViewController(withIdentifier: "BandSearchViewController") as! BandSearchViewController
+        bandVC.bandResult = bandResult
         let lessonVC = self.storyboard?.instantiateViewController(withIdentifier: "LessonSearchViewController") as! LessonSearchViewController
+        lessonVC.lessonResult = lessonResult
         
         viewControllers.append(userVC)
         viewControllers.append(bandVC)
@@ -31,6 +36,12 @@ class SearchTabManViewController: TabmanViewController {
         let bar = TMBar.ButtonBar()
         settingSearchTabBar(ctBar: bar) //함수 추후 구현
         addBar(bar, dataSource: self, at: .top)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setTab(userResult, bandResult, lessonResult)
        
     }
     
