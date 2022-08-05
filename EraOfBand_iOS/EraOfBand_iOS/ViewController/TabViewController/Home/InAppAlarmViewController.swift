@@ -153,6 +153,8 @@ extension InAppAlarmViewController: UITableViewDelegate, UITableViewDataSource {
             cell.activeView.isHidden = false
         }
         
+        cell.selectionStyle = .none
+        
         return cell
     }
     

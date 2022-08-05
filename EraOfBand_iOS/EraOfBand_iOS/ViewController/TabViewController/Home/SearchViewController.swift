@@ -6,14 +6,104 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
+    
+    var userResult: [userResultInfo] = []
+    var bandResult: [bandInfo] = []
+    var lessonResult: [lessonInfo] = []
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    @objc func didChanged(_ textField: UITextField) {
+        
+        getUserResult(textField.text!) {
+            let userVC = self.storyboard?.instantiateViewController(withIdentifier: "UserSearchViewController") as! UserSearchViewController
+            userVC.reloadTable(self.userResult)
+        }
+        
+        getBandResult(textField.text!)
+        getLessonResult(textField.text!)
+        
+        
+        
+    }
+    
+    func getUserResult(_ keyword: String, completion: @escaping () -> Void) {
+        
+        var url = "\(appDelegate.baseUrl)/search/users/" + keyword
+        url = url.encodeUrl()!
+        
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url,
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header).responseDecodable(of: SearchUserData.self) { response in
+            switch response.result{
+            case .success(let userInfoData):
+                print(userInfoData)
+                self.userResult = userInfoData.result
+                completion()
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func getBandResult(_ keyword: String) {
+        
+        var url = "\(appDelegate.baseUrl)/search/bands/" + keyword
+        url = url.encodeUrl()!
+        
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url,
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header).responseDecodable(of: BandListData.self) { response in
+            switch response.result{
+            case .success(let bandInfoData):
+                print(bandInfoData)
+                self.bandResult = bandInfoData.result
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func getLessonResult(_ keyword: String) {
+        
+        var url = "\(appDelegate.baseUrl)/search/lessons/" + keyword
+        url = url.encodeUrl()!
+        
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url,
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header).responseDecodable(of: LessonListData.self) { response in
+            switch response.result{
+            case .success(let lessonInfoData):
+                print(lessonInfoData)
+                self.lessonResult = lessonInfoData.result
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchView.layer.cornerRadius = 10
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "검색어를 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)])
+        
+        searchTextField.addTarget(self, action: #selector(didChanged), for: .editingChanged)
     }
     
 
