@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9DD28607C26E2D073BAC5914 /* Pods_EraOfBand_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */; };
-		A8002F8328982EEC00811762 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8002F8228982EEC00811762 /* GoogleService-Info.plist */; };
 		A8002F8628982FBE00811762 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A8002F8528982FBE00811762 /* FirebaseAnalytics */; };
 		A8002F8828982FBE00811762 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = A8002F8728982FBE00811762 /* FirebaseAnalyticsOnDeviceConversion */; };
 		A8002F8A28982FBE00811762 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A8002F8928982FBE00811762 /* FirebaseAnalyticsSwift */; };
@@ -166,8 +165,11 @@
 		BC6DD51F28785D030067D6B5 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = BC6DD51E28785D030067D6B5 /* KakaoSDK */; };
 		BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC6DD520287861EE0067D6B5 /* ApiKey.plist */; };
 		BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */; };
+		BC6EFDF4289C0B5C00DBF298 /* LessonApplyAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6EFDF3289C0B5C00DBF298 /* LessonApplyAlertViewController.swift */; };
+		BC6EFDF6289C0BC900DBF298 /* LessonApplyAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */; };
 		BC8502FF287732200022EA7B /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8502FE287732200022EA7B /* SessionModel.swift */; };
 		BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */; };
+		BC9955CF289C073800DA44F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */; };
 		BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA32287934480031028E /* RegisterNavigationController.swift */; };
 		BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA3428793B4B0031028E /* KakaoData.swift */; };
 		BCA3DA37287941B30031028E /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA36287941B30031028E /* RegisterData.swift */; };
@@ -184,7 +186,6 @@
 /* Begin PBXFileReference section */
 		1190870D647DF9114CDC66E6 /* Pods-EraOfBand_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraOfBand_iOS.debug.xcconfig"; path = "Target Support Files/Pods-EraOfBand_iOS/Pods-EraOfBand_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		941E6D10E1573BD4A3A87520 /* Pods_EraOfBand_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EraOfBand_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8002F8228982EEC00811762 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A802D8EF28910DB5001A2F65 /* GetBandListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBandListService.swift; sourceTree = "<group>"; };
 		A802D8F128910FB9001A2F65 /* BandListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListData.swift; sourceTree = "<group>"; };
 		A809A7B5286F283400B9E08D /* EraOfBand_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraOfBand_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,8 +317,11 @@
 		BC636134287DB47300DFA6D2 /* AddPofolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPofolViewController.swift; sourceTree = "<group>"; };
 		BC6DD520287861EE0067D6B5 /* ApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EraOfBand_iOS++Bundle.swift"; sourceTree = "<group>"; };
+		BC6EFDF3289C0B5C00DBF298 /* LessonApplyAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonApplyAlertViewController.swift; sourceTree = "<group>"; };
+		BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonApplyAlert.storyboard; sourceTree = "<group>"; };
 		BC8502FE287732200022EA7B /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCA3DA32287934480031028E /* RegisterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigationController.swift; sourceTree = "<group>"; };
 		BCA3DA3428793B4B0031028E /* KakaoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoData.swift; sourceTree = "<group>"; };
 		BCA3DA36287941B30031028E /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
@@ -413,7 +417,7 @@
 				A809A7C6286F283600B9E08D /* Info.plist */,
 				BC6DD520287861EE0067D6B5 /* ApiKey.plist */,
 				BC0ADB722893A6F60028F57C /* Extension.swift */,
-				A8002F8228982EEC00811762 /* GoogleService-Info.plist */,
+				BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */,
 			);
 			path = EraOfBand_iOS;
 			sourceTree = "<group>";
@@ -527,6 +531,7 @@
 				A854A80B289A7DF000FDEB4D /* RecruitAlertViewController.swift */,
 				A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */,
 				A854A817289BC4B200FDEB4D /* InAppAlarmViewController.swift */,
+				BC6EFDF3289C0B5C00DBF298 /* LessonApplyAlertViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				A854A809289A778700FDEB4D /* SessionRecruitAlert.storyboard */,
 				A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */,
 				A854A815289BC29D00FDEB4D /* InAppAlarm.storyboard */,
+				BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -836,6 +842,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6EFDF6289C0BC900DBF298 /* LessonApplyAlert.storyboard in Resources */,
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
@@ -848,7 +855,6 @@
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				BC2E99162886CCDB0034CBD9 /* FollowingTable.storyboard in Resources */,
-				A8002F8328982EEC00811762 /* GoogleService-Info.plist in Resources */,
 				BC0728BD28901CB0007EA95D /* CreateLesson.storyboard in Resources */,
 				BCE57816288ECBED00D441EB /* CreateBand.storyboard in Resources */,
 				A809A7D32871533A00B9E08D /* CommunityTab.storyboard in Resources */,
@@ -877,6 +883,7 @@
 				A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */,
 				BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */,
 				BC4B5BFD287192190072A5FF /* login.storyboard in Resources */,
+				BC9955CF289C073800DA44F3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -945,6 +952,7 @@
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
 				BC2E991B2886CFED0034CBD9 /* FollowingTableViewController.swift in Sources */,
 				BC2E991F2886F48C0034CBD9 /* FollowData.swift in Sources */,
+				BC6EFDF4289C0B5C00DBF298 /* LessonApplyAlertViewController.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
 				A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */,
@@ -1184,7 +1192,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MMM58CZBQF;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -1215,7 +1223,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MMM58CZBQF;
+				DEVELOPMENT_TEAM = P7RWD3A283;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EraOfBand_iOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";

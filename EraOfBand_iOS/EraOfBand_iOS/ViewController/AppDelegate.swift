@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public var userIdx: Int?
     public var userSession: Int?
     
-    public var otherUserIdx: Int?
-    
     let kakaoKey = Bundle.main.kakaoKey
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

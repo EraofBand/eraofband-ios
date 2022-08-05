@@ -43,6 +43,7 @@ class LessonRecruitViewController: UIViewController{
     
     @IBAction func applyBtnTapped(_ sender: Any) {
         
+        /*
         AF.request("\(appDelegate.baseUrl)/lessons/\(lessonIdx ?? 0)",
                    method: .post,
                    encoding: JSONEncoding.default,
@@ -65,7 +66,18 @@ class LessonRecruitViewController: UIViewController{
             default:
                 return
             }
+        }*/
+        
+        let alert = self.storyboard?.instantiateViewController(withIdentifier: "LessonApplyAlertViewController") as? LessonApplyAlertViewController
+        if(lessonMemberArr.contains(appDelegate.userIdx!)){
+            alert?.isMember = true
         }
+        alert?.lessonIdx = self.lessonIdx
+        alert?.modalPresentationStyle = .overFullScreen
+        
+        alert?.delegate = self
+        present(alert!, animated: true)
+        
     }
     /*수정 버튼 눌렀을 때*/
     func modifyRecruit(){
@@ -226,11 +238,10 @@ class LessonRecruitViewController: UIViewController{
         chatLinkView.layer.cornerRadius = 15
         
         if(lessonInfo?.memberCount == 0){
-            //memberView.heightAnchor.constraint(equalToConstant: 174).isActive = true
             memberViewHeight.constant = 174
             self.noMemberLabel.text = "아직 수강생이 존재하지 않습니다"
         }else{
-            //memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))).isActive = true
+            self.noMemberLabel.isHidden = true
             memberViewHeight.constant = 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))
         }
         
@@ -273,10 +284,10 @@ class LessonRecruitViewController: UIViewController{
         
         if(lessonMemberArr.contains(appDelegate.userIdx!)){
             chatLinkLabel.text = lessonInfo?.chatRoomLink
-            applyBtn.isEnabled = false
+            //applyBtn.isEnabled = false
         }else{
             chatLinkLabel.text = "수강생에게만 공개됩니다"
-            chatLinkBtn.isEnabled = false
+            //chatLinkBtn.isEnabled = false
         }
         
         longIntroLabel.text = lessonInfo?.lessonContent
@@ -305,15 +316,20 @@ class LessonRecruitViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        //print("뷰윌어피어")
+        //print(lessonInfo)
+        
+        /*
         GetLessonInfoService.getLessonInfo((lessonInfo?.lessonIdx!)!){ [self]
             (isSuccess, response) in
             if isSuccess{
+                //print("test")
                 lessonInfo = response.result
-                setData()
-                setLayout()
+                viewDidLoad()
             }
-        }
-        
+        }*/
+        //print("테스트")
+        //viewDidLoad()
     }
 }
 
@@ -371,5 +387,14 @@ extension LessonRecruitViewController: UITableViewDataSource, UITableViewDelegat
             
         }
         
+    }
+}
+
+extension LessonRecruitViewController: SendDataDelegate{
+    func sendData(lessonInfo: LessonInfoResult) {
+        self.lessonInfo = lessonInfo
+        viewDidLoad()
+        self.memberTableView.reloadData()
+        print("test")
     }
 }
