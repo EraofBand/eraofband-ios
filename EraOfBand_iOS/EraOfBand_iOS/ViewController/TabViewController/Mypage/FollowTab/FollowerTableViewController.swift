@@ -107,7 +107,6 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
             }
         }else{
             
-            //cell.followBtn.titleLabel?.text = "팔로잉"
             cell.followBtn.setTitle("팔로잉", for: .normal)
             cell.followBtn.backgroundColor = UIColor(named: "unfollow_btn_color")
             cell.followBtn.addAction(for: .touchUpInside){
