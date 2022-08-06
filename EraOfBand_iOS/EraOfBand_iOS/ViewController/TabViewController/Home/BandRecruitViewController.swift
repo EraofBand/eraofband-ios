@@ -22,6 +22,9 @@ class BandRecruitViewController: UIViewController{
     var bandIdx: Int?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var bandMemberArr: [Int] = []
+    
+    var header : HTTPHeaders?
     
     @IBOutlet weak var containerView: UIView!
     var bandInfo: BandInfoResult?
@@ -35,21 +38,72 @@ class BandRecruitViewController: UIViewController{
         self.navigationController?.pushViewController(modifyVC, animated: true)
     }
     
+    func deleteBand(){
+        AF.request("\(appDelegate.baseUrl)/sessions/status/\(bandIdx ?? 0)",
+                   method: .patch,
+                   parameters: [
+                    "userIdx": appDelegate.userIdx
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success:
+                self.navigationController?.popViewController(animated: true)
+            default:
+                return
+            }
+        }
+    }
+    
+    func quitBand(){
+        AF.request("\(appDelegate.baseUrl)/sessions/out/\(bandIdx ?? 0)",
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success:
+                self.navigationController?.popViewController(animated: true)
+            default:
+                return
+            }
+        }
+    }
+    
     @IBAction func menuBtnTapped(_ sender: Any) {
         
         if(bandInfo?.userIdx == appDelegate.userIdx){
         
-            let optionMenu = UIAlertController(title: nil, message: "밴드 모집", preferredStyle: .actionSheet)
+            let optionMenu = UIAlertController(title: nil, message: "세션 모집", preferredStyle: .actionSheet)
             let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                     (alert: UIAlertAction!) -> Void in
                 self.modifyRecruit()
+            })
+            let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                self.deleteBand()
             })
             let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                     (alert: UIAlertAction!) -> Void in
                   })
             optionMenu.addAction(cancelAction)
             optionMenu.addAction(modifyAction)
+            optionMenu.addAction(deleteAction)
         
+            self.present(optionMenu, animated: true, completion: nil)
+        }else if(bandMemberArr.contains(appDelegate.userIdx!)){
+            let optionMenu = UIAlertController(title: nil, message: "세션 모집", preferredStyle: .actionSheet)
+            let quitAction = UIAlertAction(title: "탈퇴하기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                self.quitBand()
+            })
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                  })
+            optionMenu.addAction(cancelAction)
+            optionMenu.addAction(quitAction)
+            
             self.present(optionMenu, animated: true, completion: nil)
         }
     }
@@ -133,6 +187,16 @@ class BandRecruitViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        header = [
+            "x-access-token": self.appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        bandMemberArr.append(bandInfo?.userIdx ?? 0)
+        for i in 0..<(bandInfo?.memberCount ?? 1){
+            bandMemberArr.append((bandInfo?.sessionMembers![i].userIdx)!)
+        }
+        
         setLayout()
         setData()
         
