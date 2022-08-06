@@ -20,6 +20,7 @@ struct FollowResult: Codable{
 }
 
 struct FollowUserList: Codable{
+    var follow: Int?
     var nickName: String?
     var profileImgUrl: String?
     var userIdx: Int?
