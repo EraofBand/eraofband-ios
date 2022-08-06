@@ -13,7 +13,8 @@ import Alamofire
 class EditViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nickNameTextField: UITextField!
+    @IBOutlet weak var nickNameTextView: UITextView!
+    @IBOutlet weak var nickNameTextCount: UILabel!
     @IBOutlet weak var introduceView: UIView!
     @IBOutlet weak var introduceTextView: UITextView!
     @IBOutlet weak var textCount: UILabel!
@@ -109,7 +110,10 @@ class EditViewController: UIViewController {
                     }
                     self.profileImageView.setRounded()
                     
-                    self.nickNameTextField.text = data.nickName
+                    self.nickNameTextView.text = data.nickName
+                    
+                    let count = self.nickNameTextView.text.count
+                    self.nickNameTextCount.text = "\(count)/8"
                     
                     self.introduceTextView.text = data.introduction
                     
@@ -147,6 +151,8 @@ class EditViewController: UIViewController {
         
         /*프로필 편집 기본 레이아웃*/
         introduceTextView.delegate = self
+        
+        nickNameTextView.delegate = self
         
         self.navigationItem.title = "프로필 편집"
         
@@ -200,7 +206,7 @@ class EditViewController: UIViewController {
                 let params: Dictionary<String, Any?> = ["birth": birthTextField.text!,
                                                        "gender": gender,
                                                        "introduction": introduceTextView.text,
-                                                       "nickName": nickNameTextField.text!,
+                                                       "nickName": nickNameTextView.text!,
                                                        "profileImgUrl": imgUrl,
                                                        "region": region,
                                                        "userIdx": appDelegate.userIdx!]
@@ -233,14 +239,29 @@ class EditViewController: UIViewController {
 
 extension EditViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let currentText = textView.text ?? ""
-        guard let stringRange = Range(range, in: currentText) else { return false }
+        if textView == introduceTextView {
+            let currentText = textView.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            
+            let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+            
+            textCount.text = "\(changedText.count)/50"
+            
+            return changedText.count <= 50
+        }
         
-        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        if textView == nickNameTextView {
+            let currentText = textView.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            
+            let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+            
+            nickNameTextCount.text = "\(changedText.count)/8"
+            
+            return changedText.count <= 8
+        }
         
-        textCount.text = "\(changedText.count)/50"
-        
-        return changedText.count <= 50
+        return false
     }
 }
 

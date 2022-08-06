@@ -13,6 +13,7 @@ class InAppAlarmTableViewCell: UITableViewCell {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var alarmTime: UILabel!
+    @IBOutlet weak var activeView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +21,7 @@ class InAppAlarmTableViewCell: UITableViewCell {
         
         alarmImageView.contentMode = .scaleAspectFill
         alarmImageView.layer.cornerRadius = 25
+        activeView.layer.cornerRadius = 2.5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

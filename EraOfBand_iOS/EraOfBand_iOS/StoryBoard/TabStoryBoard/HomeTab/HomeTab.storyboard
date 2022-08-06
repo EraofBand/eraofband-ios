@@ -219,7 +219,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="InAppAlarm" storyboardName="InAppAlarm" id="V4o-b0-xt2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2S1-ae-IPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="-308"/>
+            <point key="canvasLocation" x="791" y="-347"/>
+        </scene>
+        <!--HomeSearch-->
+        <scene sceneID="HKW-qx-RBx">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeSearch" storyboardName="HomeSearch" id="JIf-bC-gAc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mim-yb-6F5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="-347"/>
         </scene>
         <!--Homae Tab Man View Controller-->
         <scene sceneID="JQ3-QO-uBG">
