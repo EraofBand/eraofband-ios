@@ -57,7 +57,7 @@
                                                                     <constraint firstAttribute="width" secondItem="aBn-cg-65y" secondAttribute="height" multiplier="1:1" id="PAF-Qk-BRF"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="ic_session"/>
+                                                                <state key="normal" image="ic_vocal"/>
                                                                 <connections>
                                                                     <action selector="vocalListAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qKb-Rx-GcJ"/>
                                                                 </connections>
@@ -68,7 +68,7 @@
                                                                     <constraint firstAttribute="width" secondItem="wQ2-vK-MDG" secondAttribute="height" multiplier="1:1" id="SlR-YI-obF"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="ic_session"/>
+                                                                <state key="normal" image="ic_guitar-1"/>
                                                                 <connections>
                                                                     <action selector="guitarListAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xqJ-eL-8ca"/>
                                                                 </connections>
@@ -79,7 +79,7 @@
                                                                     <constraint firstAttribute="width" secondItem="zZg-Zy-BRQ" secondAttribute="height" multiplier="1:1" id="1F4-hj-uGq"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="ic_session"/>
+                                                                <state key="normal" image="ic_base"/>
                                                                 <connections>
                                                                     <action selector="baseListAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TwF-Rn-XQB"/>
                                                                 </connections>
@@ -90,7 +90,7 @@
                                                                     <constraint firstAttribute="width" secondItem="QQz-aO-9sB" secondAttribute="height" multiplier="1:1" id="nNi-R9-6Jq"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="ic_session"/>
+                                                                <state key="normal" image="ic_keyboard"/>
                                                                 <connections>
                                                                     <action selector="keyboardListAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9NG-QE-9oh"/>
                                                                 </connections>
@@ -101,7 +101,7 @@
                                                                     <constraint firstAttribute="width" secondItem="WfG-jL-kX4" secondAttribute="height" multiplier="1:1" id="NpY-PA-QuA"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="ic_session"/>
+                                                                <state key="normal" image="ic_drum"/>
                                                                 <connections>
                                                                     <action selector="drumListAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cZK-oN-WIW"/>
                                                                 </connections>
@@ -460,6 +460,10 @@
     </scenes>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="ic_session" width="66.5" height="66.5"/>
+        <image name="ic_base" width="170.5" height="170.5"/>
+        <image name="ic_drum" width="170.5" height="170.5"/>
+        <image name="ic_guitar-1" width="170.5" height="170.5"/>
+        <image name="ic_keyboard" width="170.5" height="170.5"/>
+        <image name="ic_vocal" width="170.5" height="170.5"/>
     </resources>
 </document>

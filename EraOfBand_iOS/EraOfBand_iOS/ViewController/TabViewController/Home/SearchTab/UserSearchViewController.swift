@@ -11,21 +11,19 @@ class UserSearchViewController: UIViewController {
 
     @IBOutlet weak var userResultTableView: UITableView!
     
-    var userResult: [userResultInfo] = [] {
-        didSet {
-            //userResultTableView.reloadData()
-        }
-    }
+    var userResult: [userResultInfo] = []
     
     let session = ["보컬", "기타", "베이스", "키보드", "드럼"]
     
-    func reloadTable(_ userResult: [userResultInfo]) {
+    @objc func userReload(notification: NSNotification) {
         
-        self.userResult = userResult
+        print("user reload Data")
         
-        print("아래 탭 바:\(self.userResult)")
+        guard let getResult: [userResultInfo] = notification.userInfo?["user"] as? [userResultInfo] else { return }
         
-        //userResultTableView.reloadData()
+        self.userResult = getResult
+        
+        self.userResultTableView.reloadData()
         
     }
     
@@ -36,6 +34,8 @@ class UserSearchViewController: UIViewController {
         
         userResultTableView.delegate = self
         userResultTableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(userReload), name: .notifName, object: nil)
     
     }
     
@@ -73,6 +73,10 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
         otherVC.userIdx = userResult[indexPath.item].userIdx
         self.navigationController?.pushViewController(otherVC, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     

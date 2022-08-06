@@ -77,7 +77,6 @@
 		A854A81C289BECD100FDEB4D /* InAppAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A81B289BECD000FDEB4D /* InAppAlarmData.swift */; };
 		A854A81E289BF17300FDEB4D /* NewAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A81D289BF17300FDEB4D /* NewAlarmData.swift */; };
 		A854A820289C028700FDEB4D /* HomeSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A854A81F289C028600FDEB4D /* HomeSearch.storyboard */; };
-		A854A823289C071C00FDEB4D /* SearchTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A822289C071C00FDEB4D /* SearchTabManViewController.swift */; };
 		A854A825289C074A00FDEB4D /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A824289C074A00FDEB4D /* UserSearchViewController.swift */; };
 		A854A827289C076700FDEB4D /* BandSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A826289C076700FDEB4D /* BandSearchViewController.swift */; };
 		A854A829289C077B00FDEB4D /* LessonSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854A828289C077B00FDEB4D /* LessonSearchViewController.swift */; };
@@ -121,6 +120,9 @@
 		A8BD5CC1288BEAFB009E7A1B /* WishLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */; };
 		A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */; };
 		A8BD5CC5288BF588009E7A1B /* HomeBandCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */; };
+		A8BE7D85289E5DD900280EB6 /* SearchTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE7D84289E5DD900280EB6 /* SearchTabManViewController.swift */; };
+		A8BE7D87289E606A00280EB6 /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE7D86289E606A00280EB6 /* SearchBarCell.swift */; };
+		A8BE7D89289E689D00280EB6 /* SearchPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */; };
 		A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7E100288FC734009809EB /* BandListTableViewCell.swift */; };
 		A8ED885D289D4EF300A071E5 /* BandLessonSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */; };
 		A8ED885F289D51FC00A071E5 /* SearchUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED885E289D51FC00A071E5 /* SearchUserData.swift */; };
@@ -248,7 +250,6 @@
 		A854A81B289BECD000FDEB4D /* InAppAlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppAlarmData.swift; sourceTree = "<group>"; };
 		A854A81D289BF17300FDEB4D /* NewAlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlarmData.swift; sourceTree = "<group>"; };
 		A854A81F289C028600FDEB4D /* HomeSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeSearch.storyboard; sourceTree = "<group>"; };
-		A854A822289C071C00FDEB4D /* SearchTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabManViewController.swift; sourceTree = "<group>"; };
 		A854A824289C074A00FDEB4D /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		A854A826289C076700FDEB4D /* BandSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandSearchViewController.swift; sourceTree = "<group>"; };
 		A854A828289C077B00FDEB4D /* LessonSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSearchViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +284,9 @@
 		A8BD5CC0288BEAFB009E7A1B /* WishLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishLessonViewController.swift; sourceTree = "<group>"; };
 		A8BD5CC2288BF588009E7A1B /* HomeBandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BD5CC3288BF588009E7A1B /* HomeBandCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandCollectionViewCell.xib; sourceTree = "<group>"; };
+		A8BE7D84289E5DD900280EB6 /* SearchTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabManViewController.swift; sourceTree = "<group>"; };
+		A8BE7D86289E606A00280EB6 /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
+		A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageCell.swift; sourceTree = "<group>"; };
 		A8C7E100288FC734009809EB /* BandListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTableViewCell.swift; sourceTree = "<group>"; };
 		A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandLessonSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A8ED885E289D51FC00A071E5 /* SearchUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserData.swift; sourceTree = "<group>"; };
@@ -510,7 +514,8 @@
 		A854A821289C06E800FDEB4D /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
-				A854A822289C071C00FDEB4D /* SearchTabManViewController.swift */,
+				A854A82A289C09EB00FDEB4D /* SearchViewController.swift */,
+				A8BE7D84289E5DD900280EB6 /* SearchTabManViewController.swift */,
 				A854A824289C074A00FDEB4D /* UserSearchViewController.swift */,
 				A854A826289C076700FDEB4D /* BandSearchViewController.swift */,
 				A854A828289C077B00FDEB4D /* LessonSearchViewController.swift */,
@@ -561,8 +566,10 @@
 				A854A80B289A7DF000FDEB4D /* RecruitAlertViewController.swift */,
 				A854A813289AB07800FDEB4D /* AcceptAlertViewController.swift */,
 				A854A817289BC4B200FDEB4D /* InAppAlarmViewController.swift */,
+
 				BC6EFDF3289C0B5C00DBF298 /* LessonApplyAlertViewController.swift */,
 				A854A82A289C09EB00FDEB4D /* SearchViewController.swift */,
+
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -579,8 +586,8 @@
 				BCE57815288ECBED00D441EB /* CreateBand.storyboard */,
 				BC0728BC28901CB0007EA95D /* CreateLesson.storyboard */,
 				BC0728C62892C51D007EA95D /* BandRecruit.storyboard */,
-				BC0ADB7828954C260028F57C /* ModifyBand.storyboard */,
 				BC0ADB7E28966EDF0028F57C /* LessonRecruit.storyboard */,
+				BC0ADB7828954C260028F57C /* ModifyBand.storyboard */,
 				A854A809289A778700FDEB4D /* SessionRecruitAlert.storyboard */,
 				A854A811289AAF8E00FDEB4D /* AcceptAlert.storyboard */,
 				A854A81F289C028600FDEB4D /* HomeSearch.storyboard */,
@@ -742,6 +749,8 @@
 				A854A819289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift */,
 				A8F82AEE289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift */,
 				A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */,
+				A8BE7D86289E606A00280EB6 /* SearchBarCell.swift */,
+				A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -984,6 +993,7 @@
 				BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */,
 				A802D8F228910FB9001A2F65 /* BandListData.swift in Sources */,
 				BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */,
+				A8BE7D89289E689D00280EB6 /* SearchPageCell.swift in Sources */,
 				A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */,
 				BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
@@ -1008,12 +1018,12 @@
 				BC636132287DA62400DFA6D2 /* UserModel.swift in Sources */,
 				A81351B62886760500078C9E /* OtherPofolViewController.swift in Sources */,
 				A89381B328940549002D55EF /* SessionRecruitTableViewCell.swift in Sources */,
+				A8BE7D87289E606A00280EB6 /* SearchBarCell.swift in Sources */,
 				A85736132874C69E00E2F0AB /* MypageTabViewController.swift in Sources */,
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */,
 				A854A81E289BF17300FDEB4D /* NewAlarmData.swift in Sources */,
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
-				A854A823289C071C00FDEB4D /* SearchTabManViewController.swift in Sources */,
 				A8ED885D289D4EF300A071E5 /* BandLessonSearchTableViewCell.swift in Sources */,
 				BC0ADB7728954C100028F57C /* BandModifyViewController.swift in Sources */,
 				BC0728C52891510F007EA95D /* PofolMenuButton.swift in Sources */,
@@ -1070,6 +1080,7 @@
 				A854A81A289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
 				BC0728D42892FC9D007EA95D /* BandAlbumViewController.swift in Sources */,
+				A8BE7D85289E5DD900280EB6 /* SearchTabManViewController.swift in Sources */,
 				BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */,
 				A8F82AEF289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift in Sources */,
 				A81351AE2884572D00078C9E /* SessionViewController.swift in Sources */,
