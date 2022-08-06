@@ -67,6 +67,13 @@ extension LessonSearchViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let lessonVC = self.storyboard?.instantiateViewController(withIdentifier: "LessonRecruit") as! LessonRecruitViewController
+        lessonVC.lessonIdx = lessonResult[indexPath.item].lessonIdx
+        
+        navigationController?.pushViewController(lessonVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 95
     }
