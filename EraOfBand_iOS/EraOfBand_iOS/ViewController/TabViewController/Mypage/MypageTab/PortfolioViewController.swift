@@ -45,8 +45,6 @@ class PortfolioViewController: UIViewController{
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
         
-        self.view.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
-        
         getPofolList()
 
     }

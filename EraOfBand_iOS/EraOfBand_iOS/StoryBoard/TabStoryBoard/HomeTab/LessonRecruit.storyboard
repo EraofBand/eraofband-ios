@@ -593,6 +593,14 @@
             </objects>
             <point key="canvasLocation" x="195" y="157"/>
         </scene>
+        <!--LessonApplyAlert-->
+        <scene sceneID="rQW-Vj-ai5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LessonApplyAlertViewController" storyboardName="LessonApplyAlert" id="8sm-FO-ixD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HQZ-l0-spS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="234"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

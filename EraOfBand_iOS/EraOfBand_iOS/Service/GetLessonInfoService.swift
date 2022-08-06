@@ -29,7 +29,7 @@ struct GetLessonInfoService{
             
             switch response.result{
             case .success(let lessonInfoData):
-                print(lessonInfoData)
+                //print(lessonInfoData)
                 completion(true, lessonInfoData)
                 
             case .failure(let err):

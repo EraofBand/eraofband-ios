@@ -26,7 +26,7 @@ class GetLessonListService {
                    headers: header)
         
         request.responseJSON() { response in
-            print(response)
+            //print(response)
         }
             
         request.responseDecodable(of: LessonListData.self) { response in
