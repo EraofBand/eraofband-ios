@@ -148,7 +148,7 @@ class OtherUserViewController: UIViewController {
         let sessionNum: Int = (userData?.getUser.userSession)!
         userSessionLabel.text = sessionData[sessionNum]
         
-        containerView.updateHeight(containerViewHeight, (userData?.getUser.pofolCount)!)
+        containerView.updateHeight(containerViewHeight, (userData?.getUser.pofolCount)!, userData?.getUserBand?.count ?? 0, 0)
         
         guard let imageUrl = userData?.getUser.profileImgUrl else { return }
         if let url = URL(string: imageUrl) {
