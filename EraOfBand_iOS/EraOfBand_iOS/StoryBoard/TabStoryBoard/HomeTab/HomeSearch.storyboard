@@ -56,21 +56,21 @@
                                     <constraint firstItem="yBY-X0-8ET" firstAttribute="leading" secondItem="zZF-TY-fYi" secondAttribute="leading" constant="37" id="mrb-qa-W6k"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Up8-GX-Ufe">
-                                <rect key="frame" x="0.0" y="89" width="414" height="807"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BkC-7f-h9D">
+                                <rect key="frame" x="0.0" y="91" width="414" height="771"/>
                                 <connections>
-                                    <segue destination="ogp-cM-OkR" kind="embed" id="bXD-zu-yRw"/>
+                                    <segue destination="BCn-Jh-9f1" kind="embed" id="gHc-oT-V2W"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="BkC-7f-h9D" firstAttribute="top" secondItem="zZF-TY-fYi" secondAttribute="bottom" constant="10" id="60R-1g-ghC"/>
+                            <constraint firstItem="BkC-7f-h9D" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Gdt-G1-BOn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BkC-7f-h9D" secondAttribute="trailing" id="ON3-99-ZMD"/>
                             <constraint firstItem="zZF-TY-fYi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QE2-tg-hlC"/>
-                            <constraint firstItem="Up8-GX-Ufe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="U1c-d8-4h0"/>
-                            <constraint firstItem="Up8-GX-Ufe" firstAttribute="top" secondItem="zZF-TY-fYi" secondAttribute="bottom" constant="8" symbolic="YES" id="beH-3m-QYA"/>
-                            <constraint firstAttribute="bottom" secondItem="Up8-GX-Ufe" secondAttribute="bottom" id="c2Q-CA-Gtf"/>
-                            <constraint firstItem="Up8-GX-Ufe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="h5m-S3-By1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BkC-7f-h9D" secondAttribute="bottom" id="eCn-un-2Zn"/>
                             <constraint firstItem="zZF-TY-fYi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="kcB-3A-sST"/>
                             <constraint firstItem="zZF-TY-fYi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kx1-6D-osb"/>
                         </constraints>
@@ -83,21 +83,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="56.521739130434788" y="55.580357142857139"/>
-        </scene>
-        <!--Search Tab Man View Controller-->
-        <scene sceneID="bWB-Op-8FS">
-            <objects>
-                <viewController storyboardIdentifier="SearchTabManViewController" id="ogp-cM-OkR" customClass="SearchTabManViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AiF-Ms-E7e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="W2X-US-SGr"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BsX-bb-Xlr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="980" y="56"/>
         </scene>
         <!--User Search View Controller-->
         <scene sceneID="OnG-fT-fsP">
@@ -369,6 +354,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fi1-Wa-PNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1880" y="783"/>
+        </scene>
+        <!--Search Tab Man View Controller-->
+        <scene sceneID="xGj-4z-HKd">
+            <objects>
+                <viewController storyboardIdentifier="SearchTabManViewController" id="BCn-Jh-9f1" customClass="SearchTabManViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yaz-Ho-mDv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="771"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cB-kK-7QB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886" y="56"/>
         </scene>
     </scenes>
     <resources>

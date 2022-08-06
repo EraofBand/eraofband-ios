@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class SearchViewController: UIViewController {
-
+    
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
     
@@ -21,19 +21,24 @@ class SearchViewController: UIViewController {
     
     @objc func didChanged(_ textField: UITextField) {
         
-        getUserResult(textField.text!) {
-            let userVC = self.storyboard?.instantiateViewController(withIdentifier: "UserSearchViewController") as! UserSearchViewController
-            userVC.reloadTable(self.userResult)
+        getUserResult(textField.text!) { [self] userResultResponse in
+            
+            getBandResult(textField.text!) { [self] bandResultResponse in
+                
+                getLessonResult(textField.text!) { lessonResultResponse in
+                    
+                    NotificationCenter.default.post(name: .notifName, object: nil, userInfo: ["user": userResultResponse, "band": bandResultResponse, "lesson": lessonResultResponse])
+                }
+            }
         }
         
-        getBandResult(textField.text!)
-        getLessonResult(textField.text!)
+        
         
         
         
     }
     
-    func getUserResult(_ keyword: String, completion: @escaping () -> Void) {
+    func getUserResult(_ keyword: String, completion: @escaping ([userResultInfo]) -> Void) {
         
         var url = "\(appDelegate.baseUrl)/search/users/" + keyword
         url = url.encodeUrl()!
@@ -48,14 +53,14 @@ class SearchViewController: UIViewController {
             case .success(let userInfoData):
                 print(userInfoData)
                 self.userResult = userInfoData.result
-                completion()
+                completion(userInfoData.result)
             case .failure(let err):
                 print(err)
             }
         }
     }
     
-    func getBandResult(_ keyword: String) {
+    func getBandResult(_ keyword: String, completion: @escaping ([bandInfo]) -> Void) {
         
         var url = "\(appDelegate.baseUrl)/search/bands/" + keyword
         url = url.encodeUrl()!
@@ -70,13 +75,14 @@ class SearchViewController: UIViewController {
             case .success(let bandInfoData):
                 print(bandInfoData)
                 self.bandResult = bandInfoData.result
+                completion(bandInfoData.result)
             case .failure(let err):
                 print(err)
             }
         }
     }
     
-    func getLessonResult(_ keyword: String) {
+    func getLessonResult(_ keyword: String, completion: @escaping ([lessonInfo]) -> Void) {
         
         var url = "\(appDelegate.baseUrl)/search/lessons/" + keyword
         url = url.encodeUrl()!
@@ -91,6 +97,7 @@ class SearchViewController: UIViewController {
             case .success(let lessonInfoData):
                 print(lessonInfoData)
                 self.lessonResult = lessonInfoData.result
+                completion(lessonInfoData.result)
             case .failure(let err):
                 print(err)
             }
@@ -107,4 +114,8 @@ class SearchViewController: UIViewController {
     }
     
 
+}
+
+extension Notification.Name {
+    static let notifName = Notification.Name("DidReceiveResult")
 }
