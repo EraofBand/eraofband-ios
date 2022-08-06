@@ -19,6 +19,12 @@ class SearchViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    @IBAction func dismissAction(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
     @objc func didChanged(_ textField: UITextField) {
         
         getUserResult(textField.text!) { [self] userResultResponse in
@@ -31,10 +37,6 @@ class SearchViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
-        
         
     }
     
@@ -107,12 +109,22 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
         searchView.layer.cornerRadius = 10
         searchTextField.attributedPlaceholder = NSAttributedString(string: "검색어를 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)])
         
         searchTextField.addTarget(self, action: #selector(didChanged), for: .editingChanged)
+        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
 }
 
