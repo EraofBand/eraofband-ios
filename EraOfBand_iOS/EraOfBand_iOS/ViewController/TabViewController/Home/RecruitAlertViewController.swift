@@ -21,6 +21,7 @@ class RecruitAlertViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     
     var bandIdx: Int?
+    var validIdx: Int?
     
     
     override func viewDidLoad() {
@@ -35,6 +36,14 @@ class RecruitAlertViewController: UIViewController {
         cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
         recruitButton.addTarget(self, action: #selector(recruitTapped), for: .touchUpInside)
         doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
+        
+        if validIdx == 0 {
+            alertView.isHidden = true
+            doneView.isHidden = false
+            
+            doneTopLabel.text = "경고"
+            doneBottomLabel.text = "자신의 밴드엔 지원하실 수 없습니다"
+        }
     }
     
     @objc func cancelTapped() {

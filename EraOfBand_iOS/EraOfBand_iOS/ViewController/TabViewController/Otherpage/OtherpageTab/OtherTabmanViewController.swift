@@ -74,6 +74,7 @@ func settingOtherTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.contentInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
     
     ctBar.layout.contentMode = .fit
+    ctBar.layout.interButtonSpacing = 10
     
     ctBar.backgroundView.style = .clear
     
