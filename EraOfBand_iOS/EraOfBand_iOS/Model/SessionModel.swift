@@ -20,10 +20,11 @@ class SessionModel
     static func fetchMember() -> [SessionModel]
     {
         return[
+            SessionModel(name: "보컬", icon: UIImage(named: "session_icon")!),
             SessionModel(name: "기타", icon: UIImage(named: "session_icon")!),
             SessionModel(name: "베이스", icon: UIImage(named: "session_icon")!),
             SessionModel(name: "드럼", icon: UIImage(named: "session_icon")!),
-            SessionModel(name: "보컬", icon: UIImage(named: "session_icon")!)
+            SessionModel(name: "키보드", icon: UIImage(named: "session_icon")!)
         ]
     }
 }
