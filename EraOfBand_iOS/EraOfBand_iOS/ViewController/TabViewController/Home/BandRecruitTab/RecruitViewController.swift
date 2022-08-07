@@ -71,6 +71,7 @@ class RecruitViewController: UIViewController{
         applicantTableView.dataSource = self
         applicantTableView.alwaysBounceVertical = false
         
+        recruitTableView.isScrollEnabled = false
         recruitTableView.delegate = self
         recruitTableView.dataSource = self
         
@@ -90,13 +91,14 @@ class RecruitViewController: UIViewController{
             applicantView.addSubview(label)
             applicantView.frame = CGRect(x: 0, y: 44, width: applicantView.frame.width, height: 180)
             
-            
         }
         
         if appDelegate.userIdx != bandInfo!.userIdx {
             line.isHidden = true
             applicantView.isHidden = true
-            applicantView.height = 0
+            //applicantView.height = 0
+            applicantView.heightAnchor.constraint(equalToConstant: 0)
+            applicantTableView.heightAnchor.constraint(equalToConstant: 0)
         }
         
     }
@@ -106,12 +108,17 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == applicantTableView {
-            if applicantsInfo.count > 3 {
-                return 3
-            } else {
-                return applicantsInfo.count
+            if(bandInfo?.userIdx == appDelegate.userIdx){
+                if applicantsInfo.count > 3 {
+                    return 3
+                } else {
+                    return applicantsInfo.count
+                }
+            }else{
+                return 0
             }
         }
+            
         if tableView == recruitTableView {
             return recruitCellCount
         }
