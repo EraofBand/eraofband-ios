@@ -200,10 +200,16 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
             let applicant = applicantsInfo[indexPath.item]
             
             let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as! OtherUserViewController
-            otherUserVC.userIdx = applicant.userIdx
-            appDelegate.otherUserIdx = applicant.userIdx
             
-            self.navigationController?.pushViewController(otherUserVC, animated: true)
+            GetOtherUserDataService.getOtherUserInfo(applicant.userIdx ?? 0){ [self]
+                (isSuccess, response) in
+                if isSuccess{
+                    otherUserVC.userData = response.result
+                    otherUserVC.userIdx = applicant.userIdx
+                    self.navigationController?.pushViewController(otherUserVC, animated: true)
+                }
+                
+            }
         }
     }
     

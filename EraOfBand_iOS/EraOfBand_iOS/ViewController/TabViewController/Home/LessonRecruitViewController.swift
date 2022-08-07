@@ -217,7 +217,7 @@ class LessonRecruitViewController: UIViewController{
             self.noMemberLabel.text = "아직 수강생이 존재하지 않습니다"
         }else{
             self.noMemberLabel.isHidden = true
-            memberViewHeight.constant = 100 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))
+            memberViewHeight.constant = 80 + CGFloat(80 * (lessonInfo?.memberCount ?? 0))
         }
         
         if(lessonInfo?.likeOrNot == "Y"){
