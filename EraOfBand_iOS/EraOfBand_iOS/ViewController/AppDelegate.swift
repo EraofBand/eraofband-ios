@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public var userIdx: Int?
     public var userSession: Int?
     
+    public var isFirstRun: Bool?
+    
     let kakaoKey = Bundle.main.kakaoKey
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -49,6 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         sleep(1)
+        
+        checkAppFirstrunOrUpdateStatus{
+            isFirstRun = true
+        } updated: {
+            isFirstRun = false
+        } nothingChanged: {
+            isFirstRun = false
+        }
+        
         return true
     }
 
