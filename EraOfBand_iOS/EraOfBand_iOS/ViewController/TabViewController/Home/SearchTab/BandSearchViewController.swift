@@ -71,8 +71,17 @@ extension BandSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bandVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruit") as! BandRecruitViewController
         
-        bandVC.bandIdx = bandResult[indexPath.item].bandIdx
-        navigationController?.pushViewController(bandVC, animated: true)
+        let bandIdx = bandResult[indexPath.item].bandIdx
+        
+        GetBandInfoService.getBandInfo(bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandVC.bandInfo = response.result
+                bandVC.bandIdx = bandIdx
+                
+                self.navigationController?.pushViewController(bandVC, animated: true)
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
