@@ -13,6 +13,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
     
+    var currentSearch = "user"
+    
     var userResult: [userResultInfo] = []
     var bandResult: [bandInfo] = []
     var lessonResult: [lessonInfo] = []
@@ -124,6 +126,17 @@ class SearchViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        //print(currentSearch)
+        if segue.identifier == "searchEmbed"{
+            let containerVC = segue.destination as!SearchTabManViewController
+            
+            containerVC.currentSearch = self.currentSearch
+        }
+        
     }
 
 }

@@ -27,7 +27,10 @@ class BandRecruitViewController: UIViewController{
     var header : HTTPHeaders?
     
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
     var bandInfo: BandInfoResult?
+    
+    var recruitCellCount = 0
     
     func modifyRecruit(){
         guard let modifyVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyBandViewController") as? CreateBandViewController else {return}
@@ -172,7 +175,7 @@ class BandRecruitViewController: UIViewController{
             likeIcon.image = UIImage(systemName: "heart.fill")
         }
         
-        containerView.heightAnchor.constraint(equalToConstant: 900 + CGFloat((bandInfo?.memberCount ?? 1) - 1) * 80).isActive = true
+        //containerView.heightAnchor.constraint(equalToConstant: 900 + CGFloat((bandInfo?.memberCount ?? 1) - 1) * 80).isActive = true
         
     }
     
@@ -211,6 +214,20 @@ class BandRecruitViewController: UIViewController{
                 bandInfo = response.result
                 setLayout()
                 setData()
+                
+                countRecruitCell()
+                var introHeight = 900 + (bandInfo?.memberCount ?? 1 - 1) * 80
+                var recruitHeight = 0
+                
+                if(bandInfo?.userIdx == appDelegate.userIdx){
+                    recruitHeight = (bandInfo?.applicants?.count ?? 1 * 100) + (recruitCellCount * 220) + 300
+                }else{
+                    recruitHeight = (recruitCellCount * 220) + 300
+                }
+                
+                var heightArr = [introHeight, recruitHeight]
+                
+                containerViewHeight.constant =  CGFloat(heightArr.max() ?? 1000)
             }
         }
     }
@@ -224,5 +241,26 @@ class BandRecruitViewController: UIViewController{
             containerVC.bandInfo = self.bandInfo
         }
         
+    }
+    
+    /*세션 모집 셀 개수 세기*/
+    func countRecruitCell(){
+        recruitCellCount = 0
+        
+        if bandInfo!.vocal > 0 {
+            recruitCellCount += 1
+        }
+        if bandInfo!.guitar > 0 {
+            recruitCellCount += 1
+        }
+        if bandInfo!.base > 0 {
+            recruitCellCount += 1
+        }
+        if bandInfo!.keyboard > 0 {
+            recruitCellCount += 1
+        }
+        if bandInfo!.drum > 0 {
+            recruitCellCount += 1
+        }
     }
 }
