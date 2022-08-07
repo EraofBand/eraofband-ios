@@ -495,7 +495,7 @@ class CreateBandViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for i in 0..<(bandInfo?.memberCount)!{
+        for i in 0..<((bandInfo?.memberCount ?? 1) - 1){
             switch(bandInfo?.sessionMembers![i].buSession){
             case 0:
                 self.currentMemberSessionNum[0] += 1

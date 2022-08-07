@@ -15,7 +15,6 @@ struct BandInfoData: Codable{
 }
 
 struct BandInfoResult: Codable{
-    
     // band introduction data
     var sessionMembers: [SessionMember]?
     var bandContent: String?
