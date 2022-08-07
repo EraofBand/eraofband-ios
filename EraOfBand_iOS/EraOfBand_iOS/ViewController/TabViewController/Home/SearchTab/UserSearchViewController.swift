@@ -70,8 +70,17 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let otherVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as! OtherUserViewController
         
-        otherVC.userIdx = userResult[indexPath.item].userIdx
-        self.navigationController?.pushViewController(otherVC, animated: true)
+        let otherIdx = userResult[indexPath.item].userIdx
+        
+        GetOtherUserDataService.getOtherUserInfo(otherIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherVC.userData = response.result
+                otherVC.userIdx = otherIdx
+                self.navigationController?.pushViewController(otherVC, animated: true)
+            }
+            
+        }
         
     }
     
