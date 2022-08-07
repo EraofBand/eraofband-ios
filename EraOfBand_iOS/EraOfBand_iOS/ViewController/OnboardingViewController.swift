@@ -14,6 +14,7 @@ class OnboardingViewController: UIViewController {
     var onboardingModel = OnboardingModel.fetchMember()
     
     var currentPage = 0
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     /*스킵 버튼 눌렀을 때 로그인 뷰로 이동*/
     @IBAction func skipBtnTapped(_ sender: Any) {
@@ -32,6 +33,11 @@ class OnboardingViewController: UIViewController {
     
         collectionView.isPagingEnabled = true
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
     }
     
 }
