@@ -172,7 +172,7 @@ class BandRecruitViewController: UIViewController{
             likeIcon.image = UIImage(systemName: "heart.fill")
         }
         
-        containerView.heightAnchor.constraint(equalToConstant: 900 + CGFloat(bandInfo?.memberCount ?? 0) * 80).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 900 + CGFloat((bandInfo?.memberCount ?? 1) - 1) * 80).isActive = true
         
     }
     
@@ -192,8 +192,9 @@ class BandRecruitViewController: UIViewController{
             "x-access-token": self.appDelegate.jwt,
             "Content-Type": "application/json"]
         
+        
         bandMemberArr.append(bandInfo?.userIdx ?? 0)
-        for i in 0..<(bandInfo?.memberCount ?? 1){
+        for i in 0..<((bandInfo?.memberCount ?? 1) - 1){
             bandMemberArr.append((bandInfo?.sessionMembers![i].userIdx)!)
         }
         
