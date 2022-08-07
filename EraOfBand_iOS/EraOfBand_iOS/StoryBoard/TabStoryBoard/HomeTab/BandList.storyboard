@@ -189,6 +189,14 @@
             </objects>
             <point key="canvasLocation" x="1560" y="116"/>
         </scene>
+        <!--HomeSearch-->
+        <scene sceneID="0Za-P5-vEe">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeSearch" storyboardName="HomeSearch" id="UsX-3o-SqB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q89-OZ-pbr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1467" y="205"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_floating" width="84" height="84"/>

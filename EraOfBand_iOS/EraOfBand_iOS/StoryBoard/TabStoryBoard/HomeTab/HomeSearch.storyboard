@@ -59,7 +59,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BkC-7f-h9D">
                                 <rect key="frame" x="0.0" y="91" width="414" height="771"/>
                                 <connections>
-                                    <segue destination="BCn-Jh-9f1" kind="embed" id="gHc-oT-V2W"/>
+                                    <segue destination="BCn-Jh-9f1" kind="embed" identifier="searchEmbed" id="gHc-oT-V2W"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndu-Gj-g5h">
@@ -389,6 +389,7 @@
                     <view key="view" contentMode="scaleToFill" id="Yaz-Ho-mDv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="771"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="f83-cO-ZKi"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>

@@ -83,8 +83,8 @@ extension FollowTabManViewController: PageboyViewControllerDataSource, TMBarData
         
         // 선택 / 안선택 색 + font size
         ctBar.buttons.customize { (button) in
-            button.tintColor = UIColor(named: "on_icon_color")
-            button.selectedTintColor = .white
+            button.selectedTintColor = UIColor(named: "on_icon_color")
+            button.tintColor = .white
             button.font = UIFont.systemFont(ofSize: 16)
             button.selectedFont = UIFont.systemFont(ofSize: 16, weight: .medium)
         }
