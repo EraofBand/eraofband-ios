@@ -90,7 +90,10 @@ class BandListViewController: UIViewController {
     /* 네비게이션 바 찾기 버튼 눌렀을 때 함수 */
     @objc func searchButtonClicked(_ sender: UIButton) {
         
-        print("찾기 버튼 누름")
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeSearch") as! SearchViewController
+        searchVC.currentSearch = "band"
+        
+        self.navigationController?.pushViewController(searchVC, animated: true)
         
     }
     
@@ -195,6 +198,7 @@ extension BandListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tableRegionLabel.text = bandinfo.bandRegion
         cell.tableTitleLabel.text = bandinfo.bandTitle
         cell.tableIntroLabel.text = bandinfo.bandIntroduction
+        cell.memberNumLabel.text = String(bandinfo.memberCount) + " / " + String(bandinfo.capacity)
         
         cell.selectionStyle = .none
         

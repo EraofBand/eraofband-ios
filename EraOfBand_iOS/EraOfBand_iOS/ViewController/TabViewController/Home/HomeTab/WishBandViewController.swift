@@ -81,6 +81,8 @@ extension WishBandViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tableTitleLabel.text = bandinfo.bandTitle
         cell.tableIntroLabel.text = bandinfo.bandIntroduction
         
+        cell.memberNumLabel.text = String(bandinfo.memberCount) + " / " + String(bandinfo.capacity)
+        
         cell.selectionStyle = .none
         
         return cell

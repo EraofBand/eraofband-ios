@@ -73,6 +73,8 @@ extension WishLessonViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tableTitleLabel.text = lessoninfo.lessonTitle
         cell.tableIntroLabel.text = lessoninfo.lessonIntroduction
         
+        cell.memberNumLabel.text = String(lessoninfo.memberCount) + " / " + String(lessoninfo.capacity)
+        
         cell.selectionStyle = .none
         
         return cell
