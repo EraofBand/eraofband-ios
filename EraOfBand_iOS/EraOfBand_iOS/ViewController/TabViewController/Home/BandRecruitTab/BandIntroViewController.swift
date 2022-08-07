@@ -71,12 +71,12 @@ class BandIntroViewController: UIViewController{
         
         bandIntroLabel.text = bandInfo?.bandContent
         
-        if(bandInfo?.memberCount == 0){
+        if(bandInfo?.memberCount == 1){
             memberView.heightAnchor.constraint(equalToConstant: 174).isActive = true
              
             nomemberLabel.text = "아직 멤버가 존재하지 않습니다"
         }else{
-            memberView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(80 * (bandInfo?.memberCount ?? 0))).isActive = true
+            memberView.heightAnchor.constraint(equalToConstant: 80 + CGFloat(80 * ((bandInfo?.memberCount ?? 1) - 1))).isActive = true
         }
         
         if( (bandInfo?.performDate == nil) && (bandInfo?.performLocation == nil) && (bandInfo?.performTime == nil)){
@@ -112,7 +112,7 @@ class BandIntroViewController: UIViewController{
         super.viewDidLoad()
         
         bandMemberArr.append(bandInfo?.userIdx ?? 0)
-        for i in 0..<(bandInfo?.memberCount ?? 1){
+        for i in 0..<((bandInfo?.memberCount ?? 1) - 1){
             bandMemberArr.append((bandInfo?.sessionMembers![i].userIdx)!)
         }
         
@@ -132,7 +132,7 @@ class BandIntroViewController: UIViewController{
 
 extension BandIntroViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bandInfo?.memberCount ?? 0
+        return ((bandInfo?.memberCount)! - 1)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionMemberTableViewCell", for: indexPath) as! SessionMemberTableViewCell
