@@ -12,6 +12,7 @@ import Pageboy
 
 class SearchTabManViewController: TabmanViewController {
 
+    var currentSearch = "user"
     var viewControllers: Array<UIViewController> = []
     
     override func viewDidLoad() {
@@ -63,7 +64,15 @@ extension SearchTabManViewController: PageboyViewControllerDataSource, TMBarData
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        return nil
+        print(currentSearch)
+        
+        if(currentSearch == "user"){
+            return .first
+        }else if(currentSearch == "band"){
+            return .at(index: 1)
+        }else{
+            return .last
+        }
     }
     
 }

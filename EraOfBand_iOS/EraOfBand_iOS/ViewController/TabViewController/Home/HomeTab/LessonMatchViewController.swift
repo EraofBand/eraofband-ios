@@ -156,6 +156,7 @@ extension LessonMatchViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tableRegionLabel.text = lessoninfo.lessonRegion
         cell.tableTitleLabel.text = lessoninfo.lessonTitle
         cell.tableIntroLabel.text = lessoninfo.lessonIntroduction
+        cell.memberNumLabel.text = String(lessoninfo.memberCount) + " / " + String(lessoninfo.capacity)
         
         cell.selectionStyle = .none
         
