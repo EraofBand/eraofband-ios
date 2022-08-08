@@ -168,7 +168,6 @@
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
 		BC439BFF287345F3006F5659 /* RegisterViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFE287345F3006F5659 /* RegisterViewController4.swift */; };
 		BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439C0028735BCD006F5659 /* RegisterViewController5.swift */; };
-		BC4B5BFD287192190072A5FF /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4B5BFC287192190072A5FF /* login.storyboard */; };
 		BC4B5C00287199770072A5FF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5BFF287199770072A5FF /* OnboardingViewController.swift */; };
 		BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5C0128719BF30072A5FF /* LoginViewController.swift */; };
 		BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */; };
@@ -180,6 +179,7 @@
 		BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */; };
 		BC6EFDF4289C0B5C00DBF298 /* LessonApplyAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6EFDF3289C0B5C00DBF298 /* LessonApplyAlertViewController.swift */; };
 		BC6EFDF6289C0BC900DBF298 /* LessonApplyAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */; };
+		BC6EFDFE289FDA7200DBF298 /* CheckFirstRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6EFDFD289FDA7200DBF298 /* CheckFirstRun.swift */; };
 		BC8502FF287732200022EA7B /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8502FE287732200022EA7B /* SessionModel.swift */; };
 		BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */; };
 		BC9955CF289C073800DA44F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */; };
@@ -334,7 +334,6 @@
 		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
 		BC439BFE287345F3006F5659 /* RegisterViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController4.swift; sourceTree = "<group>"; };
 		BC439C0028735BCD006F5659 /* RegisterViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController5.swift; sourceTree = "<group>"; };
-		BC4B5BFC287192190072A5FF /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		BC4B5BFF287199770072A5FF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BC4B5C0128719BF30072A5FF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC4B5C1A2871C2660072A5FF /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -345,6 +344,7 @@
 		BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EraOfBand_iOS++Bundle.swift"; sourceTree = "<group>"; };
 		BC6EFDF3289C0B5C00DBF298 /* LessonApplyAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonApplyAlertViewController.swift; sourceTree = "<group>"; };
 		BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonApplyAlert.storyboard; sourceTree = "<group>"; };
+		BC6EFDFD289FDA7200DBF298 /* CheckFirstRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFirstRun.swift; sourceTree = "<group>"; };
 		BC8502FE287732200022EA7B /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -444,6 +444,7 @@
 				BC6DD520287861EE0067D6B5 /* ApiKey.plist */,
 				BC0ADB722893A6F60028F57C /* Extension.swift */,
 				BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */,
+				BC6EFDFD289FDA7200DBF298 /* CheckFirstRun.swift */,
 			);
 			path = EraOfBand_iOS;
 			sourceTree = "<group>";
@@ -684,7 +685,6 @@
 				A809A7C3286F283600B9E08D /* LaunchScreen.storyboard */,
 				A809A7BE286F283400B9E08D /* Main.storyboard */,
 				BC1ED4A02881383400A5B931 /* MainTabBar.storyboard */,
-				BC4B5BFC287192190072A5FF /* login.storyboard */,
 				BCA6646B287306F500136D1B /* Register.storyboard */,
 				A809A7D1287152F800B9E08D /* TabStoryBoard */,
 			);
@@ -931,7 +931,6 @@
 				A809A7D72871538400B9E08D /* HomeTab.storyboard in Resources */,
 				A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */,
 				BC6DD521287861EE0067D6B5 /* ApiKey.plist in Resources */,
-				BC4B5BFD287192190072A5FF /* login.storyboard in Resources */,
 				BC9955CF289C073800DA44F3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1083,6 +1082,7 @@
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */,
 				BC0ADB87289BD2F50028F57C /* GetOtherUserDataService.swift in Sources */,
+				BC6EFDFE289FDA7200DBF298 /* CheckFirstRun.swift in Sources */,
 				A854A81A289BC50C00FDEB4D /* InAppAlarmTableViewCell.swift in Sources */,
 				A857360D2874C66800E2F0AB /* NoticeTabViewController.swift in Sources */,
 				BC0728D42892FC9D007EA95D /* BandAlbumViewController.swift in Sources */,
