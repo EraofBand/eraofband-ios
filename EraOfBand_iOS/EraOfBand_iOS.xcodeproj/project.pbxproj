@@ -51,6 +51,8 @@
 		A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* TabBarController.swift */; };
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
 		A80B79D0288A8F850061D516 /* PostUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B79CF288A8F850061D516 /* PostUserService.swift */; };
+		A80C5AE428A0CE3700ACB652 /* RecruitHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80C5AE328A0CE3700ACB652 /* RecruitHeaderView.xib */; };
+		A80C5AE828A0D18200ACB652 /* RecruitHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80C5AE728A0D18200ACB652 /* RecruitHeaderView.swift */; };
 		A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A42882A79400078C9E /* GetUserDataService.swift */; };
 		A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A62882A8CD00078C9E /* NetworkResult.swift */; };
 		A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351AA2883B96100078C9E /* SettingViewController.swift */; };
@@ -224,6 +226,8 @@
 		A809A7EE2872E88300B9E08D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A80B79CF288A8F850061D516 /* PostUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUserService.swift; sourceTree = "<group>"; };
+		A80C5AE328A0CE3700ACB652 /* RecruitHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitHeaderView.xib; sourceTree = "<group>"; };
+		A80C5AE728A0D18200ACB652 /* RecruitHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitHeaderView.swift; sourceTree = "<group>"; };
 		A81351A42882A79400078C9E /* GetUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataService.swift; sourceTree = "<group>"; };
 		A81351A62882A8CD00078C9E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A81351AA2883B96100078C9E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -590,6 +594,7 @@
 				A854A81F289C028600FDEB4D /* HomeSearch.storyboard */,
 				A854A815289BC29D00FDEB4D /* InAppAlarm.storyboard */,
 				BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */,
+				A80C5AE328A0CE3700ACB652 /* RecruitHeaderView.xib */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -631,6 +636,7 @@
 				BC0728CF2892FC37007EA95D /* BandIntroViewController.swift */,
 				BC0728D12892FC8E007EA95D /* RecruitViewController.swift */,
 				BC0728D32892FC9D007EA95D /* BandAlbumViewController.swift */,
+				A80C5AE728A0D18200ACB652 /* RecruitHeaderView.swift */,
 			);
 			path = BandRecruitTab;
 			sourceTree = "<group>";
@@ -895,6 +901,7 @@
 				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
+				A80C5AE428A0CE3700ACB652 /* RecruitHeaderView.xib in Resources */,
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				BC2E99162886CCDB0034CBD9 /* FollowingTable.storyboard in Resources */,
 				BC0728BD28901CB0007EA95D /* CreateLesson.storyboard in Resources */,
@@ -1054,6 +1061,7 @@
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
+				A80C5AE828A0D18200ACB652 /* RecruitHeaderView.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				BCD3C2302882FBB600562FB4 /* CommentTableViewCell.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
