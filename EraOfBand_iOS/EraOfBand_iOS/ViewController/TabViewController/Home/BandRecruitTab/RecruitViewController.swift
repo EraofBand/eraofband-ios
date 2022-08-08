@@ -77,8 +77,6 @@ class RecruitViewController: UIViewController{
         
         if applicantsInfo.count == 0 {
             
-//            moreApplicantButton.isHidden = true
-//
             let label = UILabel(frame: applicantView.bounds)
             label.text = "아직 지원자가 존재하지 않습니다"
             label.textColor = .white
@@ -99,11 +97,6 @@ class RecruitViewController: UIViewController{
             applicantView.isHidden = true
             applicantView.height = 0
             
-//            line.isHidden = true
-//            applicantView.isHidden = true
-//            applicantView.height = 0
-//            applicantView.heightAnchor.constraint(equalToConstant: 0)
-//            applicantTableView.heightAnchor.constraint(equalToConstant: 0)
         }
         
     }
