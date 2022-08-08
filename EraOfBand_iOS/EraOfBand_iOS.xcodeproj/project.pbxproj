@@ -108,6 +108,7 @@
 		A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */; };
 		A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27732892A556005CDDA4 /* LessonListData.swift */; };
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
+		A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875069228A1476400FE3C52 /* CheckRegisterService.swift */; };
 		A87A835628900F5400130B8F /* NewBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A835528900F5400130B8F /* NewBandData.swift */; };
 		A88B49932890330F0029A2BF /* FameBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B49922890330F0029A2BF /* FameBandData.swift */; };
 		A89381B328940549002D55EF /* SessionRecruitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */; };
@@ -274,6 +275,7 @@
 		A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonListService.swift; sourceTree = "<group>"; };
 		A86D27732892A556005CDDA4 /* LessonListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListData.swift; sourceTree = "<group>"; };
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
+		A875069228A1476400FE3C52 /* CheckRegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckRegisterService.swift; sourceTree = "<group>"; };
 		A87A835528900F5400130B8F /* NewBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBandData.swift; sourceTree = "<group>"; };
 		A88B49922890330F0029A2BF /* FameBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameBandData.swift; sourceTree = "<group>"; };
 		A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitTableViewCell.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				A81351A62882A8CD00078C9E /* NetworkResult.swift */,
+				A875069228A1476400FE3C52 /* CheckRegisterService.swift */,
 				A81351A42882A79400078C9E /* GetUserDataService.swift */,
 				A80B79CF288A8F850061D516 /* PostUserService.swift */,
 				A858BC73288F04EA00B87E30 /* GetFollowService.swift */,
@@ -1103,6 +1106,7 @@
 				BC0ADB7D289642390028F57C /* SessionMemberTableViewCell.swift in Sources */,
 				A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */,
 				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
+				A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);

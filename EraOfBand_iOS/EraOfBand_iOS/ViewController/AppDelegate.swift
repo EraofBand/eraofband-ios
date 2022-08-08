@@ -35,26 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        // 토큰 있는지 확인
-//        if (AuthApi.hasToken()) {
-//            UserApi.shared.accessTokenInfo { (_, error) in
-//                if let error = error {
-//                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true { // 로그인 필요
-//
-//                    }
-//                } else { // 토큰 유효성 체크 성공 (필요 시 토큰 갱신됨)
-//
-//                }
-//
-//            }
-//        } else { // 로그인 필요
-//
-//        }
-        
         KakaoSDK.initSDK(appKey: kakaoKey)
         
         FirebaseApp.configure()
         
+        // 앱 전체 네비게이션 바 custom
         if #available(iOS 15, *) {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
@@ -65,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().compactAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-            
         }
         
         sleep(1)
