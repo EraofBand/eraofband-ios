@@ -9,6 +9,7 @@ import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
 import FirebaseCore
+import KakaoSDKUser
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,7 +33,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        // 토큰 있는지 확인
+//        if (AuthApi.hasToken()) {
+//            UserApi.shared.accessTokenInfo { (_, error) in
+//                if let error = error {
+//                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true { // 로그인 필요
+//
+//                    }
+//                } else { // 토큰 유효성 체크 성공 (필요 시 토큰 갱신됨)
+//
+//                }
+//
+//            }
+//        } else { // 로그인 필요
+//
+//        }
+        
         KakaoSDK.initSDK(appKey: kakaoKey)
+        
         FirebaseApp.configure()
         
         if #available(iOS 15, *) {

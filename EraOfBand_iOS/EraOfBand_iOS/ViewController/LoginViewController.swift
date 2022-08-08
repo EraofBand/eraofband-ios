@@ -114,7 +114,7 @@ class LoginViewController: UIViewController{
     @IBAction func kakaoBtnTapped(_ sender: Any) {
         // 카카오톡 설치 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
-           loginWithApp()
+            loginWithApp()
         }else {
             loginWithWeb()
         }
