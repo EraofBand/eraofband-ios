@@ -216,7 +216,7 @@ class BandRecruitViewController: UIViewController{
                 setData()
                 
                 countRecruitCell()
-                var introHeight = 900 + (bandInfo?.memberCount ?? 1 - 1) * 80
+                let introHeight = 900 + (bandInfo?.memberCount ?? 1 - 1) * 80
                 var recruitHeight = 0
                 
                 if(bandInfo?.userIdx == appDelegate.userIdx){
@@ -225,7 +225,7 @@ class BandRecruitViewController: UIViewController{
                     recruitHeight = (recruitCellCount * 220) + 300
                 }
                 
-                var heightArr = [introHeight, recruitHeight]
+                let heightArr = [introHeight, recruitHeight]
                 
                 containerViewHeight.constant =  CGFloat(heightArr.max() ?? 1000)
             }
