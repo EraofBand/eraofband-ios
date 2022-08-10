@@ -35,6 +35,12 @@ class OtherUserViewController: UIViewController {
 
     var userData: OtherUser?
 
+    @IBAction func messageBtnTapped(_ sender: Any) {
+        let messageVC = ChatViewController()
+        messageVC.title = userData?.getUser.nickName
+        //messageVC.title = userData?.getUser.nickName
+        navigationController?.pushViewController(messageVC, animated: true)
+    }
     
     @IBAction func followingBtnTapped(_ sender: Any) {
         
