@@ -46,20 +46,20 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자 닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoj-tT-WVx">
-                                                        <rect key="frame" x="160.5" y="36.5" width="108.5" height="24"/>
+                                                        <rect key="frame" x="160.5" y="36.5" width="109.5" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5f-S4-sTt">
-                                                        <rect key="frame" x="160.5" y="68.5" width="21" height="14.5"/>
+                                                        <rect key="frame" x="160.5" y="68" width="21" height="14"/>
                                                         <color key="tintColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소개글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCf-gL-fp3">
-                                                        <rect key="frame" x="160.5" y="91.5" width="29" height="13.5"/>
+                                                        <rect key="frame" x="160.5" y="90.5" width="29" height="13"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="11"/>
                                                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NO-jL-VH9">
-                                                                        <rect key="frame" x="7" y="21" width="42" height="34"/>
+                                                                        <rect key="frame" x="7.5" y="22" width="41" height="33"/>
                                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="1400">
@@ -123,7 +123,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9h-1p-a5h">
-                                                                        <rect key="frame" x="7" y="21" width="42" height="34"/>
+                                                                        <rect key="frame" x="7.5" y="22" width="41" height="33"/>
                                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="1400">
@@ -162,7 +162,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1400" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3b-20-hQ2">
-                                                                        <rect key="frame" x="6.5" y="27.5" width="42" height="21.5"/>
+                                                                        <rect key="frame" x="7.5" y="28" width="40.5" height="21"/>
                                                                         <color key="tintColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                                         <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -237,6 +237,9 @@
                                                 <color key="tintColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="메세지"/>
+                                                <connections>
+                                                    <action selector="messageBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0vo-dX-eFF"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6IP-fP-QOV">
                                                 <rect key="frame" x="0.0" y="392" width="414" height="65"/>
@@ -327,7 +330,7 @@
                         <outlet property="containerViewHeight" destination="vnG-Ax-GeD" id="bm9-0O-l4a"/>
                         <outlet property="followButton" destination="Ppr-NW-Uhj" id="gq1-mb-pia"/>
                         <outlet property="infoView" destination="pL6-Hu-m3a" id="ZEz-JO-PQS"/>
-                        <outlet property="messageButton" destination="WcS-CH-Lb6" id="Ocr-tg-Hpv"/>
+                        <outlet property="messageButton" destination="WcS-CH-Lb6" id="7t6-mn-ppB"/>
                         <outlet property="topView" destination="6IP-fP-QOV" id="blH-lK-uGR"/>
                         <outlet property="userFollowerButton" destination="S9h-1p-a5h" id="ebx-9o-TNf"/>
                         <outlet property="userFollowingButton" destination="7NO-jL-VH9" id="65P-18-vLk"/>
