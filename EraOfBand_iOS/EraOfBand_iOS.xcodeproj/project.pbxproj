@@ -180,6 +180,8 @@
 		BC6EFDFE289FDA7200DBF298 /* CheckFirstRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6EFDFD289FDA7200DBF298 /* CheckFirstRun.swift */; };
 		BC8502FF287732200022EA7B /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8502FE287732200022EA7B /* SessionModel.swift */; };
 		BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */; };
+		BC8A62AC28A14BCC003DF75C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A62AB28A14BCC003DF75C /* ChatViewController.swift */; };
+		BC8A62AF28A1F7B3003DF75C /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC8A62AE28A1F7B3003DF75C /* MessageKit */; };
 		BC9955CF289C073800DA44F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */; };
 		BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA32287934480031028E /* RegisterNavigationController.swift */; };
 		BCA3DA3528793B4B0031028E /* KakaoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3DA3428793B4B0031028E /* KakaoData.swift */; };
@@ -343,6 +345,7 @@
 		BC6EFDFD289FDA7200DBF298 /* CheckFirstRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFirstRun.swift; sourceTree = "<group>"; };
 		BC8502FE287732200022EA7B /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		BC8529A3288C34EE009AA2D7 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		BC8A62AB28A14BCC003DF75C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BC9955CE289C073800DA44F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCA3DA32287934480031028E /* RegisterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigationController.swift; sourceTree = "<group>"; };
 		BCA3DA3428793B4B0031028E /* KakaoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoData.swift; sourceTree = "<group>"; };
@@ -376,6 +379,7 @@
 				A8002FAE28982FBE00811762 /* FirebaseMLModelDownloader in Frameworks */,
 				A8002F9A28982FBE00811762 /* FirebaseDatabaseSwift in Frameworks */,
 				A8002F9E28982FBE00811762 /* FirebaseFirestore in Frameworks */,
+				BC8A62AF28A1F7B3003DF75C /* MessageKit in Frameworks */,
 				A8002FAC28982FBE00811762 /* FirebaseInstallations in Frameworks */,
 				A8002FA628982FBE00811762 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				A8002FA028982FBE00811762 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -688,6 +692,7 @@
 		BC4B5BFE287199550072A5FF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				BC8A62AA28A14B78003DF75C /* ChatViewController */,
 				A809A7B8286F283400B9E08D /* AppDelegate.swift */,
 				A809A7BA286F283400B9E08D /* SceneDelegate.swift */,
 				BC4B5BFF287199770072A5FF /* OnboardingViewController.swift */,
@@ -789,6 +794,14 @@
 			path = PorfolViewController;
 			sourceTree = "<group>";
 		};
+		BC8A62AA28A14B78003DF75C /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BC8A62AB28A14BCC003DF75C /* ChatViewController.swift */,
+			);
+			path = ChatViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -836,6 +849,7 @@
 				A8002FB528982FBE00811762 /* FirebaseRemoteConfigSwift */,
 				A8002FB728982FBE00811762 /* FirebaseStorage */,
 				A8002FB928982FBE00811762 /* FirebaseStorageCombine-Community */,
+				BC8A62AE28A1F7B3003DF75C /* MessageKit */,
 			);
 			productName = EraOfBand_iOS;
 			productReference = A809A7B5286F283400B9E08D /* EraOfBand_iOS.app */;
@@ -868,6 +882,7 @@
 			packageReferences = (
 				BC6DD51D28785D030067D6B5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				A8002F8428982FBE00811762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BC8A62AD28A1F7B3003DF75C /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = A809A7B6286F283400B9E08D /* Products */;
 			projectDirPath = "";
@@ -979,6 +994,7 @@
 			files = (
 				A88B49932890330F0029A2BF /* FameBandData.swift in Sources */,
 				BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */,
+				BC8A62AC28A14BCC003DF75C /* ChatViewController.swift in Sources */,
 				A8ED885F289D51FC00A071E5 /* SearchUserData.swift in Sources */,
 				A854A814289AB07800FDEB4D /* AcceptAlertViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
@@ -1338,6 +1354,14 @@
 				kind = branch;
 			};
 		};
+		BC8A62AD28A1F7B3003DF75C /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1480,6 +1504,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC6DD51D28785D030067D6B5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
+		};
+		BC8A62AE28A1F7B3003DF75C /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC8A62AD28A1F7B3003DF75C /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
