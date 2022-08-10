@@ -182,7 +182,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키보드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrQ-Kn-6Z9" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="285" y="39.5" width="39" height="17.5"/>
+                                                        <rect key="frame" x="284" y="37.5" width="55" height="22"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
                                                         <color key="textColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -563,7 +563,7 @@
     </scenes>
     <designables>
         <designable name="xrQ-Kn-6Z9">
-            <size key="intrinsicContentSize" width="39" height="17.5"/>
+            <size key="intrinsicContentSize" width="55" height="22"/>
         </designable>
     </designables>
     <resources>

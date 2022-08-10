@@ -231,7 +231,7 @@ class OtherUserViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         if segue.identifier == "otherUserEmbed"{
-            let containerVC = segue.destination as!OtherTabmanViewController
+            let containerVC = segue.destination as! OtherTabmanViewController
             
             containerVC.userData = self.userData
             containerVC.userIdx = self.userIdx
