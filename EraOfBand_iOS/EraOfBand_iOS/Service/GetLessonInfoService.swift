@@ -15,10 +15,8 @@ struct GetLessonInfoService{
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let url = "\(appDelegate.baseUrl)/lessons/info/\(lessonIdx)"
-        
-        let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
-            "Content-Type": "application/json"]
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
         
         AF.request(
             url,

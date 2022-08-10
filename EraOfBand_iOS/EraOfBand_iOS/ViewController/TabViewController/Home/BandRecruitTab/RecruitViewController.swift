@@ -12,7 +12,6 @@ class RecruitViewController: UIViewController{
     @IBOutlet weak var applicantView: UIView!
     @IBOutlet weak var applicantTableView: UITableView!
     @IBOutlet weak var recruitTableView: UITableView!
-    @IBOutlet weak var moreApplicantButton: UIButton!
     @IBOutlet weak var line: UIView!
     
     var bandInfo: BandInfoResult?
@@ -70,6 +69,7 @@ class RecruitViewController: UIViewController{
         applicantTableView.delegate = self
         applicantTableView.dataSource = self
         applicantTableView.alwaysBounceVertical = false
+        applicantTableView.register(UINib(nibName: "RecruitHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "RecruitHeaderView")
         
         recruitTableView.isScrollEnabled = false
         recruitTableView.delegate = self
@@ -77,28 +77,26 @@ class RecruitViewController: UIViewController{
         
         if applicantsInfo.count == 0 {
             
-            moreApplicantButton.isHidden = true
-            
             let label = UILabel(frame: applicantView.bounds)
             label.text = "아직 지원자가 존재하지 않습니다"
             label.textColor = .white
             label.font = UIFont(name: "Pretendard-Medium", size: 18)
             label.textAlignment = .center
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            label.centerXAnchor.constraint(equalTo: applicantView.centerXAnchor).isActive = true
-//            label.centerYAnchor.constraint(equalTo: applicantView.centerYAnchor).isActive = true
-            
+            label.translatesAutoresizingMaskIntoConstraints = false
+
             applicantView.addSubview(label)
-            applicantView.frame = CGRect(x: 0, y: 44, width: applicantView.frame.width, height: 180)
+            applicantView.frame = CGRect(x: 0, y: 0, width: applicantView.frame.width, height: 180)
+            
+            label.centerXAnchor.constraint(equalTo: applicantView.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: applicantView.centerYAnchor).isActive = true
             
         }
         
         if appDelegate.userIdx != bandInfo!.userIdx {
-            line.isHidden = true
+            
             applicantView.isHidden = true
-            //applicantView.height = 0
-            applicantView.heightAnchor.constraint(equalToConstant: 0)
-            applicantTableView.heightAnchor.constraint(equalToConstant: 0)
+            applicantView.height = 0
+            
         }
         
     }
@@ -188,6 +186,17 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if tableView == applicantTableView {
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RecruitHeaderView") as! RecruitHeaderView
+            
+            return headerView
+        }
+        
+        return UIView()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
