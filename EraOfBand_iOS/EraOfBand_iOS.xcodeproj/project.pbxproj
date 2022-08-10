@@ -51,6 +51,8 @@
 		A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7EE2872E88300B9E08D /* TabBarController.swift */; };
 		A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809A7F02872EAA400B9E08D /* TabBar.swift */; };
 		A80B79D0288A8F850061D516 /* PostUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B79CF288A8F850061D516 /* PostUserService.swift */; };
+		A80C5AE428A0CE3700ACB652 /* RecruitHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80C5AE328A0CE3700ACB652 /* RecruitHeaderView.xib */; };
+		A80C5AE828A0D18200ACB652 /* RecruitHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80C5AE728A0D18200ACB652 /* RecruitHeaderView.swift */; };
 		A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A42882A79400078C9E /* GetUserDataService.swift */; };
 		A81351A72882A8CD00078C9E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351A62882A8CD00078C9E /* NetworkResult.swift */; };
 		A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351AA2883B96100078C9E /* SettingViewController.swift */; };
@@ -106,9 +108,15 @@
 		A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */; };
 		A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27732892A556005CDDA4 /* LessonListData.swift */; };
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
+		A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875069228A1476400FE3C52 /* CheckRegisterService.swift */; };
 		A87A835628900F5400130B8F /* NewBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A835528900F5400130B8F /* NewBandData.swift */; };
 		A88B49932890330F0029A2BF /* FameBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B49922890330F0029A2BF /* FameBandData.swift */; };
 		A89381B328940549002D55EF /* SessionRecruitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */; };
+		A89658C128A2421D00582A93 /* MessageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89658C028A2421D00582A93 /* MessageListTableViewCell.swift */; };
+		A89658C328A2443500582A93 /* MessageListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89658C228A2443500582A93 /* MessageListData.swift */; };
+		A89658C628A2835600582A93 /* MessageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89658C528A2835600582A93 /* MessageTableHeaderView.xib */; };
+		A89658C928A284AE00582A93 /* MessageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89658C828A284AE00582A93 /* MessageTableHeaderView.swift */; };
+		A89658CB28A2A5E800582A93 /* ChatInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89658CA28A2A5E800582A93 /* ChatInfoData.swift */; };
 		A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */; };
 		A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */; };
 		A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */; };
@@ -224,6 +232,8 @@
 		A809A7EE2872E88300B9E08D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A809A7F02872EAA400B9E08D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A80B79CF288A8F850061D516 /* PostUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUserService.swift; sourceTree = "<group>"; };
+		A80C5AE328A0CE3700ACB652 /* RecruitHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitHeaderView.xib; sourceTree = "<group>"; };
+		A80C5AE728A0D18200ACB652 /* RecruitHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitHeaderView.swift; sourceTree = "<group>"; };
 		A81351A42882A79400078C9E /* GetUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataService.swift; sourceTree = "<group>"; };
 		A81351A62882A8CD00078C9E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A81351AA2883B96100078C9E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -270,9 +280,15 @@
 		A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonListService.swift; sourceTree = "<group>"; };
 		A86D27732892A556005CDDA4 /* LessonListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListData.swift; sourceTree = "<group>"; };
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
+		A875069228A1476400FE3C52 /* CheckRegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckRegisterService.swift; sourceTree = "<group>"; };
 		A87A835528900F5400130B8F /* NewBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBandData.swift; sourceTree = "<group>"; };
 		A88B49922890330F0029A2BF /* FameBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameBandData.swift; sourceTree = "<group>"; };
 		A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitTableViewCell.swift; sourceTree = "<group>"; };
+		A89658C028A2421D00582A93 /* MessageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListTableViewCell.swift; sourceTree = "<group>"; };
+		A89658C228A2443500582A93 /* MessageListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListData.swift; sourceTree = "<group>"; };
+		A89658C528A2835600582A93 /* MessageTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableHeaderView.xib; sourceTree = "<group>"; };
+		A89658C828A284AE00582A93 /* MessageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableHeaderView.swift; sourceTree = "<group>"; };
+		A89658CA28A2A5E800582A93 /* ChatInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfoData.swift; sourceTree = "<group>"; };
 		A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabManViewController.swift; sourceTree = "<group>"; };
 		A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionMatch.storyboard; sourceTree = "<group>"; };
 		A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonMatch.storyboard; sourceTree = "<group>"; };
@@ -461,7 +477,7 @@
 				BC1ED49528803F3900A5B931 /* MypageTab */,
 				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				A809A7D42871537B00B9E08D /* NoticeTab.storyboard */,
-				A809A7D82871538D00B9E08D /* MessageTab.storyboard */,
+				A89658C428A2830E00582A93 /* MessageTab */,
 			);
 			path = TabStoryBoard;
 			sourceTree = "<group>";
@@ -470,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				A81351A62882A8CD00078C9E /* NetworkResult.swift */,
+				A875069228A1476400FE3C52 /* CheckRegisterService.swift */,
 				A81351A42882A79400078C9E /* GetUserDataService.swift */,
 				A80B79CF288A8F850061D516 /* PostUserService.swift */,
 				A858BC73288F04EA00B87E30 /* GetFollowService.swift */,
@@ -529,7 +546,7 @@
 			children = (
 				A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */,
 				A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */,
-				A85736102874C68C00E2F0AB /* MessageTabViewController.swift */,
+				A89658C728A2849000582A93 /* Message */,
 				A8BD5CAD288BE8CB009E7A1B /* Home */,
 				A857361D287C43E100E2F0AB /* Mypage */,
 				BC636133287DB45F00DFA6D2 /* PorfolViewController */,
@@ -550,6 +567,24 @@
 				A81351AC2884150100078C9E /* MypageTab */,
 			);
 			path = Mypage;
+			sourceTree = "<group>";
+		};
+		A89658C428A2830E00582A93 /* MessageTab */ = {
+			isa = PBXGroup;
+			children = (
+				A809A7D82871538D00B9E08D /* MessageTab.storyboard */,
+				A89658C528A2835600582A93 /* MessageTableHeaderView.xib */,
+			);
+			name = MessageTab;
+			sourceTree = "<group>";
+		};
+		A89658C728A2849000582A93 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				A85736102874C68C00E2F0AB /* MessageTabViewController.swift */,
+				A89658C828A284AE00582A93 /* MessageTableHeaderView.swift */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		A8BD5CAD288BE8CB009E7A1B /* Home */ = {
@@ -591,6 +626,7 @@
 				A854A81F289C028600FDEB4D /* HomeSearch.storyboard */,
 				A854A815289BC29D00FDEB4D /* InAppAlarm.storyboard */,
 				BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */,
+				A80C5AE328A0CE3700ACB652 /* RecruitHeaderView.xib */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -632,6 +668,7 @@
 				BC0728CF2892FC37007EA95D /* BandIntroViewController.swift */,
 				BC0728D12892FC8E007EA95D /* RecruitViewController.swift */,
 				BC0728D32892FC9D007EA95D /* BandAlbumViewController.swift */,
+				A80C5AE728A0D18200ACB652 /* RecruitHeaderView.swift */,
 			);
 			path = BandRecruitTab;
 			sourceTree = "<group>";
@@ -748,6 +785,7 @@
 				A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */,
 				A8BE7D86289E606A00280EB6 /* SearchBarCell.swift */,
 				A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */,
+				A89658C028A2421D00582A93 /* MessageListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -776,6 +814,8 @@
 				A854A81B289BECD000FDEB4D /* InAppAlarmData.swift */,
 				A854A81D289BF17300FDEB4D /* NewAlarmData.swift */,
 				A8ED885E289D51FC00A071E5 /* SearchUserData.swift */,
+				A89658C228A2443500582A93 /* MessageListData.swift */,
+				A89658CA28A2A5E800582A93 /* ChatInfoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -895,6 +935,7 @@
 				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
+				A80C5AE428A0CE3700ACB652 /* RecruitHeaderView.xib in Resources */,
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
 				BC2E99162886CCDB0034CBD9 /* FollowingTable.storyboard in Resources */,
 				BC0728BD28901CB0007EA95D /* CreateLesson.storyboard in Resources */,
@@ -914,6 +955,7 @@
 				A809A7D52871537B00B9E08D /* NoticeTab.storyboard in Resources */,
 				A8573616287534EA00E2F0AB /* Pretendard-ExtraBold.otf in Resources */,
 				BC1ED499288041B300A5B931 /* MyPofolTable.storyboard in Resources */,
+				A89658C628A2835600582A93 /* MessageTableHeaderView.xib in Resources */,
 				A854A812289AAF8E00FDEB4D /* AcceptAlert.storyboard in Resources */,
 				BCA6646C287306F500136D1B /* Register.storyboard in Resources */,
 				A857361B287534F700E2F0AB /* Pretendard-SemiBold.otf in Resources */,
@@ -1048,19 +1090,24 @@
 				A81351B42886742900078C9E /* OtherTabmanViewController.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
 				BC0728D02892FC37007EA95D /* BandIntroViewController.swift in Sources */,
+				A89658C328A2443500582A93 /* MessageListData.swift in Sources */,
 				A8545D96288156DD003E076A /* PorfolCollectionViewCell.swift in Sources */,
 				BC1ED49D2880672300A5B931 /* MyPofolTableViewCell.swift in Sources */,
 				BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
+				A80C5AE828A0D18200ACB652 /* RecruitHeaderView.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
+				A89658CB28A2A5E800582A93 /* ChatInfoData.swift in Sources */,
 				BCD3C2302882FBB600562FB4 /* CommentTableViewCell.swift in Sources */,
+				A89658C128A2421D00582A93 /* MessageListTableViewCell.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
 				A8685585289F705F00192DEE /* SearchViewController.swift in Sources */,
 				A80B79D0288A8F850061D516 /* PostUserService.swift in Sources */,
 				A8573623287C442B00E2F0AB /* LessonViewController.swift in Sources */,
 				BCD3C2322882FE3B00562FB4 /* CommentData.swift in Sources */,
 				BC0ADB732893A6F60028F57C /* Extension.swift in Sources */,
+				A89658C928A284AE00582A93 /* MessageTableHeaderView.swift in Sources */,
 				A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */,
 				BC0728BF28902AF9007EA95D /* CreateLessonViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
@@ -1095,6 +1142,7 @@
 				BC0ADB7D289642390028F57C /* SessionMemberTableViewCell.swift in Sources */,
 				A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */,
 				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
+				A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
