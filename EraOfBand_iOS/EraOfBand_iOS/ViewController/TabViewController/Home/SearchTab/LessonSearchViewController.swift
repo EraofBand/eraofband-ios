@@ -69,9 +69,19 @@ extension LessonSearchViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let lessonVC = self.storyboard?.instantiateViewController(withIdentifier: "LessonRecruit") as! LessonRecruitViewController
-        lessonVC.lessonIdx = lessonResult[indexPath.item].lessonIdx
         
-        navigationController?.pushViewController(lessonVC, animated: true)
+        let lessonIdx = lessonResult[indexPath.item].lessonIdx
+        
+        GetLessonInfoService.getLessonInfo(lessonIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                lessonVC.lessonInfo = response.result
+                lessonVC.lessonIdx = lessonIdx
+
+                self.navigationController?.pushViewController(lessonVC, animated: true)
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
