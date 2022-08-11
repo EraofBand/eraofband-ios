@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -69,6 +70,14 @@
                                                     <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whz-Sl-Anp">
+                                                    <rect key="frame" x="53" y="70.5" width="12" height="12"/>
+                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="whz-Sl-Anp" secondAttribute="height" multiplier="1:1" id="1px-sf-LNb"/>
+                                                        <constraint firstAttribute="width" constant="12" id="au6-eP-Nsi"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YM7-GC-N6J" firstAttribute="leading" secondItem="6Ox-4b-hZS" secondAttribute="leadingMargin" id="2UT-EK-nBH"/>
@@ -79,11 +88,14 @@
                                                 <constraint firstItem="FIb-Yi-ic5" firstAttribute="leading" secondItem="YM7-GC-N6J" secondAttribute="trailing" constant="15" id="Wzb-Dq-bdT"/>
                                                 <constraint firstItem="Wcg-Zs-cLZ" firstAttribute="top" secondItem="FIb-Yi-ic5" secondAttribute="top" id="abT-Iu-O15"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Wcg-Zs-cLZ" secondAttribute="trailing" constant="15" id="dTZ-sn-UAX"/>
+                                                <constraint firstItem="whz-Sl-Anp" firstAttribute="trailing" secondItem="YM7-GC-N6J" secondAttribute="trailing" id="f3f-fC-CNO"/>
+                                                <constraint firstItem="whz-Sl-Anp" firstAttribute="bottom" secondItem="YM7-GC-N6J" secondAttribute="bottom" id="s2T-6T-hA7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="RecentMessageLabel" destination="89z-OW-E5d" id="qhr-5Y-4so"/>
+                                            <outlet property="checkView" destination="whz-Sl-Anp" id="hhz-CO-6S0"/>
                                             <outlet property="nickNameLabel" destination="FIb-Yi-ic5" id="o6e-yn-A0k"/>
                                             <outlet property="updateAtLabel" destination="Wcg-Zs-cLZ" id="QNs-Gb-Bl3"/>
                                             <outlet property="userImageView" destination="YM7-GC-N6J" id="voi-zq-o39"/>
@@ -114,4 +126,9 @@
             <point key="canvasLocation" x="44.927536231884062" y="79.6875"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -11,7 +11,7 @@ struct chatInfo: Codable {
     
     var message: String
     var readUser: Bool
-    var timestamp: Int
+    var timeStamp: Int
     var userIdx: Int
     
 }
