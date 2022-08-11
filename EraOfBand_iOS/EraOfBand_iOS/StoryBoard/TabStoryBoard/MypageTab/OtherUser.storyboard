@@ -182,7 +182,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키보드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrQ-Kn-6Z9" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="284" y="37.5" width="55" height="22"/>
+                                                        <rect key="frame" x="284" y="39.5" width="39" height="18"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
                                                         <color key="textColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -237,6 +237,9 @@
                                                 <color key="tintColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="메세지"/>
+                                                <connections>
+                                                    <action selector="messageBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0vo-dX-eFF"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6IP-fP-QOV">
                                                 <rect key="frame" x="0.0" y="392" width="414" height="65"/>
@@ -303,7 +306,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AWB-Cr-HwF" secondAttribute="trailing" id="1ML-Qf-gUB"/>
                             <constraint firstItem="AWB-Cr-HwF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Qdk-ty-0X3"/>
@@ -327,7 +330,7 @@
                         <outlet property="containerViewHeight" destination="vnG-Ax-GeD" id="bm9-0O-l4a"/>
                         <outlet property="followButton" destination="Ppr-NW-Uhj" id="gq1-mb-pia"/>
                         <outlet property="infoView" destination="pL6-Hu-m3a" id="ZEz-JO-PQS"/>
-                        <outlet property="messageButton" destination="WcS-CH-Lb6" id="Ocr-tg-Hpv"/>
+                        <outlet property="messageButton" destination="WcS-CH-Lb6" id="7t6-mn-ppB"/>
                         <outlet property="topView" destination="6IP-fP-QOV" id="blH-lK-uGR"/>
                         <outlet property="userFollowerButton" destination="S9h-1p-a5h" id="ebx-9o-TNf"/>
                         <outlet property="userFollowingButton" destination="7NO-jL-VH9" id="65P-18-vLk"/>
@@ -560,7 +563,7 @@
     </scenes>
     <designables>
         <designable name="xrQ-Kn-6Z9">
-            <size key="intrinsicContentSize" width="55" height="22"/>
+            <size key="intrinsicContentSize" width="39" height="18"/>
         </designable>
     </designables>
     <resources>

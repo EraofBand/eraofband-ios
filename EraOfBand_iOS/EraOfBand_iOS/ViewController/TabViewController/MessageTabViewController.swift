@@ -19,6 +19,8 @@ class MessageTabViewController: UIViewController {
     var searchListData: [messageListInfo] = [] // 검색창에 검색해 나온 채팅방 정보만 저장될 변수
     var lastChatData: [String : chatInfo] = [:]
     
+    var chatRoomIdx: Int?
+    
     /* firebase에서 채팅 정보 가져오는 함수 */
     func getChatInfo(_ chatIdx: String, completion: @escaping (chatInfo) -> Void) {
         
@@ -100,6 +102,7 @@ class MessageTabViewController: UIViewController {
                     self.lastChatData[chatIdx] = chatList // 채팅방 번호와 채팅방 내 대화 정보를 dictionary형태로 저장
                     
                     self.messageListTableView.reloadData() // 정보 가져온 후 tableView reload
+
                 }
             }
         }
