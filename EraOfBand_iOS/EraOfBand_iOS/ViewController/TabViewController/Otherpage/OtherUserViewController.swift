@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 class OtherUserViewController: UIViewController {
 
@@ -28,13 +29,63 @@ class OtherUserViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
     
+    var chatRoomIdx: String = "none"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
 
     var userData: OtherUser?
-
+    
+    var chatListData: [messageListInfo] = [] //내 채팅 리스트
+    let chatReference = Database.database().reference()
+    
+    /* 서버에서 채팅방 정보 리스트 가져오는 함수 */
+    func getMessageList(completion: @escaping () -> Void) {
+        
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        let url = appDelegate.baseUrl + "/chat/chat-room"
+        
+        AF.request(url,
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseDecodable(of: MessageListData.self){ response in
+            
+            switch response.result{
+            case .success(let messageInfoData):
+                print("message: \(messageInfoData)")
+                self.chatListData = messageInfoData.result
+                completion()
+                
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+        
+    }
+    
+    @IBAction func messageBtnTapped(_ sender: Any) {
+        
+        getMessageList {
+            for i in 0..<self.chatListData.count{
+                if(self.chatListData[i].nickName == self.userData?.getUser.nickName){
+                    print(self.chatListData[i].chatRoomIdx)
+                    self.chatRoomIdx = self.chatListData[i].chatRoomIdx
+                    break
+                }
+            }
+            
+            let messageVC = ChatViewController()
+            messageVC.title = self.userData?.getUser.nickName
+            messageVC.chatRoomIdx = self.chatRoomIdx
+            messageVC.otherUserIdx = self.userData?.getUser.userIdx
+            self.navigationController?.pushViewController(messageVC, animated: true)
+        }
+    }
+    
     
     @IBAction func followingBtnTapped(_ sender: Any) {
         
@@ -160,37 +211,6 @@ class OtherUserViewController: UIViewController {
         userImageView.setRounded()
     }
     
-    /*
-    func getUserData(){
-        let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
-            "Content-Type": "application/json"]
-        
-        AF.request(appDelegate.baseUrl + "/users/info/" + String(userIdx!),
-                   method: .get,
-                   encoding: JSONEncoding.default,
-                   headers: header
-        ).responseJSON{ response in
-            switch response.result{
-            case.success(let obj):
-                do{
-                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(OtherUserDataModel.self, from: dataJSON)
-                    
-                    print(getData)
-                    
-                    self.userData = getData
-                    
-                    self.setUserInfo()
-                }catch{
-                    print(error.localizedDescription)
-                }
-            default:
-                return
-            }
-        }
-    }
-    */
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -309,7 +309,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7NY-ab-Qib"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FcL-0F-h6g" firstAttribute="leading" secondItem="H4u-53-ASG" secondAttribute="leading" id="97Q-9T-XCO"/>
                             <constraint firstItem="7NY-ab-Qib" firstAttribute="trailing" secondItem="27e-bY-MnU" secondAttribute="trailing" constant="5" id="B4y-fu-mK0"/>

@@ -20,8 +20,6 @@ class FollowerTableViewController: UIViewController{
     
     func getFollowerList(){
         
-        print("userIdx: \(userIdx)")
-        
         GetFollowService.getFollowerList(userIdx!) { (isSuccess, getData) in
             if isSuccess {
                 self.followerUserList = (getData.result?.getfollower)!
@@ -69,6 +67,7 @@ extension FollowerTableViewController: UISearchBarDelegate{
                 }
             }
         }
+        
         self.tableView.reloadData()
     }
 }
@@ -93,32 +92,15 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
         
         
         if filteredData[indexPath.row].follow == 0{
-            
             cell.followBtn.setTitle("팔로우", for: .normal)
             cell.followBtn.backgroundColor = UIColor(named: "on_icon_color")
-            cell.followBtn.addAction(for: .touchUpInside){
-                self.doFollow(targetIdx: self.filteredData[indexPath.row].userIdx!, completion: {
-                    //cell.followBtn.titleLabel?.text = "팔로잉"
-                    print("현재 언팔 상태")
-                    cell.followBtn.setTitle("팔로잉", for: .normal)
-                    cell.followBtn.backgroundColor = UIColor(named: "unfollow_btn_color")
-                    self.filteredData[indexPath.row].follow = 1
-                })
-            }
         }else{
-            
             cell.followBtn.setTitle("팔로잉", for: .normal)
             cell.followBtn.backgroundColor = UIColor(named: "unfollow_btn_color")
-            cell.followBtn.addAction(for: .touchUpInside){
-                self.doUnFollow(targetIdx: self.filteredData[indexPath.row].userIdx!, completion: {
-                    //cell.followBtn.titleLabel?.text = "팔로우"
-                    print("현재 팔로 상태")
-                    cell.followBtn.setTitle("팔로우", for: .normal)
-                    cell.followBtn.backgroundColor = UIColor(named: "on_icon_color")
-                    self.filteredData[indexPath.row].follow = 0
-                })
-            }
         }
+        
+        cell.followBtn.tag = indexPath.row
+        cell.followBtn.addTarget(self, action: #selector(followBtnTapped(sender:)), for: .touchUpInside)
     
         cell.profileBtn.tag = filteredData[indexPath.row].userIdx ?? 0
         cell.profileBtn.addTarget(self, action: #selector(otherUserTapped(sender:)), for: .touchUpInside)
@@ -142,7 +124,19 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func doUnFollow(targetIdx: Int, completion: @escaping() -> Void){
+    /*팔로우 버튼 눌렀을 때 실행*/
+    @objc func followBtnTapped(sender: UIButton){
+        var targetIndexPath = sender.tag
+        
+        //팔로우 여부에 따라 팔로우/언팔로우 함수 호출
+        if(filteredData[targetIndexPath].follow == 0){
+            doFollow(targetIdx: filteredData[targetIndexPath].userIdx ?? 0, targetIndexPath: targetIndexPath)
+        }else{
+            doUnFollow(targetIdx: filteredData[targetIndexPath].userIdx ?? 0, targetIndexPath: targetIndexPath)
+        }
+    }
+    
+    func doUnFollow(targetIdx: Int, targetIndexPath: Int){
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
@@ -154,14 +148,20 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
         ).responseJSON{ response in
             switch response.result{
             case.success:
-                completion()
+                self.filteredData[targetIndexPath].follow = 0
+                for i in 0..<self.followerUserList.count{
+                    if(self.filteredData[targetIndexPath].userIdx == self.followerUserList[i].userIdx){
+                        self.followerUserList[i].follow = 0
+                    }
+                }
+                self.tableView.reloadData()
             default:
                 return
             }
         }
     }
     
-    func doFollow(targetIdx: Int, completion: @escaping() -> Void){
+    func doFollow(targetIdx: Int, targetIndexPath: Int){
         
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
@@ -174,7 +174,13 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
         ).responseJSON{ response in
             switch response.result{
             case.success:
-                completion()
+                self.filteredData[targetIndexPath].follow = 1
+                for i in 0..<self.followerUserList.count{
+                    if(self.filteredData[targetIndexPath].userIdx == self.followerUserList[i].userIdx){
+                        self.followerUserList[i].follow = 1
+                    }
+                }
+                self.tableView.reloadData()
             default:
                 return
             }
@@ -185,10 +191,5 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
     }
-}
-
-extension UIControl {
-    func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping()->()) {
-        addAction(UIAction { (action: UIAction) in closure() }, for: controlEvents)
-    }
+    
 }
