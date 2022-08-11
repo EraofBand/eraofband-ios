@@ -14,7 +14,12 @@ class SessionViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
+    let sessionImage: [UIImage] = [UIImage(named: "ic_session_vocal")!,
+                                   UIImage(named: "ic_session_guitar")!,
+                                   UIImage(named: "ic_session_base")!,
+                                   UIImage(named: "ic_session_keyboard")!,
+                                   UIImage(named: "ic_session_drum")!]
+    var sessionData: [String] = ["보컬", "기타", "베이스", "키보드", "드럼"]
     var session: Int = 0
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -78,7 +83,8 @@ extension SessionViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         cell.backgroundColor = .clear
         cell.sessionName = sessionData[indexPath.item]
-        cell.sessionImageView.image = UIImage(named: "ic_session_off")
+        cell.choiceImageView.image = UIImage(named: "ic_session_off")
+        cell.sessionImageView.image = sessionImage[indexPath.item]
         
         if indexPath.item == session {
             cell.isSelected = true
