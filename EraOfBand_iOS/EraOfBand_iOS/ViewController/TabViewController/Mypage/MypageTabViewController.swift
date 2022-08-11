@@ -29,6 +29,7 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var followerButton: UIButton!
     @IBOutlet weak var porfolLabel: UILabel!
     @IBOutlet weak var sessionLabel: UILabel!
+    @IBOutlet weak var sessionImageView: UIImageView!
     
     
     var userRegion: String = ""
@@ -36,7 +37,12 @@ class MypageTabViewController: UIViewController {
     var userGender: String = ""
     var userPofolCount: Int = 0
     var session: Int = 0
-    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
+    var sessionData: [String] = ["보컬", "기타", "베이스", "키보드", "드럼"]
+    let sessionImage: [UIImage] = [UIImage(named: "ic_session_vocal")!,
+                                   UIImage(named: "ic_session_guitar")!,
+                                   UIImage(named: "ic_session_base")!,
+                                   UIImage(named: "ic_session_keyboard")!,
+                                   UIImage(named: "ic_session_drum")!]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -155,6 +161,7 @@ class MypageTabViewController: UIViewController {
                     
                     session = data.userSession
                     sessionLabel.text = sessionData[session]
+                    sessionImageView.image = sessionImage[session]
                     
                     containerView.updateHeight(containerViewHeight, data.pofolCount, bandCount ?? 0, lessonCount ?? 0)
                     
