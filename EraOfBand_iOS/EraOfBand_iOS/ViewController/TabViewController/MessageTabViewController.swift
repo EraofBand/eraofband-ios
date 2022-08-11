@@ -18,6 +18,8 @@ class MessageTabViewController: UIViewController {
     var chatListData: [messageListInfo] = []
     var lastChatData: [Int : chatInfo] = [:]
     
+    var chatRoomIdx: Int?
+    
     /* firebase에서 채팅 정보 가져오는 함수 */
     func getChatInfo(_ chatIdx: String, completion: @escaping (chatInfo) -> Void) {
         
@@ -76,7 +78,7 @@ class MessageTabViewController: UIViewController {
             for listData in chatListData { // 채팅방 정보로 반복문 실행
                 let chatIdx = listData.chatRoomIdx
                 getChatInfo(String(chatIdx)) { chatList in
-                    self.lastChatData[chatIdx] = chatList // 채팅방 번호와 채팅방 내 대화 정보를 dictionary형태로 저장
+                    //self.lastChatData[chatIdx] = chatList // 채팅방 번호와 채팅방 내 대화 정보를 dictionary형태로 저장
                 }
             }
             
@@ -109,7 +111,7 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.nickNameLabel.text = chatListData[indexPath.item].nickName
-        cell.RecentMessageLabel.text = lastChatData[chatIdx]?.message // 채팅방 Idx를 key로 가진 value값의 message값을 cell 라벨의 text값으로 지정
+        //cell.RecentMessageLabel.text = lastChatData[chatIdx]?.message // 채팅방 Idx를 key로 가진 value값의 message값을 cell 라벨의 text값으로 지정
         
         cell.selectionStyle = .none
         

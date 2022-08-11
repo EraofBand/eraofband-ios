@@ -18,7 +18,7 @@ struct MessageListData: Codable {
 
 struct messageListInfo: Codable {
     
-    var chatRoomIdx: Int
+    var chatRoomIdx: String
     var nickName: String
     var profileImgUrl: String
     
