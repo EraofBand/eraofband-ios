@@ -9,8 +9,9 @@ import UIKit
 
 class SessionChangeCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var sessionImageView: UIImageView!
+    @IBOutlet weak var choiceImageView: UIImageView!
     @IBOutlet weak var sessionLabel: UILabel!
+    @IBOutlet weak var sessionImageView: UIImageView!
     
     var sessionName: String? {
         didSet {
@@ -21,9 +22,9 @@ class SessionChangeCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
       didSet {
         if isSelected {
-            sessionImageView.image = UIImage(named: "ic_session_on")
+            choiceImageView.image = UIImage(named: "ic_session_on")
         } else {
-            sessionImageView.image = UIImage(named: "ic_session_off")
+            choiceImageView.image = UIImage(named: "ic_session_off")
         }
       }
     }
