@@ -585,6 +585,7 @@
 		A89658C728A2849000582A93 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				BC8A62AB28A14BCC003DF75C /* ChatViewController.swift */,
 				A85736102874C68C00E2F0AB /* MessageTabViewController.swift */,
 				A89658C828A284AE00582A93 /* MessageTableHeaderView.swift */,
 			);
@@ -729,7 +730,6 @@
 		BC4B5BFE287199550072A5FF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BC8A62AA28A14B78003DF75C /* ChatViewController */,
 				A809A7B8286F283400B9E08D /* AppDelegate.swift */,
 				A809A7BA286F283400B9E08D /* SceneDelegate.swift */,
 				BC4B5BFF287199770072A5FF /* OnboardingViewController.swift */,
@@ -832,14 +832,6 @@
 				BCD3C22D2882FAC100562FB4 /* PorfolCommentViewController.swift */,
 			);
 			path = PorfolViewController;
-			sourceTree = "<group>";
-		};
-		BC8A62AA28A14B78003DF75C /* ChatViewController */ = {
-			isa = PBXGroup;
-			children = (
-				BC8A62AB28A14BCC003DF75C /* ChatViewController.swift */,
-			);
-			path = ChatViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

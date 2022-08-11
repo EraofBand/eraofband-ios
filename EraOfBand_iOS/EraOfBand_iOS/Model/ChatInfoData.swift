@@ -10,8 +10,8 @@ import Foundation
 struct chatInfo: Codable {
     
     var message: String
-    var readUser: [Int : Bool]
-    var timestamp: Int
+    var readUser: Bool
+    var timeStamp: Int
     var userIdx: Int
     
 }
