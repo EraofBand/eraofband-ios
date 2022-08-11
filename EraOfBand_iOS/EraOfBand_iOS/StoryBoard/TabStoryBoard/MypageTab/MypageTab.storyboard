@@ -223,14 +223,15 @@
                                                             <action selector="changeSession:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="e5G-mK-yNT"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_guitar" translatesAutoresizingMaskIntoConstraints="NO" id="XHz-Xk-SPs">
-                                                        <rect key="frame" x="23" y="11" width="38.5" height="42.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_session_keyboard" translatesAutoresizingMaskIntoConstraints="NO" id="XHz-Xk-SPs">
+                                                        <rect key="frame" x="23" y="16" width="29" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="XHz-Xk-SPs" secondAttribute="height" multiplier="29:32" id="HfE-ei-g55"/>
+                                                            <constraint firstAttribute="width" constant="29" id="zpU-NN-jFW"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세션" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhX-gM-H9b">
-                                                        <rect key="frame" x="73.5" y="23" width="26" height="18"/>
+                                                        <rect key="frame" x="64" y="23" width="26" height="18"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -335,6 +336,7 @@
                         <outlet property="nickNameLabel" destination="IrH-ov-6hZ" id="Gp1-cc-XpQ"/>
                         <outlet property="porfolLabel" destination="8MU-0O-Jqd" id="sze-7j-CBg"/>
                         <outlet property="scrollView" destination="FcL-0F-h6g" id="sga-3n-9v4"/>
+                        <outlet property="sessionImageView" destination="XHz-Xk-SPs" id="eJH-bj-9Cr"/>
                         <outlet property="sessionLabel" destination="XhX-gM-H9b" id="SiV-NT-B8p"/>
                         <outlet property="sessionView" destination="oFK-w8-6Xf" id="cun-1D-mxp"/>
                         <outlet property="tabConerView" destination="3RF-gf-HwR" id="VSP-ep-e2G"/>
@@ -413,18 +415,28 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VGY-fH-m88">
+                                                    <rect key="frame" x="18.5" y="7.5" width="67" height="68"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="VGY-fH-m88" secondAttribute="height" multiplier="67:68" id="YAM-DI-A20"/>
+                                                        <constraint firstAttribute="width" constant="67" id="Zpi-e0-kDN"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tld-vG-8yw" firstAttribute="top" secondItem="Qnt-VL-KeZ" secondAttribute="top" id="1wd-4y-Mx6"/>
                                                 <constraint firstItem="tld-vG-8yw" firstAttribute="centerX" secondItem="Qnt-VL-KeZ" secondAttribute="centerX" id="21r-5a-Xk8"/>
                                                 <constraint firstItem="rUN-om-Klj" firstAttribute="top" secondItem="tld-vG-8yw" secondAttribute="bottom" constant="10" id="C6Q-ZR-iMn"/>
                                                 <constraint firstItem="tld-vG-8yw" firstAttribute="width" secondItem="Qnt-VL-KeZ" secondAttribute="width" multiplier="0.8" id="HBR-d7-dJD"/>
+                                                <constraint firstItem="VGY-fH-m88" firstAttribute="centerY" secondItem="tld-vG-8yw" secondAttribute="centerY" id="TJf-Tv-gVs"/>
+                                                <constraint firstItem="VGY-fH-m88" firstAttribute="centerX" secondItem="tld-vG-8yw" secondAttribute="centerX" id="iwR-Lk-o9x"/>
                                                 <constraint firstItem="rUN-om-Klj" firstAttribute="centerX" secondItem="Qnt-VL-KeZ" secondAttribute="centerX" id="lWa-pR-cXX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="104" height="142"/>
                                         <connections>
-                                            <outlet property="sessionImageView" destination="tld-vG-8yw" id="24l-oG-phy"/>
+                                            <outlet property="choiceImageView" destination="tld-vG-8yw" id="KNr-Ch-c4y"/>
+                                            <outlet property="sessionImageView" destination="VGY-fH-m88" id="Th3-xn-V1l"/>
                                             <outlet property="sessionLabel" destination="rUN-om-Klj" id="0xV-s8-PjZ"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1388,11 +1400,11 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="ic_alarm" width="170.5" height="183"/>
         <image name="ic_floating" width="84" height="84"/>
-        <image name="ic_guitar" width="38.5" height="42.5"/>
         <image name="ic_logout" width="170.5" height="170.5"/>
         <image name="ic_mail" width="170.5" height="160"/>
         <image name="ic_notice" width="170.5" height="160"/>
         <image name="ic_secession" width="170.5" height="170.5"/>
+        <image name="ic_session_keyboard" width="170.5" height="170.5"/>
         <image name="ic_version" width="170.5" height="170.5"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="accent_color">
