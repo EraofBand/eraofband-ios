@@ -24,6 +24,7 @@ class LessonApplyAlertViewController: UIViewController{
     @IBOutlet weak var doneButton: UIButton!
     
     var isMember: Bool = false
+    var isFull: Bool = false
     var lessonIdx: Int?
     
     weak var delegate:SendDataDelegate?
@@ -36,6 +37,13 @@ class LessonApplyAlertViewController: UIViewController{
         refuseButton.layer.cornerRadius = 15
         acceptButton.layer.cornerRadius = 15
         doneButton.layer.cornerRadius = 15
+        
+        if(isFull){
+            decisionView.isHidden = true
+            doneView.isHidden = false
+            doneTopLabel.text = "모집 마감"
+            doneBottomLabel.text = "이미 모집이 마감되었습니다!"
+        }
         
         if(isMember){
             decisionView.isHidden = true
