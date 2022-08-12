@@ -59,7 +59,6 @@ class MessageTabViewController: UIViewController {
             case .success(let messageInfoData):
                 print("message: \(messageInfoData)")
                 self.chatListData = messageInfoData.result
-                self.searchListData = messageInfoData.result
                 completion()
                 
             case .failure(let err):
@@ -94,15 +93,15 @@ class MessageTabViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         getMessageList { [self] in
-            
-            for listData in searchListData { // 채팅방 정보로 반복문 실행
+            searchListData = []
+            for listData in chatListData { // 채팅방 정보로 반복문 실행
                 let chatIdx = listData.chatRoomIdx
-                getChatInfo(String(chatIdx)) { chatList in
-                    self.lastChatData[chatIdx] = chatList // 채팅방 번호와 채팅방 내 대화 정보를 dictionary형태로 저장
-                    
-                    self.messageListTableView.reloadData() // 정보 가져온 후 tableView reload
-
+                getChatInfo(String(chatIdx)) { [self] chatList in
+                    lastChatData[chatIdx] = chatList // 채팅방 번호와 채팅방 내 대화 정보를 dictionary형태로 저장
+                    searchListData.append(listData)
+                    messageListTableView.reloadData() // 정보 가져온 후 tableView reload
                 }
             }
         }
@@ -155,7 +154,10 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
 }
