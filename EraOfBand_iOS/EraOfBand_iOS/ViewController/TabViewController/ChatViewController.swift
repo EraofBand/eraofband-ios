@@ -30,6 +30,7 @@ class ChatViewController: MessagesViewController{
     
     var chatRoomIdx: String = "none"
     var otherUserIdx: Int?
+    var otherUserName: String?
     var chatList: [chatInfo]?
     
     var currentUser = Sender(senderId: "current", displayName: "Jaem")
@@ -93,10 +94,11 @@ class ChatViewController: MessagesViewController{
     }
     
     @objc func menuBtnTapped(){
-        print("test")
+        //print("test")
     }
     
     func setLayout(){
+        
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.topItem?.title = ""
@@ -127,21 +129,22 @@ class ChatViewController: MessagesViewController{
         messageInputBar.backgroundView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
 
         self.navigationController?.navigationBar.height = 100
+        
+        self.title = self.otherUserName
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        otherUser = Sender(senderId: "other", displayName: self.title ?? "")
+        otherUser = Sender(senderId: "other", displayName: self.otherUserName ?? "")
         
         setLayout()
         
         if(chatRoomIdx != "none"){
+            /*
             getChatInfo(chatRoomIdx){ [self]result in
                 self.chatList = result
                 //print(self.chatList)
-                
-                
-                
+                messages = []
                 for i in 0..<self.chatList!.count{
                     if(self.chatList![i].userIdx == self.appDelegate.userIdx){
                         messages.append(Message(sender: currentUser,
@@ -157,7 +160,8 @@ class ChatViewController: MessagesViewController{
                 }
                 
                 self.messagesCollectionView.reloadData()
-            }
+            }*/
+            loadChat()
         }else{
             
         }
@@ -172,11 +176,28 @@ class ChatViewController: MessagesViewController{
         self.view.layer.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1).cgColor
     }
     
-    /*
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        //messageInputBar.inputTextView.becomeFirstResponder() //채팅방 들어가자마자 키보드 올라오게
-    }*/
+    func loadChat(){
+        getChatInfo(chatRoomIdx){ [self]result in
+            self.chatList = result
+            //print(self.chatList)
+            messages = []
+            for i in 0..<self.chatList!.count{
+                if(self.chatList![i].userIdx == self.appDelegate.userIdx){
+                    messages.append(Message(sender: currentUser,
+                                            messageId: String(i),
+                                            sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
+                                            kind: .text(self.chatList![i].message)))
+                }else{
+                    messages.append(Message(sender: otherUser,
+                                            messageId: String(i),
+                                            sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
+                                            kind: .text(self.chatList![i].message)))
+                }
+            }
+            
+            self.messagesCollectionView.reloadData()
+        }
+    }
 
 }
 
@@ -189,6 +210,28 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
             //채팅방이 없을 때
             makeChat(completion: {
                 self.sendMessage(text: text, chatIdx: "0")
+                /*
+                self.getChatInfo(self.chatRoomIdx){ [self]result in
+                    self.chatList = result
+                    //print(self.chatList)
+                    messages = []
+                    for i in 0..<self.chatList!.count{
+                        if(self.chatList![i].userIdx == self.appDelegate.userIdx){
+                            messages.append(Message(sender: currentUser,
+                                                    messageId: String(i),
+                                                    sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
+                                                    kind: .text(self.chatList![i].message)))
+                        }else{
+                            messages.append(Message(sender: otherUser,
+                                                    messageId: String(i),
+                                                    sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
+                                                    kind: .text(self.chatList![i].message)))
+                        }
+                    }
+                    
+                    self.messagesCollectionView.reloadData()
+                }*/
+                self.loadChat()
             })
         }else{
             self.sendMessage(text: text, chatIdx: String(self.chatList!.count))
