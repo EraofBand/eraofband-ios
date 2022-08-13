@@ -113,6 +113,8 @@ class MessageTabViewController: UIViewController {
         messageListTableView.delegate = self
         messageListTableView.dataSource = self
         messageListTableView.register(UINib(nibName: "MessageTableHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MessageTableHeaderView") // 검색창을 tableView의 headerView로 지정
+        
+        messageListTableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -200,11 +202,11 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 80
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
