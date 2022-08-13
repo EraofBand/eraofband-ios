@@ -15,3 +15,10 @@ struct chatInfo: Codable {
     var userIdx: Int
     
 }
+
+struct userIdxInfo: Codable {
+    
+    var firstUserIdx: Int
+    var secondUserIdx: Int
+    
+}
