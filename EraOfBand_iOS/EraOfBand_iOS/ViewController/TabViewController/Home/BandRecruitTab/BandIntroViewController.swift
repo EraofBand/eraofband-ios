@@ -43,6 +43,29 @@ class BandIntroViewController: UIViewController{
         chatLinkContainerLabel.layer.cornerRadius = 15
     }
     
+    //리더 프로필로 이동
+    func moveToLeaderProfile(){
+        guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+        
+        GetOtherUserDataService.getOtherUserInfo(bandInfo?.userIdx ?? 0){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = bandInfo?.userIdx
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+            
+        }
+    }
+    
+    @IBAction func leaderProfileImgTapped(_ sender: Any) {
+        //리더 프사 탭
+        moveToLeaderProfile()
+    }
+    @IBAction func leaderNicknameTapped(_ sender: Any) {
+        //리더 닉네임 탭
+        moveToLeaderProfile()
+    }
     @IBAction func chatLinkBtnTapped(_ sender: Any) {
         var url = bandInfo?.chatRoomLink
         

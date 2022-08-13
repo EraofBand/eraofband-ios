@@ -263,21 +263,45 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5O8-uF-A7J">
+                                                        <rect key="frame" x="20" y="53" width="47" height="46"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="leaderProfileImgTapped:" destination="lnU-SZ-58E" eventType="touchUpInside" id="NqZ-DT-Zx1"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyF-zH-qOi">
+                                                        <rect key="frame" x="83" y="55" width="78" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="leaderNicknameTapped:" destination="lnU-SZ-58E" eventType="touchUpInside" id="2Ze-G2-Jfh"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
+                                                    <constraint firstItem="DyF-zH-qOi" firstAttribute="leading" secondItem="7hD-gO-fSC" secondAttribute="leading" id="28L-0w-3Fq"/>
+                                                    <constraint firstItem="5O8-uF-A7J" firstAttribute="top" secondItem="VRF-Oi-oso" secondAttribute="top" id="59w-h1-tRT"/>
                                                     <constraint firstItem="VRF-Oi-oso" firstAttribute="top" secondItem="jST-J6-cwj" secondAttribute="bottom" constant="10" id="5aJ-xb-Bvj"/>
                                                     <constraint firstItem="AfM-IP-g5G" firstAttribute="leading" secondItem="kyL-ZG-uJN" secondAttribute="leading" constant="55" id="BHl-QX-kEA"/>
+                                                    <constraint firstItem="5O8-uF-A7J" firstAttribute="leading" secondItem="VRF-Oi-oso" secondAttribute="leading" id="ODW-rF-TVe"/>
+                                                    <constraint firstItem="DyF-zH-qOi" firstAttribute="width" secondItem="7hD-gO-fSC" secondAttribute="width" multiplier="1.13869" id="OYM-WM-VaM"/>
                                                     <constraint firstItem="jST-J6-cwj" firstAttribute="top" secondItem="kyL-ZG-uJN" secondAttribute="top" constant="21" id="Sry-fH-MKC"/>
                                                     <constraint firstAttribute="trailing" secondItem="Z3e-az-1J3" secondAttribute="trailing" constant="20" id="TbF-ji-qIl"/>
                                                     <constraint firstAttribute="height" constant="130" id="ZKj-EB-BKA"/>
                                                     <constraint firstItem="AfM-IP-g5G" firstAttribute="top" secondItem="kyL-ZG-uJN" secondAttribute="top" constant="92" id="auk-2Q-xgr"/>
+                                                    <constraint firstItem="5O8-uF-A7J" firstAttribute="height" secondItem="VRF-Oi-oso" secondAttribute="height" multiplier="0.84" id="gTK-5d-M0v"/>
                                                     <constraint firstItem="Z3e-az-1J3" firstAttribute="leading" secondItem="7hD-gO-fSC" secondAttribute="leading" id="hlZ-V6-MoD"/>
                                                     <constraint firstItem="Z3e-az-1J3" firstAttribute="top" secondItem="7hD-gO-fSC" secondAttribute="bottom" constant="7" id="hqP-l5-DxR"/>
+                                                    <constraint firstItem="DyF-zH-qOi" firstAttribute="top" secondItem="7hD-gO-fSC" secondAttribute="top" id="jTR-NZ-Vq1"/>
                                                     <constraint firstItem="7hD-gO-fSC" firstAttribute="top" secondItem="jST-J6-cwj" secondAttribute="bottom" constant="19" id="kjc-X5-jxB"/>
                                                     <constraint firstItem="7hD-gO-fSC" firstAttribute="leading" secondItem="VRF-Oi-oso" secondAttribute="trailing" constant="17" id="l12-W0-0S4"/>
                                                     <constraint firstItem="VRF-Oi-oso" firstAttribute="leading" secondItem="kyL-ZG-uJN" secondAttribute="leading" constant="20" id="lGP-vY-1qy"/>
+                                                    <constraint firstItem="5O8-uF-A7J" firstAttribute="width" secondItem="VRF-Oi-oso" secondAttribute="width" multiplier="0.86" id="ndL-lw-5xp"/>
                                                     <constraint firstItem="jST-J6-cwj" firstAttribute="leading" secondItem="kyL-ZG-uJN" secondAttribute="leading" constant="20" id="t65-62-iLI"/>
+                                                    <constraint firstItem="DyF-zH-qOi" firstAttribute="height" secondItem="7hD-gO-fSC" secondAttribute="height" multiplier="1.72222" id="tON-lk-dgv"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvI-s6-Gsj" userLabel="Border">
@@ -577,7 +601,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7I-xw-5HO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-319" y="50"/>
+            <point key="canvasLocation" x="-320.28985507246381" y="49.553571428571423"/>
         </scene>
         <!--CreateLesson-->
         <scene sceneID="5Dk-9O-pmd">

@@ -311,6 +311,22 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cH6-9K-eog">
+                                                        <rect key="frame" x="20" y="52.5" width="46" height="45"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="leaderProfileImgTapped:" destination="q52-k6-LWi" eventType="touchUpInside" id="g7H-PA-G0R"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DD1-98-FEl">
+                                                        <rect key="frame" x="87" y="61.5" width="69" height="14"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="leaderNicknameTapped:" destination="q52-k6-LWi" eventType="touchUpInside" id="gs8-j0-jAV"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -318,14 +334,22 @@
                                                     <constraint firstAttribute="trailing" secondItem="nlW-y3-dm6" secondAttribute="trailing" constant="20" id="4iJ-w4-rkB"/>
                                                     <constraint firstItem="mya-Io-QH7" firstAttribute="leading" secondItem="3f6-8V-5cn" secondAttribute="leading" constant="55" id="6c5-tf-mOO"/>
                                                     <constraint firstItem="Fny-Q9-Uou" firstAttribute="top" secondItem="JwR-u3-uGs" secondAttribute="bottom" constant="10" id="7UI-b5-UxF"/>
+                                                    <constraint firstItem="cH6-9K-eog" firstAttribute="top" secondItem="Fny-Q9-Uou" secondAttribute="top" id="A8b-UA-V1N"/>
                                                     <constraint firstItem="Fny-Q9-Uou" firstAttribute="leading" secondItem="3f6-8V-5cn" secondAttribute="leading" constant="20" id="KMc-tg-32m"/>
                                                     <constraint firstItem="JwR-u3-uGs" firstAttribute="leading" secondItem="3f6-8V-5cn" secondAttribute="leading" constant="20" id="KwT-Ip-9wK"/>
                                                     <constraint firstItem="UWD-eA-Oav" firstAttribute="top" secondItem="JwR-u3-uGs" secondAttribute="bottom" constant="19" id="M01-vN-8qB"/>
+                                                    <constraint firstItem="DD1-98-FEl" firstAttribute="top" secondItem="UWD-eA-Oav" secondAttribute="top" id="QJB-rn-WrO"/>
                                                     <constraint firstItem="UWD-eA-Oav" firstAttribute="leading" secondItem="Fny-Q9-Uou" secondAttribute="trailing" constant="17" id="SdE-Fa-6pc"/>
                                                     <constraint firstItem="JwR-u3-uGs" firstAttribute="top" secondItem="3f6-8V-5cn" secondAttribute="top" constant="21" id="Wsw-Um-whB"/>
+                                                    <constraint firstItem="cH6-9K-eog" firstAttribute="width" secondItem="Fny-Q9-Uou" secondAttribute="width" multiplier="0.92" id="Wux-Yh-N4A"/>
+                                                    <constraint firstItem="DD1-98-FEl" firstAttribute="width" secondItem="UWD-eA-Oav" secondAttribute="width" multiplier="1.0073" id="dhX-Zw-seq"/>
+                                                    <constraint firstItem="cH6-9K-eog" firstAttribute="height" secondItem="Fny-Q9-Uou" secondAttribute="height" multiplier="0.9" id="eeA-fy-x8Q"/>
                                                     <constraint firstItem="nlW-y3-dm6" firstAttribute="top" secondItem="UWD-eA-Oav" secondAttribute="bottom" constant="7" id="hKS-td-msa"/>
+                                                    <constraint firstItem="cH6-9K-eog" firstAttribute="leading" secondItem="Fny-Q9-Uou" secondAttribute="leading" id="lMW-Br-L1z"/>
                                                     <constraint firstAttribute="height" constant="130" id="nvv-Qn-OEf"/>
                                                     <constraint firstItem="mya-Io-QH7" firstAttribute="top" secondItem="3f6-8V-5cn" secondAttribute="top" constant="92" id="qmV-R5-KW0"/>
+                                                    <constraint firstItem="DD1-98-FEl" firstAttribute="height" secondItem="UWD-eA-Oav" secondAttribute="height" multiplier="0.777778" id="rHb-Rx-7Uh"/>
+                                                    <constraint firstItem="DD1-98-FEl" firstAttribute="leading" secondItem="UWD-eA-Oav" secondAttribute="leading" id="ydb-P6-dBO"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6g-wW-lzd" userLabel="Border">
@@ -830,7 +854,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpQ-U0-bDD" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                                    <rect key="frame" x="67" y="16" width="41" height="20"/>
+                                                                    <rect key="frame" x="67" y="16" width="21" height="14.5"/>
                                                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                                     <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="0.69803921570000005" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -850,19 +874,19 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wl3-xQ-xUX">
-                                                                    <rect key="frame" x="123" y="16.5" width="42" height="19"/>
+                                                                    <rect key="frame" x="103" y="13.5" width="41.5" height="19.5"/>
                                                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 줄 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBG-9Z-4HN">
-                                                                    <rect key="frame" x="67" y="39.5" width="229" height="16.5"/>
+                                                                    <rect key="frame" x="67" y="37" width="229" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                                                     <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ 분 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-pw-B8m">
-                                                                    <rect key="frame" x="67" y="58" width="31" height="13"/>
+                                                                    <rect key="frame" x="67" y="56" width="29.5" height="13.5"/>
                                                                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="11"/>
                                                                     <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -946,7 +970,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집 중" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHu-l7-yZI" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="25" y="27" width="54.5" height="20"/>
+                                                            <rect key="frame" x="25" y="27" width="34.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -966,7 +990,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보컬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OO7-b1-tcA" customClass="LabelPadding" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="90.5" y="27" width="41" height="20"/>
+                                                            <rect key="frame" x="70.5" y="27" width="21" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                             <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -986,13 +1010,13 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이틀 적어주쇼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLh-Kl-kSZ">
-                                                            <rect key="frame" x="25" y="61" width="101.5" height="19"/>
+                                                            <rect key="frame" x="25" y="55.5" width="101" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집인원 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz3-ji-Xnq">
-                                                            <rect key="frame" x="25" y="114" width="52" height="14"/>
+                                                            <rect key="frame" x="25" y="109.5" width="52" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                             <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1031,7 +1055,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한줄 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvv-7m-rmn">
-                                                            <rect key="frame" x="25" y="86" width="45" height="14"/>
+                                                            <rect key="frame" x="25" y="81" width="44.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                             <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1179,13 +1203,13 @@
     </scenes>
     <designables>
         <designable name="DpQ-U0-bDD">
-            <size key="intrinsicContentSize" width="41" height="20"/>
+            <size key="intrinsicContentSize" width="21" height="14.5"/>
         </designable>
         <designable name="OO7-b1-tcA">
-            <size key="intrinsicContentSize" width="41" height="20"/>
+            <size key="intrinsicContentSize" width="21" height="14.5"/>
         </designable>
         <designable name="PHu-l7-yZI">
-            <size key="intrinsicContentSize" width="54.5" height="20"/>
+            <size key="intrinsicContentSize" width="34.5" height="14.5"/>
         </designable>
     </designables>
     <resources>
