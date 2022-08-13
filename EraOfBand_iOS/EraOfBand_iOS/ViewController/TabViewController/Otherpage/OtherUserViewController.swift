@@ -80,8 +80,9 @@ class OtherUserViewController: UIViewController {
             
             let messageVC = ChatViewController()
             messageVC.chatRoomIdx = self.chatRoomIdx
-            messageVC.otherUserIdx = self.userData?.getUser.userIdx
-            messageVC.otherUserName = self.userData?.getUser.nickName
+            messageVC.otherUserInfo = self.userData?.getUser
+            //messageVC.otherUserIdx = self.userData?.getUser.userIdx
+            //messageVC.otherUserName = self.userData?.getUser.nickName
             self.navigationController?.pushViewController(messageVC, animated: true)
         }
     }
