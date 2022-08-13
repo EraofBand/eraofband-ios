@@ -25,7 +25,7 @@ struct Message: MessageType{
 
 
 
-class ChatViewController: MessagesViewController{
+class ChatViewController: MessagesViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var chatRoomIdx: String = "none"
@@ -103,7 +103,7 @@ class ChatViewController: MessagesViewController{
         statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         view.addSubview(statusBarView)
         
-        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+        self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.topItem?.title = ""
         //self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_more"), style: .plain, target: self, action: #selector(menuBtnTapped))
