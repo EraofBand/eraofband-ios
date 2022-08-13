@@ -47,6 +47,9 @@ class LessonRecruitViewController: UIViewController{
         if(lessonMemberArr.contains(appDelegate.userIdx!)){
             alert?.isMember = true
         }
+        if(lessonInfo?.capacity ?? 0 <= lessonInfo?.memberCount ?? 0){
+            alert?.isFull = true
+        }
         alert?.lessonIdx = self.lessonIdx
         alert?.modalPresentationStyle = .overFullScreen
         
@@ -96,6 +99,26 @@ class LessonRecruitViewController: UIViewController{
                 return
             }
         }
+    }
+    
+    func moveToLeaderProfile(){
+        guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+        
+        GetOtherUserDataService.getOtherUserInfo(lessonInfo?.userIdx ?? 0){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = lessonInfo?.userIdx
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+            
+        }
+    }
+    @IBAction func leaderProfileImgTapped(_ sender: Any) {
+        moveToLeaderProfile()
+    }
+    @IBAction func leaderNicknameTapped(_ sender: Any) {
+        moveToLeaderProfile()
     }
     
     /*우측 상단 메뉴 버튼 눌렀을 때*/
