@@ -35,7 +35,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         let tab3 = UIStoryboard(name: "HomeTab", bundle: nil).instantiateViewController(withIdentifier: "HomeNC")
         
-        let tab4 = UIStoryboard(name: "MessageTab", bundle: nil).instantiateViewController(withIdentifier: "MessageTabViewController")
+        let tab4 = UIStoryboard(name: "MessageTab", bundle: nil).instantiateViewController(withIdentifier: "MessageNC")
         tab4.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "ic_message_off"), selectedImage: UIImage(named: "ic_message_on"))
         tab4.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
