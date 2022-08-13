@@ -29,8 +29,9 @@ class ChatViewController: MessagesViewController{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var chatRoomIdx: String = "none"
-    var otherUserIdx: Int?
-    var otherUserName: String?
+    //var otherUserIdx: Int?
+    //var otherUserName: String?
+    var otherUserInfo: GetOtherUser?
     var chatList: [chatInfo]?
     
     var currentUser = Sender(senderId: "current", displayName: "Jaem")
@@ -51,7 +52,7 @@ class ChatViewController: MessagesViewController{
                    parameters: [
                     "chatRoomIdx": uuidStr,
                     "firstUserIdx": appDelegate.userIdx!,
-                    "secondUserIdx": otherUserIdx!
+                    "secondUserIdx": otherUserInfo?.userIdx
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -98,6 +99,9 @@ class ChatViewController: MessagesViewController{
     }
     
     func setLayout(){
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+        view.addSubview(statusBarView)
         
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
@@ -111,56 +115,44 @@ class ChatViewController: MessagesViewController{
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             layout.setMessageOutgoingAvatarSize(.zero)
             layout.setMessageIncomingAvatarSize(.init(width: 40, height: 40))
+            layout.setMessageIncomingMessagePadding(UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
+            layout.setMessageIncomingAvatarPosition(AvatarPosition(vertical: .messageLabelTop))
+            
+            layout.setMessageIncomingAccessoryViewPadding(HorizontalEdgeInsets(left: 10, right: 0))
+            layout.setMessageOutgoingAccessoryViewPadding(HorizontalEdgeInsets(left: 0, right: 35))
         }
         
         messagesCollectionView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         messageInputBar.inputTextView.placeholder = "메세지를 입력해주세요."
         messageInputBar.sendButton.title = "보내기"
-
+        
         messageInputBar.contentView.backgroundColor = .white
-        messageInputBar.contentView.layer.cornerRadius = 15
+        messageInputBar.contentView.layer.cornerRadius = 20
         messageInputBar.separatorLine.isHidden = true
         messageInputBar.inputTextView.font = UIFont(name:"Pretendard-Medium",size:12)!
         
-        messageInputBar.inputTextView.textContainerInset.bottom = 10
-        messageInputBar.inputTextView.textContainerInset.top = 10
-         
-        messageInputBar.inputTextView.textContainerInset = .init(top: 10, left: 20, bottom: 0, right: 20)
+        
+        messageInputBar.padding.top = 5
+        messageInputBar.padding.bottom = 5
+        // or MiddleContentView padding
+        messageInputBar.middleContentViewPadding.top = 5
+        messageInputBar.middleContentViewPadding.bottom = 5
+        
+        messageInputBar.inputTextView.textContainerInset = .init(top: 7, left: 20, bottom: 3, right: 20)
         messageInputBar.backgroundView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
 
         self.navigationController?.navigationBar.height = 100
         
-        self.title = self.otherUserName
+        self.title = self.otherUserInfo?.nickName
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        otherUser = Sender(senderId: "other", displayName: self.otherUserName ?? "")
+        otherUser = Sender(senderId: "other", displayName: self.otherUserInfo?.nickName ?? "")
         
         setLayout()
         
         if(chatRoomIdx != "none"){
-            /*
-            getChatInfo(chatRoomIdx){ [self]result in
-                self.chatList = result
-                //print(self.chatList)
-                messages = []
-                for i in 0..<self.chatList!.count{
-                    if(self.chatList![i].userIdx == self.appDelegate.userIdx){
-                        messages.append(Message(sender: currentUser,
-                                                messageId: String(i),
-                                                sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
-                                                kind: .text(self.chatList![i].message)))
-                    }else{
-                        messages.append(Message(sender: otherUser,
-                                                messageId: String(i),
-                                                sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
-                                                kind: .text(self.chatList![i].message)))
-                    }
-                }
-                
-                self.messagesCollectionView.reloadData()
-            }*/
             loadChat()
         }else{
             
@@ -196,6 +188,7 @@ class ChatViewController: MessagesViewController{
             }
             
             self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToLastItem()
         }
     }
 
@@ -210,27 +203,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
             //채팅방이 없을 때
             makeChat(completion: {
                 self.sendMessage(text: text, chatIdx: "0")
-                /*
-                self.getChatInfo(self.chatRoomIdx){ [self]result in
-                    self.chatList = result
-                    //print(self.chatList)
-                    messages = []
-                    for i in 0..<self.chatList!.count{
-                        if(self.chatList![i].userIdx == self.appDelegate.userIdx){
-                            messages.append(Message(sender: currentUser,
-                                                    messageId: String(i),
-                                                    sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
-                                                    kind: .text(self.chatList![i].message)))
-                        }else{
-                            messages.append(Message(sender: otherUser,
-                                                    messageId: String(i),
-                                                    sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
-                                                    kind: .text(self.chatList![i].message)))
-                        }
-                    }
-                    
-                    self.messagesCollectionView.reloadData()
-                }*/
                 self.loadChat()
             })
         }else{
@@ -246,7 +218,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
         self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(chatIdx).child("timeStamp").setValue(currentTimeStamp)
         self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(chatIdx).child("userIdx").setValue(self.appDelegate.userIdx)
         self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstUserIdx").setValue(self.appDelegate.userIdx)
-        self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondUserIdx").setValue(self.otherUserIdx)
+        self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondUserIdx").setValue(self.otherUserInfo?.userIdx)
         
         messages = []
         
@@ -300,7 +272,7 @@ extension ChatViewController: MessagesDisplayDelegate {
     }
     
     func messageTopLabelAlignment(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LabelAlignment? {
-        return LabelAlignment(textAlignment: .left, textInsets: .init(top: 0, left: 45, bottom: 0, right: 0))
+        return LabelAlignment(textAlignment: .left, textInsets: .init(top: 0, left: 50, bottom: 10, right: 0))
     }
     
     // 말풍선의 꼬리 모양 방향
@@ -311,8 +283,36 @@ extension ChatViewController: MessagesDisplayDelegate {
     
     // 내 프로필 사진 숨기기
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        if !isFromCurrentSender(message: message){
+            if(self.otherUserInfo?.profileImgUrl.prefix(13) == "https://eraof"){
+                avatarView.load(url: URL(string: self.otherUserInfo?.profileImgUrl ?? "")!)
+            }
+        }
+    }
+    
+    func configureAccessoryView(_ accessoryView: UIView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        
+        accessoryView.height = 15
+        accessoryView.width = 100
+        let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 15))
+        
+        /*
+        if( Date().toString().prefix(10) == message.sentDate.toString().prefix(10) ){
+            accessoryLabel.text = message.sentDate.toString().substring(from: 11, to: 15)
+        }else{
+            
+        }*/
+        accessoryLabel.text = message.sentDate.toString().substring(from: 11, to: 15)
+        //accessoryLabel.text = message.sentDate.toString()
+        accessoryLabel.font = UIFont(name: "Pretendard-Medium", size: 10)
+        accessoryLabel.textColor = UIColor(red: 0.576, green: 0.576, blue: 0.576, alpha: 1)
+        
         if isFromCurrentSender(message: message){
-            avatarView.isHidden = true
+            accessoryView.contentMode = .left
+            accessoryView.addSubview(accessoryLabel)
+        }else{
+            accessoryView.contentMode = .right
+            accessoryView.addSubview(accessoryLabel)
         }
     }
 }
