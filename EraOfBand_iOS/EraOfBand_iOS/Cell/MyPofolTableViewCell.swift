@@ -19,6 +19,7 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var likeImg: UIImageView!
+    @IBOutlet weak var thumbNailView: UIView!
     @IBOutlet weak var thumbNailImg: UIImageView!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var menuBtn: PofolMenuButton!

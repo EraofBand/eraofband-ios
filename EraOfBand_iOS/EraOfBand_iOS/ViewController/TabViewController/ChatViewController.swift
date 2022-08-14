@@ -21,6 +21,7 @@ struct Message: MessageType{
     var messageId: String
     var sentDate: Date
     var kind: MessageKind
+    var readUser: Bool
 }
 
 
@@ -103,11 +104,9 @@ class ChatViewController: MessagesViewController {
         statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         view.addSubview(statusBarView)
         
-        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.topItem?.title = ""
-        //self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_more"), style: .plain, target: self, action: #selector(menuBtnTapped))
-        //self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "메뉴", style: .plain, target: self, action: #selector(menuBtnTapped))
         
         let rightBtn = UIBarButtonItem(image: UIImage(named: "ic_more"), style: .plain, target: self, action: #selector(menuBtnTapped))
         self.navigationItem.rightBarButtonItem = rightBtn
@@ -178,12 +177,18 @@ class ChatViewController: MessagesViewController {
                     messages.append(Message(sender: currentUser,
                                             messageId: String(i),
                                             sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
-                                            kind: .text(self.chatList![i].message)))
+                                            kind: .text(self.chatList![i].message),
+                                            readUser: chatList![i].readUser
+                                           ))
                 }else{
                     messages.append(Message(sender: otherUser,
                                             messageId: String(i),
                                             sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
-                                            kind: .text(self.chatList![i].message)))
+                                            kind: .text(self.chatList![i].message),
+                                            readUser: chatList![i].readUser
+                                           ))
+                    
+                    self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(String(i)).child("readUser").setValue(true)
                 }
             }
             
@@ -303,13 +308,21 @@ extension ChatViewController: MessagesDisplayDelegate {
             
         }*/
         accessoryLabel.text = message.sentDate.toString().substring(from: 11, to: 15)
-        //accessoryLabel.text = message.sentDate.toString()
         accessoryLabel.font = UIFont(name: "Pretendard-Medium", size: 10)
         accessoryLabel.textColor = UIColor(red: 0.576, green: 0.576, blue: 0.576, alpha: 1)
+        
+        let readIndicator = UIView(frame: CGRect(x: -10, y: 5, width: 6, height: 6))
+        readIndicator.layer.backgroundColor = UIColor(red: 0.094, green: 0.392, blue: 0.992, alpha: 1).cgColor
+        readIndicator.layer.cornerRadius = 3
         
         if isFromCurrentSender(message: message){
             accessoryView.contentMode = .left
             accessoryView.addSubview(accessoryLabel)
+
+            if(messages[indexPath.section].readUser == false){
+                accessoryView.addSubview(readIndicator)
+            }
+            
         }else{
             accessoryView.contentMode = .right
             accessoryView.addSubview(accessoryLabel)

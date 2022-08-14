@@ -183,6 +183,11 @@ class SessionMatchViewController: UIViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        viewDidLoad()
+    }
 
 }
 

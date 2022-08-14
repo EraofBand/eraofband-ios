@@ -227,8 +227,9 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
                 print("성공..")
                 let messageVC = ChatViewController()
                 messageVC.chatRoomIdx = chatRoomIdx
-                messageVC.otherUserIdx = otherUserIdx
-                messageVC.otherUserName = response.result.getUser.nickName
+                messageVC.otherUserInfo = response.result.getUser
+                //messageVC.otherUserIdx = otherUserIdx
+                //messageVC.otherUserName = response.result.getUser.nickName
                 messageVC.hidesBottomBarWhenPushed = true // 채팅방에서 bottomBar 안보이게 설정
                 self.navigationController?.pushViewController(messageVC, animated: true)
             }
