@@ -13,7 +13,7 @@ import AVFoundation
 
 class PofolTableViewController: UIViewController{
     
-    var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
+    var pofolList: [PofolResult] = [PofolResult(commentCount: 0, content: "", imgUrl: "", likeOrNot: "", nickName: "", pofolIdx: 0, pofolLikeCount: 0, profileImgUrl: "", title: "", updatedAt: "", userIdx: 0, videoUrl: "")]
     
     var thumbNailList: [String] = [""]
     

@@ -238,7 +238,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="AddPofolViewController" storyboardName="AddPofol" id="DY4-RW-jZZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AmJ-yb-AGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="166"/>
+            <point key="canvasLocation" x="1343" y="157"/>
         </scene>
         <!--CommentTable-->
         <scene sceneID="Owu-Aj-4xz">

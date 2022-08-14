@@ -129,6 +129,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="NnX-hj-GZL"/>
                                                 </constraints>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
