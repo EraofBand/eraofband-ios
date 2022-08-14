@@ -22,6 +22,7 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var thumbNailImg: UIImageView!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var menuBtn: PofolMenuButton!
+    @IBOutlet weak var shareBtn: UIButton!
     
     
     override class func awakeFromNib() {

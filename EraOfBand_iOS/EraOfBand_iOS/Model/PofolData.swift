@@ -18,6 +18,7 @@ struct PofolData: Codable
 struct PofolResult: Codable{
     var commentCount: Int?
     var content: String?
+    var imgUrl: String
     var likeOrNot: String?
     var nickName: String?
     var pofolIdx: Int?
