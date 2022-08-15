@@ -22,6 +22,24 @@ class MessageTabViewController: UIViewController {
     
     var chatRoomIdx: Int?
     
+    /* 네비게이션 바 커스텀 */
+    func setNavigationBar() {
+        
+        var leftBarButtons: [UIBarButtonItem] = []
+        
+        let mypageLabel = UILabel()
+        mypageLabel.text = "채팅"
+        mypageLabel.font = UIFont(name: "Pretendard-Medium", size: 25)
+        mypageLabel.textColor = .white
+        
+        let mypageBarButton = UIBarButtonItem(customView: mypageLabel)
+        
+        leftBarButtons.append(mypageBarButton)
+        
+        self.navigationItem.leftBarButtonItems = leftBarButtons
+        
+    }
+    
     /* firebase에서 채팅 정보 가져오는 함수 */
     func getChatInfo(_ chatIdx: String, completion: @escaping (chatInfo) -> Void) {
         
@@ -137,24 +155,6 @@ class MessageTabViewController: UIViewController {
             }
         }
     }
-    
-    func setNavigationBar() {
-        
-        var leftBarButtons: [UIBarButtonItem] = []
-        
-        let mypageLabel = UILabel()
-        mypageLabel.text = "채팅"
-        mypageLabel.font = UIFont(name: "Pretendard-Medium", size: 25)
-        mypageLabel.textColor = .white
-        
-        let mypageBarButton = UIBarButtonItem(customView: mypageLabel)
-        
-        leftBarButtons.append(mypageBarButton)
-        
-        self.navigationItem.leftBarButtonItems = leftBarButtons
-        
-    }
-
 }
 
 extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {

@@ -157,8 +157,6 @@ extension BandListViewController: UICollectionViewDelegate, UICollectionViewData
             sessionNum = 5
         }
         
-        print("selected index: \(sessionNum)")
-        
         getBandList()
         
     }
