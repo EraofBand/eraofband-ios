@@ -19,6 +19,7 @@ class CommunityTabViewController: UIViewController {
     var pofolList: [PofolResult] = []
     var thumbNailList: [String] = []
     var choice = 0
+    var loadCount = 0
     let choiceLabel = ["전체", "팔로우"]
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -63,7 +64,9 @@ class CommunityTabViewController: UIViewController {
     }
     
     @objc func editingAction(_ sender: UIButton) {
-        print("피드 생성")
+        let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofol") as! AddPofolViewController
+        
+        self.navigationController?.pushViewController(addPofolVC, animated: true)
     }
     
     override func viewDidLoad() {
@@ -99,9 +102,12 @@ extension CommunityTabViewController {
                    headers: header).responseDecodable(of: PofolData.self) { [self] response in
             switch response.result{
             case .success(let pofolData):
-                pofolList = []
-                pofolList = pofolData.result
-                print(pofolList)
+                pofolList += pofolData.result
+                for name in pofolList {
+                    print("\(name.userIdx!)", terminator: " ")
+                }
+                print("")
+                print("pofolCount : \(self.pofolList.count)")
                 completion()
             case .failure(let err):
                 print(err.errorDescription as Any)
@@ -123,9 +129,12 @@ extension CommunityTabViewController {
                    headers: header).responseDecodable(of: PofolData.self) { [self] response in
             switch response.result{
             case .success(let pofolData):
-                pofolList = []
-                pofolList = pofolData.result
-                print(pofolList)
+                pofolList += pofolData.result
+                for name in pofolList {
+                    print("\(name.userIdx!)", terminator: " ")
+                }
+                print("")
+                print("pofolCount : \(self.pofolList.count)")
                 completion()
             case .failure(let err):
                 print(err.errorDescription!)
@@ -160,21 +169,21 @@ extension CommunityTabViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+                
         choice = indexPath.item
+        pofolList = []
         
         if indexPath.item == 0 {
             getAllPofolList(0) {
                 self.feedTableView.reloadData()
+                self.feedTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
         } else {
             getFollowPofolList(0) {
                 self.feedTableView.reloadData()
+                self.feedTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
         }
-        
-        self.feedTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -238,9 +247,12 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         
         cell.menuBtn.pofolIdx = pofolList[indexPath.row].pofolIdx ?? 0
         cell.menuBtn.thumbIdx = indexPath.row
-        if(appDelegate.userIdx != pofolList[indexPath.item].userIdx){
+        
+        print("cell: \(pofolList[indexPath.item].userIdx!)")
+        if appDelegate.userIdx != pofolList[indexPath.item].userIdx {
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped), for: .touchUpInside)
-        } else {
+        }
+        if appDelegate.userIdx == pofolList[indexPath.item].userIdx {
             cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped), for: .touchUpInside)
         }
         
@@ -250,6 +262,26 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 520
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == pofolList.count {
+            if (loadCount % 2 != 0) || (loadCount == 0) {
+                print("가져와")
+                let pofolIdx = pofolList[indexPath.row].pofolIdx
+                if choice == 0 {
+                    getAllPofolList(pofolIdx!) {
+                        self.feedTableView.reloadData()
+                    }
+                } else {
+                    getFollowPofolList(pofolIdx!) {
+                        self.feedTableView.reloadData()
+                    }
+                }
+            }
+            loadCount += 1
+        }
+    }
+    
     /* 다른 유저의 포폴 더보기 버튼 */
     @objc func menuBtnTapped(sender: PofolMenuButton){
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
