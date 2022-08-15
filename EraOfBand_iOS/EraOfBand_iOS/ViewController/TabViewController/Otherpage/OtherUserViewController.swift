@@ -68,22 +68,36 @@ class OtherUserViewController: UIViewController {
     }
     
     @IBAction func messageBtnTapped(_ sender: Any) {
-        /*
-        getMessageList {
-            for i in 0..<self.chatListData.count{
-                if(self.chatListData[i].nickName == self.userData?.getUser.nickName){
-                    print(self.chatListData[i].chatRoomIdx)
-                    self.chatRoomIdx = self.chatListData[i].chatRoomIdx
-                    print(self.chatListData[i])
-                    /*채팅방이 비활성화 상태라면 다시 활성화*/
-                    if self.chatListData[i].status == 0{
-                        let header : HTTPHeaders = ["x-access-token": self.appDelegate.jwt,
-                                                    "Content-Type": "application/json"]
-                        
+        
+        let header : HTTPHeaders = ["x-access-token": self.appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        
+        
+        AF.request(self.appDelegate.baseUrl + "/chat/chat-room/exist",
+                   method: .patch,
+                   parameters: [
+                    "firstUserIdx": appDelegate.userIdx!,
+                    "secondUserIdx": userData?.getUser.userIdx
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header).responseDecodable(of: OneOnOneChatInfo.self){ response in
+            switch response.result{
+            case .success(let oneOneOneInfo):
+                print("데이터: \(oneOneOneInfo.result)")
+                let result = oneOneOneInfo.result
+                
+                if(result.chatRoomIdx == "null"){
+                    let messageVC = ChatViewController()
+                    messageVC.otherUserInfo = self.userData?.getUser
+                    self.navigationController?.pushViewController(messageVC, animated: true)
+                }
+                else{
+                    self.chatRoomIdx = result.chatRoomIdx
+                    if(result.status == 0){
                         AF.request(self.appDelegate.baseUrl + "/chat/status/active",
                                    method: .patch,
                                    parameters: [
-                                    "chatRoomIdx": self.chatListData[i].chatRoomIdx,
+                                    "chatRoomIdx": self.chatRoomIdx,
                                     "firstUserIdx": self.appDelegate.userIdx!,
                                     "secondUserIdx": self.userData?.getUser.userIdx
                                    ],
@@ -98,7 +112,6 @@ class OtherUserViewController: UIViewController {
                             case .failure(let err):
                                 print(err)
                             }
-                            
                         }
                     }else{
                         let messageVC = ChatViewController()
@@ -106,15 +119,13 @@ class OtherUserViewController: UIViewController {
                         messageVC.otherUserInfo = self.userData?.getUser
                         self.navigationController?.pushViewController(messageVC, animated: true)
                     }
-                    
-                    break
                 }
+            case .failure(let err):
+                print(err)
             }
             
-        }*/
-        let header : HTTPHeaders = ["x-access-token": self.appDelegate.jwt,
-                                    "Content-Type": "application/json"]
-        
+        }
+        /*
         AF.request(self.appDelegate.baseUrl + "/chat/chat-room/exist",
                    method: .patch,
                    parameters: [
@@ -122,45 +133,9 @@ class OtherUserViewController: UIViewController {
                     "secondUserIdx": userData?.getUser.userIdx
                    ],
                    encoding: JSONEncoding.default,
-                   headers: header).responseDecodable(of: OneOnOneChatInfo.self){ response in
-            
-            switch response.result{
-            case .success(let oneOneOneInfo):
-                //print("데이터: \(oneOneOneInfo.result)")
-                let result = oneOneOneInfo.result
-                self.chatRoomIdx = result.chatRoomIdx
-                if(result.status == 0){
-                    AF.request(self.appDelegate.baseUrl + "/chat/status/active",
-                               method: .patch,
-                               parameters: [
-                                "chatRoomIdx": self.chatRoomIdx,
-                                "firstUserIdx": self.appDelegate.userIdx!,
-                                "secondUserIdx": self.userData?.getUser.userIdx
-                               ],
-                               encoding: JSONEncoding.default,
-                               headers: header).responseJSON{ response in
-                        switch response.result{
-                        case .success:
-                            let messageVC = ChatViewController()
-                            messageVC.chatRoomIdx = self.chatRoomIdx
-                            messageVC.otherUserInfo = self.userData?.getUser
-                            self.navigationController?.pushViewController(messageVC, animated: true)
-                        case .failure(let err):
-                            print(err)
-                        }
-                    }
-                }else{
-                    let messageVC = ChatViewController()
-                    messageVC.chatRoomIdx = self.chatRoomIdx
-                    messageVC.otherUserInfo = self.userData?.getUser
-                    self.navigationController?.pushViewController(messageVC, animated: true)
-                }
-            case .failure(let err):
-                print(err)
-            }
-            
-        }
-        
+                   headers: header).responseJSON{ response in
+            print(response)
+        }*/
     }
     
     

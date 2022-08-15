@@ -219,16 +219,17 @@ class ChatViewController: MessagesViewController {
         
         setLayout()
         
-        /*내가 나간 시점의 인덱스 값 구하기*/
-        getChatUserInfo { [self] in
-            if(chatUserInfo!.firstUserIdx == self.appDelegate.userIdx){
-                self.myOutIdx = chatUserInfo!.firstOutIdx
-            }else{
-                self.myOutIdx = chatUserInfo!.secondOutIdx
-            }
-        }
         
         if(chatRoomIdx != "none"){
+            /*내가 나간 시점의 인덱스 값 구하기*/
+            getChatUserInfo { [self] in
+                if(chatUserInfo!.firstUserIdx == self.appDelegate.userIdx){
+                    self.myOutIdx = chatUserInfo!.firstOutIdx
+                }else{
+                    self.myOutIdx = chatUserInfo!.secondOutIdx
+                }
+            }
+            /*채팅 내역 불러오기*/
             loadChat()
         }else{
             
