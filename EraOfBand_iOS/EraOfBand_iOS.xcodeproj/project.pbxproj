@@ -169,6 +169,7 @@
 		BC2E991D2886CFF90034CBD9 /* FollowerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E991C2886CFF90034CBD9 /* FollowerTableViewController.swift */; };
 		BC2E991F2886F48C0034CBD9 /* FollowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E991E2886F48C0034CBD9 /* FollowData.swift */; };
 		BC2E99212886F72F0034CBD9 /* FollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E99202886F72F0034CBD9 /* FollowTableViewCell.swift */; };
+		BC3686D328AA1215000C7903 /* OneOnOneChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3686D228AA1215000C7903 /* OneOnOneChatInfo.swift */; };
 		BC439BF928730BD8006F5659 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BF828730BD8006F5659 /* RegisterViewController1.swift */; };
 		BC439BFB28733436006F5659 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFA28733436006F5659 /* RegisterViewController2.swift */; };
 		BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC439BFC2873437A006F5659 /* RegisterViewController3.swift */; };
@@ -343,6 +344,7 @@
 		BC2E991C2886CFF90034CBD9 /* FollowerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewController.swift; sourceTree = "<group>"; };
 		BC2E991E2886F48C0034CBD9 /* FollowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowData.swift; sourceTree = "<group>"; };
 		BC2E99202886F72F0034CBD9 /* FollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTableViewCell.swift; sourceTree = "<group>"; };
+		BC3686D228AA1215000C7903 /* OneOnOneChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOnOneChatInfo.swift; sourceTree = "<group>"; };
 		BC439BF828730BD8006F5659 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		BC439BFA28733436006F5659 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
 		BC439BFC2873437A006F5659 /* RegisterViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
@@ -821,6 +823,7 @@
 				A8ED885E289D51FC00A071E5 /* SearchUserData.swift */,
 				A89658C228A2443500582A93 /* MessageListData.swift */,
 				A89658CA28A2A5E800582A93 /* ChatInfoData.swift */,
+				BC3686D228AA1215000C7903 /* OneOnOneChatInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1152,6 +1155,7 @@
 				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
 				A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
+				BC3686D328AA1215000C7903 /* OneOnOneChatInfo.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

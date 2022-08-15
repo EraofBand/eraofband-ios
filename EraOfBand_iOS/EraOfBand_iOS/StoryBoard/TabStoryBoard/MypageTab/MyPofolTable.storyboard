@@ -201,6 +201,7 @@
                                             <outlet property="playBtn" destination="71y-qS-3zz" id="OzQ-Fu-krE"/>
                                             <outlet property="profileImgView" destination="bjP-sl-8gS" id="qJ2-pm-RNE"/>
                                             <outlet property="thumbNailImg" destination="RdU-O7-T9m" id="Cdl-q5-PIe"/>
+                                            <outlet property="thumbNailView" destination="DkO-fu-E4G" id="J9B-QX-Yto"/>
                                             <outlet property="titleLabel" destination="RO5-Pv-Bt9" id="w6Y-rY-1Iy"/>
                                         </connections>
                                     </tableViewCell>
