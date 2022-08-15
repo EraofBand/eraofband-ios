@@ -34,6 +34,8 @@ class ChatViewController: MessagesViewController {
     //var otherUserName: String?
     var otherUserInfo: GetOtherUser?
     var chatList: [chatInfo]?
+    var chatUserInfo: userIdxInfo?
+    var myOutIdx: Int = -1
     
     var currentUser = Sender(senderId: "current", displayName: "Jaem")
     var otherUser: SenderType = Sender(senderId: "other", displayName: "Harry")
@@ -76,10 +78,10 @@ class ChatViewController: MessagesViewController {
         chatReference.child("chat").child(chatIdx).child("comments").observe(.value) { snapshot in
             guard let chatData = snapshot.value as? [Any] else { return }
             
-            print(chatData)
+            //print(chatData)
             // 채팅방 정보 JSON형식으로 parsing
             let data = try! JSONSerialization.data(withJSONObject: chatData)
-            print(data)
+            //print(data)
             do {
                 // 채팅방 정보 Decoding
                 //print(data)
@@ -95,8 +97,74 @@ class ChatViewController: MessagesViewController {
         
     }
     
+    func getChatUserInfo(completion: @escaping (()->Void)){
+        //print("함수 실행")
+        chatReference.child("chat").child(chatRoomIdx).child("users").observe(.value) { snapshot in
+            //print("테스트:")
+            guard let chatUserData = snapshot.value else { return }
+            print(chatUserData)
+            // 채팅방 정보 JSON형식으로 parsing
+            let data = try! JSONSerialization.data(withJSONObject: chatUserData)
+            print(data)
+            do {
+                // 채팅방 정보 Decoding
+                //print(data)
+                let decoder = JSONDecoder()
+                self.chatUserInfo = try decoder.decode(userIdxInfo.self, from: data)
+                completion()
+            } catch let error {
+                print("\(error.localizedDescription)")
+            }
+            
+        }
+    }
+    
+    /*우측 상단 메뉴 버튼 클릭시*/
     @objc func menuBtnTapped(){
-        //print("test")
+        let optionMenu = UIAlertController(title: nil, message: "채팅방", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "채팅방 나가기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+            self.deleteChat()
+                })
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+              })
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    /*채팅방 나가기*/
+    func deleteChat(){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/chat/status/" + self.chatRoomIdx,
+                   method: .patch,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ [self] response in
+            switch(response.result){
+            case.success :
+                if(self.chatUserInfo?.firstUserIdx == self.appDelegate.userIdx){
+                    self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstOutIdx").setValue(self.chatList!.count - 1)
+                }else{
+                    self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondOutIdx").setValue(self.chatList!.count - 1)
+                }
+                
+                self.navigationController?.popViewController(animated: true)
+            
+            default:
+                return
+            }
+            
+        }
+        
+        
     }
     
     func setLayout(){
@@ -151,12 +219,20 @@ class ChatViewController: MessagesViewController {
         
         setLayout()
         
+        /*내가 나간 시점의 인덱스 값 구하기*/
+        getChatUserInfo { [self] in
+            if(chatUserInfo!.firstUserIdx == self.appDelegate.userIdx){
+                self.myOutIdx = chatUserInfo!.firstOutIdx
+            }else{
+                self.myOutIdx = chatUserInfo!.secondOutIdx
+            }
+        }
+        
         if(chatRoomIdx != "none"){
             loadChat()
         }else{
             
         }
-        
 
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -172,7 +248,7 @@ class ChatViewController: MessagesViewController {
             self.chatList = result
             //print(self.chatList)
             messages = []
-            for i in 0..<self.chatList!.count{
+            for i in (myOutIdx + 1)..<self.chatList!.count{
                 if(self.chatList![i].userIdx == self.appDelegate.userIdx){
                     messages.append(Message(sender: currentUser,
                                             messageId: String(i),
@@ -202,11 +278,14 @@ class ChatViewController: MessagesViewController {
 extension ChatViewController: InputBarAccessoryViewDelegate{
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        print("test")
         //채팅 보내기
         if(chatRoomIdx == "none"){
             //채팅방이 없을 때
             makeChat(completion: {
+                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstUserIdx").setValue(self.appDelegate.userIdx)
+                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondUserIdx").setValue(self.otherUserInfo?.userIdx)
+                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstOutIdx").setValue(-1)
+                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondOutIdx").setValue(-1)
                 self.sendMessage(text: text, chatIdx: "0")
                 self.loadChat()
             })
@@ -222,8 +301,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
         let currentTimeStamp = Date().millisecondsSince1970
         self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(chatIdx).child("timeStamp").setValue(currentTimeStamp)
         self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(chatIdx).child("userIdx").setValue(self.appDelegate.userIdx)
-        self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstUserIdx").setValue(self.appDelegate.userIdx)
-        self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondUserIdx").setValue(self.otherUserInfo?.userIdx)
         
         messages = []
         
