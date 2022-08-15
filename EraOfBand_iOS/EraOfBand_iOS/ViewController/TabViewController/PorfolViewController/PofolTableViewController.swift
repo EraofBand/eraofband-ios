@@ -121,6 +121,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.thumbNailImg.kf.setImage(with: URL(string: (thumbNailList[indexPath.row])))
         
+        cell.thumbNailView.layer.cornerRadius = 10
         cell.thumbNailImg.layer.cornerRadius = 10
         
         cell.playBtn.tag = indexPath.row

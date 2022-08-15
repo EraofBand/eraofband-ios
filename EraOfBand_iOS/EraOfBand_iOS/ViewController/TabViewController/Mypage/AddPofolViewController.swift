@@ -186,7 +186,7 @@ extension AddPofolViewController: MediaPickerDelegate{
     func getThumbnailImage(forUrl url: URL) -> UIImage? {
         let asset: AVAsset = AVAsset(url: url)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
-
+        //imageGenerator.maximumSize = CGSize(width: 600, height: 600)
         do {
             let thumbnailImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 1, timescale: 60), actualTime: nil)
             return UIImage(cgImage: thumbnailImage)

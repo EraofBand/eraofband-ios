@@ -13,12 +13,14 @@ struct chatInfo: Codable {
     var readUser: Bool
     var timeStamp: Int
     var userIdx: Int
-    
 }
 
 struct userIdxInfo: Codable {
     
+    var firstOutIdx: Int
     var firstUserIdx: Int
+    var secondOutIdx: Int
     var secondUserIdx: Int
     
 }
+

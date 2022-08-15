@@ -21,5 +21,6 @@ struct messageListInfo: Codable {
     var chatRoomIdx: String
     var nickName: String
     var profileImgUrl: String
+    var status: Int
     
 }
