@@ -16,10 +16,10 @@
             </objects>
             <point key="canvasLocation" x="-580" y="517"/>
         </scene>
-        <!--NoticeTab-->
+        <!--BoardTab-->
         <scene sceneID="i8P-9s-0Fe">
             <objects>
-                <viewControllerPlaceholder storyboardName="NoticeTab" id="GmL-fV-mNq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="BoardTab" id="GmL-fV-mNq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="notice" id="og3-1R-hJc"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jnr-lp-fQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

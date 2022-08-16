@@ -29,7 +29,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         tab1.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "ic_community_off"), selectedImage: UIImage(named: "ic_community_on"))
         tab1.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
-        let tab2 = UIStoryboard(name: "NoticeTab", bundle: nil).instantiateViewController(withIdentifier: "NoticeTabViewController")
+        let tab2 = UIStoryboard(name: "BoardTab", bundle: nil).instantiateViewController(withIdentifier: "BoardNC")
         tab2.tabBarItem = UITabBarItem(title: "게시판", image: UIImage(named: "ic_notice_off"), selectedImage: UIImage(named: "ic_notice_on"))
         tab2.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
