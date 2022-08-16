@@ -63,7 +63,13 @@
 		A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351B72886761200078C9E /* OtherBandViewController.swift */; };
 		A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351B92887EDCD00078C9E /* LabelPadding.swift */; };
 		A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81351BB28884C6300078C9E /* ImgUrlModel.swift */; };
+		A81C647828AB96E200FBAD05 /* BoardInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C647728AB96E200FBAD05 /* BoardInfoData.swift */; };
+		A81C647B28ABCB6700FBAD05 /* BoardImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C647928ABCB6700FBAD05 /* BoardImageCollectionViewCell.swift */; };
+		A81C647C28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81C647A28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib */; };
+		A81C647E28ABD49300FBAD05 /* BoardImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C647D28ABD49300FBAD05 /* BoardImageModel.swift */; };
+		A81C648128ABD76100FBAD05 /* BoardImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C648028ABD76100FBAD05 /* BoardImageDataSource.swift */; };
 		A83E4CF92897B54D00806D92 /* ApplicantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E4CF82897B54D00806D92 /* ApplicantsTableViewCell.swift */; };
+		A84C831F28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C831E28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift */; };
 		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
 		A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */; };
 		A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8545D93288154D5003E076A /* PortfolioViewController.swift */; };
@@ -117,6 +123,11 @@
 		A89658C628A2835600582A93 /* MessageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89658C528A2835600582A93 /* MessageTableHeaderView.xib */; };
 		A89658C928A284AE00582A93 /* MessageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89658C828A284AE00582A93 /* MessageTableHeaderView.swift */; };
 		A89658CB28A2A5E800582A93 /* ChatInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89658CA28A2A5E800582A93 /* ChatInfoData.swift */; };
+		A8BCDCC128AB80F50009BD0B /* DetailNotice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCDCC028AB80F50009BD0B /* DetailNotice.storyboard */; };
+		A8BCDCC428AB81390009BD0B /* DetailNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCDCC328AB81390009BD0B /* DetailNoticeViewController.swift */; };
+		A8BCDCC628AB83D50009BD0B /* BoardDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BCDCC528AB83D50009BD0B /* BoardDetailTableViewCell.xib */; };
+		A8BCDCC828AB8A910009BD0B /* BoardDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCDCC728AB8A910009BD0B /* BoardDetailTableViewCell.swift */; };
+		A8BCDCCA28AB91410009BD0B /* BoardCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCDCC928AB91410009BD0B /* BoardCommentTableViewCell.swift */; };
 		A8BD5CAF288BE914009E7A1B /* HomeTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */; };
 		A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */; };
 		A8BD5CB4288BEA41009E7A1B /* LessonMatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */; };
@@ -251,7 +262,13 @@
 		A81351B72886761200078C9E /* OtherBandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBandViewController.swift; sourceTree = "<group>"; };
 		A81351B92887EDCD00078C9E /* LabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPadding.swift; sourceTree = "<group>"; };
 		A81351BB28884C6300078C9E /* ImgUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgUrlModel.swift; sourceTree = "<group>"; };
+		A81C647728AB96E200FBAD05 /* BoardInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfoData.swift; sourceTree = "<group>"; };
+		A81C647928ABCB6700FBAD05 /* BoardImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A81C647A28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		A81C647D28ABD49300FBAD05 /* BoardImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardImageModel.swift; sourceTree = "<group>"; };
+		A81C648028ABD76100FBAD05 /* BoardImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardImageDataSource.swift; sourceTree = "<group>"; };
 		A83E4CF82897B54D00806D92 /* ApplicantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsTableViewCell.swift; sourceTree = "<group>"; };
+		A84C831E28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
 		A84D35F42881AF31007E8E3C /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		A8545D93288154D5003E076A /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +313,11 @@
 		A89658C528A2835600582A93 /* MessageTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableHeaderView.xib; sourceTree = "<group>"; };
 		A89658C828A284AE00582A93 /* MessageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableHeaderView.swift; sourceTree = "<group>"; };
 		A89658CA28A2A5E800582A93 /* ChatInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfoData.swift; sourceTree = "<group>"; };
+		A8BCDCC028AB80F50009BD0B /* DetailNotice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailNotice.storyboard; sourceTree = "<group>"; };
+		A8BCDCC328AB81390009BD0B /* DetailNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoticeViewController.swift; sourceTree = "<group>"; };
+		A8BCDCC528AB83D50009BD0B /* BoardDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardDetailTableViewCell.xib; sourceTree = "<group>"; };
+		A8BCDCC728AB8A910009BD0B /* BoardDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A8BCDCC928AB91410009BD0B /* BoardCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCommentTableViewCell.swift; sourceTree = "<group>"; };
 		A8BD5CAE288BE914009E7A1B /* HomeTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabManViewController.swift; sourceTree = "<group>"; };
 		A8BD5CB1288BEA32009E7A1B /* SessionMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SessionMatch.storyboard; sourceTree = "<group>"; };
 		A8BD5CB3288BEA41009E7A1B /* LessonMatch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LessonMatch.storyboard; sourceTree = "<group>"; };
@@ -460,6 +482,7 @@
 				BC0728C3289150F8007EA95D /* CustomClass */,
 				BC6DD522287863990067D6B5 /* EraOfBand_iOS++Bundle.swift */,
 				A81351A32882A76B00078C9E /* Service */,
+				A81C647F28ABD73200FBAD05 /* DataSource */,
 				BC4B5C1C2871C4210072A5FF /* Model */,
 				BC4B5C192871C24E0072A5FF /* Cell */,
 				BC4B5C032871A6CD0072A5FF /* Resources */,
@@ -491,6 +514,7 @@
 				A8BD5CB0288BE9E8009E7A1B /* HomeTab */,
 				BC1ED49528803F3900A5B931 /* MypageTab */,
 				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
+				A8BCDCBF28AB80910009BD0B /* NoticeTab */,
 				A89658C428A2830E00582A93 /* MessageTab */,
 			);
 			path = TabStoryBoard;
@@ -543,6 +567,14 @@
 			path = OtherpageTab;
 			sourceTree = "<group>";
 		};
+		A81C647F28ABD73200FBAD05 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A81C648028ABD76100FBAD05 /* BoardImageDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		A854A821289C06E800FDEB4D /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +592,7 @@
 			children = (
 				A857360A2874C64300E2F0AB /* CommunityTabViewController.swift */,
 				BCD0DF6528ABD1A000F1F74C /* Board */,
+				A8BCDCC228AB81100009BD0B /* Notice */,
 				A89658C728A2849000582A93 /* Message */,
 				A8BD5CAD288BE8CB009E7A1B /* Home */,
 				A857361D287C43E100E2F0AB /* Mypage */,
@@ -600,6 +633,24 @@
 				A89658C828A284AE00582A93 /* MessageTableHeaderView.swift */,
 			);
 			name = Message;
+			sourceTree = "<group>";
+		};
+		A8BCDCBF28AB80910009BD0B /* NoticeTab */ = {
+			isa = PBXGroup;
+			children = (
+				A809A7D42871537B00B9E08D /* NoticeTab.storyboard */,
+				A8BCDCC028AB80F50009BD0B /* DetailNotice.storyboard */,
+			);
+			path = NoticeTab;
+			sourceTree = "<group>";
+		};
+		A8BCDCC228AB81100009BD0B /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */,
+				A8BCDCC328AB81390009BD0B /* DetailNoticeViewController.swift */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		A8BD5CAD288BE8CB009E7A1B /* Home */ = {
@@ -802,6 +853,12 @@
 				A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */,
 				A89658C028A2421D00582A93 /* MessageListTableViewCell.swift */,
 				BCD0DF6A28ABDCB500F1F74C /* BoardTableViewCell.swift */,
+				A84C831E28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift */,
+				A8BCDCC728AB8A910009BD0B /* BoardDetailTableViewCell.swift */,
+				A8BCDCC528AB83D50009BD0B /* BoardDetailTableViewCell.xib */,
+				A81C647928ABCB6700FBAD05 /* BoardImageCollectionViewCell.swift */,
+				A81C647A28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib */,
+				A8BCDCC928AB91410009BD0B /* BoardCommentTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -834,6 +891,8 @@
 				A89658CA28A2A5E800582A93 /* ChatInfoData.swift */,
 				BC3686D228AA1215000C7903 /* OneOnOneChatInfo.swift */,
 				BCD0DF6C28ABDD7E00F1F74C /* BoardListModel.swift */,
+				A81C647728AB96E200FBAD05 /* BoardInfoData.swift */,
+				A81C647D28ABD49300FBAD05 /* BoardImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -968,10 +1027,12 @@
 				A854A816289BC29E00FDEB4D /* InAppAlarm.storyboard in Resources */,
 				BC0ADB7F28966EDF0028F57C /* LessonRecruit.storyboard in Resources */,
 				A8BD5CB6288BEA66009E7A1B /* WishBand.storyboard in Resources */,
+				A8BCDCC128AB80F50009BD0B /* DetailNotice.storyboard in Resources */,
 				A8573615287534E700E2F0AB /* Pretendard-Bold.otf in Resources */,
 				A854A820289C028700FDEB4D /* HomeSearch.storyboard in Resources */,
 				A8573619287534F200E2F0AB /* Pretendard-Medium.otf in Resources */,
 				A809A7C2286F283600B9E08D /* Assets.xcassets in Resources */,
+				A81C647C28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib in Resources */,
 				A809A7C0286F283400B9E08D /* Main.storyboard in Resources */,
 				A80C5AE428A0CE3700ACB652 /* RecruitHeaderView.xib in Resources */,
 				A809A7D92871538D00B9E08D /* MessageTab.storyboard in Resources */,
@@ -984,6 +1045,7 @@
 				A8BD5CB2288BEA32009E7A1B /* SessionMatch.storyboard in Resources */,
 				BCD3C22C2882FA2F00562FB4 /* CommentTable.storyboard in Resources */,
 				A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */,
+				A8BCDCC628AB83D50009BD0B /* BoardDetailTableViewCell.xib in Resources */,
 				A8573618287534EF00E2F0AB /* Pretendard-Light.otf in Resources */,
 				BC0ADB7928954C260028F57C /* ModifyBand.storyboard in Resources */,
 				BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */,
@@ -1073,6 +1135,7 @@
 				A8BE7D89289E689D00280EB6 /* SearchPageCell.swift in Sources */,
 				A81351BC28884C6400078C9E /* ImgUrlModel.swift in Sources */,
 				BC1ED49F288116B700A5B931 /* LoginUserData.swift in Sources */,
+				A81C647828AB96E200FBAD05 /* BoardInfoData.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
 				BC2E991B2886CFED0034CBD9 /* FollowingTableViewController.swift in Sources */,
 				BC2E991F2886F48C0034CBD9 /* FollowData.swift in Sources */,
@@ -1153,14 +1216,18 @@
 				A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */,
 				BCD0DF6728ABD1C700F1F74C /* BoardTabManViewController.swift in Sources */,
 				BC0728BF28902AF9007EA95D /* CreateLessonViewController.swift in Sources */,
+				A8BCDCC428AB81390009BD0B /* DetailNoticeViewController.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				A83E4CF92897B54D00806D92 /* ApplicantsTableViewCell.swift in Sources */,
 				BC8502FF287732200022EA7B /* SessionModel.swift in Sources */,
+				A81C647B28ABCB6700FBAD05 /* BoardImageCollectionViewCell.swift in Sources */,
 				BC2E99182886CD960034CBD9 /* FollowTabManViewController.swift in Sources */,
 				A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */,
 				A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */,
+				A8BCDCC828AB8A910009BD0B /* BoardDetailTableViewCell.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
 				BC4B5C1E2871C4510072A5FF /* OnboardingModel.swift in Sources */,
+				A81C647E28ABD49300FBAD05 /* BoardImageModel.swift in Sources */,
 				BC4B5C1B2871C2660072A5FF /* OnboardingCollectionViewCell.swift in Sources */,
 				A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */,
 				BC0ADB87289BD2F50028F57C /* GetOtherUserDataService.swift in Sources */,
@@ -1172,11 +1239,14 @@
 				BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */,
 				A8F82AEF289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift in Sources */,
 				A81351AE2884572D00078C9E /* SessionViewController.swift in Sources */,
+				A84C831F28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift in Sources */,
+				A8BCDCCA28AB91410009BD0B /* BoardCommentTableViewCell.swift in Sources */,
 				A809A7EF2872E88300B9E08D /* TabBarController.swift in Sources */,
 				BC0ADB7528944F9A0028F57C /* GetBandInfoService.swift in Sources */,
 				A854A829289C077B00FDEB4D /* LessonSearchViewController.swift in Sources */,
 				A854A818289BC4B200FDEB4D /* InAppAlarmViewController.swift in Sources */,
 				A854A827289C076700FDEB4D /* BandSearchViewController.swift in Sources */,
+				A81C648128ABD76100FBAD05 /* BoardImageDataSource.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A8BD5CBF288BEAF2009E7A1B /* WishBandViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,
@@ -1346,6 +1416,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1377,6 +1448,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
