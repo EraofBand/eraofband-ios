@@ -70,10 +70,12 @@ class RecruitViewController: UIViewController{
         applicantTableView.dataSource = self
         applicantTableView.alwaysBounceVertical = false
         applicantTableView.register(UINib(nibName: "RecruitHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "RecruitHeaderView")
+        applicantTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -40, right: 0)
         
         recruitTableView.isScrollEnabled = false
         recruitTableView.delegate = self
         recruitTableView.dataSource = self
+        recruitTableView.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0)
         
         if applicantsInfo.count == 0 {
             
