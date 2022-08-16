@@ -25,7 +25,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let font = UIFont(name: "Pretendard-Bold", size: 13)!
         
         // 각 탭 아이콘 설정, 뷰컨트롤러 연결
-        let tab1 = UIStoryboard(name: "CommunityTab", bundle: nil).instantiateViewController(withIdentifier: "CommunityTabViewController")
+        let tab1 = UIStoryboard(name: "CommunityTab", bundle: nil).instantiateViewController(withIdentifier: "communityNC")
         tab1.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "ic_community_off"), selectedImage: UIImage(named: "ic_community_on"))
         tab1.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         

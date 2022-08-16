@@ -220,7 +220,7 @@ class BandRecruitViewController: UIViewController{
                 var recruitHeight = 0
                 
                 if(bandInfo?.userIdx == appDelegate.userIdx){
-                    recruitHeight = (bandInfo?.applicants?.count ?? 1 * 100) + (recruitCellCount * 220) + 300
+                    recruitHeight = (bandInfo?.applicants?.count ?? 1 * 100) + (recruitCellCount * 220) + 350
                 }else{
                     recruitHeight = (recruitCellCount * 220) + 300
                 }

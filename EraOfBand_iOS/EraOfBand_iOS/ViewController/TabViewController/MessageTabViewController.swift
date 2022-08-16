@@ -14,6 +14,7 @@ class MessageTabViewController: UIViewController {
     @IBOutlet weak var messageListTableView: UITableView!
 
     let chatReference = Database.database().reference()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var chatListData: [messageListInfo] = [] // 서버에서 가져온 모든 채팅방 정보 저장 변수
     var searchListData: [messageListInfo] = [] // 검색창에 검색해 나온 채팅방 정보만 저장될 변수
@@ -21,6 +22,24 @@ class MessageTabViewController: UIViewController {
     var userIdxData: [userIdxInfo] = []
     
     var chatRoomIdx: Int?
+    
+    /* 네비게이션 바 커스텀 */
+    func setNavigationBar() {
+        
+        var leftBarButtons: [UIBarButtonItem] = []
+        
+        let mypageLabel = UILabel()
+        mypageLabel.text = "채팅"
+        mypageLabel.font = UIFont(name: "Pretendard-Medium", size: 25)
+        mypageLabel.textColor = .white
+        
+        let mypageBarButton = UIBarButtonItem(customView: mypageLabel)
+        
+        leftBarButtons.append(mypageBarButton)
+        
+        self.navigationItem.leftBarButtonItems = leftBarButtons
+        
+    }
     
     /* firebase에서 채팅 정보 가져오는 함수 */
     func getChatInfo(_ chatIdx: String, completion: @escaping (chatInfo) -> Void) {
@@ -66,7 +85,6 @@ class MessageTabViewController: UIViewController {
     /* 서버에서 채팅방 정보 리스트 가져오는 함수 */
     func getMessageList(completion: @escaping () -> Void) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/chat/chat-room"
@@ -115,6 +133,7 @@ class MessageTabViewController: UIViewController {
         messageListTableView.register(UINib(nibName: "MessageTableHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MessageTableHeaderView") // 검색창을 tableView의 headerView로 지정
         
         messageListTableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,26 +154,9 @@ class MessageTabViewController: UIViewController {
                     }
                 }
             }
+            print("AfterFor userIdxData: \(userIdxData)")
         }
     }
-    
-    func setNavigationBar() {
-        
-        var leftBarButtons: [UIBarButtonItem] = []
-        
-        let mypageLabel = UILabel()
-        mypageLabel.text = "채팅"
-        mypageLabel.font = UIFont(name: "Pretendard-Medium", size: 25)
-        mypageLabel.textColor = .white
-        
-        let mypageBarButton = UIBarButtonItem(customView: mypageLabel)
-        
-        leftBarButtons.append(mypageBarButton)
-        
-        self.navigationItem.leftBarButtonItems = leftBarButtons
-        
-    }
-
 }
 
 extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
@@ -178,7 +180,7 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
         cell.RecentMessageLabel.text = lastChatData[chatIdx]?.message // 채팅방 Idx를 key로 가진 value값의 message값을 cell 라벨의 text값으로 지정
         
         if let checkBool = lastChatData[chatIdx]?.readUser {
-            if checkBool {
+            if (checkBool) || (lastChatData[chatIdx]?.userIdx == appDelegate.userIdx) {
                 cell.checkView.isHidden = true // 최근 message를 읽었을 경우 빨간점 isHidden
             } else {
                 cell.checkView.isHidden = false // 최근 message를 읽지 않았을 경우 빨간점 보이게
@@ -212,17 +214,18 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let chatRoomIdx = searchListData[indexPath.item].chatRoomIdx
-        let otherUserIdx: Int?
+        let userInfo = userIdxData[indexPath.item]
+        var otherUserIdx: Int = 0
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        if userIdxData[indexPath.item].firstUserIdx == appDelegate.userIdx {
-            otherUserIdx = userIdxData[indexPath.item].secondUserIdx // secondUserIdx 값이 otherUserIdx
+        if userInfo.firstUserIdx == appDelegate.userIdx {
+            otherUserIdx = userInfo.secondUserIdx // secondUserIdx 값이 otherUserIdx
         } else {
-            otherUserIdx = userIdxData[indexPath.item].firstUserIdx // firstUserIdx 값이 otherUserIdx
+            otherUserIdx = userInfo.firstUserIdx // firstUserIdx 값이 otherUserIdx
         }
         
         
-        GetOtherUserDataService.getOtherUserInfo(otherUserIdx!) { (isSuccess, response) in // otherUser 정보 가져오기
+        GetOtherUserDataService.getOtherUserInfo(otherUserIdx) { (isSuccess, response) in // otherUser 정보 가져오기
             if isSuccess { // 해당 채팅방으로 이동
                 print("성공..")
                 let messageVC = ChatViewController()
