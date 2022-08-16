@@ -164,8 +164,4 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
         
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-    }
-    
 }
