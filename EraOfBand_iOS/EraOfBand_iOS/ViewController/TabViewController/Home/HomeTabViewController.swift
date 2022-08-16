@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class HomeTabViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class HomeTabViewController: UIViewController {
     @IBOutlet weak var creatStackView: UIStackView!
     
     var isShowFloating: Bool = false
+    var newAlarmExist: Int = 0
+    var alarmImage: UIImage = UIImage(named: "ic_home_alarm_off")!
     
     lazy var floatingDimView: UIView = {
         let view = UIView(frame: self.view.frame)
@@ -59,6 +62,31 @@ class HomeTabViewController: UIViewController {
         
     }
     
+    func noticeUpdate(completion: @escaping () -> Void) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let url = "\(appDelegate.baseUrl)/notice/alarm"
+        
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        AF.request(
+            url,
+            method: .get,
+            encoding: JSONEncoding.default,
+            headers: header).responseDecodable(of: NewAlarmData.self){ [self] response in
+                switch response.result{
+                case .success(let data):
+                    newAlarmExist = data.result.newAlarmExist
+                    print(newAlarmExist)
+                    completion()
+                case .failure(let err):
+                    print(err)
+                }
+                
+            }
+        
+    }
+    
     func setNavigationBar() {
         
         var leftBarButtons: [UIBarButtonItem] = []
@@ -88,7 +116,11 @@ class HomeTabViewController: UIViewController {
         var currheight = searchBarButton.customView?.heightAnchor.constraint(equalToConstant: 20)
         currheight?.isActive = true
         
-        let alarmImage = UIImage(named: "ic_home_alarm_off")
+        if newAlarmExist == 0 {
+            alarmImage = UIImage(named: "ic_home_alarm_off")!
+        } else {
+            alarmImage = UIImage(named: "ic_home_alarm_on")!
+        }
         let alarmButton = UIButton()
         alarmButton.backgroundColor = .clear
         alarmButton.setImage(alarmImage, for: .normal)
@@ -123,23 +155,33 @@ class HomeTabViewController: UIViewController {
     
     @objc func searchButtonClicked(_ sender: UIButton) {
         
-        print("찾기 버튼 누름")
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeSearch") as! SearchViewController
+
+        self.navigationController?.pushViewController(searchVC, animated: true)
         
     }
     
     @objc func alarmButtonClicked(_ sender: UIButton) {
         
-        print("alarm button pressed!")
+        let alarmVC = self.storyboard?.instantiateViewController(withIdentifier: "InAppAlarm") as! InAppAlarmViewController
+        
+        self.navigationController?.pushViewController(alarmVC, animated: true)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBar()
-        
         creatStackView.layer.cornerRadius = 10
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        noticeUpdate(){
+            self.setNavigationBar()
+        }
     }
     
 }

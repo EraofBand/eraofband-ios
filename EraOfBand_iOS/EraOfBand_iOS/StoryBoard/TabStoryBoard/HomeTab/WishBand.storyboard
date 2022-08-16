@@ -6,6 +6,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Wish Band View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -14,13 +22,110 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="71B-Go-h2Q">
+                                <rect key="frame" x="20" y="0.0" width="374" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BandListTableViewCell" rowHeight="127" id="l7Q-tR-W5g" customClass="BandListTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l7Q-tR-W5g" id="rS8-Eq-jb5">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="127"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PU1-Vx-Exk">
+                                                    <rect key="frame" x="16" y="16" width="95" height="95"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="95" id="6h2-Lz-ygT"/>
+                                                        <constraint firstAttribute="height" constant="95" id="fb2-HJ-qFH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amT-5p-YMd">
+                                                    <rect key="frame" x="129" y="16" width="21" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="12"/>
+                                                    <color key="textColor" red="0.094117647060000004" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYq-N6-zaw">
+                                                    <rect key="frame" x="129" y="38" width="28" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGC-GD-dQC">
+                                                    <rect key="frame" x="129" y="65" width="42" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                                                    <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Mb-tB-IYo">
+                                                    <rect key="frame" x="129" y="98.5" width="13" height="12"/>
+                                                    <color key="tintColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="11"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEE-V4-XRZ">
+                                                    <rect key="frame" x="147" y="97.5" width="19" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                                                    <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.12549019610000001" green="0.1333333333" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="AYq-N6-zaw" firstAttribute="leading" secondItem="amT-5p-YMd" secondAttribute="leading" id="3wL-ZE-2Ah"/>
+                                                <constraint firstItem="ZEE-V4-XRZ" firstAttribute="centerY" secondItem="0Mb-tB-IYo" secondAttribute="centerY" id="71r-s3-kvF"/>
+                                                <constraint firstItem="PU1-Vx-Exk" firstAttribute="leading" secondItem="rS8-Eq-jb5" secondAttribute="leading" constant="16" id="LOk-De-alq"/>
+                                                <constraint firstItem="AYq-N6-zaw" firstAttribute="top" secondItem="amT-5p-YMd" secondAttribute="bottom" constant="8" id="Mnc-QP-XBx"/>
+                                                <constraint firstItem="PU1-Vx-Exk" firstAttribute="centerY" secondItem="rS8-Eq-jb5" secondAttribute="centerY" id="QlH-M5-Fj0"/>
+                                                <constraint firstItem="0Mb-tB-IYo" firstAttribute="bottom" secondItem="PU1-Vx-Exk" secondAttribute="bottom" id="Qlb-Bu-7eL"/>
+                                                <constraint firstItem="0Mb-tB-IYo" firstAttribute="leading" secondItem="amT-5p-YMd" secondAttribute="leading" id="RtU-dX-paP"/>
+                                                <constraint firstItem="amT-5p-YMd" firstAttribute="top" secondItem="PU1-Vx-Exk" secondAttribute="top" id="agO-gh-kaG"/>
+                                                <constraint firstItem="amT-5p-YMd" firstAttribute="leading" secondItem="PU1-Vx-Exk" secondAttribute="trailing" constant="18" id="cUv-nh-cbg"/>
+                                                <constraint firstItem="ZEE-V4-XRZ" firstAttribute="leading" secondItem="0Mb-tB-IYo" secondAttribute="trailing" constant="5" id="eor-mK-T9C"/>
+                                                <constraint firstItem="zGC-GD-dQC" firstAttribute="top" secondItem="AYq-N6-zaw" secondAttribute="bottom" constant="8" id="gbU-9F-cWj"/>
+                                                <constraint firstItem="zGC-GD-dQC" firstAttribute="leading" secondItem="amT-5p-YMd" secondAttribute="leading" id="vck-ke-Ec7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="memberNumLabel" destination="ZEE-V4-XRZ" id="xLh-Of-1W5"/>
+                                            <outlet property="tableImageView" destination="PU1-Vx-Exk" id="jK2-Ec-q9g"/>
+                                            <outlet property="tableIntroLabel" destination="zGC-GD-dQC" id="d0t-uT-Sia"/>
+                                            <outlet property="tableRegionLabel" destination="amT-5p-YMd" id="Hu3-ec-oqK"/>
+                                            <outlet property="tableTitleLabel" destination="AYq-N6-zaw" id="41X-qK-4BY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="71B-Go-h2Q" secondAttribute="trailing" constant="20" id="3V8-al-AIE"/>
+                            <constraint firstItem="71B-Go-h2Q" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="GOL-Ea-YGd"/>
+                            <constraint firstAttribute="bottom" secondItem="71B-Go-h2Q" secondAttribute="bottom" id="aip-6R-UT3"/>
+                            <constraint firstItem="71B-Go-h2Q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="xOc-ka-amp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="wishBandListTableView" destination="71B-Go-h2Q" id="QaF-JR-ym7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57" y="64"/>
         </scene>
+        <!--BandRecruit-->
+        <scene sceneID="4dG-78-4qM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="BandRecruitViewController" storyboardName="BandRecruit" id="Bmw-1n-tP3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vpG-B6-fSV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="76"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
 </document>

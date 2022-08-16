@@ -14,6 +14,8 @@ class BandListTableViewCell: UITableViewCell {
     @IBOutlet weak var tableTitleLabel: UILabel!
     @IBOutlet weak var tableIntroLabel: UILabel!
     @IBOutlet weak var memberNumLabel: UILabel!
+    @IBOutlet weak var sessionView: UIView!
+    @IBOutlet weak var sessionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +37,10 @@ class BandListTableViewCell: UITableViewCell {
         contentView.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
         contentView.layer.cornerRadius = 15
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
+    }
+    
+    override func prepareForReuse() {
+        tableImageView.image = nil
     }
     
 }

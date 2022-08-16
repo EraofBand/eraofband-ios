@@ -144,6 +144,15 @@
                                                         <constraint firstAttribute="bottom" secondItem="RdU-O7-T9m" secondAttribute="bottom" id="prt-Av-kzH"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-jO-ryC" customClass="PofolMenuButton" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="390" y="40.5" width="4" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="h5E-wS-W1X"/>
+                                                        <constraint firstAttribute="width" constant="4" id="hgF-qH-566"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.054843842980000002" green="0.054843842980000002" blue="0.054843842980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -157,6 +166,8 @@
                                                 <constraint firstItem="0Vq-nj-3tm" firstAttribute="centerY" secondItem="tbR-Dg-Sdp" secondAttribute="centerY" id="Olr-4H-WsR"/>
                                                 <constraint firstItem="Iv0-Ui-u1W" firstAttribute="centerY" secondItem="J9h-u4-zqS" secondAttribute="centerY" id="Oq2-hs-V1G"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DkO-fu-E4G" secondAttribute="trailing" id="SwR-vH-Xtf"/>
+                                                <constraint firstItem="jUb-jO-ryC" firstAttribute="centerY" secondItem="J9h-u4-zqS" secondAttribute="centerY" id="UdV-2s-6AX"/>
+                                                <constraint firstAttribute="trailing" secondItem="jUb-jO-ryC" secondAttribute="trailing" constant="20" id="UgA-IP-qF5"/>
                                                 <constraint firstItem="RO5-Pv-Bt9" firstAttribute="top" secondItem="mMK-0M-STs" secondAttribute="bottom" constant="13" id="UiI-JF-Qer"/>
                                                 <constraint firstItem="J9h-u4-zqS" firstAttribute="centerY" secondItem="bjP-sl-8gS" secondAttribute="centerY" id="V9Y-xy-yNd"/>
                                                 <constraint firstItem="aS9-bm-35w" firstAttribute="top" secondItem="ere-yg-5cR" secondAttribute="bottom" constant="38" id="W1u-69-JR2"/>
@@ -185,10 +196,12 @@
                                             <outlet property="likeBtn" destination="aS9-bm-35w" id="3Ud-IS-YWg"/>
                                             <outlet property="likeImg" destination="UvU-bl-KwF" id="cGD-tX-W1O"/>
                                             <outlet property="likeLabel" destination="tbR-Dg-Sdp" id="yqy-ZP-aF3"/>
+                                            <outlet property="menuBtn" destination="jUb-jO-ryC" id="Es6-qI-Y56"/>
                                             <outlet property="nameLabel" destination="J9h-u4-zqS" id="eTO-bq-MPn"/>
                                             <outlet property="playBtn" destination="71y-qS-3zz" id="OzQ-Fu-krE"/>
                                             <outlet property="profileImgView" destination="bjP-sl-8gS" id="qJ2-pm-RNE"/>
                                             <outlet property="thumbNailImg" destination="RdU-O7-T9m" id="Cdl-q5-PIe"/>
+                                            <outlet property="thumbNailView" destination="DkO-fu-E4G" id="J9B-QX-Yto"/>
                                             <outlet property="titleLabel" destination="RO5-Pv-Bt9" id="w6Y-rY-1Iy"/>
                                         </connections>
                                     </tableViewCell>
@@ -219,6 +232,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9n-XJ-4yG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="792.75362318840587" y="178.79464285714286"/>
+        </scene>
+        <!--AddPofol-->
+        <scene sceneID="laF-We-jL5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AddPofolViewController" storyboardName="AddPofol" id="DY4-RW-jZZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AmJ-yb-AGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1343" y="157"/>
         </scene>
         <!--CommentTable-->
         <scene sceneID="Owu-Aj-4xz">

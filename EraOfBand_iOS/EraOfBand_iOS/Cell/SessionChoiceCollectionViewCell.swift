@@ -14,7 +14,7 @@ class SessionChoiceCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected{
-                backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
+                backgroundColor = #colorLiteral(red: 0.09411764706, green: 0.3921568627, blue: 0.9921568627, alpha: 1)
             } else {
                 backgroundColor = .clear
             }

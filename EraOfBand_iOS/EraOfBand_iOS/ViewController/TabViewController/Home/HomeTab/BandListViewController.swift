@@ -90,7 +90,10 @@ class BandListViewController: UIViewController {
     /* 네비게이션 바 찾기 버튼 눌렀을 때 함수 */
     @objc func searchButtonClicked(_ sender: UIButton) {
         
-        print("찾기 버튼 누름")
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeSearch") as! SearchViewController
+        searchVC.currentSearch = "band"
+        
+        self.navigationController?.pushViewController(searchVC, animated: true)
         
     }
     
@@ -138,7 +141,7 @@ extension BandListViewController: UICollectionViewDelegate, UICollectionViewData
         cell.sessionLabel.text = session[indexPath.item]
         cell.layer.cornerRadius = 14
         
-        if indexPath.item == 0 {
+        if indexPath.item == sessionNum {
             cell.isSelected = true
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
@@ -154,8 +157,6 @@ extension BandListViewController: UICollectionViewDelegate, UICollectionViewData
             sessionNum = 5
         }
         
-        print("selected index: \(sessionNum)")
-        
         getBandList()
         
     }
@@ -165,7 +166,9 @@ extension BandListViewController: UICollectionViewDelegate, UICollectionViewData
 extension BandListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 50, height: 28)
+        let width = collectionView.width / 7
+        
+        return CGSize(width: width, height: 28)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -193,6 +196,9 @@ extension BandListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tableRegionLabel.text = bandinfo.bandRegion
         cell.tableTitleLabel.text = bandinfo.bandTitle
         cell.tableIntroLabel.text = bandinfo.bandIntroduction
+        cell.memberNumLabel.text = String(bandinfo.memberCount) + " / " + String(bandinfo.capacity)
+        
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -201,5 +207,18 @@ extension BandListViewController: UITableViewDelegate, UITableViewDataSource {
         return 147
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(bandList[indexPath.row].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = bandList[indexPath.row].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
+    }
 
 }

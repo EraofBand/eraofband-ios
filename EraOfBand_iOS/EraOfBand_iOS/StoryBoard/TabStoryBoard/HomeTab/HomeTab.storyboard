@@ -105,6 +105,9 @@
                                                         <state key="normal">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="odh-zo-2B4" kind="push" id="59C-vK-oRq"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="레슨 생성" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XK7-HI-SRN">
                                                         <rect key="frame" x="54" y="16" width="56" height="18"/>
@@ -171,6 +174,16 @@
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="79.6875"/>
         </scene>
+        <!--CreateLesson-->
+        <scene sceneID="kyS-a5-rc7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CreateLessonViewController" storyboardName="CreateLesson" id="odh-zo-2B4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Dbf-QD-MeF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QmA-0j-Uxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="494"/>
+        </scene>
         <!--CreateBand-->
         <scene sceneID="laf-mm-CTd">
             <objects>
@@ -200,6 +213,22 @@
             </objects>
             <point key="canvasLocation" x="-178" y="80"/>
         </scene>
+        <!--InAppAlarm-->
+        <scene sceneID="IN6-vm-npw">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="InAppAlarm" storyboardName="InAppAlarm" id="V4o-b0-xt2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2S1-ae-IPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="-347"/>
+        </scene>
+        <!--HomeSearch-->
+        <scene sceneID="HKW-qx-RBx">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeSearch" storyboardName="HomeSearch" id="JIf-bC-gAc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mim-yb-6F5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="-347"/>
+        </scene>
         <!--Homae Tab Man View Controller-->
         <scene sceneID="JQ3-QO-uBG">
             <objects>
@@ -213,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7t-VF-6Wk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1849" y="80"/>
+            <point key="canvasLocation" x="2000" y="79"/>
         </scene>
         <!--SessionMatch-->
         <scene sceneID="HfH-iM-GWt">

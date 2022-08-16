@@ -7,10 +7,13 @@
 
 import UIKit
 import KakaoSDKAuth
+import KakaoSDKUser
+import KakaoSDKCommon
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -27,6 +30,48 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if appDelegate.isFirstRun == true{ // 앱 최초실행 시 온보딩 실행
+            guard let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else { return }
+            window?.rootViewController = onboardingVC
+        } else{ // 앱 최초실행이 아닐 시 온보딩 자동 스킵
+            // 토큰 있는지 확인
+            if (AuthApi.hasToken()) {
+                UserApi.shared.accessTokenInfo { (accessTokenInfo, error) in
+                    if let error = error {
+                        if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true { // 로그인 필요
+                            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+                            self.window?.rootViewController = loginVC
+                        }
+                    } else { // 토큰 유효성 체크 성공 (필요 시 토큰 갱신됨)
+                        UserApi.shared.me { (user, error) in
+                            // 회원가입 되어있는 이메일인지 확인
+                            CheckRegisterService.checkRegister((user?.kakaoAccount?.email)!) { [self] getData in
+                                if (getData.result.jwt! == "NULL") { // 회원가입이 안되어 있는 이메일일 경우 로그인뷰로 이동
+                                    guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+                                    self.window?.rootViewController = loginVC
+                                } else { // 회원가입이 되어 있는 이메일일 경우 jwt와 userIdx 저장 후 메일 화면으로 바로 이동
+                                    self.appDelegate.jwt = getData.result.jwt ?? ""
+                                    self.appDelegate.userIdx = getData.result.userIdx!
+                                    
+                                    guard let mainTabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
+                                    self.window?.rootViewController = mainTabBarVC
+                                }
+                            }
+                        }
+                        
+                    }
+
+                }
+            } else { // 로그인 필요
+                guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+                self.window?.rootViewController = loginVC
+            }
+            
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

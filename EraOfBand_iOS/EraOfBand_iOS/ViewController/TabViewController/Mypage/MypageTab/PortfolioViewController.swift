@@ -45,8 +45,6 @@ class PortfolioViewController: UIViewController{
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
         
-        self.view.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
-        
         getPofolList()
 
     }
@@ -83,12 +81,15 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         
         //print(pofolList)
         
-        if(pofolList.count != 0){
+        if(pofolList.count == 1){
             self.thumbNailList[0] = pofolList[0].imgUrl
         }
         
-        for i in 1...pofolList.count - 1{
-            self.thumbNailList.append(pofolList[i].imgUrl)
+        if(pofolList.count > 1){
+            self.thumbNailList[0] = pofolList[0].imgUrl
+            for i in 1...pofolList.count - 1{
+                self.thumbNailList.append(pofolList[i].imgUrl)
+            }
         }
         
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}

@@ -18,59 +18,10 @@ class LoginViewController: UIViewController{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let header : HTTPHeaders = ["Content-Type": "application/json"]
     
-    //가입된 유저인지 판별
-    func checkRegistered(){
- 
-        AF.request(appDelegate.baseUrl + "/users/login/" + appDelegate.myKakaoData.kakaoEmail,
-                   method: .post,
-                   encoding: JSONEncoding.default,
-                   headers: header).responseJSON { response in
-            switch response.result{
-            case .success(let obj):
-                do{
-                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(LoginUserData.self, from: dataJSON)
-                    
-                    if(getData.result.jwt! == "NULL"){
-                        guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
-                        registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                    
-                        self.present(registerVC, animated: true)
-                    }else{
-                        self.appDelegate.jwt = getData.result.jwt ?? ""
-                        self.appDelegate.userIdx = getData.result.userIdx!
-                        
-                        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
-                        mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                    
-                        self.present(mainTabBarVC, animated: true)
-                    }
-                    
-                } catch let DecodingError.dataCorrupted(context) {
-                    print(context)
-                } catch let DecodingError.keyNotFound(key, context) {
-                    print("Key '\(key)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch let DecodingError.valueNotFound(value, context) {
-                    print("Value '\(value)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch let DecodingError.typeMismatch(type, context)  {
-                    print("Type '\(type)' mismatch:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch {
-                    print("error: ", error)
-                }
-            default:
-                print("login failed")
-                return
-            }
-        }
-    }
-    
     //로그인 이후 카카오 유저 정보 가져오기
     func getKakaoData(kakaoToken: String){
         
-        UserApi.shared.me() { [self](user, error) in
+        UserApi.shared.me() { [self] (user, error) in
             if let error = error {
                 print(error)
             }
@@ -80,13 +31,24 @@ class LoginViewController: UIViewController{
                 let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String, kakaoEmail: (user?.kakaoAccount?.email)! as String)
                 self.appDelegate.myKakaoData = myKakaoData
                 
-                checkRegistered()
+                // 회원가입 된 이메일인지 확인
+                CheckRegisterService.checkRegister(myKakaoData.kakaoEmail) { [self] getData in
+                    if (getData.result.jwt! == "NULL") { // 회원가입 되어있지 않은 이메일일 경우 회원가입 뷰로 이동
+                        guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
+                        registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(registerVC, animated: true)
+                    } else { // 회원가입 되어있는 이메일일 경우 메인화면으로 이동
+                        self.appDelegate.jwt = getData.result.jwt ?? ""
+                        self.appDelegate.userIdx = getData.result.userIdx!
+                        
+                        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
+                        mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(mainTabBarVC, animated: true)
+                    }
+                }
                 
-                /*
-                guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
-                registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-            
-                self.present(registerVC, animated: true)*/
             }
         }
     }
@@ -94,7 +56,7 @@ class LoginViewController: UIViewController{
     @IBAction func kakaoBtnTapped(_ sender: Any) {
         // 카카오톡 설치 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
-           loginWithApp()
+            loginWithApp()
         }else {
             loginWithWeb()
         }

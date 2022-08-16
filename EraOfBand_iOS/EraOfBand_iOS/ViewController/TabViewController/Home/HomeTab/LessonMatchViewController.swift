@@ -126,7 +126,9 @@ extension LessonMatchViewController: UICollectionViewDelegate, UICollectionViewD
 extension LessonMatchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 50, height: 28)
+        let width = collectionView.frame.width / 7
+        
+        return CGSize(width: width, height: 28)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -154,6 +156,9 @@ extension LessonMatchViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tableRegionLabel.text = lessoninfo.lessonRegion
         cell.tableTitleLabel.text = lessoninfo.lessonTitle
         cell.tableIntroLabel.text = lessoninfo.lessonIntroduction
+        cell.memberNumLabel.text = String(lessoninfo.memberCount) + " / " + String(lessoninfo.capacity)
+        
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -162,5 +167,18 @@ extension LessonMatchViewController: UITableViewDelegate, UITableViewDataSource 
         return 147
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let lessonRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "LessonRecruitViewController") as? LessonRecruitViewController else { return }
+        
+        GetLessonInfoService.getLessonInfo(lessonList[indexPath.row].lessonIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                lessonRecruitVC.lessonInfo = response.result
+                lessonRecruitVC.lessonIdx = lessonList[indexPath.row].lessonIdx
+
+                self.navigationController?.pushViewController(lessonRecruitVC, animated: true)
+            }
+        }
+    }
 
 }

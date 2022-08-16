@@ -29,6 +29,7 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var followerButton: UIButton!
     @IBOutlet weak var porfolLabel: UILabel!
     @IBOutlet weak var sessionLabel: UILabel!
+    @IBOutlet weak var sessionImageView: UIImageView!
     
     
     var userRegion: String = ""
@@ -36,7 +37,12 @@ class MypageTabViewController: UIViewController {
     var userGender: String = ""
     var userPofolCount: Int = 0
     var session: Int = 0
-    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
+    var sessionData: [String] = ["보컬", "기타", "베이스", "키보드", "드럼"]
+    let sessionImage: [UIImage] = [UIImage(named: "ic_session_vocal")!,
+                                   UIImage(named: "ic_session_guitar")!,
+                                   UIImage(named: "ic_session_base")!,
+                                   UIImage(named: "ic_session_keyboard")!,
+                                   UIImage(named: "ic_session_drum")!]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -106,7 +112,10 @@ class MypageTabViewController: UIViewController {
                 //print(userData)
                 /*서버 연동 성공*/
                 if let data = userData as? User {
+                    let bandCount = data.getUserBand?.count
+                    let lessonCount = data.getUserLesson?.count
                     let data = data.getUser
+                    
                     
                     /*마이페이지 유저 정보 입력*/
                     nickNameLabel.text = data.nickName
@@ -152,8 +161,9 @@ class MypageTabViewController: UIViewController {
                     
                     session = data.userSession
                     sessionLabel.text = sessionData[session]
+                    sessionImageView.image = sessionImage[session]
                     
-                    containerView.updateHeight(containerViewHeight, data.pofolCount)
+                    containerView.updateHeight(containerViewHeight, data.pofolCount, bandCount ?? 0, lessonCount ?? 0)
                     
                 }
                 
@@ -266,10 +276,14 @@ extension UIImageView {
 }
 
 extension UIView {
-    func updateHeight(_ height: NSLayoutConstraint, _ pofolCount: Int) {
+    func updateHeight(_ height: NSLayoutConstraint, _ pofolCount: Int, _ bandCount: Int, _ lessonCount: Int) {
+        var heightArr: [CGFloat] = []
+        
         let cellHeight = self.frame.width / 3 - 2
         
         var containerHeight: CGFloat = 350
+        var bandHeight: CGFloat = 350
+        var lessonHeight: CGFloat = 350
         
         if pofolCount > 3 {
             if pofolCount % 3 == 0 {
@@ -279,6 +293,13 @@ extension UIView {
             }
         }
         
-        height.constant = containerHeight
+        bandHeight = CGFloat(147 * bandCount + 150)
+        lessonHeight = CGFloat(147 * lessonCount + 150)
+        
+        heightArr.append(containerHeight)
+        heightArr.append(bandHeight)
+        heightArr.append(lessonHeight)
+        
+        height.constant = heightArr.max() ?? 350
     }
 }

@@ -8,6 +8,8 @@
 import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
+import FirebaseCore
+import KakaoSDKUser
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public var myKakaoData: kakaoData!
     public var jwt: String = ""
     public var userIdx: Int?
-    public var otherUserIdx: Int?
+    public var userSession: Int?
+    
+    public var isFirstRun: Bool?
     
     let kakaoKey = Bundle.main.kakaoKey
 
@@ -33,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         KakaoSDK.initSDK(appKey: kakaoKey)
         
+        FirebaseApp.configure()
+        
+        // 앱 전체 네비게이션 바 custom
         if #available(iOS 15, *) {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
@@ -43,10 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().compactAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-            
         }
         
         sleep(1)
+        
+        checkAppFirstrunOrUpdateStatus{
+            isFirstRun = true
+        } updated: {
+            isFirstRun = false
+        } nothingChanged: {
+            isFirstRun = false
+        }
+        
         return true
     }
 

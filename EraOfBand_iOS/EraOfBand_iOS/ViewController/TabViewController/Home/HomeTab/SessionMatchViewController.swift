@@ -24,14 +24,42 @@ class SessionMatchViewController: UIViewController {
     var newBandList: [newBandInfo] = []
     var fameBandList: [fameBandInfo] = []
     
-    @IBAction func bandListAction(_ sender: Any) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    func setBandListVC(_ session: Int) {
         
         guard let bandListVC = storyboard?.instantiateViewController(withIdentifier: "BandListViewController") as? BandListViewController else { return }
         
+        bandListVC.sessionNum = session
+        
         navigationController?.pushViewController(bandListVC, animated: true)
         
-        
     }
+    
+    @IBAction func bandListAction(_ sender: Any) {
+        setBandListVC(0)
+    }
+    
+    @IBAction func vocalListAction(_ sender: Any) {
+        setBandListVC(1)
+    }
+    
+    @IBAction func guitarListAction(_ sender: Any) {
+        setBandListVC(2)
+    }
+    
+    @IBAction func baseListAction(_ sender: Any) {
+        setBandListVC(3)
+    }
+    
+    @IBAction func keyboardListAction(_ sender: Any) {
+        setBandListVC(4)
+    }
+    
+    @IBAction func drumListAction(_ sender: Any) {
+        setBandListVC(5)
+    }
+    
     
     func getNewBand(completion: @escaping() -> Void) {
         
@@ -49,7 +77,6 @@ class SessionMatchViewController: UIViewController {
             switch response.result{
             case .success(let data):
                 newBandList = data.result
-                print(newBandList)
                 completion()
                 
             case .failure(let err):
@@ -76,13 +103,51 @@ class SessionMatchViewController: UIViewController {
             switch response.result{
             case .success(let data):
                 fameBandList = data.result
-                print(fameBandList)
                 completion()
                 
             case .failure(let err):
                 print(err)
             }
             
+        }
+    }
+    @IBAction func firstFameBandTapped(_ sender: Any) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(fameBandList[0].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = fameBandList[0].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
+    }
+    @IBAction func secondFameBandTapped(_ sender: Any) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(fameBandList[1].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = fameBandList[1].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
+    }
+    @IBAction func thirdFameBandTapped(_ sender: Any) {
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(fameBandList[2].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = fameBandList[2].bandIdx
+                
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
         }
     }
     
@@ -118,6 +183,11 @@ class SessionMatchViewController: UIViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        viewDidLoad()
+    }
 
 }
 
@@ -149,6 +219,20 @@ extension SessionMatchViewController: UICollectionViewDelegate, UICollectionView
         
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let bandRecruitVC = self.storyboard?.instantiateViewController(withIdentifier: "BandRecruitViewController") as? BandRecruitViewController else { return }
+        
+        GetBandInfoService.getBandInfo(newBandList[indexPath.row].bandIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                bandRecruitVC.bandInfo = response.result
+                bandRecruitVC.bandIdx = newBandList[indexPath.row].bandIdx
+                self.navigationController?.pushViewController(bandRecruitVC, animated: true)
+            }
+        }
     }
     
 }

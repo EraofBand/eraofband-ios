@@ -18,4 +18,10 @@ class FollowTableViewCell: UITableViewCell{
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func prepareForReuse() {
+        profileImgView.image = nil
+        followBtn.titleLabel!.text = nil
+        followBtn.layer.backgroundColor = nil
+    }
 }

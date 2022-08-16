@@ -44,7 +44,7 @@
                                                         <constraint firstAttribute="height" constant="16" id="MXO-UE-FJX"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Lf-bk-Fdw">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Lf-bk-Fdw">
                                                     <rect key="frame" x="20" y="13.5" width="35" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="KOt-Qf-Oa1"/>
@@ -78,11 +78,21 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uQ-ZW-uk1">
+                                                    <rect key="frame" x="382" y="31" width="4" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="9ze-Cj-FTi"/>
+                                                        <constraint firstAttribute="width" constant="4" id="Eh8-ZF-dIg"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="k6T-L6-LDy" firstAttribute="top" secondItem="VLs-Ix-hKw" secondAttribute="bottom" constant="7" id="An1-QV-otB"/>
                                                 <constraint firstItem="9mu-jW-Y3z" firstAttribute="leading" secondItem="6Lf-bk-Fdw" secondAttribute="trailing" constant="15" id="B26-0Q-7Ef"/>
                                                 <constraint firstItem="6Lf-bk-Fdw" firstAttribute="leading" secondItem="7Yf-db-LWY" secondAttribute="leading" constant="20" id="CiL-Va-9mn"/>
+                                                <constraint firstAttribute="trailing" secondItem="2uQ-ZW-uk1" secondAttribute="trailing" constant="28" id="DMT-9e-SFA"/>
                                                 <constraint firstItem="VLs-Ix-hKw" firstAttribute="leading" secondItem="9mu-jW-Y3z" secondAttribute="leading" id="E2S-P0-HVL"/>
                                                 <constraint firstItem="fXC-Qj-Rbr" firstAttribute="top" secondItem="7Yf-db-LWY" secondAttribute="top" constant="31" id="My0-EB-dxs"/>
                                                 <constraint firstItem="6Lf-bk-Fdw" firstAttribute="top" secondItem="7Yf-db-LWY" secondAttribute="top" constant="12" id="Pqv-Jd-ddG"/>
@@ -93,12 +103,14 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="VLs-Ix-hKw" secondAttribute="trailing" constant="20" id="mab-vJ-imB"/>
                                                 <constraint firstItem="VLs-Ix-hKw" firstAttribute="top" secondItem="9mu-jW-Y3z" secondAttribute="bottom" constant="17" id="qfU-8L-Tmy"/>
                                                 <constraint firstItem="9mu-jW-Y3z" firstAttribute="centerY" secondItem="6Lf-bk-Fdw" secondAttribute="centerY" id="y53-GX-bEq"/>
+                                                <constraint firstItem="2uQ-ZW-uk1" firstAttribute="top" secondItem="7Yf-db-LWY" secondAttribute="top" constant="31" id="zvb-SP-b59"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="contentLabel" destination="VLs-Ix-hKw" id="Ze7-kq-tdA"/>
                                             <outlet property="dateLabel" destination="k6T-L6-LDy" id="ppS-l3-KYI"/>
+                                            <outlet property="menuBtn" destination="2uQ-ZW-uk1" id="Fks-yA-NAv"/>
                                             <outlet property="nicknameLabel" destination="9mu-jW-Y3z" id="N7H-In-juG"/>
                                             <outlet property="profileBtn" destination="mFe-K5-nkT" id="TNe-rD-qaW"/>
                                             <outlet property="profileImgView" destination="6Lf-bk-Fdw" id="boj-CV-g2E"/>
@@ -117,6 +129,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="NnX-hj-GZL"/>
                                                 </constraints>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
