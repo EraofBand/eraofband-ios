@@ -638,7 +638,6 @@
 		A8BCDCBF28AB80910009BD0B /* NoticeTab */ = {
 			isa = PBXGroup;
 			children = (
-				A809A7D42871537B00B9E08D /* NoticeTab.storyboard */,
 				A8BCDCC028AB80F50009BD0B /* DetailNotice.storyboard */,
 			);
 			path = NoticeTab;
@@ -647,7 +646,6 @@
 		A8BCDCC228AB81100009BD0B /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-				A857360C2874C66800E2F0AB /* NoticeTabViewController.swift */,
 				A8BCDCC328AB81390009BD0B /* DetailNoticeViewController.swift */,
 			);
 			path = Notice;
