@@ -156,6 +156,10 @@
 		BC0728D02892FC37007EA95D /* BandIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0728CF2892FC37007EA95D /* BandIntroViewController.swift */; };
 		BC0728D22892FC8E007EA95D /* RecruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0728D12892FC8E007EA95D /* RecruitViewController.swift */; };
 		BC0728D42892FC9D007EA95D /* BandAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0728D32892FC9D007EA95D /* BandAlbumViewController.swift */; };
+		BC08AF2128ACB9400029E741 /* QuestionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08AF2028ACB9400029E741 /* QuestionBoardViewController.swift */; };
+		BC08AF2328ACBCF10029E741 /* PromotionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08AF2228ACBCF10029E741 /* PromotionBoardViewController.swift */; };
+		BC08AF2528ACBD720029E741 /* TradeBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08AF2428ACBD720029E741 /* TradeBoardViewController.swift */; };
+		BC08AF2728ACD5E50029E741 /* MyBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08AF2628ACD5E50029E741 /* MyBoardViewController.swift */; };
 		BC0ADB732893A6F60028F57C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB722893A6F60028F57C /* Extension.swift */; };
 		BC0ADB7528944F9A0028F57C /* GetBandInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB7428944F9A0028F57C /* GetBandInfoService.swift */; };
 		BC0ADB7728954C100028F57C /* BandModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB7628954C100028F57C /* BandModifyViewController.swift */; };
@@ -346,6 +350,10 @@
 		BC0728CF2892FC37007EA95D /* BandIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandIntroViewController.swift; sourceTree = "<group>"; };
 		BC0728D12892FC8E007EA95D /* RecruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitViewController.swift; sourceTree = "<group>"; };
 		BC0728D32892FC9D007EA95D /* BandAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandAlbumViewController.swift; sourceTree = "<group>"; };
+		BC08AF2028ACB9400029E741 /* QuestionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBoardViewController.swift; sourceTree = "<group>"; };
+		BC08AF2228ACBCF10029E741 /* PromotionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionBoardViewController.swift; sourceTree = "<group>"; };
+		BC08AF2428ACBD720029E741 /* TradeBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeBoardViewController.swift; sourceTree = "<group>"; };
+		BC08AF2628ACD5E50029E741 /* MyBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBoardViewController.swift; sourceTree = "<group>"; };
 		BC0ADB722893A6F60028F57C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BC0ADB7428944F9A0028F57C /* GetBandInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBandInfoService.swift; sourceTree = "<group>"; };
 		BC0ADB7628954C100028F57C /* BandModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandModifyViewController.swift; sourceTree = "<group>"; };
@@ -918,6 +926,10 @@
 				A857360C2874C66800E2F0AB /* BoardTabViewController.swift */,
 				BCD0DF6628ABD1C700F1F74C /* BoardTabManViewController.swift */,
 				BCD0DF6828ABDC0C00F1F74C /* FreeBoardViewController.swift */,
+				BC08AF2028ACB9400029E741 /* QuestionBoardViewController.swift */,
+				BC08AF2228ACBCF10029E741 /* PromotionBoardViewController.swift */,
+				BC08AF2428ACBD720029E741 /* TradeBoardViewController.swift */,
+				BC08AF2628ACD5E50029E741 /* MyBoardViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -1120,6 +1132,7 @@
 				A88B49932890330F0029A2BF /* FameBandData.swift in Sources */,
 				BCD3C22E2882FAC100562FB4 /* PorfolCommentViewController.swift in Sources */,
 				BC8A62AC28A14BCC003DF75C /* ChatViewController.swift in Sources */,
+				BC08AF2728ACD5E50029E741 /* MyBoardViewController.swift in Sources */,
 				A8ED885F289D51FC00A071E5 /* SearchUserData.swift in Sources */,
 				A854A814289AB07800FDEB4D /* AcceptAlertViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
@@ -1162,6 +1175,7 @@
 				A81351BA2887EDCD00078C9E /* LabelPadding.swift in Sources */,
 				A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */,
 				A854A81E289BF17300FDEB4D /* NewAlarmData.swift in Sources */,
+				BC08AF2528ACBD720029E741 /* TradeBoardViewController.swift in Sources */,
 				BCE57818288EE52500D441EB /* CreateBandViewController.swift in Sources */,
 				A8ED885D289D4EF300A071E5 /* BandLessonSearchTableViewCell.swift in Sources */,
 				BC0ADB7728954C100028F57C /* BandModifyViewController.swift in Sources */,
@@ -1170,6 +1184,7 @@
 				BC8529A4288C34EE009AA2D7 /* VideoPlayerView.swift in Sources */,
 				A81351B82886761200078C9E /* OtherBandViewController.swift in Sources */,
 				BC0ADB81289672870028F57C /* LessonInfoData.swift in Sources */,
+				BC08AF2128ACB9400029E741 /* QuestionBoardViewController.swift in Sources */,
 				A857360F2874C67E00E2F0AB /* HomeTabViewController.swift in Sources */,
 				A8BD5CC1288BEAFB009E7A1B /* WishLessonViewController.swift in Sources */,
 				BC2E991D2886CFF90034CBD9 /* FollowerTableViewController.swift in Sources */,
@@ -1221,6 +1236,7 @@
 				A81C647B28ABCB6700FBAD05 /* BoardImageCollectionViewCell.swift in Sources */,
 				BC2E99182886CD960034CBD9 /* FollowTabManViewController.swift in Sources */,
 				A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */,
+				BC08AF2328ACBCF10029E741 /* PromotionBoardViewController.swift in Sources */,
 				A8BD5CC4288BF588009E7A1B /* HomeBandCollectionViewCell.swift in Sources */,
 				A8BCDCC828AB8A910009BD0B /* BoardDetailTableViewCell.swift in Sources */,
 				A809A7F12872EAA400B9E08D /* TabBar.swift in Sources */,
