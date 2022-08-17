@@ -1,14 +1,14 @@
 //
-//  FreeBoardViewController.swift
+//  QuestionBoardViewController.swift
 //  EraOfBand_iOS
 //
-//  Created by 송재민 on 2022/08/16.
+//  Created by 송재민 on 2022/08/17.
 //
 
 import UIKit
 import Alamofire
 
-class FreeBoardViewController: UIViewController{
+class QuestionBoardViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
     var postList: [BoardListResult] = [BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0),BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0)]
@@ -20,7 +20,7 @@ class FreeBoardViewController: UIViewController{
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/board/list/info/0/0",
+        AF.request(appDelegate.baseUrl + "/board/list/info/1/0",
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -40,7 +40,7 @@ class FreeBoardViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getPostList()
+        //getPostList()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,9 +51,10 @@ class FreeBoardViewController: UIViewController{
         
         getPostList()
     }
+    
 }
 
-extension FreeBoardViewController: UITableViewDataSource, UITableViewDelegate{
+extension QuestionBoardViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postList.count
@@ -67,7 +68,6 @@ extension FreeBoardViewController: UITableViewDataSource, UITableViewDelegate{
         cell.nickname.text = postList[indexPath.row].nickName
         cell.updatedAt.text = postList[indexPath.row].updatedAt
         cell.viewCount.text = "조회수 " + String(postList[indexPath.row].views)
-        
         
         if(postList[indexPath.row].imgUrl != "null" && postList[indexPath.row].imgUrl != ""){
             cell.postImgView.load(url: URL(string: postList[indexPath.row].imgUrl)!)

@@ -16,6 +16,7 @@ class BoardTableViewCell: UITableViewCell{
     @IBOutlet weak var postImgView: UIImageView!
     @IBOutlet weak var likeNum: UILabel!
     @IBOutlet weak var commentNum: UILabel!
+    @IBOutlet weak var boardName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
