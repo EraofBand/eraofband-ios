@@ -8,7 +8,11 @@
 import UIKit
 
 class BoardTabViewController: UIViewController {
-
+    
+    @IBAction func floatingBtnTapped(_ sender: Any) {
+        
+    }
+    
     func setLayout(){
         //self.navigationController?.isNavigationBarHidden = true
         setNavigationBar()
