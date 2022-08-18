@@ -27,12 +27,31 @@
                                     <segue destination="gbC-Rp-WrV" kind="embed" id="UPZ-oy-wu6"/>
                                 </connections>
                             </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vIh-Hv-FQj">
+                                <rect key="frame" x="344" y="748" width="60" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXK-2k-Qjx">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="RX7-C8-18S"/>
+                                            <constraint firstAttribute="width" constant="60" id="urR-mu-xhe"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="ic_floating"/>
+                                        <connections>
+                                            <action selector="floatingBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wzn-wd-l5G"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vIh-Hv-FQj" secondAttribute="trailing" constant="10" id="Fie-ub-moL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="AmU-t3-7nO" secondAttribute="bottom" id="G9q-ti-liB"/>
                             <constraint firstItem="AmU-t3-7nO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="a7t-2i-DIx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vIh-Hv-FQj" secondAttribute="bottom" constant="5" id="ef6-Sz-jUU"/>
                             <constraint firstItem="AmU-t3-7nO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ho6-bQ-mUD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AmU-t3-7nO" secondAttribute="trailing" id="oW4-xD-chH"/>
                         </constraints>
@@ -121,7 +140,7 @@
                                                     <color key="textColor" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQT-rY-TPl">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQT-rY-TPl">
                                                     <rect key="frame" x="349" y="21" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="Zd1-fL-9Av"/>
@@ -822,7 +841,7 @@
                                 <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="BoardTableViewCell" rowHeight="94" id="E7R-mN-8qo" customClass="BoardTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="MyBoardTableViewCell" rowHeight="94" id="E7R-mN-8qo" customClass="MyBoardTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E7R-mN-8qo" id="NfP-aU-xar">
@@ -927,12 +946,12 @@
                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="boardName" destination="td1-Hg-1V3" id="lNf-zI-mHi"/>
-                                            <outlet property="commentNum" destination="uKe-7l-edN" id="Ugr-Wf-fJJ"/>
-                                            <outlet property="likeNum" destination="9PP-by-rpW" id="Tie-7d-JLz"/>
-                                            <outlet property="title" destination="Rqj-57-fwk" id="Ybt-K7-ZQr"/>
-                                            <outlet property="updatedAt" destination="6zL-nb-qQS" id="y6D-bX-EfS"/>
-                                            <outlet property="viewCount" destination="d3I-4X-hYO" id="acn-vI-ako"/>
+                                            <outlet property="boardName" destination="td1-Hg-1V3" id="xmr-je-W6f"/>
+                                            <outlet property="commentNum" destination="uKe-7l-edN" id="fmB-nU-sZJ"/>
+                                            <outlet property="likeNum" destination="9PP-by-rpW" id="mXe-sY-hwu"/>
+                                            <outlet property="title" destination="Rqj-57-fwk" id="dpf-ft-iUW"/>
+                                            <outlet property="updatedAt" destination="6zL-nb-qQS" id="OQk-EC-B0h"/>
+                                            <outlet property="viewCount" destination="d3I-4X-hYO" id="p1g-Dm-zNU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -962,6 +981,7 @@
     </scenes>
     <resources>
         <image name="ic_comment" width="14" height="14"/>
+        <image name="ic_floating" width="84" height="84"/>
         <image name="ic_promotion" width="18" height="18"/>
         <image name="ic_thumbs_up" width="14" height="15"/>
         <image name="ic_trade" width="21" height="21"/>

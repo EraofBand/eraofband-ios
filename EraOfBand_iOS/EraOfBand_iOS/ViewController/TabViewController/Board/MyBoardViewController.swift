@@ -92,7 +92,7 @@ extension MyBoardViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BoardTableViewCell", for: indexPath) as! BoardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyBoardTableViewCell", for: indexPath) as! MyBoardTableViewCell
         
         cell.title.text = postList[indexPath.row].title
         cell.updatedAt.text = postList[indexPath.row].updatedAt

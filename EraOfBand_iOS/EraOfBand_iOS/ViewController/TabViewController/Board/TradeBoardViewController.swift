@@ -16,12 +16,12 @@ class TradeBoardViewController: UIViewController{
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    func getPostList(){
+    func getPostList(boardIdx: Int, completion: @escaping (BoardListModel)-> Void){
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/board/list/info/3/0",
+        AF.request(appDelegate.baseUrl + "/board/list/info/3/" + String(boardIdx),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -29,8 +29,7 @@ class TradeBoardViewController: UIViewController{
             response in
             switch response.result{
             case .success(let data):
-                self.postList = data.result
-                self.tableView.reloadData()
+                completion(data)
                 
             case .failure(let err):
                 print(err)
@@ -41,7 +40,10 @@ class TradeBoardViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //getPostList()
+        getPostList(boardIdx: 0){ data in
+            self.postList = data.result
+            self.tableView.reloadData()
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -50,7 +52,6 @@ class TradeBoardViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        getPostList()
     }
     
 }
@@ -82,5 +83,24 @@ extension TradeBoardViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 107
+    }
+}
+
+extension TradeBoardViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentListSize = self.postList.count
+        
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height - 100 - scrollView.frame.size.height){
+            //print("called")
+            getPostList(boardIdx: postList[postList.count - 1].boardIdx){ data in
+                for i in 0..<data.result.count{
+                    self.postList.append(data.result[i])
+                }
+                if(currentListSize != self.postList.count){
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 }
