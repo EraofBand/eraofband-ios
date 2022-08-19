@@ -20,10 +20,27 @@ struct BoardListResult: Codable{
     var category: Int
     var commentCount: Int
     var content: String
-    //var imgUrl: String
+    var imgUrl: String
     var nickName: String
     var title: String
     var updatedAt: String
     var userIdx: Int
+    var views: Int
+}
+
+struct MyPostListModel: Codable{
+    var code: Int
+    var isSuccess: Bool
+    var message: String
+    var result: [MyPostResult]
+}
+
+struct MyPostResult: Codable{
+    var boardIdx: Int
+    var boardLikeCount: Int
+    var category: Int
+    var commentCount: Int
+    var title: String
+    var updatedAt: String
     var views: Int
 }

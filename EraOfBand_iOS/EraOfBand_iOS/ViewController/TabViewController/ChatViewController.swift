@@ -7,9 +7,9 @@
 
 import UIKit
 import MessageKit
-import Firebase
 import InputBarAccessoryView
 import Alamofire
+import Firebase
 
 struct Sender: SenderType{
     var senderId: String
