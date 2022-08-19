@@ -9,50 +9,53 @@ import UIKit
 
 class BoardDetailTableViewCell: UITableViewCell {
     
-    static let identifier = "BoardTableViewCell"
+    static let identifier = "BoardDetailTableViewCell"
 
+    @IBOutlet weak var boardStackView: UIStackView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNicknameLabel: UILabel!
     @IBOutlet weak var userTimeLabel: UILabel!
     @IBOutlet weak var noticeImgView: UIView!
     @IBOutlet weak var noticeImgCollectionView: UICollectionView!
+    @IBOutlet weak var imgPageControl: UIPageControl!
+    @IBOutlet weak var boardContentView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var ectLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
+    
     let boardImageDataSource = BoardImageDataSource()
+    
+    var currentPage: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         userImageView.layer.cornerRadius = 25
         
-        registerXib()
-        registerDelegate()
-        
     }
     
-    private func registerXib() {
-        let storyNib = UINib(nibName: BoardImageCollectionViewCell.identifier, bundle: nil)
-        noticeImgCollectionView.register(storyNib, forCellWithReuseIdentifier: BoardImageCollectionViewCell.identifier)
+    func registerXib() {
+        let boardImageNib = UINib(nibName: BoardImageCollectionViewCell.identifier, bundle: nil)
+        noticeImgCollectionView.register(boardImageNib, forCellWithReuseIdentifier: BoardImageCollectionViewCell.identifier)
     }
     
-    private func registerDelegate() {
+    func registerDelegate() {
         noticeImgCollectionView.delegate = self
-        noticeImgCollectionView.dataSource = self
+        noticeImgCollectionView.dataSource = boardImageDataSource
     }
     
 }
 
-extension BoardDetailTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+extension BoardDetailTableViewCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        self.imgPageControl.currentPage = Int(scrollView.contentOffset.x / width)
     }
-    
-    
+
 }

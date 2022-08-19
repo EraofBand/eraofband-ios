@@ -34,9 +34,19 @@ class UserSearchViewController: UIViewController {
         
         userResultTableView.delegate = self
         userResultTableView.dataSource = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(userReload), name: .notifName, object: nil)
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(userReload), name: .searchNotifName, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        NotificationCenter.default.removeObserver(self, name: .searchNotifName, object: nil)
     }
     
 
