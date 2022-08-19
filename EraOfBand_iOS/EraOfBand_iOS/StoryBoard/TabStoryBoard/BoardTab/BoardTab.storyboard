@@ -63,6 +63,14 @@
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="79.6875"/>
         </scene>
+        <!--AddPostViewController-->
+        <scene sceneID="wa5-sj-ah8">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AddPostViewController" storyboardName="AddPost" referencedIdentifier="AddPostViewController" id="nO9-13-V4G" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MBO-Wu-J8b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485" y="307"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="TCS-At-5f3">
             <objects>

@@ -69,8 +69,6 @@ class MyBoardViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getMyPostList()
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -81,6 +79,7 @@ class MyBoardViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        getMyPostList()
     }
     
 }
