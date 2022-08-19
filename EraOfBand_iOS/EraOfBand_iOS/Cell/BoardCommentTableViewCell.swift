@@ -8,6 +8,8 @@
 import UIKit
 
 class BoardCommentTableViewCell: UITableViewCell {
+    
+    static let identifier = "BoardCommentTableViewCell"
 
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -15,7 +17,7 @@ class BoardCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var updateAtLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var recommentButton: UIButton!
+    @IBOutlet weak var reCommentButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

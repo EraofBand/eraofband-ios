@@ -21,8 +21,6 @@ class BoardImageDataSource: NSObject, UICollectionViewDataSource {
         
         if let url = URL(string: boardImage[indexPath.item].imgUrl) {
             cell.boardImageView.load(url: url)
-            cell.boardImageView.layer.cornerRadius = 10
-            cell.boardImageView.contentMode = .scaleAspectFill
         }
         
         return cell

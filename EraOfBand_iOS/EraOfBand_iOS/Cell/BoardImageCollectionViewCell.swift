@@ -16,6 +16,8 @@ class BoardImageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        boardImageView.layer.cornerRadius = 10
+        boardImageView.contentMode = .scaleAspectFill
     }
 
 }
