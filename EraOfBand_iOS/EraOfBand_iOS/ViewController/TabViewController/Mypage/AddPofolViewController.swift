@@ -114,6 +114,8 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     
     
     func setLayout(){
+        self.descriptionTextView.contentInsetAdjustmentBehavior = .never
+        
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 42))
         
         
@@ -143,8 +145,10 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
         descriptionTextView.layer.cornerRadius = 15
         descriptionTextView.text = "포트폴리오에 대해 설명해주세요."
         descriptionTextView.textColor = UIColor(red: 0.887, green: 0.887, blue: 0.887, alpha: 1)
-        descriptionTextView.delegate = self
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        
+        descriptionTextView.delegate = self
+        
     }
     
     override func viewDidLoad() {
@@ -203,7 +207,7 @@ extension AddPofolViewController: MediaPickerDelegate{
 extension AddPofolViewController: UITextViewDelegate{
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if descriptionTextView.textColor == UIColor(red: 0.887, green: 0.887, blue: 0.887, alpha: 1){
+        if descriptionTextView.text == "포트폴리오에 대해 설명해주세요."{
             descriptionTextView.text = nil
             descriptionTextView.textColor = UIColor.white
         }
@@ -211,7 +215,7 @@ extension AddPofolViewController: UITextViewDelegate{
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if descriptionTextView.text.isEmpty{
-            textView.text = "포트폴리오에 대해 설명해주세요"
+            textView.text = "포트폴리오에 대해 설명해주세요."
             textView.textColor = UIColor(red: 0.887, green: 0.887, blue: 0.887, alpha: 1)
         }
     }
