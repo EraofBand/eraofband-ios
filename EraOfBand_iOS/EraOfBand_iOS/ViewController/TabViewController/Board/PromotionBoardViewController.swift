@@ -52,6 +52,10 @@ class PromotionBoardViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        getPostList(boardIdx: 0){ data in
+            self.postList = data.result
+            self.tableView.reloadData()
+        }
     }
     
 }
