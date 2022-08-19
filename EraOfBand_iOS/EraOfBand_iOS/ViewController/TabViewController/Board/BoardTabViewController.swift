@@ -8,7 +8,13 @@
 import UIKit
 
 class BoardTabViewController: UIViewController {
-
+    
+    @IBAction func floatingBtnTapped(_ sender: Any) {
+        guard let addPostVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPostViewController") as? AddPostViewController else { return }
+        
+        self.navigationController?.pushViewController(addPostVC, animated: true)
+    }
+    
     func setLayout(){
         //self.navigationController?.isNavigationBarHidden = true
         setNavigationBar()
