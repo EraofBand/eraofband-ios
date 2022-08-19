@@ -70,6 +70,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17u-a8-UPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1796" y="80"/>
+        </scene>
         <!--AddPostViewController-->
         <scene sceneID="wa5-sj-ah8">
             <objects>
