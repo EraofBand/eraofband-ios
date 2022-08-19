@@ -33,8 +33,18 @@ class BandSearchViewController: UIViewController {
         bandResultTableView.dataSource = self
         bandResultTableView.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(bandReload), name: .notifName, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(bandReload), name: .searchNotifName, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        NotificationCenter.default.removeObserver(self, name: .searchNotifName, object: nil)
     }
     
 

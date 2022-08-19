@@ -33,7 +33,18 @@ class LessonSearchViewController: UIViewController {
         lessonResultTableView.dataSource = self
         lessonResultTableView.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(lessonReload), name: .notifName, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(lessonReload), name: .searchNotifName, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        NotificationCenter.default.removeObserver(self, name: .searchNotifName, object: nil)
     }
     
 

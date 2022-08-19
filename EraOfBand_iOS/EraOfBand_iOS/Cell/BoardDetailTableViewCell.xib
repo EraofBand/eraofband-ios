@@ -139,6 +139,17 @@
                     <constraint firstItem="hfj-NX-BMq" firstAttribute="top" secondItem="02v-L2-cic" secondAttribute="top" constant="5" id="xeB-Ar-jAu"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="o5Y-pg-EUb" id="Mxl-Qz-lGl"/>
+                <outlet property="ectLabel" destination="6hh-Li-JYX" id="5B0-xc-6Po"/>
+                <outlet property="likeButton" destination="xIV-4c-jeD" id="Duk-M7-G83"/>
+                <outlet property="noticeImgCollectionView" destination="UVo-tf-B1p" id="2HH-bU-U4M"/>
+                <outlet property="noticeImgView" destination="YXD-xZ-VgR" id="G4D-th-vbe"/>
+                <outlet property="titleLabel" destination="Yqb-0H-Zbh" id="VFe-Od-JNc"/>
+                <outlet property="userImageView" destination="02v-L2-cic" id="mqj-CE-pMn"/>
+                <outlet property="userNicknameLabel" destination="hfj-NX-BMq" id="Afc-oU-lYy"/>
+                <outlet property="userTimeLabel" destination="0AI-Gc-3FD" id="kRA-hq-g1R"/>
+            </connections>
             <point key="canvasLocation" x="-538" y="-42"/>
         </tableViewCell>
     </objects>
