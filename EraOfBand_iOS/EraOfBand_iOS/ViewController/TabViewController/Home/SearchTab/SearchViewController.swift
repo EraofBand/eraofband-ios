@@ -35,7 +35,7 @@ class SearchViewController: UIViewController {
                 
                 getLessonResult(textField.text!) { lessonResultResponse in
                     
-                    NotificationCenter.default.post(name: .notifName, object: nil, userInfo: ["user": userResultResponse, "band": bandResultResponse, "lesson": lessonResultResponse])
+                    NotificationCenter.default.post(name: .searchNotifName, object: nil, userInfo: ["user": userResultResponse, "band": bandResultResponse, "lesson": lessonResultResponse])
                 }
             }
         }
@@ -144,5 +144,6 @@ class SearchViewController: UIViewController {
 }
 
 extension Notification.Name {
-    static let notifName = Notification.Name("DidReceiveResult")
+    static let searchNotifName = Notification.Name("DidReceiveResult")
+    static let keyboardNotifName = Notification.Name("KeyboardNotification")
 }
