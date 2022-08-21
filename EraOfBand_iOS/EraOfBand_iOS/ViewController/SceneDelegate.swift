@@ -32,9 +32,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else { return }
         
         if appDelegate.isFirstRun == true{ // 앱 최초실행 시 온보딩 실행
-            guard let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else { return }
+            
             window?.rootViewController = onboardingVC
         } else{ // 앱 최초실행이 아닐 시 온보딩 자동 스킵
             // 토큰 있는지 확인
