@@ -94,13 +94,6 @@ class MypageTabViewController: UIViewController {
         let newSize = introductionLabel.sizeThatFits(introductionView.frame.size)
         introductionLabel.frame.size = newSize
         
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        
-        backBarButtonItem.tintColor = .white
-        
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
