@@ -67,6 +67,10 @@ class EditViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*date picker 만드는 함수*/
     func createDatePicker(_ birth: String){
         let toolbar = UIToolbar()

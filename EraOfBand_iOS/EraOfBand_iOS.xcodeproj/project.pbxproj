@@ -116,6 +116,7 @@
 		A8BE7D87289E606A00280EB6 /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE7D86289E606A00280EB6 /* SearchBarCell.swift */; };
 		A8BE7D89289E689D00280EB6 /* SearchPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */; };
 		A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7E100288FC734009809EB /* BandListTableViewCell.swift */; };
+		A8DF1F4A28B1ECD000BACE80 /* BoardReCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF1F4928B1ECD000BACE80 /* BoardReCommentTableViewCell.swift */; };
 		A8ED885D289D4EF300A071E5 /* BandLessonSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */; };
 		A8ED885F289D51FC00A071E5 /* SearchUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED885E289D51FC00A071E5 /* SearchUserData.swift */; };
 		A8F82AEF289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F82AEE289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift */; };
@@ -339,6 +340,7 @@
 		A8BE7D86289E606A00280EB6 /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
 		A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageCell.swift; sourceTree = "<group>"; };
 		A8C7E100288FC734009809EB /* BandListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTableViewCell.swift; sourceTree = "<group>"; };
+		A8DF1F4928B1ECD000BACE80 /* BoardReCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardReCommentTableViewCell.swift; sourceTree = "<group>"; };
 		A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandLessonSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A8ED885E289D51FC00A071E5 /* SearchUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserData.swift; sourceTree = "<group>"; };
 		A8F82AEE289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -881,6 +883,7 @@
 				A81C647A28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib */,
 				A8BCDCC928AB91410009BD0B /* BoardCommentTableViewCell.swift */,
 				BC08AF2C28AE790E0029E741 /* AddPostImageCollectionViewCell.swift */,
+				A8DF1F4928B1ECD000BACE80 /* BoardReCommentTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1260,6 +1263,7 @@
 				A854A80C289A7DF000FDEB4D /* RecruitAlertViewController.swift in Sources */,
 				A809A7BB286F283400B9E08D /* SceneDelegate.swift in Sources */,
 				BC0ADB7D289642390028F57C /* SessionMemberTableViewCell.swift in Sources */,
+				A8DF1F4A28B1ECD000BACE80 /* BoardReCommentTableViewCell.swift in Sources */,
 				A8BD5CBB288BEAB5009E7A1B /* SessionMatchViewController.swift in Sources */,
 				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
 				A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */,
