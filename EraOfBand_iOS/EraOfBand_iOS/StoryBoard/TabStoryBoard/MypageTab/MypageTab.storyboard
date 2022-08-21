@@ -267,7 +267,7 @@
                                                 </connections>
                                             </containerView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="WB4-pz-2O3" secondAttribute="bottom" constant="-50" id="6r6-SE-t5a"/>
                                             <constraint firstItem="oFK-w8-6Xf" firstAttribute="centerX" secondItem="8c4-sd-HlP" secondAttribute="centerX" id="Ejk-mm-oXE"/>
@@ -309,7 +309,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7NY-ab-Qib"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FcL-0F-h6g" firstAttribute="leading" secondItem="H4u-53-ASG" secondAttribute="leading" id="97Q-9T-XCO"/>
                             <constraint firstItem="7NY-ab-Qib" firstAttribute="trailing" secondItem="27e-bY-MnU" secondAttribute="trailing" constant="5" id="B4y-fu-mK0"/>
@@ -458,7 +458,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mlz-kT-vRD"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Mmq-8t-UWn" firstAttribute="top" secondItem="mlz-kT-vRD" secondAttribute="top" constant="87" id="FMw-AJ-K4E"/>
                             <constraint firstItem="4ey-gc-TFA" firstAttribute="trailing" secondItem="mlz-kT-vRD" secondAttribute="trailing" constant="-5" id="SqO-mX-ShD"/>
@@ -744,7 +744,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ZIv-ra-e7Q" firstAttribute="top" secondItem="rGv-fE-cME" secondAttribute="bottom" constant="28" id="0QV-10-9mE"/>
                                             <constraint firstItem="IJM-GX-SUm" firstAttribute="centerY" secondItem="7Z1-Qj-em4" secondAttribute="centerY" id="1C3-CX-faT"/>
@@ -816,7 +816,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s1t-kp-WhX"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="fCn-Ac-3tA" secondAttribute="bottom" id="2Lq-qP-Iqb"/>
                             <constraint firstItem="fCn-Ac-3tA" firstAttribute="leading" secondItem="s1t-kp-WhX" secondAttribute="leading" id="Lxp-ut-Bho"/>
@@ -1084,7 +1084,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n3z-iY-gZr"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="CZf-Et-D3q" firstAttribute="leading" secondItem="n3z-iY-gZr" secondAttribute="leading" constant="39" id="JaQ-Yf-GtB"/>
                             <constraint firstItem="CZf-Et-D3q" firstAttribute="centerX" secondItem="n3z-iY-gZr" secondAttribute="centerX" id="LY1-vp-nnm"/>
@@ -1412,7 +1412,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dtA-Xj-mGe"/>
-                        <color key="backgroundColor" red="0.12549020350000001" green="0.13333332540000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.12549019607843137" green="0.13333333333333333" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgN-KE-LFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -203,7 +203,7 @@
                                                     <state key="normal" image="arrowshape.turn.up.right" catalog="system"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.054843842980000002" green="0.054843842980000002" blue="0.054843842980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="7F9-fu-IwP" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leadingMargin" id="1ci-ra-VRf"/>
                                                 <constraint firstItem="0lA-tQ-ujm" firstAttribute="top" secondItem="nlp-tf-FE7" secondAttribute="bottom" constant="11" id="6Ry-Mm-pYg"/>
@@ -239,7 +239,7 @@
                                                 <constraint firstItem="nlp-tf-FE7" firstAttribute="top" secondItem="19c-Tu-9lc" secondAttribute="bottom" constant="13" id="v9Q-jK-Dwh"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.065940469500000001" green="0.065940469500000001" blue="0.065940469500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="commentBtn" destination="Uv2-Ib-pga" id="SKx-Db-vda"/>
                                             <outlet property="commentLabel" destination="XQ6-0e-sDR" id="cTc-YS-QMg"/>
@@ -261,7 +261,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qQW-JT-4tq" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="0Rp-1e-gy7"/>
                             <constraint firstItem="qQW-JT-4tq" firstAttribute="top" secondItem="7Xg-4O-Jtx" secondAttribute="bottom" id="Dut-6P-09X"/>
