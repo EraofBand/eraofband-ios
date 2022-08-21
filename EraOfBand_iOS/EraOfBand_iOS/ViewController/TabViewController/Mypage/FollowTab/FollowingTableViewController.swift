@@ -83,10 +83,12 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
         cell.profileImgView.kf.setImage(with: URL(string: filteredData[indexPath.row].profileImgUrl ?? ""))
         cell.profileImgView.layer.cornerRadius = 20
         
+        cell.followBtn.layer.cornerRadius = 15
+        /*
         if userIdx == appDelegate.userIdx {
-            cell.followBtn.isHidden = false
-            cell.followBtn.layer.cornerRadius = 15
-        }
+            //cell.followBtn.isHidden = false
+            
+        }*/
         
         if filteredData[indexPath.row].follow == 0{
             

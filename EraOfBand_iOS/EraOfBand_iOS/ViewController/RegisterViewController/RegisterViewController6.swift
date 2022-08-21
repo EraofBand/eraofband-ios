@@ -24,6 +24,7 @@ class RegisterViewController6: UIViewController{
     
     
     @IBAction func startBtnTapped(_ sender: Any) {
+        
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/signin/" + appDelegate.myKakaoData.kakaoToken,
@@ -48,10 +49,9 @@ class RegisterViewController6: UIViewController{
                     self.appDelegate.userIdx = getData.result.userIdx!
                     self.appDelegate.userSession = self.myRegisterData.userSession
                     
-                    guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else {return}
-                    mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                
-                    self.present(mainTabBarVC, animated: true)
+                    guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController7") as? RegisterViewController7 else {return}
+                    nextVC.myRegisterData = self.myRegisterData
+                    self.navigationController?.pushViewController(nextVC, animated: true)
                 }catch{
                     print(error.localizedDescription)
                 }
@@ -60,6 +60,7 @@ class RegisterViewController6: UIViewController{
             }
             
         }
+        
     }
     
     func checkForNextBtnEnabled(){
