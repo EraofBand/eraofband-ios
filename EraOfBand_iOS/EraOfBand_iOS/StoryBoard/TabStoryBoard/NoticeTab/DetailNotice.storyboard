@@ -444,7 +444,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Tkv-um-o2z" firstAttribute="top" secondItem="PXJ-mG-IEU" secondAttribute="bottom" id="7Ru-GD-Kel"/>
                             <constraint firstItem="Tkv-um-o2z" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9qS-jV-tKT"/>

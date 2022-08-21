@@ -155,7 +155,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="BfN-PI-3SU" firstAttribute="top" secondItem="YhF-Xg-RKH" secondAttribute="bottom" id="157-qB-2Tq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DOj-jp-Lif" secondAttribute="trailing" constant="20" id="Lse-fz-D5I"/>
