@@ -25,7 +25,8 @@ class DetailNoticeViewController: UIViewController {
     var boardCategory: Int?
     var boardIdx: Int?
     var boardInfoResult: boardInfoResult?
-    var boardComments: [boardCommentsInfo] = []
+    var boardComments: [Int : [boardCommentsInfo]] = [:]
+    var groupNum: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,28 +57,28 @@ class DetailNoticeViewController: UIViewController {
         let category = category[boardCategory!]
         self.navigationItem.title = "\(category)게시판"
         
-        var rightBarButtons: [UIBarButtonItem] = []
-        
-        let moreImage = UIImage(named: "ic_more")
-        let moreButton = UIButton()
-        moreButton.backgroundColor = .clear
-        moreButton.setImage(moreImage, for: .normal)
-        moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
-        
-        let moreBarButton = UIBarButtonItem(customView: moreButton)
-        let currWidth = moreBarButton.customView?.widthAnchor.constraint(equalToConstant: 4)
-        currWidth?.isActive = true
-        let currHeight = moreBarButton.customView?.heightAnchor.constraint(equalToConstant: 16)
-        currHeight?.isActive = true
-        
-        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
-                                             target: nil, action: nil)
-        negativeSpacer.width = 15
-        
-        rightBarButtons.append(negativeSpacer)
-        rightBarButtons.append(moreBarButton)
-        
-        self.navigationItem.rightBarButtonItems = rightBarButtons
+//        var rightBarButtons: [UIBarButtonItem] = []
+//
+//        let moreImage = UIImage(named: "ic_more")
+//        let moreButton = UIButton()
+//        moreButton.backgroundColor = .clear
+//        moreButton.setImage(moreImage, for: .normal)
+//        moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
+//
+//        let moreBarButton = UIBarButtonItem(customView: moreButton)
+//        let currWidth = moreBarButton.customView?.widthAnchor.constraint(equalToConstant: 4)
+//        currWidth?.isActive = true
+//        let currHeight = moreBarButton.customView?.heightAnchor.constraint(equalToConstant: 16)
+//        currHeight?.isActive = true
+//
+//        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+//                                             target: nil, action: nil)
+//        negativeSpacer.width = 15
+//
+//        rightBarButtons.append(negativeSpacer)
+//        rightBarButtons.append(moreBarButton)
+//
+//        self.navigationItem.rightBarButtonItems = rightBarButtons
         
         
     }
@@ -98,13 +99,34 @@ extension DetailNoticeViewController {
             method: .get,
             encoding: JSONEncoding.default,
             headers: header
-        ).responseDecodable(of: BoardInfoData.self){ response in
+        ).responseDecodable(of: BoardInfoData.self){ [self] response in
             
             switch response.result{
             case .success(let boardInfoData):
                 print("boardInfo: \(boardInfoData.result)")
-                self.boardInfoResult = boardInfoData.result
-                self.boardComments = self.boardInfoResult!.getBoardComments
+                boardInfoResult = boardInfoData.result
+                
+                for comment in boardInfoData.result.getBoardComments {
+                    if comment.classNum == 0 { // 기본 댓글일 경우 boardComment에 추가
+                        groupNum.append(comment.groupNum)
+                        if var arr = boardComments[comment.groupNum] {
+                            arr.insert(comment, at: 0)
+                            boardComments[comment.groupNum] = arr
+                        } else {
+                            boardComments[comment.groupNum] = [comment]
+                        }
+                    } else { // 대댓글일 경우 boardReComments에 추가
+                        if var arr = boardComments[comment.groupNum] {
+                            arr.append(comment)
+                            boardComments[comment.groupNum] = arr
+                        } else {
+                            boardComments[comment.groupNum] = [comment]
+                        }
+                    }
+                }
+                
+                print("boardComment : \(boardComments)")
+                print("groupNum : \(groupNum)")
                 completion()
             case .failure(let err):
                 print(err)
@@ -163,22 +185,29 @@ extension DetailNoticeViewController {
 // MARK: tableView 세팅
 extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return boardComments.count + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
-            return boardComments.count
+            let groupNum = groupNum[section]
+            let commentCount = boardComments[groupNum]?.count
+            
+            print("section \(section) : \(commentCount!)")
+            
+            return commentCount!
+            
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0: // 게시물 section
+        
+        if indexPath.section ==  0 { // 게시물 내용 section
             let cell = tableView.dequeueReusableCell(withIdentifier: BoardDetailTableViewCell.identifier) as! BoardDetailTableViewCell
-
+            
             cell.boardImageDataSource.boardImage = boardInfoResult!.getBoardImgs
             
             if boardInfoResult!.getBoardImgs.count == 0 {
@@ -216,31 +245,49 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
 
             return cell
             
-        case 1: // 게시물 답글 section
-            let cell = tableView.dequeueReusableCell(withIdentifier: BoardCommentTableViewCell.identifier, for: indexPath) as! BoardCommentTableViewCell
+        } else {
+            let groupNum = groupNum[indexPath.section]
             
-            if let url = URL(string: boardComments[indexPath.item].profileImgUrl) {
-                cell.userImageView.load(url: url)
-            } else {
-                cell.userImageView.image = UIImage(named: "default_image")
+            if indexPath.row == 0 { // 게시물 댓글 cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: BoardCommentTableViewCell.identifier, for: indexPath) as! BoardCommentTableViewCell
+                
+                let commentInfo = boardComments[groupNum]![0]
+                
+                if let url = URL(string: commentInfo.profileImgUrl) {
+                    cell.userImageView.load(url: url)
+                } else {
+                    cell.userImageView.image = UIImage(named: "default_image")
+                }
+                
+                cell.nicknameLabel.text = commentInfo.nickName
+                cell.commentLabel.text = commentInfo.content
+                cell.updateAtLabel.text = commentInfo.updatedAt
+                
+                cell.reCommentButton.tag = indexPath.section
+                cell.reCommentButton.addTarget(self, action: #selector(reCommentTapped), for: .touchUpInside)
+                cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+                cell.moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
+                
+                return cell
+            } else { // 게시물 대댓글 cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: BoardReCommentTableViewCell.identifier, for: indexPath) as! BoardReCommentTableViewCell
+                
+                let commentInfo = boardComments[groupNum]![indexPath.row]
+                
+                if let url = URL(string: commentInfo.profileImgUrl) {
+                    cell.profileImageView.load(url: url)
+                } else {
+                    cell.profileImageView.image = UIImage(named: "default_image")
+                }
+                
+                cell.userNicknameLabel.text = commentInfo.nickName
+                cell.contentLabel.text = commentInfo.content
+                cell.updateAtLabel.text = commentInfo.updatedAt
+                
+                return cell
             }
             
-            cell.nicknameLabel.text = boardComments[indexPath.item].nickName
-            cell.commentLabel.text = boardComments[indexPath.item].content
-            cell.updateAtLabel.text = boardComments[indexPath.item].updatedAt
-            
-            cell.reCommentButton.tag = indexPath.item
-            cell.reCommentButton.addTarget(self, action: #selector(reCommentTapped), for: .touchUpInside)
-            cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
-            cell.moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
-            
-            return cell
-            
-        default:
-            return UITableViewCell()
-            
         }
-        
     }
     
 }
@@ -259,14 +306,15 @@ extension DetailNoticeViewController {
     
     @objc func reCommentInputTapped(_ sender: UIButton) {
         let content = inputTextField.text
-        let groupNum = boardComments[sender.tag].groupNum
+        let groupNum = groupNum[sender.tag]
         
         postReComment(content!, groupNum)
     }
     
     @objc func reCommentTapped(_ sender: UIButton) {
         
-        let nickName = boardComments[sender.tag].nickName
+        let reCommetInfo = boardComments[sender.tag]![0]
+        let nickName = reCommetInfo.nickName
         
         bottomView.height += 50
         reCommentView.isHidden = false
