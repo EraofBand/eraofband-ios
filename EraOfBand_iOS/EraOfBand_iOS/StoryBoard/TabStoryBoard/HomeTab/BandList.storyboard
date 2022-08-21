@@ -170,7 +170,14 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BfN-PI-3SU" secondAttribute="trailing" constant="20" id="w7w-nw-c8q"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gQg-qo-qM8"/>
+                    <navigationItem key="navigationItem" id="VaS-jI-WYb">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="kpD-9n-hfM">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="Y6W-OH-hqX" id="ZSX-sm-k8q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bandListTableView" destination="BfN-PI-3SU" id="YDb-Rw-2Uq"/>
                         <outlet property="choiceCityButton" destination="GIz-e2-PdA" id="POj-aG-zkB"/>
@@ -199,6 +206,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="ic_floating" width="84" height="84"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>

@@ -185,7 +185,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.1607843041" green="0.1607843041" blue="0.1607843041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="8c4-sd-HlP" secondAttribute="height" multiplier="335:243" id="08t-PI-jDC"/>
                                                     <constraint firstItem="IrH-ov-6hZ" firstAttribute="leading" secondItem="Wxa-35-dtc" secondAttribute="trailing" constant="31" id="0vu-GT-bz9"/>
@@ -366,7 +366,7 @@
             </objects>
             <point key="canvasLocation" x="1780" y="394"/>
         </scene>
-        <!--Session View Controller-->
+        <!--설정-->
         <scene sceneID="qiS-gr-Nsb">
             <objects>
                 <viewController storyboardIdentifier="SessionViewController" hidesBottomBarWhenPushed="YES" id="gmh-LS-nCE" customClass="SessionViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -473,7 +473,14 @@
                             <constraint firstItem="hS8-xy-TRX" firstAttribute="leading" secondItem="Mmq-8t-UWn" secondAttribute="trailing" constant="1" id="yrJ-eu-maM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PYP-DG-b4g"/>
+                    <navigationItem key="navigationItem" title="설정" id="dq4-l4-DVc">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="7xU-af-9kx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="gmh-LS-nCE" id="Igr-RK-zbN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="saveButton" destination="9qb-F9-jqG" id="HbW-xF-cqy"/>
@@ -817,7 +824,17 @@
                             <constraint firstItem="s1t-kp-WhX" firstAttribute="trailing" secondItem="fCn-Ac-3tA" secondAttribute="trailing" id="rRP-6S-a4q"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="프로필 편집" id="6ke-FJ-zol"/>
+                    <navigationItem key="navigationItem" title="프로필 편집" id="OLr-Xl-mvj">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="pt7-WT-fRb">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="K4F-Y0-7eY" id="Rwo-cx-wmc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_more" id="Umo-OK-tkU">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="birthTextField" destination="Kgj-oT-4bG" id="Vcs-g9-Pxq"/>
@@ -838,7 +855,7 @@
             </objects>
             <point key="canvasLocation" x="1927.5362318840582" y="-445.3125"/>
         </scene>
-        <!--설정-->
+        <!--Setting View Controller-->
         <scene sceneID="NMM-UB-ic6">
             <objects>
                 <viewController storyboardIdentifier="SettingViewController" hidesBottomBarWhenPushed="YES" id="Aa8-Yx-xvZ" customClass="SettingViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1075,7 +1092,14 @@
                             <constraint firstItem="n3z-iY-gZr" firstAttribute="trailing" secondItem="CZf-Et-D3q" secondAttribute="trailing" constant="39" id="qeq-pS-dWE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="설정" id="c1t-K6-LPj"/>
+                    <navigationItem key="navigationItem" id="2U3-cw-RS9">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="py4-d6-oSA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="Aa8-Yx-xvZ" id="soj-bQ-Gu5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pL-T3-hNS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1399,12 +1423,14 @@
     <resources>
         <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="ic_alarm" width="170.5" height="183"/>
         <image name="ic_floating" width="84" height="84"/>
         <image name="ic_logout" width="170.5" height="170.5"/>
         <image name="ic_mail" width="170.5" height="160"/>
+        <image name="ic_more" width="4.5" height="23"/>
         <image name="ic_notice" width="170.5" height="160"/>
         <image name="ic_secession" width="170.5" height="170.5"/>
         <image name="ic_session_keyboard" width="170.5" height="170.5"/>
