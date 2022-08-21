@@ -96,6 +96,10 @@ class BandListViewController: UIViewController {
         self.navigationController?.pushViewController(searchVC, animated: true)
         
     }
+    @IBAction func backButtonTapped(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
     
     /* 밴드 리스트 불러오는 함수 */
     func getBandList() {

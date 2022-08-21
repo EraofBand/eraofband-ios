@@ -35,6 +35,9 @@ class SessionViewController: UIViewController {
         saveButton.layer.cornerRadius = 13
         
     }
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func saveAction(_ sender: Any) {
         let params: Dictionary<String, Any?> = ["userIdx": appDelegate.userIdx,
