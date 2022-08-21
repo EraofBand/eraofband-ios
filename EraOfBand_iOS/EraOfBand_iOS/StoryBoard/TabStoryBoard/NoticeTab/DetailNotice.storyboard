@@ -455,6 +455,14 @@
                             <constraint firstItem="Tkv-um-o2z" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="oXf-fc-wuS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GVv-J9-LB5">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="kNV-YQ-IHo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_more" id="tKF-qr-2tD">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomView" destination="Tkv-um-o2z" id="lAk-ql-2ha"/>
                         <outlet property="cancelReCommentButton" destination="Cz1-hG-Yr6" id="mGL-O9-cgC"/>
@@ -472,6 +480,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="ic_cancel_button" width="170.5" height="177.5"/>
         <image name="ic_more" width="4.5" height="23"/>

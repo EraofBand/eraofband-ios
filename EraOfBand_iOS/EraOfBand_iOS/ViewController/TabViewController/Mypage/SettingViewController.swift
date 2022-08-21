@@ -62,6 +62,10 @@ class SettingViewController: UIViewController {
         }
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func deleteUser(alert: UIAlertAction!){
         //print("탈퇴하기")
         let header : HTTPHeaders = [

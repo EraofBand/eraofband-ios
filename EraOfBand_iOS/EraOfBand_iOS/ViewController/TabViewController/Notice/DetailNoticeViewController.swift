@@ -57,28 +57,28 @@ class DetailNoticeViewController: UIViewController {
         let category = category[boardCategory!]
         self.navigationItem.title = "\(category)게시판"
         
-        var rightBarButtons: [UIBarButtonItem] = []
-        
-        let moreImage = UIImage(named: "ic_more")
-        let moreButton = UIButton()
-        moreButton.backgroundColor = .clear
-        moreButton.setImage(moreImage, for: .normal)
-        moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
-        
-        let moreBarButton = UIBarButtonItem(customView: moreButton)
-        let currWidth = moreBarButton.customView?.widthAnchor.constraint(equalToConstant: 4)
-        currWidth?.isActive = true
-        let currHeight = moreBarButton.customView?.heightAnchor.constraint(equalToConstant: 16)
-        currHeight?.isActive = true
-        
-        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
-                                             target: nil, action: nil)
-        negativeSpacer.width = 15
-        
-        rightBarButtons.append(negativeSpacer)
-        rightBarButtons.append(moreBarButton)
-        
-        self.navigationItem.rightBarButtonItems = rightBarButtons
+//        var rightBarButtons: [UIBarButtonItem] = []
+//
+//        let moreImage = UIImage(named: "ic_more")
+//        let moreButton = UIButton()
+//        moreButton.backgroundColor = .clear
+//        moreButton.setImage(moreImage, for: .normal)
+//        moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
+//
+//        let moreBarButton = UIBarButtonItem(customView: moreButton)
+//        let currWidth = moreBarButton.customView?.widthAnchor.constraint(equalToConstant: 4)
+//        currWidth?.isActive = true
+//        let currHeight = moreBarButton.customView?.heightAnchor.constraint(equalToConstant: 16)
+//        currHeight?.isActive = true
+//
+//        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+//                                             target: nil, action: nil)
+//        negativeSpacer.width = 15
+//
+//        rightBarButtons.append(negativeSpacer)
+//        rightBarButtons.append(moreBarButton)
+//
+//        self.navigationItem.rightBarButtonItems = rightBarButtons
         
         
     }
