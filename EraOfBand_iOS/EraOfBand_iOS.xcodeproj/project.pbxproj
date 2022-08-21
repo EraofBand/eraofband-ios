@@ -146,6 +146,7 @@
 		BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */; };
 		BC0ADB85289675270028F57C /* LessonRecruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */; };
 		BC0ADB87289BD2F50028F57C /* GetOtherUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB86289BD2F50028F57C /* GetOtherUserDataService.swift */; };
+		BC15BF8928B23959000F7193 /* RegisterViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC15BF8828B23959000F7193 /* RegisterViewController7.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
 		BC1ED494288027A100A5B931 /* PofolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED493288027A100A5B931 /* PofolData.swift */; };
@@ -368,6 +369,7 @@
 		BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonInfoService.swift; sourceTree = "<group>"; };
 		BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRecruitViewController.swift; sourceTree = "<group>"; };
 		BC0ADB86289BD2F50028F57C /* GetOtherUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOtherUserDataService.swift; sourceTree = "<group>"; };
+		BC15BF8828B23959000F7193 /* RegisterViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController7.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
 		BC1ED493288027A100A5B931 /* PofolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolData.swift; sourceTree = "<group>"; };
@@ -790,6 +792,7 @@
 				BC439C0028735BCD006F5659 /* RegisterViewController5.swift */,
 				BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */,
 				BCA3DA32287934480031028E /* RegisterNavigationController.swift */,
+				BC15BF8828B23959000F7193 /* RegisterViewController7.swift */,
 			);
 			path = RegisterViewController;
 			sourceTree = "<group>";
@@ -1250,6 +1253,7 @@
 				A854A818289BC4B200FDEB4D /* InAppAlarmViewController.swift in Sources */,
 				A854A827289C076700FDEB4D /* BandSearchViewController.swift in Sources */,
 				A81C648128ABD76100FBAD05 /* BoardImageDataSource.swift in Sources */,
+				BC15BF8928B23959000F7193 /* RegisterViewController7.swift in Sources */,
 				A857360B2874C64300E2F0AB /* CommunityTabViewController.swift in Sources */,
 				A8BD5CBF288BEAF2009E7A1B /* WishBandViewController.swift in Sources */,
 				A81351A52882A79400078C9E /* GetUserDataService.swift in Sources */,

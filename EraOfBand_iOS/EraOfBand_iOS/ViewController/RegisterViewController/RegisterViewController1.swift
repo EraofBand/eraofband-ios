@@ -44,6 +44,7 @@ class RegisterViewController1: UIViewController{
         welcomeLabel.attributedText = attributedString
         
         nextBtn.isEnabled = false
+        nicknameTextField.borderStyle = .none
     }
     
     override func viewDidLoad() {
