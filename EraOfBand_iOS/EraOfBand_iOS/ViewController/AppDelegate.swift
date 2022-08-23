@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public var userSession: Int?
     
     public var isFirstRun: Bool?
+    public var isAutoLogin = false
     
     let kakaoKey = Bundle.main.kakaoKey
 
