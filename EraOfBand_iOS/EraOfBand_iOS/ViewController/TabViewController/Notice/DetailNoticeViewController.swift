@@ -27,6 +27,9 @@ class DetailNoticeViewController: UIViewController {
     var boardInfoResult: boardInfoResult?
     var boardComments: [Int : [boardCommentsInfo]] = [:]
     var groupNum: [Int] = []
+    var bottomViewYValue = CGFloat(0)
+    var isComment: Bool = true
+    var reCommentGroupNum: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +48,51 @@ class DetailNoticeViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     func setKeyBoard() {
         keyboardView.layer.cornerRadius = 20
         
-        inputButton.addTarget(self, action: #selector(commentInputTapped), for: .touchUpInside)
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        
+        cancelReCommentButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+        
+        inputButton.isEnabled = false
+        inputTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func inputButtonTapped(_ sender: Any) {
+        
+        let content = inputTextField.text
+        
+        if isComment {
+            postComment(content!) {
+                self.commentTableView.reloadData()
+            }
+        } else {
+            postReComment(content!, reCommentGroupNum!) {
+                self.commentTableView.reloadData()
+            }
+        }
+        
+        inputTextField.text = ""
+        self.view.endEditing(true)
+        
     }
     
     /* 네비바 세팅 */
@@ -56,30 +100,6 @@ class DetailNoticeViewController: UIViewController {
         
         let category = category[boardCategory!]
         self.navigationItem.title = "\(category)게시판"
-        
-//        var rightBarButtons: [UIBarButtonItem] = []
-//
-//        let moreImage = UIImage(named: "ic_more")
-//        let moreButton = UIButton()
-//        moreButton.backgroundColor = .clear
-//        moreButton.setImage(moreImage, for: .normal)
-//        moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
-//
-//        let moreBarButton = UIBarButtonItem(customView: moreButton)
-//        let currWidth = moreBarButton.customView?.widthAnchor.constraint(equalToConstant: 4)
-//        currWidth?.isActive = true
-//        let currHeight = moreBarButton.customView?.heightAnchor.constraint(equalToConstant: 16)
-//        currHeight?.isActive = true
-//
-//        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
-//                                             target: nil, action: nil)
-//        negativeSpacer.width = 15
-//
-//        rightBarButtons.append(negativeSpacer)
-//        rightBarButtons.append(moreBarButton)
-//
-//        self.navigationItem.rightBarButtonItems = rightBarButtons
-        
         
     }
 
@@ -103,11 +123,12 @@ extension DetailNoticeViewController {
             
             switch response.result{
             case .success(let boardInfoData):
-                print("boardInfo: \(boardInfoData.result)")
+                //print("boardInfo: \(boardInfoData.result)")
                 boardInfoResult = boardInfoData.result
                 
+                boardIdx = boardInfoResult?.boardIdx
                 for comment in boardInfoData.result.getBoardComments {
-                    if comment.classNum == 0 { // 기본 댓글일 경우 boardComment에 추가
+                    if comment.classNum == 0 {
                         groupNum.append(comment.groupNum)
                         if var arr = boardComments[comment.groupNum] {
                             arr.insert(comment, at: 0)
@@ -125,8 +146,8 @@ extension DetailNoticeViewController {
                     }
                 }
                 
-                print("boardComment : \(boardComments)")
-                print("groupNum : \(groupNum)")
+                //print("boardComment : \(boardComments)")
+                //print("groupNum : \(groupNum)")
                 completion()
             case .failure(let err):
                 print(err)
@@ -135,7 +156,7 @@ extension DetailNoticeViewController {
     }
     
     /* 댓글 달기 */
-    func postComment(_ content: String) {
+    func postComment(_ content: String, completion: @escaping () -> Void) {
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/comment/" + String(boardIdx!)
@@ -147,10 +168,15 @@ extension DetailNoticeViewController {
             parameters: params,
             encoding: JSONEncoding.default,
             headers: header
-        ).responseDecodable(of: boardCommentsInfo.self){ response in
+        ).responseDecodable(of: BoardCommentData.self){ [self] response in
             switch response.result {
-            case .success:
+            case .success(let commentData):
                 print("댓글 달기 성공")
+                let commentInfo = commentData.result
+                let groupNum = commentInfo.groupNum
+                self.groupNum.insert(groupNum, at: 0)
+                boardComments[groupNum] = [commentInfo]
+                completion()
             case .failure(let err):
                 print(err)
             }
@@ -158,7 +184,7 @@ extension DetailNoticeViewController {
     }
     
     /* 대댓글 달기 */
-    func postReComment(_ content: String, _ groupNum: Int) {
+    func postReComment(_ content: String, _ groupNum: Int, completion: @escaping () -> Void) {
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/re-comment/" + String(boardIdx!)
@@ -170,16 +196,21 @@ extension DetailNoticeViewController {
             parameters: params,
             encoding: JSONEncoding.default,
             headers: header
-        ).responseDecodable(of: boardCommentsInfo.self){ response in
+        ).responseDecodable(of: BoardCommentData.self){ [self] response in
             switch response.result {
-            case .success:
+            case .success(let commentData):
                 print("대댓글 달기 성공")
+                let reCommentInfo = commentData.result
+                let groupNum = reCommentInfo.groupNum
+                var arr = boardComments[groupNum]
+                arr!.append(reCommentInfo)
+                boardComments[groupNum] = arr
+                completion()
             case .failure(let err):
                 print(err)
             }
         }
     }
-    
 }
 
 // MARK: tableView 세팅
@@ -192,15 +223,15 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
         if section == 0 {
             return 1
         } else {
-            let groupNum = groupNum[section]
-            let commentCount = boardComments[groupNum]?.count
-            
-            print("section \(section) : \(commentCount!)")
-            
-            return commentCount!
-            
+            for (group, comment) in boardComments {
+                let index = groupNum.firstIndex(of: group)
+                if section == index! + 1 {
+                    return comment.count
+                }
+            }
         }
         
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -242,11 +273,13 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
                 cell.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
                 cell.likeButton.addTarget(self, action: #selector(postLike), for: .touchUpInside)
             }
+            
+            cell.selectionStyle = .none
 
             return cell
             
         } else {
-            let groupNum = groupNum[indexPath.section]
+            let groupNum = groupNum[indexPath.section - 1]
             
             if indexPath.row == 0 { // 게시물 댓글 cell
                 let cell = tableView.dequeueReusableCell(withIdentifier: BoardCommentTableViewCell.identifier, for: indexPath) as! BoardCommentTableViewCell
@@ -265,8 +298,12 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
                 
                 cell.reCommentButton.tag = indexPath.section
                 cell.reCommentButton.addTarget(self, action: #selector(reCommentTapped), for: .touchUpInside)
+                cell.profileButton.tag = commentInfo.userIdx
                 cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+                cell.moreButton.tag = commentInfo.userIdx
                 cell.moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
+                
+                cell.selectionStyle = .none
                 
                 return cell
             } else { // 게시물 대댓글 cell
@@ -284,68 +321,137 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
                 cell.contentLabel.text = commentInfo.content
                 cell.updateAtLabel.text = commentInfo.updatedAt
                 
+                cell.selectionStyle = .none
+                
                 return cell
             }
-            
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.view.endEditing(true)
+    }
 }
 
 // MARK: @objc functions
 extension DetailNoticeViewController {
     @objc func profileTapped(_ sender: UIButton) {
         
-    }
-    
-    @objc func commentInputTapped(_ sender: UIButton) {
-        let content = inputTextField.text
+        let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as! OtherUserViewController
+        otherUserVC.userIdx = sender.tag
         
-        postComment(content!)
-    }
-    
-    @objc func reCommentInputTapped(_ sender: UIButton) {
-        let content = inputTextField.text
-        let groupNum = groupNum[sender.tag]
-        
-        postReComment(content!, groupNum)
+        self.navigationController?.pushViewController(otherUserVC, animated: true)
     }
     
     @objc func reCommentTapped(_ sender: UIButton) {
         
-        let reCommetInfo = boardComments[sender.tag]![0]
-        let nickName = reCommetInfo.nickName
+        print("sender tag : \(sender.tag)")
+        let groupNum = groupNum[sender.tag - 1]
+        let reCommentInfo = boardComments[groupNum]![0]
+        let nickName = reCommentInfo.nickName
         
-        bottomView.height += 50
+        self.commentTableView.scrollToRow(at: IndexPath(row: 0, section: sender.tag), at: .top, animated: true)
+        
+        isComment = false
+        reCommentGroupNum = groupNum
+        
+        bottomView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        //bottomView.frame.size.height = 120
+        
+        print("bottomview height : \(bottomView.frame.height)")
+        
         reCommentView.isHidden = false
         reCommentLabel.text = "\(nickName)님에게 답글을 남기는 중"
-        
-        inputButton.tag = sender.tag
-        inputButton.addTarget(self, action: #selector(reCommentInputTapped), for: .touchUpInside)
-        
-        cancelReCommentButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
         
     }
     
     @objc func moreTapped(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        if sender.tag == appDelegate.userIdx {
+            let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
+                
+            }
+            let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
+                
+            }
+            
+            actionSheet.addAction(modify)
+            actionSheet.addAction(delete)
+            actionSheet.addAction(cancel)
+        } else {
+            let declare = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+                
+            }
+            
+            actionSheet.addAction(declare)
+            actionSheet.addAction(cancel)
+        }
+        
+        present(actionSheet, animated: true)
         
     }
     
     @objc func cancelTapped(_ sender: UIButton) {
         
-        bottomView.height -= 50
-        reCommentView.isHidden = true
+        print("cancel Tapped")
         
-        inputButton.addTarget(self, action: #selector(commentInputTapped), for: .touchUpInside)
+        isComment = true
+        
+        bottomView.heightAnchor.constraint(equalToConstant: 120).isActive = false
+        
+        //bottomView.frame.size.height = 80
+        
+        print("bottomview height : \(bottomView.frame.height)")
+        
+        reCommentView.isHidden = true
         
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            if view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+            
+            
+//            if bottomViewYValue == 0 {
+//                bottomViewYValue = self.bottomView.frame.origin.y
+//            }
+//
+//            if bottomViewYValue == self.bottomView.frame.origin.y {
+//                bottomViewYValue = self.bottomView.frame.origin.y
+//                self.bottomView.frame.origin.y -= keyboardSize.height - UIApplication.shared.windows.first!.safeAreaInsets.bottom
+//            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+//        self.bottomView.frame.origin.y = bottomViewYValue
+        
+    }
+    
+    @objc func textFieldDidChanged(_ sender: Any) {
+        if inputTextField.text == "" {
+            inputButton.isEnabled = false
+        } else {
+            inputButton.isEnabled = true
+        }
+    }
+    
     /* 좋아요 post */
-    @objc func postLike(_ boardIdx: Int) {
+    @objc func postLike(_ sender: Any) {
         
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
-        let url = appDelegate.baseUrl + "/board/likes/" + String(boardIdx)
+        let url = appDelegate.baseUrl + "/board/likes/" + String(boardIdx!)
         
         AF.request(
             url,
@@ -355,6 +461,8 @@ extension DetailNoticeViewController {
         ).response { response in
             switch response.result {
             case .success:
+                self.boardInfoResult!.likeOrNot = "Y"
+                self.commentTableView.reloadData()
                 print("좋아요 성공")
             case .failure(let err):
                 print(err)
@@ -363,11 +471,11 @@ extension DetailNoticeViewController {
     }
     
     /* 좋아요 delete */
-    @objc func deleteLike(_ boardIdx: Int) {
+    @objc func deleteLike(_ sender: Any) {
         
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
-        let url = appDelegate.baseUrl + "/board/unlikes/" + String(boardIdx)
+        let url = appDelegate.baseUrl + "/board/unlikes/" + String(boardIdx!)
         
         AF.request(
             url,
@@ -377,6 +485,8 @@ extension DetailNoticeViewController {
         ).response { response in
             switch response.result {
             case .success:
+                self.boardInfoResult!.likeOrNot = "N"
+                self.commentTableView.reloadData()
                 print("좋아요 취소 성공")
             case .failure(let err):
                 print(err)

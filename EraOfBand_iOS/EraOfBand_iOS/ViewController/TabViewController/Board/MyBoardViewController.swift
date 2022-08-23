@@ -122,6 +122,16 @@ extension MyBoardViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 87
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailNotice") as! DetailNoticeViewController
+        let category = postList[indexPath.row].category
+        
+        detailVC.boardIdx = postList[indexPath.item].boardIdx
+        detailVC.boardCategory = category
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension MyBoardViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
