@@ -176,9 +176,9 @@ extension BandIntroViewController: UITableViewDataSource, UITableViewDelegate{
         case 2:
             sessionStr = "베이스"
         case 3:
-            sessionStr = "드럼"
-        case 4:
             sessionStr = "키보드"
+        case 4:
+            sessionStr = "드럼"
         default:
             sessionStr = ""
         }
