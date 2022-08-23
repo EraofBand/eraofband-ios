@@ -122,7 +122,7 @@ class EditViewController: UIViewController {
                     self.introduceTextView.text = data.introduction
                     
                     let num = (self.introduceTextView.text?.count)!
-                    self.textCount.text = "\(num)/50"
+                    self.textCount.text = "\(num)/100"
                     
                     let userGender = data.gender
                     if userGender == "MALE" {
@@ -249,9 +249,9 @@ extension EditViewController: UITextViewDelegate {
             
             let changedText = currentText.replacingCharacters(in: stringRange, with: text)
             
-            textCount.text = "\(changedText.count)/50"
+            textCount.text = "\(changedText.count)/100"
             
-            return changedText.count <= 50
+            return changedText.count <= 100
         }
         
         if textView == nickNameTextView {
