@@ -117,6 +117,8 @@
 		A8BE7D89289E689D00280EB6 /* SearchPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */; };
 		A8C7E101288FC734009809EB /* BandListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7E100288FC734009809EB /* BandListTableViewCell.swift */; };
 		A8DF1F4A28B1ECD000BACE80 /* BoardReCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF1F4928B1ECD000BACE80 /* BoardReCommentTableViewCell.swift */; };
+		A8DF1F4C28B508D100BACE80 /* DeclartionAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8DF1F4B28B508D100BACE80 /* DeclartionAlert.storyboard */; };
+		A8DF1F4E28B50E1500BACE80 /* DeclarationAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF1F4D28B50E1400BACE80 /* DeclarationAlertViewController.swift */; };
 		A8ED885D289D4EF300A071E5 /* BandLessonSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */; };
 		A8ED885F289D51FC00A071E5 /* SearchUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED885E289D51FC00A071E5 /* SearchUserData.swift */; };
 		A8F82AEF289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F82AEE289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift */; };
@@ -341,6 +343,8 @@
 		A8BE7D88289E689D00280EB6 /* SearchPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageCell.swift; sourceTree = "<group>"; };
 		A8C7E100288FC734009809EB /* BandListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListTableViewCell.swift; sourceTree = "<group>"; };
 		A8DF1F4928B1ECD000BACE80 /* BoardReCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardReCommentTableViewCell.swift; sourceTree = "<group>"; };
+		A8DF1F4B28B508D100BACE80 /* DeclartionAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeclartionAlert.storyboard; sourceTree = "<group>"; };
+		A8DF1F4D28B50E1400BACE80 /* DeclarationAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarationAlertViewController.swift; sourceTree = "<group>"; };
 		A8ED885C289D4EF200A071E5 /* BandLessonSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandLessonSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A8ED885E289D51FC00A071E5 /* SearchUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserData.swift; sourceTree = "<group>"; };
 		A8F82AEE289D4BBD00F8BCE5 /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -715,6 +719,7 @@
 				A854A815289BC29D00FDEB4D /* InAppAlarm.storyboard */,
 				BC6EFDF5289C0BC900DBF298 /* LessonApplyAlert.storyboard */,
 				A80C5AE328A0CE3700ACB652 /* RecruitHeaderView.xib */,
+				A8DF1F4B28B508D100BACE80 /* DeclartionAlert.storyboard */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -821,6 +826,7 @@
 				BC439BF728730B6A006F5659 /* RegisterViewController */,
 				A809A7CC28714D8800B9E08D /* TabBarCustomLayout */,
 				A85736092874C62000E2F0AB /* TabViewController */,
+				A8DF1F4D28B50E1400BACE80 /* DeclarationAlertViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1050,6 +1056,7 @@
 				BCD3C22C2882FA2F00562FB4 /* CommentTable.storyboard in Resources */,
 				A809A7DB287153A200B9E08D /* MypageTab.storyboard in Resources */,
 				A8BCDCC628AB83D50009BD0B /* BoardDetailTableViewCell.xib in Resources */,
+				A8DF1F4C28B508D100BACE80 /* DeclartionAlert.storyboard in Resources */,
 				A8573618287534EF00E2F0AB /* Pretendard-Light.otf in Resources */,
 				BC0ADB7928954C260028F57C /* ModifyBand.storyboard in Resources */,
 				BC1ED49728803F6B00A5B931 /* AddPofol.storyboard in Resources */,
@@ -1143,6 +1150,7 @@
 				A81C647828AB96E200FBAD05 /* BoardInfoData.swift in Sources */,
 				BC4B5C0228719BF30072A5FF /* LoginViewController.swift in Sources */,
 				BC2E991B2886CFED0034CBD9 /* FollowingTableViewController.swift in Sources */,
+				A8DF1F4E28B50E1500BACE80 /* DeclarationAlertViewController.swift in Sources */,
 				BC2E991F2886F48C0034CBD9 /* FollowData.swift in Sources */,
 				BC6EFDF4289C0B5C00DBF298 /* LessonApplyAlertViewController.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
