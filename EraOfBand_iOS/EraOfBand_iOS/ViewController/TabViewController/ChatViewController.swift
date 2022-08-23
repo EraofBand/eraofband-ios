@@ -192,11 +192,13 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         messageInputBar.inputTextView.placeholder = "메세지를 입력해주세요."
         messageInputBar.sendButton.title = "보내기"
+        messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 10)
         
         messageInputBar.contentView.backgroundColor = .white
         messageInputBar.contentView.layer.cornerRadius = 20
         messageInputBar.separatorLine.isHidden = true
         messageInputBar.inputTextView.font = UIFont(name:"Pretendard-Medium",size:12)!
+        messageInputBar.inputTextView.textColor = .black
         
         
         messageInputBar.padding.top = 5
@@ -238,12 +240,14 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messageCellDelegate = self
         
         messageInputBar.delegate = self
         
         self.view.layer.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1).cgColor
+        
     }
-    
+
     func loadChat(){
         getChatInfo(chatRoomIdx){ [self]result in
             self.chatList = result
@@ -274,6 +278,13 @@ class ChatViewController: MessagesViewController {
         }
     }
 
+}
+
+/*배경 탭 시 키보드 숨기기*/
+extension ChatViewController: MessageCellDelegate {
+    @objc(didTapBackgroundIn:) func didTapBackground(in cell: MessageCollectionViewCell) {
+        self.messageInputBar.inputTextView.resignFirstResponder()
+    }
 }
 
 extension ChatViewController: InputBarAccessoryViewDelegate{
@@ -379,12 +390,7 @@ extension ChatViewController: MessagesDisplayDelegate {
         accessoryView.width = 100
         let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 15))
         
-        /*
-        if( Date().toString().prefix(10) == message.sentDate.toString().prefix(10) ){
-            accessoryLabel.text = message.sentDate.toString().substring(from: 11, to: 15)
-        }else{
-            
-        }*/
+        accessoryLabel.text = ""
         accessoryLabel.text = message.sentDate.toString().substring(from: 11, to: 15)
         accessoryLabel.font = UIFont(name: "Pretendard-Medium", size: 10)
         accessoryLabel.textColor = UIColor(red: 0.576, green: 0.576, blue: 0.576, alpha: 1)

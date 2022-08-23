@@ -63,11 +63,18 @@ class CreateBandViewController: UIViewController{
     var imgUrl: String = ""
     
     let city = ["서울", "경기"]
-    let districtSeoul = ["강서구", "광진구", "강남구"]
+    let districtSeoul = ["종로구","중구","용산구","성동구","광진구","동대문구","중랑구","성북구","강북구","도봉구","노원구","은평구","서대문구","마포구","양천구","강서구","구로구","금천구","영등포구","동작구","관악구","서초구","강남구","송파구","강동구"]
+    let districtGyeonggi = ["가평군","고양시","과천시","광명시","광주시","구리시","군포시","남양주시","동두천시","부천시","성남시","수원시","시흥시","안산시","안성시","안양시","양주시","양편군","여주시","연천군","오산시","용인시","의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시",]
     
     var cityPickerView = UIPickerView()
     var districtPickerView = UIPickerView()
     
+    @IBAction func tapBackGround(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    @IBAction func tapBackGroundWhenModify(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func registerBtnTapped(_ sender: Any) {
         
@@ -578,7 +585,11 @@ extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource
         if pickerView == cityPickerView{
             return city.count
         } else{
-            return districtSeoul.count
+            if(cityTextField.text == "서울"){
+                return districtSeoul.count
+            }else{
+                return districtGyeonggi.count
+            }
         }
     }
     
@@ -586,7 +597,11 @@ extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource
         if pickerView == cityPickerView{
             return city[row]
         }else{
-            return districtSeoul[row]
+            if(cityTextField.text == "서울"){
+                return districtSeoul[row]
+            }else{
+                return districtGyeonggi[row]
+            }
         }
     }
     
@@ -594,7 +609,11 @@ extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource
         if pickerView == cityPickerView{
             cityTextField.text = city[row]
         }else{
-            districtTextField.text = districtSeoul[row]
+            if(cityTextField.text == "서울"){
+                districtTextField.text = districtSeoul[row]
+            }else{
+                districtTextField.text = districtGyeonggi[row]
+            }
         }
         
         self.view.endEditing(true)
@@ -603,6 +622,11 @@ extension CreateBandViewController: UIPickerViewDelegate, UIPickerViewDataSource
 
 /*textfield 글자수 제한*/
 extension CreateBandViewController: UITextFieldDelegate{
+    //화면 터치시 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
               let rangeOfTextToReplace = Range(range, in: textFieldText) else {
@@ -612,6 +636,7 @@ extension CreateBandViewController: UITextFieldDelegate{
         let count = textFieldText.count - substringToReplace.count + string.count
         return count <= 20
     }
+
 }
 
 extension CreateBandViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
