@@ -14,6 +14,7 @@ import MessageUI
 
 class SettingViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     @IBAction func SendMailBtnTapped(_ sender: Any) {
         if MFMailComposeViewController.canSendMail() {
@@ -51,13 +52,21 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func logOutBtnTapped(_ sender: Any) {
+        print("테스트")
         UserApi.shared.logout {(error) in
             if let error = error {
                 print(error)
             }
             else {
-                print("logout() success.")
-                self.dismiss(animated: true)
+                if(self.appDelegate.isAutoLogin){
+                    guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+                    loginVC.modalPresentationStyle = .fullScreen
+                    self.appDelegate.isAutoLogin = false
+                    self.present(loginVC, animated: true)
+                }else{
+                    self.dismiss(animated: true)
+                }
+
             }
         }
     }
@@ -72,6 +81,8 @@ class SettingViewController: UIViewController {
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
+        print(appDelegate.baseUrl + "/users/status/" + String(appDelegate.userIdx!))
+        
         AF.request(appDelegate.baseUrl + "/users/status/" + String(appDelegate.userIdx!),
                    method: .patch,
                    encoding: JSONEncoding.default,
@@ -79,8 +90,15 @@ class SettingViewController: UIViewController {
         ).responseJSON{ response in
             switch response.result{
             case.success:
-                print("탈퇴 성공..")
-                self.dismiss(animated: true)
+                print(response)
+                if(self.appDelegate.isAutoLogin){
+                    guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+                    loginVC.modalPresentationStyle = .fullScreen
+                    self.appDelegate.isAutoLogin = false
+                    self.present(loginVC, animated: true)
+                }else{
+                    self.dismiss(animated: true)
+                }
             default:
                 return
             }
