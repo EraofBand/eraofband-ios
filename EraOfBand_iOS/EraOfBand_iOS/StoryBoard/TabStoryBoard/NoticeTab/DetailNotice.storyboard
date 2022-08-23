@@ -495,6 +495,14 @@
             </objects>
             <point key="canvasLocation" x="721" y="-96"/>
         </scene>
+        <!--DeclartionAlert-->
+        <scene sceneID="cKF-ah-QkJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="aIS-XL-4ao" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Jy-qJ-43o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="88"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

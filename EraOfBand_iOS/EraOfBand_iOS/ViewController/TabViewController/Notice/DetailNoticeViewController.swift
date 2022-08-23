@@ -367,15 +367,15 @@ extension DetailNoticeViewController {
     }
     
     @objc func moreTapped(_ sender: UIButton) {
-        let actionSheet = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
         if sender.tag == appDelegate.userIdx {
             let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
-                
+                print("수정")
             }
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
-                
+                print("삭제")
             }
             
             actionSheet.addAction(modify)
@@ -383,14 +383,20 @@ extension DetailNoticeViewController {
             actionSheet.addAction(cancel)
         } else {
             let declare = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+                let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
                 
+                declareVC.reportLocation = 6
+                declareVC.reportLocationIdx = sender.tag
+                declareVC.modalPresentationStyle = .fullScreen
+                
+                self.present(declareVC, animated: true)
             }
             
             actionSheet.addAction(declare)
             actionSheet.addAction(cancel)
         }
         
-        present(actionSheet, animated: true)
+        present(actionSheet, animated: true, completion: nil)
         
     }
     
