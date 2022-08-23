@@ -185,6 +185,9 @@ class AddPostViewController: UIViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         imgPicker.delegate = self
+        
+        titleTextField.delegate = self
+        descriptionTextView.delegate = self
     }
 }
 
@@ -326,3 +329,4 @@ extension AddPostViewController: UITextFieldDelegate{
         }
     
 }
+
