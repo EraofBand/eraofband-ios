@@ -88,6 +88,15 @@ extension TradeBoardViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 107
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailNotice") as! DetailNoticeViewController
+        
+        detailVC.boardIdx = postList[indexPath.item].boardIdx
+        detailVC.boardCategory = 3
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension TradeBoardViewController: UIScrollViewDelegate{
