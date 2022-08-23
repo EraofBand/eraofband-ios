@@ -73,7 +73,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BkC-7f-h9D" firstAttribute="top" secondItem="zZF-TY-fYi" secondAttribute="bottom" constant="10" id="60R-1g-ghC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zZF-TY-fYi" secondAttribute="trailing" constant="20" id="8yu-qc-leB"/>
@@ -154,7 +154,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aVZ-bz-RUl"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="q5i-KA-aAI" secondAttribute="bottom" id="7th-nN-lyD"/>
                             <constraint firstItem="aVZ-bz-RUl" firstAttribute="trailing" secondItem="q5i-KA-aAI" secondAttribute="trailing" id="aag-yD-Kpu"/>
@@ -256,7 +256,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cwU-ob-X2D"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6kp-pU-Fo9" firstAttribute="top" secondItem="cwU-ob-X2D" secondAttribute="top" id="XY3-8e-4bR"/>
                             <constraint firstItem="cwU-ob-X2D" firstAttribute="trailing" secondItem="6kp-pU-Fo9" secondAttribute="trailing" id="i5Y-vh-zA8"/>
@@ -358,7 +358,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w5J-nb-7If"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eK4-Ip-uR3" firstAttribute="leading" secondItem="w5J-nb-7If" secondAttribute="leading" id="GAe-kK-A73"/>
                             <constraint firstItem="eK4-Ip-uR3" firstAttribute="trailing" secondItem="w5J-nb-7If" secondAttribute="trailing" id="JzB-2I-i5p"/>

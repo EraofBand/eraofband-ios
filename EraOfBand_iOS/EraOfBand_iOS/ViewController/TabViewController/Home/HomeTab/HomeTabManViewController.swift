@@ -82,7 +82,7 @@ func settingHomeTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.contentMode = .fit
     
     let backgroundView = UIView()
-    backgroundView.backgroundColor = .black
+    backgroundView.backgroundColor = #colorLiteral(red: 0.06666665524, green: 0.06666665524, blue: 0.06666665524, alpha: 1)
     ctBar.backgroundView.style = .custom(view: backgroundView)
     
     // 선택 / 안선택 색 + font size
