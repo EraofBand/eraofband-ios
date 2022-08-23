@@ -104,10 +104,11 @@
                                     <constraint firstAttribute="width" constant="335" id="0S1-o2-yhg"/>
                                     <constraint firstAttribute="height" constant="55" id="yNZ-PF-X7G"/>
                                 </constraints>
+                                <color key="tintColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="nextBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y0V-o9-ULn"/>
@@ -333,10 +334,11 @@
                                     <constraint firstAttribute="width" constant="335" id="NHp-1Q-S3a"/>
                                     <constraint firstAttribute="height" constant="55" id="RWx-DE-DsN"/>
                                 </constraints>
+                                <color key="tintColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="nextBtnTapped:" destination="zvR-e6-szC" eventType="touchUpInside" id="cei-6C-MrB"/>
@@ -502,10 +504,11 @@
                                     <constraint firstAttribute="width" constant="335" id="RRw-aP-IoF"/>
                                     <constraint firstAttribute="height" constant="55" id="xOZ-Q1-zGu"/>
                                 </constraints>
+                                <color key="tintColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="nextBtnTapped:" destination="hVZ-W8-H6J" eventType="touchUpInside" id="ZAd-FZ-qin"/>
@@ -681,10 +684,11 @@
                                     <constraint firstAttribute="width" constant="335" id="Fdg-RM-igh"/>
                                     <constraint firstAttribute="height" constant="55" id="G6g-BT-9QU"/>
                                 </constraints>
+                                <color key="tintColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="nextBtnTapped:" destination="zQg-O1-ErI" eventType="touchUpInside" id="ssd-SM-yyA"/>
@@ -890,10 +894,11 @@
                                     <constraint firstAttribute="height" constant="55" id="c12-Fy-no6"/>
                                     <constraint firstAttribute="width" constant="335" id="zzD-NB-id7"/>
                                 </constraints>
+                                <color key="tintColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="nextBtnTapped:" destination="gqY-X4-FWt" eventType="touchUpInside" id="cvf-Kz-ndf"/>
@@ -1107,10 +1112,11 @@
                                     <constraint firstAttribute="height" constant="55" id="p5Z-Gd-dTA"/>
                                     <constraint firstAttribute="width" constant="335" id="rmY-uX-Oyb"/>
                                 </constraints>
+                                <color key="tintColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startBtnTapped:" destination="FTb-Su-dfg" eventType="touchUpInside" id="SWt-pz-xBE"/>
@@ -1253,10 +1259,11 @@
                                     <constraint firstAttribute="width" constant="335" id="VRg-dr-23O"/>
                                     <constraint firstAttribute="height" constant="55" id="yT6-KM-PJf"/>
                                 </constraints>
+                                <color key="tintColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="시작하기">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.092759154740000002" green="0.39139875769999999" blue="0.99323421720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startBtnTapped:" destination="UPm-fo-mFB" eventType="touchUpInside" id="YXj-0J-jli"/>
