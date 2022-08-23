@@ -16,6 +16,15 @@ struct BoardInfoData: Codable {
     
 }
 
+struct BoardCommentData: Codable {
+    
+    var code: Int
+    var isSuccess: Bool
+    var message: String
+    var result: boardCommentsInfo
+    
+}
+
 struct boardInfoResult: Codable {
     
     var boardIdx: Int
@@ -40,12 +49,15 @@ struct boardCommentsInfo: Codable {
     var boardCommentIdx: Int
     var boardIdx: Int
     var classNum: Int
+    var commentStatus: String
     var content: String
     var groupNum: Int
+    var hasReply: Int
     var nickName: String
     var profileImgUrl: String
     var updatedAt: String
     var userIdx: Int
+    var userStatus: String
     
 }
 
