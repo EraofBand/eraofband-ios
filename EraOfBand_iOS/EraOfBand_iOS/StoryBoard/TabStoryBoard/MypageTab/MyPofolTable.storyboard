@@ -144,10 +144,10 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-jO-ryC" customClass="PofolMenuButton" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="390" y="40.5" width="4" height="16"/>
+                                                    <rect key="frame" x="377.5" y="31.5" width="29" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="h5E-wS-W1X"/>
-                                                        <constraint firstAttribute="width" constant="4" id="hgF-qH-566"/>
+                                                        <constraint firstAttribute="height" constant="34" id="sEo-Ic-cab"/>
+                                                        <constraint firstAttribute="width" constant="29" id="t0x-5f-cWs"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
@@ -165,8 +165,6 @@
                                                 <constraint firstItem="0Vq-nj-3tm" firstAttribute="centerY" secondItem="tbR-Dg-Sdp" secondAttribute="centerY" id="Olr-4H-WsR"/>
                                                 <constraint firstItem="Iv0-Ui-u1W" firstAttribute="centerY" secondItem="J9h-u4-zqS" secondAttribute="centerY" id="Oq2-hs-V1G"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DkO-fu-E4G" secondAttribute="trailing" id="SwR-vH-Xtf"/>
-                                                <constraint firstItem="jUb-jO-ryC" firstAttribute="centerY" secondItem="J9h-u4-zqS" secondAttribute="centerY" id="UdV-2s-6AX"/>
-                                                <constraint firstAttribute="trailing" secondItem="jUb-jO-ryC" secondAttribute="trailing" constant="20" id="UgA-IP-qF5"/>
                                                 <constraint firstItem="RO5-Pv-Bt9" firstAttribute="top" secondItem="mMK-0M-STs" secondAttribute="bottom" constant="13" id="UiI-JF-Qer"/>
                                                 <constraint firstItem="J9h-u4-zqS" firstAttribute="centerY" secondItem="bjP-sl-8gS" secondAttribute="centerY" id="V9Y-xy-yNd"/>
                                                 <constraint firstItem="aS9-bm-35w" firstAttribute="top" secondItem="ere-yg-5cR" secondAttribute="bottom" constant="38" id="W1u-69-JR2"/>
@@ -180,6 +178,8 @@
                                                 <constraint firstItem="J9h-u4-zqS" firstAttribute="leading" secondItem="bjP-sl-8gS" secondAttribute="trailing" constant="10" id="j7i-6z-8w5"/>
                                                 <constraint firstItem="DkO-fu-E4G" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leadingMargin" id="k3e-cF-klC"/>
                                                 <constraint firstItem="bjP-sl-8gS" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leadingMargin" id="k62-aY-PJ3"/>
+                                                <constraint firstItem="jUb-jO-ryC" firstAttribute="centerY" secondItem="Iv0-Ui-u1W" secondAttribute="centerY" id="l3g-np-BR5"/>
+                                                <constraint firstItem="jUb-jO-ryC" firstAttribute="centerX" secondItem="Iv0-Ui-u1W" secondAttribute="centerX" id="twZ-mJ-Y0D"/>
                                                 <constraint firstItem="UvU-bl-KwF" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leading" constant="20" id="uMl-FC-a3J"/>
                                                 <constraint firstItem="5i1-rV-5xx" firstAttribute="leading" secondItem="0Vq-nj-3tm" secondAttribute="trailing" constant="10" id="vTU-ag-3yR"/>
                                                 <constraint firstItem="5i1-rV-5xx" firstAttribute="centerY" secondItem="0Vq-nj-3tm" secondAttribute="centerY" id="vbe-Kq-dc8"/>

@@ -183,15 +183,6 @@
                                                         <constraint firstAttribute="height" constant="252" id="uzn-Ri-gxE"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubw-el-sAo" customClass="PofolMenuButton" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="390" y="40.5" width="4" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="WkX-3G-KN1"/>
-                                                        <constraint firstAttribute="width" constant="4" id="aNh-W8-v2X"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain"/>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Kh-zFl">
                                                     <rect key="frame" x="373" y="473.5" width="21" height="22"/>
                                                     <constraints>
@@ -201,15 +192,26 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="arrowshape.turn.up.right" catalog="system"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubw-el-sAo" customClass="PofolMenuButton" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="375" y="34" width="34" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="gdF-ta-Lvg"/>
+                                                        <constraint firstAttribute="width" constant="34" id="tJG-6r-TkD"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="7F9-fu-IwP" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leadingMargin" id="1ci-ra-VRf"/>
+                                                <constraint firstItem="ubw-el-sAo" firstAttribute="centerY" secondItem="EAa-bn-oTz" secondAttribute="centerY" id="1jA-ug-hd4"/>
                                                 <constraint firstItem="0lA-tQ-ujm" firstAttribute="top" secondItem="nlp-tf-FE7" secondAttribute="bottom" constant="11" id="6Ry-Mm-pYg"/>
                                                 <constraint firstItem="yMG-Kh-zFl" firstAttribute="centerY" secondItem="Uv2-Ib-pga" secondAttribute="centerY" id="8Mj-eD-1Ak"/>
                                                 <constraint firstItem="s6b-sL-4NH" firstAttribute="centerY" secondItem="Y7a-6L-Rto" secondAttribute="centerY" id="8fo-Is-70l"/>
                                                 <constraint firstItem="19c-Tu-9lc" firstAttribute="top" secondItem="7F9-fu-IwP" secondAttribute="bottom" constant="24" id="8v9-zH-1cI"/>
                                                 <constraint firstItem="gRi-Cg-QvC" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leadingMargin" id="BXg-Cj-OQn"/>
+                                                <constraint firstItem="ubw-el-sAo" firstAttribute="centerX" secondItem="EAa-bn-oTz" secondAttribute="centerX" id="Be3-P1-tal"/>
                                                 <constraint firstItem="itr-xH-ktH" firstAttribute="leading" secondItem="gRi-Cg-QvC" secondAttribute="trailing" constant="10" id="C3Y-Ru-Gju"/>
                                                 <constraint firstItem="XQ6-0e-sDR" firstAttribute="centerY" secondItem="s6b-sL-4NH" secondAttribute="centerY" id="G3u-F2-Rvs"/>
                                                 <constraint firstItem="gRi-Cg-QvC" firstAttribute="top" secondItem="H8F-Gf-Tds" secondAttribute="topMargin" constant="20" id="GCX-yg-H4t"/>
@@ -221,7 +223,6 @@
                                                 <constraint firstItem="Y7a-6L-Rto" firstAttribute="leading" secondItem="e9u-9e-kCc" secondAttribute="trailing" constant="10" id="XIJ-II-d5F"/>
                                                 <constraint firstItem="e9u-9e-kCc" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leading" constant="20" id="ZCv-IV-hnL"/>
                                                 <constraint firstItem="Y7a-6L-Rto" firstAttribute="centerY" secondItem="e9u-9e-kCc" secondAttribute="centerY" id="bn9-UQ-N0j"/>
-                                                <constraint firstItem="ubw-el-sAo" firstAttribute="centerY" secondItem="itr-xH-ktH" secondAttribute="centerY" id="cep-B8-ePS"/>
                                                 <constraint firstItem="nlp-tf-FE7" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leadingMargin" id="de6-os-2eb"/>
                                                 <constraint firstItem="itr-xH-ktH" firstAttribute="centerY" secondItem="gRi-Cg-QvC" secondAttribute="centerY" id="eJn-Yo-Vgn"/>
                                                 <constraint firstItem="KDq-AG-OB8" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leading" constant="20" id="fdM-ox-emr"/>
@@ -232,7 +233,6 @@
                                                 <constraint firstItem="7F9-fu-IwP" firstAttribute="top" secondItem="gRi-Cg-QvC" secondAttribute="bottom" constant="15" id="nPZ-x9-8xE"/>
                                                 <constraint firstItem="EAa-bn-oTz" firstAttribute="centerY" secondItem="itr-xH-ktH" secondAttribute="centerY" id="qib-U2-TSH"/>
                                                 <constraint firstItem="Uv2-Ib-pga" firstAttribute="leading" secondItem="s6b-sL-4NH" secondAttribute="leading" id="rMQ-nM-3rc"/>
-                                                <constraint firstAttribute="trailing" secondItem="ubw-el-sAo" secondAttribute="trailing" constant="20" id="szK-lS-kTK"/>
                                                 <constraint firstItem="yMG-Kh-zFl" firstAttribute="trailing" secondItem="Yam-fs-gUg" secondAttribute="trailing" id="t02-Jf-GWo"/>
                                                 <constraint firstItem="s6b-sL-4NH" firstAttribute="leading" secondItem="Y7a-6L-Rto" secondAttribute="trailing" constant="20" id="ttN-id-LOI"/>
                                                 <constraint firstItem="nlp-tf-FE7" firstAttribute="top" secondItem="19c-Tu-9lc" secondAttribute="bottom" constant="13" id="v9Q-jK-Dwh"/>
