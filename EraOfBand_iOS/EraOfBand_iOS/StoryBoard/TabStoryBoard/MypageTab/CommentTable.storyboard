@@ -18,7 +18,7 @@
         <!--Porfol Comment View Controller-->
         <scene sceneID="FIl-Qs-pnq">
             <objects>
-                <viewController storyboardIdentifier="PorfolCommentViewController" hidesBottomBarWhenPushed="YES" id="MEc-JZ-Hb0" customClass="PorfolCommentViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PorfolCommentViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="MEc-JZ-Hb0" customClass="PorfolCommentViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w7i-Qh-hvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,7 +210,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="192.75362318840581" y="73.660714285714278"/>
+            <point key="canvasLocation" x="1102.8985507246377" y="73.660714285714278"/>
         </scene>
         <!--OtherUser-->
         <scene sceneID="160-LL-Fec">
@@ -218,7 +218,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="OtherUserViewController" storyboardName="OtherUser" id="kAG-Ym-v54" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0h7-k7-2tq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="95"/>
+            <point key="canvasLocation" x="1763.0434782608697" y="94.419642857142847"/>
         </scene>
     </scenes>
     <resources>

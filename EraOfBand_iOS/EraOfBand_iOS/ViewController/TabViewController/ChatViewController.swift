@@ -168,6 +168,7 @@ class ChatViewController: MessagesViewController {
     }
     
     func setLayout(){
+        
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         view.addSubview(statusBarView)
