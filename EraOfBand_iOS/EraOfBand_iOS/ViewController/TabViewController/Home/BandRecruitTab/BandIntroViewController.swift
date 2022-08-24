@@ -33,6 +33,7 @@ class BandIntroViewController: UIViewController{
     @IBOutlet weak var performPriceLabel: UILabel!
     @IBOutlet weak var memberTableView: UITableView!
     
+    let dateFormatter = DateFormatter()
     
     var bandInfo: BandInfoResult?
     
@@ -85,6 +86,19 @@ class BandIntroViewController: UIViewController{
         
     }
     
+    /*디데이 계산*/
+    func numberOfDaysBetween(
+        _ firstDate: Date, _ secondDate: Date) -> Int {
+        let calendar = Calendar.current
+        let date1 = calendar.startOfDay(for: firstDate)
+        let date2 = calendar.startOfDay(for: secondDate)
+        
+        let components = calendar.dateComponents([.day], from: date1, to: date2)
+        
+            
+        return components.day ?? 0
+    }
+    
     func setData(){
         locationLabel.text = bandInfo?.bandRegion
         
@@ -112,7 +126,18 @@ class BandIntroViewController: UIViewController{
             
             performContentView.layer.cornerRadius = 15
             dDayView.layer.cornerRadius = 10
-            /*디데이 계산하기 추가해야지*/
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let performDate = bandInfo?.performDate?.toDate()!
+            /*
+            dDayLabel.text = String(numberOfDaysBetween( performDate!, Date()))*/
+            
+            if(numberOfDaysBetween(performDate!, Date()) >= 0){
+                dDayLabel.text = "D+" + String(numberOfDaysBetween( performDate!, Date()))
+            }else{
+                dDayLabel.text = "D" + String(
+                numberOfDaysBetween( performDate!, Date()))
+            }
+            
             
             performTitleLabel.text = self.bandInfo?.performTitle ?? ""
             performTimeLabel.text = self.bandInfo?.performTime ?? ""
@@ -144,6 +169,8 @@ class BandIntroViewController: UIViewController{
         memberTableView.delegate = self
         memberTableView.dataSource = self
         memberTableView.separatorStyle = .none
+        
+        //print(bandInfo?.performDate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
