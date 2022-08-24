@@ -115,6 +115,13 @@ class PorfolCommentViewController: UIViewController{
         commentTextField.rightViewMode = .always
         commentTextField.layer.backgroundColor = UIColor.white.cgColor
         
+        /*
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+        self.view.addSubview(statusBarView)*/
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+
     }
     
     
@@ -128,7 +135,7 @@ class PorfolCommentViewController: UIViewController{
         
         setKeyBoardObserver()
         getCommentList()
-        
+    
     }
     
     @IBAction func backgroundTapped(_ sender: Any) {
@@ -240,10 +247,6 @@ extension PorfolCommentViewController{
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= keyboardSize.height
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.view.layoutIfNeeded()
-                })
             }
         }
     }
@@ -253,9 +256,6 @@ extension PorfolCommentViewController{
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += keyboardSize.height
                 
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.view.layoutIfNeeded()
-                })
             }
         }
     }
