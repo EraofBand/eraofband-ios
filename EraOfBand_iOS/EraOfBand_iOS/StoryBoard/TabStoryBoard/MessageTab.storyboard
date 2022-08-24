@@ -97,20 +97,30 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Pha-aF-sQv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="CCQ-sY-UZ4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Pha-aF-sQv" secondAttribute="bottom" id="FOP-qk-dpc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Pha-aF-sQv" secondAttribute="trailing" id="ato-2O-tGQ"/>
                             <constraint firstItem="Pha-aF-sQv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="puY-zl-ylw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="RmQ-C0-9Kz" appends="YES" id="jP9-gS-0GZ"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="sge-OS-7xh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="messageListTableView" destination="Pha-aF-sQv" id="hZ6-QC-GQM"/>
+                        <outlet property="tapGesture" destination="RmQ-C0-9Kz" id="xqY-on-JKx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RmQ-C0-9Kz">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="Y6W-OH-hqX" id="C0V-8k-yC6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1857.9710144927537" y="79.6875"/>
         </scene>

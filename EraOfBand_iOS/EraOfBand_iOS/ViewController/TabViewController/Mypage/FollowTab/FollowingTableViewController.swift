@@ -19,6 +19,11 @@ class FollowingTableViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBAction func backgroundTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     func getFollowingList(){
         
         print("userIdx: \(userIdx)")
@@ -47,7 +52,7 @@ class FollowingTableViewController: UIViewController{
         searchBar.barStyle = .black
         searchBar.delegate = self
         
-        
+        tapGesture.cancelsTouchesInView = false
     }
 }
 

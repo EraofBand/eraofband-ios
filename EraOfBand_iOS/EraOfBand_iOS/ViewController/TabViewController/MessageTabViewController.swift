@@ -19,9 +19,15 @@ class MessageTabViewController: UIViewController {
     var chatListData: [messageListInfo] = [] // 서버에서 가져온 모든 채팅방 정보 저장 변수
     var searchListData: [messageListInfo] = [] // 검색창에 검색해 나온 채팅방 정보만 저장될 변수
     var lastChatData: [String : chatInfo] = [:]
-    var userIdxData: [userIdxInfo] = []
+    //var userIdxData: [userIdxInfo] = []
     
     var chatRoomIdx: Int?
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    
+    /*검색창 밖 탭 시 키보드 비활성화*/
+    @IBAction func backgroundTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
     /* 네비게이션 바 커스텀 */
     func setNavigationBar() {
@@ -61,6 +67,7 @@ class MessageTabViewController: UIViewController {
         }
     }
     
+    /*
     /* 채팅방 유저 idx값 받아오는 함수 */
     func getUserIdxInfo(_ chatIdx: String, completion: @escaping (userIdxInfo) -> Void) {
         
@@ -80,7 +87,7 @@ class MessageTabViewController: UIViewController {
             }
         }
         
-    }
+    }*/
     
     /* 서버에서 채팅방 정보 리스트 가져오는 함수 */
     func getMessageList(completion: @escaping () -> Void) {
@@ -88,6 +95,9 @@ class MessageTabViewController: UIViewController {
         let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/chat/chat-room"
+        
+        self.chatListData = []
+        self.searchListData = []
         
         AF.request(url,
                    method: .get,
@@ -97,6 +107,7 @@ class MessageTabViewController: UIViewController {
             
             switch response.result{
             case .success(let messageInfoData):
+                
                 print("message: \(messageInfoData)")
                 self.chatListData = messageInfoData.result
                 completion()
@@ -134,11 +145,14 @@ class MessageTabViewController: UIViewController {
         
         messageListTableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         
+        tapGesture.cancelsTouchesInView = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         getMessageList { [self] in
+            
             searchListData = []
             for listData in chatListData { // 채팅방 정보로 반복문 실행
                 
@@ -149,12 +163,13 @@ class MessageTabViewController: UIViewController {
                     searchListData.append(listData)
                     messageListTableView.reloadData() // 정보 가져온 후 tableView reload
                     
+                    /*
                     getUserIdxInfo(chatIdx) { [self] userIdx in
                         userIdxData.append(userIdx) // 채팅방 유저 idx값 받아와 userIdxData배열에 append
-                    }
+                    }*/
                 }
             }
-            print("AfterFor userIdxData: \(userIdxData)")
+            //print("AfterFor userIdxData: \(userIdxData)")
         }
     }
 }
@@ -199,6 +214,7 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MessageTableHeaderView") as! MessageTableHeaderView
         
         header.searchTextField.addTarget(self, action: #selector(didChanged), for: .editingChanged)
+        header.searchTextField.delegate = self
         
         return header
     }
@@ -214,15 +230,17 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let chatRoomIdx = searchListData[indexPath.item].chatRoomIdx
-        let userInfo = userIdxData[indexPath.item]
+        //let userInfo = userIdxData[indexPath.item]
         var otherUserIdx: Int = 0
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
+        /*
         if userInfo.firstUserIdx == appDelegate.userIdx {
             otherUserIdx = userInfo.secondUserIdx // secondUserIdx 값이 otherUserIdx
         } else {
             otherUserIdx = userInfo.firstUserIdx // firstUserIdx 값이 otherUserIdx
-        }
+        }*/
+        otherUserIdx = searchListData[indexPath.item].otherUserIdx
         
         
         GetOtherUserDataService.getOtherUserInfo(otherUserIdx) { (isSuccess, response) in // otherUser 정보 가져오기
@@ -238,4 +256,11 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+}
+
+extension MessageTabViewController: UITextFieldDelegate{
+    //화면 터치시 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
 }
