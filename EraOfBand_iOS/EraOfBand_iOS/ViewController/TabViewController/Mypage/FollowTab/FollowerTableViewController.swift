@@ -18,6 +18,11 @@ class FollowerTableViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBAction func backgroundTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     func getFollowerList(){
         
         GetFollowService.getFollowerList(userIdx!) { (isSuccess, getData) in
@@ -44,6 +49,8 @@ class FollowerTableViewController: UIViewController{
         searchBar.searchTextField.leftView?.tintColor = .white
         searchBar.barStyle = .black
         searchBar.delegate = self
+        
+        tapGesture.cancelsTouchesInView = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
