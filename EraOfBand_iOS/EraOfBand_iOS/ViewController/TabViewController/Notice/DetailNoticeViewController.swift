@@ -101,9 +101,22 @@ class DetailNoticeViewController: UIViewController {
         let category = category[boardCategory!]
         self.navigationItem.title = "\(category)게시판"
         
-        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
-        statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
-        self.view.addSubview(statusBarView)
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+            let statusBarManager = window?.windowScene?.statusBarManager
+            
+            let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? CGRect.zero)
+            statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+            
+            window?.addSubview(statusBarView)
+        } else {
+            let statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
+            statusBarView?.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+        }
+        
+//        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+//        statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+//        self.view.addSubview(statusBarView)
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
     }
 
@@ -127,7 +140,6 @@ extension DetailNoticeViewController {
             
             switch response.result{
             case .success(let boardInfoData):
-                //print("boardInfo: \(boardInfoData.result)")
                 boardInfoResult = boardInfoData.result
                 
                 boardIdx = boardInfoResult?.boardIdx
@@ -150,8 +162,8 @@ extension DetailNoticeViewController {
                     }
                 }
                 
-                //print("boardComment : \(boardComments)")
-                //print("groupNum : \(groupNum)")
+                print("boardComment : \(boardComments)")
+                print("groupNum : \(groupNum)")
                 completion()
             case .failure(let err):
                 print(err)
@@ -304,7 +316,7 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
                 cell.reCommentButton.addTarget(self, action: #selector(reCommentTapped), for: .touchUpInside)
                 cell.profileButton.tag = commentInfo.userIdx
                 cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
-                cell.moreButton.tag = commentInfo.userIdx
+                cell.moreButton.tag = commentInfo.boardCommentIdx
                 cell.moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
                 
                 cell.selectionStyle = .none
@@ -371,10 +383,21 @@ extension DetailNoticeViewController {
     }
     
     @objc func moreTapped(_ sender: UIButton) {
+        
+        var cellComment: boardCommentsInfo?
+        
+        for (_, comments) in boardComments {
+            for comment in comments {
+                if comment.boardCommentIdx == sender.tag {
+                    cellComment = comment
+                }
+            }
+        }
+        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
-        if sender.tag == appDelegate.userIdx {
+        if cellComment?.userIdx == appDelegate.userIdx {
             let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
                 print("수정")
             }
@@ -390,7 +413,7 @@ extension DetailNoticeViewController {
                 let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
                 
                 declareVC.reportLocation = 6
-                declareVC.reportLocationIdx = sender.tag
+                declareVC.reportLocationIdx = cellComment?.boardCommentIdx
                 declareVC.modalPresentationStyle = .fullScreen
                 
                 self.present(declareVC, animated: true)

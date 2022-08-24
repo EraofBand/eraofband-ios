@@ -193,8 +193,6 @@ class SessionMatchViewController: UIViewController {
 
 extension SessionMatchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("newBandList: \(newBandList)")
-        
         return newBandList.count
     }
     
