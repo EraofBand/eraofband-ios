@@ -53,6 +53,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="등록하기">
                                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="registerBtnTapped:" destination="80A-5r-eHz" eventType="touchUpInside" id="Xbc-qp-LSf"/>
@@ -178,10 +179,10 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="강서구" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4c-Oj-s8u">
-                                                        <rect key="frame" x="99" y="0.0" width="69" height="24"/>
+                                                        <rect key="frame" x="99" y="0.0" width="80" height="24"/>
                                                         <color key="backgroundColor" red="0.054901964960000001" green="0.054901964960000001" blue="0.054901964960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="69" id="AjA-pC-P8a"/>
+                                                            <constraint firstAttribute="width" constant="80" id="AjA-pC-P8a"/>
                                                             <constraint firstAttribute="height" constant="24" id="ZPP-zU-bAS"/>
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -316,7 +317,7 @@
                                                         <color key="textColor" red="0.19215688110000001" green="0.38431376220000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드를 대표하는 사진 한 장을 추가해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djq-eM-KKS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="레슨을 대표하는 사진 한 장을 추가해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djq-eM-KKS">
                                                         <rect key="frame" x="83" y="193" width="208" height="14"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" red="0.88627451660000001" green="0.88627451660000001" blue="0.88627451660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -376,6 +377,7 @@
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Vql-dT-F2Y" firstAttribute="leading" secondItem="ntN-fe-uJz" secondAttribute="leading" constant="20" id="1BR-xO-vlK"/>
                                             <constraint firstAttribute="trailing" secondItem="col-Ua-ng3" secondAttribute="trailing" constant="20" id="2p7-Ff-0a6"/>
@@ -432,6 +434,9 @@
                                             <constraint firstItem="rst-O5-gkO" firstAttribute="top" secondItem="col-Ua-ng3" secondAttribute="bottom" constant="24" id="yCq-Zu-MZC"/>
                                             <constraint firstItem="hMi-UH-gS8" firstAttribute="top" secondItem="yUH-GE-9yd" secondAttribute="bottom" constant="16" id="z0C-Ew-Fla"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9fM-nH-NZo" appends="YES" id="PKr-Ei-DbG"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -481,6 +486,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xt9-5v-Uhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9fM-nH-NZo">
+                    <connections>
+                        <action selector="tapBackGround:" destination="80A-5r-eHz" id="PKW-Mv-mpZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-46.376811594202906" y="108.48214285714285"/>
         </scene>

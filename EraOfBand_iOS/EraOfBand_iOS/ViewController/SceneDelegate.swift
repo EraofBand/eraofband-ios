@@ -54,6 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                     guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
                                     self.window?.rootViewController = loginVC
                                 } else { // 회원가입이 되어 있는 이메일일 경우 jwt와 userIdx 저장 후 메일 화면으로 바로 이동
+                                    self.appDelegate.isAutoLogin = true
                                     self.appDelegate.jwt = getData.result.jwt ?? ""
                                     self.appDelegate.userIdx = getData.result.userIdx!
                                     

@@ -22,6 +22,10 @@ class MessageListTableViewCell: UITableViewCell {
         userImageView.contentMode = .scaleAspectFill
         checkView.layer.cornerRadius = 6
     }
+    
+    override func prepareForReuse() {
+        userImageView.image = nil
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

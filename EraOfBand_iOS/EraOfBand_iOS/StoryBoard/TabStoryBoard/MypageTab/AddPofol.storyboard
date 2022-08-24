@@ -29,6 +29,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="저장하기">
                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="saveBtnTapped:" destination="uWp-o4-iET" eventType="touchUpInside" id="4oJ-4L-9KW"/>
@@ -50,23 +51,29 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abr-0w-osM">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=""/>
                                         <connections>
                                             <action selector="addFileBtnTapped:" destination="uWp-o4-iET" eventType="touchUpInside" id="aeK-Lz-GVE"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down.doc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-nL-ajp">
-                                        <rect key="frame" x="154" y="71" width="66" height="77"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_upload_pofol" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-nL-ajp">
+                                        <rect key="frame" x="154" y="65" width="66" height="77"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="77" id="FjI-Da-mpZ"/>
                                             <constraint firstAttribute="width" constant="66" id="Qc1-Dq-ywh"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파일 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cP-Bj-EYt">
-                                        <rect key="frame" x="153.5" y="159" width="67" height="21.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포트폴리오 영상 등록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cP-Bj-EYt">
+                                        <rect key="frame" x="112" y="162" width="150" height="22"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="18"/>
                                         <color key="textColor" name="on_icon_color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200MB 이하의 영상을 등록해주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcF-MZ-1Gn">
+                                        <rect key="frame" x="139" y="194" width="96.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
+                                        <color key="textColor" red="0.88627451660000001" green="0.88627451660000001" blue="0.88627451660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bif-y7-zRw">
@@ -77,16 +84,18 @@
                                 <constraints>
                                     <constraint firstItem="Abr-0w-osM" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" id="1jf-Tc-UkF"/>
                                     <constraint firstAttribute="trailing" secondItem="Abr-0w-osM" secondAttribute="trailing" id="3wh-h6-Xvg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bif-y7-zRw" secondAttribute="bottom" id="Gfp-OL-eVj"/>
                                     <constraint firstItem="1cP-Bj-EYt" firstAttribute="centerX" secondItem="7Zc-g1-Rrs" secondAttribute="centerX" id="Ikm-WO-vGp"/>
-                                    <constraint firstAttribute="bottom" secondItem="Bif-y7-zRw" secondAttribute="bottom" id="N2O-c9-cEA"/>
                                     <constraint firstAttribute="height" constant="252" id="NTC-SF-OrQ"/>
                                     <constraint firstAttribute="bottom" secondItem="Abr-0w-osM" secondAttribute="bottom" id="Sk9-tg-Egr"/>
+                                    <constraint firstItem="Bif-y7-zRw" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" id="Srl-Bw-bFm"/>
                                     <constraint firstItem="Abr-0w-osM" firstAttribute="leading" secondItem="7Zc-g1-Rrs" secondAttribute="leading" id="Uf8-hI-dkx"/>
-                                    <constraint firstItem="xIV-nL-ajp" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" constant="71" id="WC3-if-snf"/>
-                                    <constraint firstItem="Bif-y7-zRw" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" id="bxV-q7-GVb"/>
-                                    <constraint firstAttribute="trailing" secondItem="Bif-y7-zRw" secondAttribute="trailing" id="kMC-VZ-XF0"/>
-                                    <constraint firstItem="1cP-Bj-EYt" firstAttribute="top" secondItem="xIV-nL-ajp" secondAttribute="bottom" constant="11" id="oJx-vb-KGH"/>
-                                    <constraint firstItem="Bif-y7-zRw" firstAttribute="leading" secondItem="7Zc-g1-Rrs" secondAttribute="leading" id="pSE-6c-84T"/>
+                                    <constraint firstItem="xIV-nL-ajp" firstAttribute="top" secondItem="7Zc-g1-Rrs" secondAttribute="top" constant="65" id="WC3-if-snf"/>
+                                    <constraint firstItem="Bif-y7-zRw" firstAttribute="leading" secondItem="7Zc-g1-Rrs" secondAttribute="leading" id="apf-pl-yYe"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bif-y7-zRw" secondAttribute="trailing" id="lxS-7N-Gw1"/>
+                                    <constraint firstItem="1cP-Bj-EYt" firstAttribute="top" secondItem="xIV-nL-ajp" secondAttribute="bottom" constant="20" id="oJx-vb-KGH"/>
+                                    <constraint firstItem="BcF-MZ-1Gn" firstAttribute="top" secondItem="1cP-Bj-EYt" secondAttribute="bottom" constant="10" id="upz-cJ-tSS"/>
+                                    <constraint firstItem="BcF-MZ-1Gn" firstAttribute="centerX" secondItem="7Zc-g1-Rrs" secondAttribute="centerX" id="uzS-xY-jkJ"/>
                                     <constraint firstItem="xIV-nL-ajp" firstAttribute="centerX" secondItem="7Zc-g1-Rrs" secondAttribute="centerX" id="vKL-Yj-cqm"/>
                                 </constraints>
                             </view>
@@ -135,12 +144,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wg6-fj-rxC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="45"/>
+            <point key="canvasLocation" x="976.81159420289862" y="44.866071428571423"/>
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="ic_upload_pofol" width="63.5" height="78.5"/>
         <namedColor name="on_icon_color">
             <color red="0.093999996781349182" green="0.3919999897480011" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
