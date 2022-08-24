@@ -24,7 +24,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     
     var currentTitle: String = ""
     var currentThumbNailUrl: String = ""
-    var currentDescription: String = ""
+    var currentDescription: String = "포트폴리오에 대해 설명해주세요."
     var isModifying: Bool = false
     var pofolIdx: Int = 0
     

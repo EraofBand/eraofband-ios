@@ -33,7 +33,7 @@ class OtherUserViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    var sessionData: [String] = ["보컬", "기타", "베이스", "드럼", "키보드"]
+    var sessionData: [String] = ["보컬", "기타", "베이스", "키보드", "드럼"]
 
     var userData: OtherUser?
     

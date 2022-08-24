@@ -45,7 +45,7 @@ extension OtherBandViewController: UITableViewDelegate, UITableViewDataSource{
         cell.tableRegionLabel.text = bandinfo.bandRegion
         cell.memberNumLabel.text = String(bandinfo.memberCount) + " / " + String(bandinfo.capacity)
         
-        cell.sessionView.layer.cornerRadius = 15
+        cell.tableIntroLabel.text = bandinfo.bandIntroduction
         
         cell.selectionStyle = .none
         

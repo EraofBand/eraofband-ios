@@ -131,10 +131,10 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="강서구" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0G2-Hi-p2P">
-                                                        <rect key="frame" x="99" y="0.0" width="69" height="24"/>
+                                                        <rect key="frame" x="99" y="0.0" width="80" height="24"/>
                                                         <color key="backgroundColor" red="0.054901964960000001" green="0.054901964960000001" blue="0.054901964960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="69" id="9G3-4R-tGZ"/>
+                                                            <constraint firstAttribute="width" constant="80" id="9G3-4R-tGZ"/>
                                                             <constraint firstAttribute="height" constant="24" id="pXX-vm-j0N"/>
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -619,6 +619,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="등록하기">
                                                     <fontDescription key="titleFontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                                    <color key="baseBackgroundColor" red="0.19215688110000001" green="0.38823530080000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="registerBtnTapped:" destination="Sx6-De-L4h" eventType="touchUpInside" id="xFG-dK-JjJ"/>
@@ -626,6 +627,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="y1e-kg-sF3" firstAttribute="leading" secondItem="84o-p8-3ja" secondAttribute="leading" constant="20" id="12M-tM-Nth"/>
                                             <constraint firstItem="Tb2-bq-gPC" firstAttribute="top" secondItem="Who-22-NAL" secondAttribute="bottom" constant="5" id="1jm-ih-5Bg"/>
@@ -708,6 +710,9 @@
                                             <constraint firstItem="GFj-dy-RVk" firstAttribute="leading" secondItem="84o-p8-3ja" secondAttribute="leading" constant="20" id="z2Y-z4-uou"/>
                                             <constraint firstItem="CEC-gl-Mx5" firstAttribute="top" secondItem="1m0-iM-QSN" secondAttribute="bottom" constant="27" id="z3l-Qw-Upa"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="iJa-cb-Xda" appends="YES" id="emR-9T-eMM"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -769,6 +774,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOc-yd-EPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iJa-cb-Xda">
+                    <connections>
+                        <action selector="tapBackGround:" destination="Sx6-De-L4h" id="LM4-PP-QQN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-46.376811594202906" y="108.48214285714285"/>
         </scene>

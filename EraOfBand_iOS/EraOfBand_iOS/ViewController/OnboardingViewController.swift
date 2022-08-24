@@ -32,6 +32,7 @@ class OnboardingViewController: UIViewController {
         collectionView.delegate = self
     
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
 
     }
     

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7At-3p-krE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Register-->
+        <scene sceneID="FVg-Z4-KGl">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="RegisterNavigationController" storyboardName="Register" id="ZQP-3j-A5h" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hTP-XG-9gs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rzh-Eo-hwp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="14"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="0lz-EB-u0b">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="7At-3p-krE" customClass="LoginViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lvr-QK-wvG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg_img" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-b6-H19">
+                                <rect key="frame" x="0.0" y="-6" width="414" height="936"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eob_logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="Oe6-U6-qiV">
+                                <rect key="frame" x="0.0" y="114" width="190" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="0lw-63-TUb"/>
+                                    <constraint firstAttribute="height" constant="51" id="RJ2-f1-j4g"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 당신은 밴드의 시대를 열 준비가 되셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CN-Ps-PGo">
+                                <rect key="frame" x="20" y="215" width="253" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="253" id="olV-DH-98F"/>
+                                    <constraint firstAttribute="height" constant="63" id="y9W-dI-Jyh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWf-VU-wTY">
+                                <rect key="frame" x="29.5" y="709" width="355" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="3mK-w6-l7p"/>
+                                    <constraint firstAttribute="width" constant="355" id="LX0-dT-het"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="kakao_login_btn"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="kakaoBtnTapped:" destination="7At-3p-krE" eventType="touchUpInside" id="v0g-l7-qkY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gkH-Es-TAu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ehc-b6-H19" firstAttribute="leading" secondItem="gkH-Es-TAu" secondAttribute="leading" id="0C4-dr-uR3"/>
+                            <constraint firstItem="Oe6-U6-qiV" firstAttribute="top" secondItem="gkH-Es-TAu" secondAttribute="top" constant="70" id="6hi-S0-o4w"/>
+                            <constraint firstItem="7CN-Ps-PGo" firstAttribute="leading" secondItem="gkH-Es-TAu" secondAttribute="leading" constant="20" id="9bC-0e-C0H"/>
+                            <constraint firstItem="7CN-Ps-PGo" firstAttribute="top" secondItem="Oe6-U6-qiV" secondAttribute="bottom" constant="50" id="Ilw-de-Ych"/>
+                            <constraint firstItem="gkH-Es-TAu" firstAttribute="bottom" secondItem="kWf-VU-wTY" secondAttribute="bottom" constant="98" id="Iom-ZD-EWl"/>
+                            <constraint firstItem="ehc-b6-H19" firstAttribute="top" secondItem="gkH-Es-TAu" secondAttribute="top" constant="-50" id="Mca-pM-zdi"/>
+                            <constraint firstItem="Oe6-U6-qiV" firstAttribute="leading" secondItem="gkH-Es-TAu" secondAttribute="leading" id="UMw-QL-7gO"/>
+                            <constraint firstItem="gkH-Es-TAu" firstAttribute="trailing" secondItem="ehc-b6-H19" secondAttribute="trailing" id="Wke-hE-qmW"/>
+                            <constraint firstItem="kWf-VU-wTY" firstAttribute="centerX" secondItem="lvr-QK-wvG" secondAttribute="centerX" id="jLs-I4-xmr"/>
+                            <constraint firstAttribute="bottom" secondItem="ehc-b6-H19" secondAttribute="bottom" constant="-34" id="sXo-J1-3uV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImg" destination="ehc-b6-H19" id="aye-WB-rWt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHL-BY-lPE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="67.633928571428569"/>
+        </scene>
+        <!--MainTabBar-->
+        <scene sceneID="Uv2-5d-r5z">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MainTabBar" storyboardName="MainTabBar" id="yRT-DX-rSY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4u-xF-zg4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="176"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="eob_logo_text" width="190" height="51"/>
+        <image name="kakao_login_btn" width="335" height="55"/>
+        <image name="login_bg_img" width="375" height="811"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
