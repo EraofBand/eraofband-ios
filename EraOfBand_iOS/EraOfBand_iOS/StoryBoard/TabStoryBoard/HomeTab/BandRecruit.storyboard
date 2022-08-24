@@ -195,11 +195,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slo-v3-Bmg">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slo-v3-Bmg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1dI-hC-bbj">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="898.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="882.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oi-l2-NkY">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
@@ -368,34 +368,44 @@
                                                     <constraint firstItem="Php-Gb-rra" firstAttribute="leading" secondItem="C6g-wW-lzd" secondAttribute="leading" constant="20" id="wN2-cg-y4C"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-e9-Mb0">
-                                                <rect key="frame" x="0.0" y="214" width="414" height="117"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YVw-ql-jh3">
+                                                <rect key="frame" x="0.0" y="214" width="414" height="101"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-ir-BUH">
-                                                        <rect key="frame" x="20" y="21" width="67" height="21.5"/>
-                                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소개소개소개" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbC-kg-8F8">
-                                                        <rect key="frame" x="20" y="55.5" width="374" height="17"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-FH-GXx">
+                                                        <rect key="frame" x="20" y="0.0" width="374" height="59"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-ir-BUH">
+                                                                <rect key="frame" x="0.0" y="22" width="67" height="21.5"/>
+                                                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="59" id="FLn-kZ-eTq"/>
+                                                            <constraint firstItem="KEu-ir-BUH" firstAttribute="leading" secondItem="fr0-FH-GXx" secondAttribute="leading" id="wm0-xf-vxK"/>
+                                                            <constraint firstItem="KEu-ir-BUH" firstAttribute="top" secondItem="fr0-FH-GXx" secondAttribute="top" constant="22" id="z1k-dI-JmI"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소개소개소개" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbC-kg-8F8">
+                                                        <rect key="frame" x="20" y="59" width="374" height="17"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moR-IF-cJA">
+                                                        <rect key="frame" x="20" y="76" width="374" height="25"/>
+                                                        <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="qIL-Ta-4Bq"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <constraints>
-                                                    <constraint firstItem="KEu-ir-BUH" firstAttribute="leading" secondItem="BGJ-e9-Mb0" secondAttribute="leading" constant="20" id="3ID-7z-Q9V"/>
-                                                    <constraint firstItem="sbC-kg-8F8" firstAttribute="top" secondItem="KEu-ir-BUH" secondAttribute="bottom" constant="13" id="3gi-lE-LJv"/>
-                                                    <constraint firstAttribute="height" constant="117" id="717-D6-WPn"/>
-                                                    <constraint firstItem="sbC-kg-8F8" firstAttribute="leading" secondItem="BGJ-e9-Mb0" secondAttribute="leading" constant="20" id="gKU-Ro-uL9"/>
-                                                    <constraint firstItem="KEu-ir-BUH" firstAttribute="top" secondItem="BGJ-e9-Mb0" secondAttribute="top" constant="21" id="gMo-q1-tAI"/>
-                                                    <constraint firstAttribute="trailing" secondItem="sbC-kg-8F8" secondAttribute="trailing" constant="20" id="hf0-Q8-v5P"/>
-                                                </constraints>
-                                            </view>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="20" bottom="0.0" trailing="20"/>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOX-fp-w6P" userLabel="Border">
-                                                <rect key="frame" x="0.0" y="331" width="414" height="0.5"/>
+                                                <rect key="frame" x="0.0" y="315" width="414" height="0.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89D-7J-qHK">
                                                         <rect key="frame" x="20" y="0.0" width="374" height="0.5"/>
@@ -411,7 +421,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6c8-CR-bOP">
-                                                <rect key="frame" x="0.0" y="331.5" width="414" height="242"/>
+                                                <rect key="frame" x="0.0" y="315.5" width="414" height="242"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="멤버" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNU-mM-v5q">
                                                         <rect key="frame" x="20" y="21" width="31.5" height="21.5"/>
@@ -514,7 +524,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fD-vm-IGZ" userLabel="Border">
-                                                <rect key="frame" x="0.0" y="573.5" width="414" height="0.5"/>
+                                                <rect key="frame" x="0.0" y="557.5" width="414" height="0.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ch-yh-lTw">
                                                         <rect key="frame" x="20" y="0.0" width="374" height="0.5"/>
@@ -530,7 +540,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2k6-sq-1DV">
-                                                <rect key="frame" x="0.0" y="574" width="414" height="174"/>
+                                                <rect key="frame" x="0.0" y="558" width="414" height="174"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공연일정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-os-U7F">
                                                         <rect key="frame" x="20" y="21" width="62.5" height="21.5"/>
@@ -689,7 +699,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oab-Vz-cT0" userLabel="Border">
-                                                <rect key="frame" x="0.0" y="748" width="414" height="0.5"/>
+                                                <rect key="frame" x="0.0" y="732" width="414" height="0.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qd-WN-E6h">
                                                         <rect key="frame" x="20" y="0.0" width="374" height="0.5"/>
@@ -705,7 +715,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0WZ-E1-MkG">
-                                                <rect key="frame" x="0.0" y="748.5" width="414" height="150"/>
+                                                <rect key="frame" x="0.0" y="732.5" width="414" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="채팅방 링크" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txb-dz-M9U">
                                                         <rect key="frame" x="20" y="21" width="82.5" height="21.5"/>
