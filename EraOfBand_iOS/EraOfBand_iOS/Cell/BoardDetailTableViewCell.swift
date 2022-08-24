@@ -28,6 +28,7 @@ class BoardDetailTableViewCell: UITableViewCell {
     let boardImageDataSource = BoardImageDataSource()
     
     var currentPage: Int = 0
+    var currentIdx: CGFloat = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +45,9 @@ class BoardDetailTableViewCell: UITableViewCell {
     func registerDelegate() {
         noticeImgCollectionView.delegate = self
         noticeImgCollectionView.dataSource = boardImageDataSource
+        
+        //noticeImgCollectionView.decelerationRate = .fast
+        noticeImgCollectionView.isPagingEnabled = true
     }
     
 }
