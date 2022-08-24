@@ -101,9 +101,22 @@ class DetailNoticeViewController: UIViewController {
         let category = category[boardCategory!]
         self.navigationItem.title = "\(category)게시판"
         
-        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
-        statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
-        self.view.addSubview(statusBarView)
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+            let statusBarManager = window?.windowScene?.statusBarManager
+            
+            let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? CGRect.zero)
+            statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+            
+            window?.addSubview(statusBarView)
+        } else {
+            let statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
+            statusBarView?.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+        }
+        
+//        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+//        statusBarView.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+//        self.view.addSubview(statusBarView)
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
     }
 
