@@ -30,7 +30,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PXJ-mG-IEU">
                                 <rect key="frame" x="0.0" y="44" width="414" height="738"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardDetailTableViewCell" rowHeight="542" id="TEH-iW-dnI" customClass="BoardDetailTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="542"/>
@@ -233,11 +233,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClE-6M-lpb">
-                                                    <rect key="frame" x="384" y="19" width="3" height="16"/>
+                                                    <rect key="frame" x="371" y="19" width="20" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="3" id="N1H-Bg-2Hd"/>
+                                                        <constraint firstAttribute="width" constant="20" id="N1H-Bg-2Hd"/>
                                                         <constraint firstAttribute="height" constant="16" id="RkQ-d0-Pd8"/>
                                                     </constraints>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="9" maxY="0.0"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="ic_more"/>
                                                 </button>
@@ -269,7 +270,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="af6-cU-7NC" secondAttribute="trailing" constant="20" id="A6M-fb-1mb"/>
                                                 <constraint firstItem="hps-i3-QVr" firstAttribute="top" secondItem="X7n-bz-QSN" secondAttribute="top" constant="19" id="EhO-gE-VIp"/>
                                                 <constraint firstItem="sbJ-KK-bol" firstAttribute="top" secondItem="hps-i3-QVr" secondAttribute="top" id="HmU-XB-cNH"/>
-                                                <constraint firstAttribute="trailing" secondItem="ClE-6M-lpb" secondAttribute="trailing" constant="27" id="KT9-pN-wXf"/>
+                                                <constraint firstAttribute="trailing" secondItem="ClE-6M-lpb" secondAttribute="trailing" constant="23" id="KT9-pN-wXf"/>
                                                 <constraint firstItem="af6-cU-7NC" firstAttribute="top" secondItem="sbJ-KK-bol" secondAttribute="bottom" constant="5" id="Mvl-Cq-Lzw"/>
                                                 <constraint firstItem="ClE-6M-lpb" firstAttribute="top" secondItem="sbJ-KK-bol" secondAttribute="top" id="NOD-9X-Kfj"/>
                                                 <constraint firstItem="icz-Yx-kr2" firstAttribute="leading" secondItem="af6-cU-7NC" secondAttribute="leading" id="P8O-WG-IVt"/>
@@ -485,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="63.616071428571423"/>
+            <point key="canvasLocation" x="7" y="17"/>
         </scene>
         <!--OtherUser-->
         <scene sceneID="USV-wd-VJP">
