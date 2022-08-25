@@ -112,6 +112,57 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
         }
     }
     
+    func fixOrientation(img: UIImage) -> UIImage {
+
+        if (img.imageOrientation == .up) {
+            return img
+        }
+
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+
+        img.draw(in: rect)
+
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+
+        UIGraphicsEndImageContext()
+
+        return normalizedImage
+
+    }
+    
+    
+    func rotateImage(image:UIImage)->UIImage
+     {
+         
+         var rotatedImage = UIImage();
+         switch image.imageOrientation
+         {
+         case UIImage.Orientation.right:
+             print("1")
+             rotatedImage = UIImage(cgImage:image.cgImage!, scale: 1, orientation:UIImage.Orientation.left);
+             break;
+             
+         case UIImage.Orientation.down:
+             print("2")
+             rotatedImage = UIImage(cgImage:image.cgImage!, scale: 1, orientation:UIImage.Orientation.up);
+             break;
+             
+         case UIImage.Orientation.left:
+             print("3")
+             rotatedImage = UIImage(cgImage:image.cgImage!, scale: 1, orientation:UIImage.Orientation.right);
+             break;
+     
+              default:
+             print("4")
+             rotatedImage = UIImage(cgImage:image.cgImage!, scale: 1, orientation:UIImage.Orientation.left);
+             break;
+         }
+         return rotatedImage;
+         
+     }
+    
     
     func setLayout(){
         self.descriptionTextView.contentInsetAdjustmentBehavior = .never
@@ -170,9 +221,9 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
 
 extension AddPofolViewController: MediaPickerDelegate{
     func didFinishPickingMedia(videoURL: URL) {
+        //self.thumbNailImageView.image = fixOrientation(img: self.getThumbnailImage(forUrl: videoURL)!)
         self.thumbNailImageView.image = self.getThumbnailImage(forUrl: videoURL)
-        
-
+        //self.thumbNailImageView.image = rotateImage(image: self.getThumbnailImage(forUrl: videoURL)!)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
