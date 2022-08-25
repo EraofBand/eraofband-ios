@@ -241,7 +241,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.commentBtn.addTarget(self, action: #selector(commentBtnTapped(sender:)), for: .touchUpInside)
         
         
-        cell.likeBtn.tag = pofolList[indexPath.row].pofolIdx!
+        cell.likeBtn.tag = indexPath.row
         if (pofolList[indexPath.row].likeOrNot == "Y"){
             cell.likeImg.image = UIImage(systemName: "heart.fill")
             cell.likeImg.tintColor = UIColor(red: 0.094, green: 0.392, blue: 0.992, alpha: 1)
@@ -343,11 +343,12 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     
     /*좋아요 취소*/
     @objc func deleteLike(sender: UIButton){
+        let pofolIdx = pofolList[sender.tag].pofolIdx!
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofols/unlikes/" + String(sender.tag),
+        AF.request(appDelegate.baseUrl + "/pofols/unlikes/" + String(pofolIdx),
                    method: .delete,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -355,9 +356,9 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
             switch response.result{
             case.success:
                 print(response)
-                self.getAllPofolList(0) {
-                    self.feedTableView.reloadData()
-                }
+                self.pofolList[sender.tag].likeOrNot = "N"
+                self.pofolList[sender.tag].pofolLikeCount! -= 1
+                self.feedTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
             default:
                 return
             }
@@ -366,11 +367,12 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     
     /*좋아요 누르기*/
     @objc func postLike(sender: UIButton){
+        let pofolIdx = pofolList[sender.tag].pofolIdx!
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/pofols/likes/" + String(sender.tag),
+        AF.request(appDelegate.baseUrl + "/pofols/likes/" + String(pofolIdx),
                    method: .post,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -378,9 +380,9 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
             switch response.result{
             case.success:
                 print(response)
-                self.getAllPofolList(0) {
-                    self.feedTableView.reloadData()
-                }
+                self.pofolList[sender.tag].likeOrNot = "Y"
+                self.pofolList[sender.tag].pofolLikeCount! += 1
+                self.feedTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
             default:
                 return
             }
