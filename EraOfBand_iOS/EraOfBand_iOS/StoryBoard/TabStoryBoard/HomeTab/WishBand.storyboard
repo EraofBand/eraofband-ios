@@ -100,7 +100,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="71B-Go-h2Q" secondAttribute="trailing" constant="20" id="3V8-al-AIE"/>
                             <constraint firstItem="71B-Go-h2Q" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="GOL-Ea-YGd"/>

@@ -451,15 +451,6 @@ extension DetailNoticeViewController {
                 self.view.frame.origin.y -= keyboardSize.height
             }
             
-            
-//            if bottomViewYValue == 0 {
-//                bottomViewYValue = self.bottomView.frame.origin.y
-//            }
-//
-//            if bottomViewYValue == self.bottomView.frame.origin.y {
-//                bottomViewYValue = self.bottomView.frame.origin.y
-//                self.bottomView.frame.origin.y -= keyboardSize.height - UIApplication.shared.windows.first!.safeAreaInsets.bottom
-//            }
         }
     }
     
@@ -467,7 +458,6 @@ extension DetailNoticeViewController {
         if view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-//        self.bottomView.frame.origin.y = bottomViewYValue
         
     }
     
