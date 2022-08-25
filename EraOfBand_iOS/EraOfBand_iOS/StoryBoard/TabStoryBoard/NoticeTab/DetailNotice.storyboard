@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PXJ-mG-IEU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="698"/>
                                 <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardDetailTableViewCell" rowHeight="542" id="TEH-iW-dnI" customClass="BoardDetailTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
@@ -365,13 +365,13 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tkv-um-o2z">
-                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="742" width="414" height="120"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReF-z1-eZP">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz1-hG-Yr6">
-                                                <rect key="frame" x="369" y="-25" width="25" height="25"/>
+                                                <rect key="frame" x="369" y="15" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Cz1-hG-Yr6" secondAttribute="height" multiplier="1:1" id="RJu-Bj-2qP"/>
                                                     <constraint firstAttribute="width" constant="25" id="rnz-J5-rWV"/>
@@ -380,7 +380,7 @@
                                                 <state key="normal" image="ic_cancel_button"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ooo님에게 답글을 남기는 중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnS-JD-W1z">
-                                                <rect key="frame" x="20" y="-21" width="155.5" height="17"/>
+                                                <rect key="frame" x="20" y="19" width="155.5" height="17"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -403,7 +403,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-KF-ogi">
-                                        <rect key="frame" x="20" y="19" width="374" height="41"/>
+                                        <rect key="frame" x="20" y="59" width="374" height="41"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abi-DM-ARj">
                                                 <rect key="frame" x="329" y="6" width="30" height="29"/>
@@ -440,7 +440,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ReF-z1-eZP" secondAttribute="trailing" id="3d8-Mu-C08"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="top" secondItem="ReF-z1-eZP" secondAttribute="bottom" constant="9" id="YrU-ae-f0V"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="centerX" secondItem="Tkv-um-o2z" secondAttribute="centerX" id="i2r-UH-9Og"/>
-                                    <constraint firstAttribute="height" priority="250" constant="80" id="iP1-Fa-NTg"/>
+                                    <constraint firstAttribute="height" priority="250" constant="120" id="iP1-Fa-NTg"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="leading" secondItem="Tkv-um-o2z" secondAttribute="leading" constant="20" id="jfG-Tb-3YC"/>
                                     <constraint firstItem="ReF-z1-eZP" firstAttribute="leading" secondItem="Tkv-um-o2z" secondAttribute="leading" id="kEQ-Vb-G8x"/>
                                     <constraint firstItem="ReF-z1-eZP" firstAttribute="top" secondItem="Tkv-um-o2z" secondAttribute="top" id="l1P-6K-Tca"/>
