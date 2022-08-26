@@ -87,6 +87,7 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
         cell.nickNameLabel.text = filteredData[indexPath.row].nickName
         cell.profileImgView.kf.setImage(with: URL(string: filteredData[indexPath.row].profileImgUrl ?? ""))
         cell.profileImgView.layer.cornerRadius = 20
+        cell.profileImgView.contentMode = .scaleAspectFill
         
         cell.followBtn.layer.cornerRadius = 15
         /*

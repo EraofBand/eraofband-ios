@@ -91,6 +91,7 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
         
         cell.profileImgView.kf.setImage(with: URL(string: filteredData[indexPath.row].profileImgUrl ?? ""))
         cell.profileImgView.layer.cornerRadius = 20
+        cell.profileImgView.contentMode = .scaleAspectFill
         
         if userIdx == appDelegate.userIdx {
             cell.followBtn.isHidden = false
