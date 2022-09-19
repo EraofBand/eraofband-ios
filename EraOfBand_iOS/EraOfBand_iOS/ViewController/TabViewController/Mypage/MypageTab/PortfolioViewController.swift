@@ -44,7 +44,7 @@ class PortfolioViewController: UIViewController{
         
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
-        porfolCollectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        porfolCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 0, right: 5)
         
         getPofolList()
 
@@ -116,7 +116,7 @@ extension PortfolioViewController: UICollectionViewDelegateFlowLayout {
     // cell 사이즈( 옆 라인을 고려하여 설정 )
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let width = collectionView.frame.width / 3 - 2 ///  3등분하여 배치, 옆 간격이 1이므로 1을 빼줌
+        let width = (collectionView.frame.width - 10) / 3 - 2 ///  3등분하여 배치, 옆 간격이 1이므로 1을 빼줌
 
         let size = CGSize(width: width, height: width)
         
