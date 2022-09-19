@@ -28,6 +28,11 @@ class OtherUserViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var moreButton: UIBarButtonItem! = {
+        let button = UIBarButtonItem(title: nil, style: .plain, target: OtherUserViewController.self, action: #selector(moreBtnTapped))
+        
+        return button
+    }()
     
     var chatRoomIdx: String = "none"
     
@@ -197,7 +202,7 @@ class OtherUserViewController: UIViewController {
             switch response.result{
             case.success:
                 self.followButton.setTitle("언팔로우", for: .normal)
-                self.followButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+                self.followButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1333333333, blue: 0.1568627451, alpha: 1)
             default:
                 return
             }
@@ -233,7 +238,7 @@ class OtherUserViewController: UIViewController {
             followButton.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         }else{
             followButton.setTitle("언팔로우", for: .normal)
-            followButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+            followButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1333333333, blue: 0.1568627451, alpha: 1)
         }
         
         self.title = userData?.getUser.nickName
@@ -263,6 +268,34 @@ class OtherUserViewController: UIViewController {
         userImageView.setRounded()
     }
     
+    @objc func moreBtnTapped(_ sender: Any) {
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        /*차단하기 기능 구현 아직안함*/
+        let block = UIAlertAction(title: "차단하기", style: .default) { _ in
+            print("차단하기")
+        }
+        
+        let declare = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+            let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+            
+            declareVC.reportLocation = 0
+            declareVC.reportLocationIdx = self.userData?.getUser.userIdx
+            declareVC.modalPresentationStyle = .fullScreen
+            
+            self.present(declareVC, animated: true)
+        }
+        
+        actionSheet.addAction(block)
+        actionSheet.addAction(declare)
+        actionSheet.addAction(cancel)
+    }
+    
+    func setNavigationBar() {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -282,7 +315,7 @@ class OtherUserViewController: UIViewController {
         followButton.tintColor = .white
         
         messageButton.layer.cornerRadius = 15
-        messageButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+        messageButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1333333333, blue: 0.1568627451, alpha: 1)
         messageButton.tintColor = #colorLiteral(red: 0.7675942779, green: 0.7675942779, blue: 0.7675942779, alpha: 1)
         
     }

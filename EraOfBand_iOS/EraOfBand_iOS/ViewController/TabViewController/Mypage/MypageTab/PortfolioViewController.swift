@@ -44,6 +44,7 @@ class PortfolioViewController: UIViewController{
         
         porfolCollectionView.delegate = self
         porfolCollectionView.dataSource = self
+        porfolCollectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         
         getPofolList()
 
