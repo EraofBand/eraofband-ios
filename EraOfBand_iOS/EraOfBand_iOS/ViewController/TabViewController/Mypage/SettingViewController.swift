@@ -51,6 +51,11 @@ class SettingViewController: UIViewController {
         }
     }
     
+    @IBAction func blockBtnTapped(_ sender: Any) {
+        
+    }
+    
+    
     @IBAction func logOutBtnTapped(_ sender: Any) {
         print("테스트")
         UserApi.shared.logout {(error) in

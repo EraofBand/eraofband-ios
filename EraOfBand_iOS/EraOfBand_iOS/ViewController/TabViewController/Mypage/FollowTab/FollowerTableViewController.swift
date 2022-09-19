@@ -95,8 +95,8 @@ extension FollowerTableViewController: UITableViewDataSource, UITableViewDelegat
         
         if userIdx == appDelegate.userIdx {
             cell.followBtn.isHidden = false
-            cell.followBtn.layer.cornerRadius = 15
         }
+        cell.followBtn.layer.cornerRadius = 15      
         
         
         if filteredData[indexPath.row].follow == 0{
