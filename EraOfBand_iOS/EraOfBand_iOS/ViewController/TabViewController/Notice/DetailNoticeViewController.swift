@@ -414,7 +414,7 @@ extension DetailNoticeViewController {
                 
                 declareVC.reportLocation = 6
                 declareVC.reportLocationIdx = cellComment?.boardCommentIdx
-                declareVC.modalPresentationStyle = .fullScreen
+                declareVC.modalPresentationStyle = .overCurrentContext
                 
                 self.present(declareVC, animated: true)
             }
