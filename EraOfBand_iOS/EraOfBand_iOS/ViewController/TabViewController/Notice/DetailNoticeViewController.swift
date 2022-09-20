@@ -152,10 +152,11 @@ extension DetailNoticeViewController {
                         } else {
                             boardComments[comment.groupNum] = [comment]
                         }
-                    } else { // 대댓글일 경우 boardReComments에 추가
+                    } else {
                         if var arr = boardComments[comment.groupNum] {
-                            arr.append(comment)
+                            arr.insert(comment, at: 0)
                             boardComments[comment.groupNum] = arr
+                            print("arr : \(arr)")
                         } else {
                             boardComments[comment.groupNum] = [comment]
                         }
