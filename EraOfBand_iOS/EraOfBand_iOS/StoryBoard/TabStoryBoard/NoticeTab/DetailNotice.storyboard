@@ -46,7 +46,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzt-1O-0py">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-0i-8id">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-0i-8id">
                                                                     <rect key="frame" x="22" y="19" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="50" id="9T5-B1-yd3"/>
@@ -399,6 +399,7 @@
                                             <constraint firstItem="GE9-WQ-WtP" firstAttribute="top" secondItem="ReF-z1-eZP" secondAttribute="top" id="8oR-vm-Kn9"/>
                                             <constraint firstAttribute="trailing" secondItem="GE9-WQ-WtP" secondAttribute="trailing" id="dJT-C7-aHc"/>
                                             <constraint firstItem="dnS-JD-W1z" firstAttribute="centerY" secondItem="Cz1-hG-Yr6" secondAttribute="centerY" id="mO9-1w-Jhh"/>
+                                            <constraint firstAttribute="height" constant="50" id="nsa-AW-C9j"/>
                                             <constraint firstItem="GE9-WQ-WtP" firstAttribute="leading" secondItem="ReF-z1-eZP" secondAttribute="leading" id="vN3-ho-h0x"/>
                                             <constraint firstAttribute="bottom" secondItem="Cz1-hG-Yr6" secondAttribute="bottom" constant="10" id="yEN-Qt-uSb"/>
                                         </constraints>
@@ -441,7 +442,6 @@
                                     <constraint firstAttribute="trailing" secondItem="ReF-z1-eZP" secondAttribute="trailing" id="3d8-Mu-C08"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="top" secondItem="ReF-z1-eZP" secondAttribute="bottom" constant="9" id="YrU-ae-f0V"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="centerX" secondItem="Tkv-um-o2z" secondAttribute="centerX" id="i2r-UH-9Og"/>
-                                    <constraint firstAttribute="height" priority="250" constant="120" id="iP1-Fa-NTg"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="leading" secondItem="Tkv-um-o2z" secondAttribute="leading" constant="20" id="jfG-Tb-3YC"/>
                                     <constraint firstItem="ReF-z1-eZP" firstAttribute="leading" secondItem="Tkv-um-o2z" secondAttribute="leading" id="kEQ-Vb-G8x"/>
                                     <constraint firstItem="ReF-z1-eZP" firstAttribute="top" secondItem="Tkv-um-o2z" secondAttribute="top" id="l1P-6K-Tca"/>
@@ -486,11 +486,12 @@
                         <outlet property="keyboardView" destination="7eb-KF-ogi" id="8ec-wz-Ch5"/>
                         <outlet property="reCommentLabel" destination="dnS-JD-W1z" id="HC2-Pw-n7Z"/>
                         <outlet property="reCommentView" destination="ReF-z1-eZP" id="vEk-Yy-CSe"/>
+                        <outlet property="recommentHeight" destination="nsa-AW-C9j" id="lF4-8t-UBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="17"/>
+            <point key="canvasLocation" x="5.7971014492753632" y="16.741071428571427"/>
         </scene>
         <!--OtherUser-->
         <scene sceneID="USV-wd-VJP">

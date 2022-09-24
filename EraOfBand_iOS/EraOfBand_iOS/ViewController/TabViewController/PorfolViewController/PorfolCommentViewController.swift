@@ -250,16 +250,25 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
     
     /*다른 유저 프로필로 넘어가기*/
     @objc func profileBtnTapped(sender: UIButton){
-        guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
-        
-        GetOtherUserDataService.getOtherUserInfo(sender.tag){ [self]
-            (isSuccess, response) in
-            if isSuccess{
-                otherUserVC.userData = response.result
-                otherUserVC.userIdx = sender.tag
-                self.navigationController?.pushViewController(otherUserVC, animated: true)
-            }
+        if(sender.tag == appDelegate.userIdx){
+            guard let myPageVC = self.storyboard?.instantiateViewController(withIdentifier: "MypageTabViewController") as? MypageTabViewController else {return}
             
+            myPageVC.viewMode = 1
+            self.navigationController?.pushViewController(myPageVC, animated: true)
+            
+        }else{
+            
+            guard let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUserViewController") as? OtherUserViewController else {return}
+            
+            GetOtherUserDataService.getOtherUserInfo(sender.tag){ [self]
+                (isSuccess, response) in
+                if isSuccess{
+                    otherUserVC.userData = response.result
+                    otherUserVC.userIdx = sender.tag
+                    self.navigationController?.pushViewController(otherUserVC, animated: true)
+                }
+                
+            }
         }
     }
     

@@ -229,6 +229,14 @@
             </objects>
             <point key="canvasLocation" x="1763.0434782608697" y="94.419642857142847"/>
         </scene>
+        <!--MypageTabViewController-->
+        <scene sceneID="MZW-jm-Xt3">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MypageTabViewController" storyboardName="MypageTab" referencedIdentifier="MypageTabViewController" id="dAg-7V-0Ms" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uSt-DU-gc5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="163"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>

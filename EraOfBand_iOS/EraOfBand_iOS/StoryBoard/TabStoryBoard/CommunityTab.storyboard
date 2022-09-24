@@ -169,6 +169,7 @@
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uG-tX-WjR">
                                                             <rect key="frame" x="165.5" y="109" width="43" height="34"/>
+
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                                         </button>
@@ -254,6 +255,7 @@
                                             <outlet property="profileImgView" destination="gRi-Cg-QvC" id="D1P-dl-jch"/>
                                             <outlet property="shareBtn" destination="yMG-Kh-zFl" id="Og4-BG-5X2"/>
                                             <outlet property="thumbNailImg" destination="Yam-fs-gUg" id="QVY-BC-Bgb"/>
+                                            <outlet property="thumbNailView" destination="7F9-fu-IwP" id="4wP-QI-zwv"/>
                                             <outlet property="titleLabel" destination="nlp-tf-FE7" id="GfL-f5-Elx"/>
                                         </connections>
                                     </tableViewCell>
