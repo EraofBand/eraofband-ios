@@ -257,6 +257,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         
         print("cell: \(pofolList[indexPath.item].userIdx!)")
         if appDelegate.userIdx != pofolList[indexPath.item].userIdx {
+            cell.menuBtn.tag = pofolList[indexPath.item].pofolIdx!
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped), for: .touchUpInside)
         }
         if appDelegate.userIdx == pofolList[indexPath.item].userIdx {
@@ -293,15 +294,20 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     @objc func menuBtnTapped(sender: PofolMenuButton){
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
-        let reportAction = UIAlertAction(title: "신고하기", style: .default, handler: {
-                (alert: UIAlertAction!) -> Void in
-           print("신고하기 버튼 누름")
-            })
+        let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+            let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+            
+            declareVC.reportLocation = 1
+            declareVC.reportLocationIdx = sender.tag
+            declareVC.modalPresentationStyle = .overCurrentContext
+            
+            self.present(declareVC, animated: true)
+        }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
               })
         
-        optionMenu.addAction(reportAction)
+        optionMenu.addAction(declareAction)
         optionMenu.addAction(cancelAction)
         
         self.present(optionMenu, animated: true, completion: nil)

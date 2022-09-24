@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lnU-SZ-58E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lnU-SZ-58E">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n7-7v-vam">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4o0-en-Dr2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1168.5"/>
@@ -388,7 +389,7 @@
                                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SessionMemberTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionMemberTableViewCell" rowHeight="81" id="02d-5E-enk" customClass="SessionMemberTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="81"/>
+                                                                <rect key="frame" x="0.0" y="50" width="374" height="81"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="02d-5E-enk" id="3X8-2g-0gl">
                                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="81"/>
@@ -615,6 +616,14 @@
             </objects>
             <point key="canvasLocation" x="-320.28985507246381" y="49.553571428571423"/>
         </scene>
+        <!--DeclartionAlert-->
+        <scene sceneID="4Pz-Yt-Dfp">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="zT3-fr-rYb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQH-c2-De7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="186" y="-33"/>
+        </scene>
         <!--CreateLesson-->
         <scene sceneID="5Dk-9O-pmd">
             <objects>
@@ -641,13 +650,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="ic_band_chat" width="128" height="128"/>
         <image name="ic_map" width="128" height="157.5"/>
         <image name="ic_more" width="4.5" height="23"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <image name="tag" catalog="system" width="128" height="119"/>
+        <image name="tag" catalog="system" width="128" height="118"/>
         <namedColor name="on_icon_color">
             <color red="0.093999996781349182" green="0.3919999897480011" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

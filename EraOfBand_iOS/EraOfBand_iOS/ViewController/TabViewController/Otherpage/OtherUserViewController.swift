@@ -28,11 +28,6 @@ class OtherUserViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var moreButton: UIBarButtonItem! = {
-        let button = UIBarButtonItem(title: nil, style: .plain, target: OtherUserViewController.self, action: #selector(moreBtnTapped))
-        
-        return button
-    }()
     
     var chatRoomIdx: String = "none"
     
@@ -130,17 +125,6 @@ class OtherUserViewController: UIViewController {
             }
             
         }
-        /*
-        AF.request(self.appDelegate.baseUrl + "/chat/chat-room/exist",
-                   method: .patch,
-                   parameters: [
-                    "firstUserIdx": appDelegate.userIdx!,
-                    "secondUserIdx": userData?.getUser.userIdx
-                   ],
-                   encoding: JSONEncoding.default,
-                   headers: header).responseJSON{ response in
-            print(response)
-        }*/
     }
     
     
@@ -166,6 +150,37 @@ class OtherUserViewController: UIViewController {
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func moreBtnTapped(_ sender: Any) {
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        /*차단하기 기능 구현 아직안함*/
+        let block = UIAlertAction(title: "차단하기", style: .default) { _ in
+            
+        }
+        
+        let declare = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+            let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+            
+            declareVC.reportLocation = 0
+            declareVC.reportLocationIdx = self.userData?.getUser.userIdx
+            declareVC.modalPresentationStyle = .overCurrentContext
+            
+            self.present(declareVC, animated: true)
+        }
+        
+        actionSheet.addAction(block)
+        actionSheet.addAction(declare)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func doBlock() {
+        
     }
     
     func doUnFollow(){
@@ -266,34 +281,6 @@ class OtherUserViewController: UIViewController {
             userImageView.image = UIImage(named: "default_image")
         }
         userImageView.setRounded()
-    }
-    
-    @objc func moreBtnTapped(_ sender: Any) {
-        
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        
-        /*차단하기 기능 구현 아직안함*/
-        let block = UIAlertAction(title: "차단하기", style: .default) { _ in
-            print("차단하기")
-        }
-        
-        let declare = UIAlertAction(title: "신고하기", style: .destructive) {_ in
-            let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
-            
-            declareVC.reportLocation = 0
-            declareVC.reportLocationIdx = self.userData?.getUser.userIdx
-            declareVC.modalPresentationStyle = .fullScreen
-            
-            self.present(declareVC, animated: true)
-        }
-        
-        actionSheet.addAction(block)
-        actionSheet.addAction(declare)
-        actionSheet.addAction(cancel)
-    }
-    
-    func setNavigationBar() {
     }
     
     override func viewDidLoad() {

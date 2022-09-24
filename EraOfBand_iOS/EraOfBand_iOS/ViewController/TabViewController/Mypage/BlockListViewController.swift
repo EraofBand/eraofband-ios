@@ -14,10 +14,24 @@ class BlockListViewController: UIViewController {
     
     var blockList: [blockListInfo] = []
     
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setNavigationBar() {
+        
+        self.navigationItem.title = "차단리스트"
+        self.navigationItem.titleView?.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = .white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNavigationBar()
 
         getBlockList() { [self] in
+            blockListTableView.separatorStyle = .none
             blockListTableView.delegate = self
             blockListTableView.dataSource = self
         }
@@ -70,11 +84,28 @@ extension BlockListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.nickNameLabel.text = blockList[indexPath.item].nickName
+        cell.nickName = blockList[indexPath.item].nickName
+        
+        cell.blockButton.tag = indexPath.row
+        cell.blockButton.addTarget(self, action: #selector(blockBtnTapped), for: .touchUpInside)
         
         cell.selectionStyle = .none
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
+}
+
+// MARK: objc 함수
+extension BlockListViewController {
+    
+    @objc func blockBtnTapped(_ sender: UIButton) {
+        
+        print("button tapped")
+        
+    }
 }

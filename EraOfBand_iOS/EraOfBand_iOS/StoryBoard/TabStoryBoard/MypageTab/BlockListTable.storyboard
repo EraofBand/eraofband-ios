@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Block List View Controller-->
+        <!--Title-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="BlockListViewController" id="Y6W-OH-hqX" customClass="BlockListViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="82" id="oqU-Bi-q43" customClass="BlockTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlockTableViewCell" rowHeight="82" id="oqU-Bi-q43" customClass="BlockTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oqU-Bi-q43" id="Ag7-6n-IXA">
@@ -47,7 +47,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-zg-npj">
                                                     <rect key="frame" x="304" y="27" width="66" height="28"/>
-                                                    <color key="backgroundColor" red="0.094117647058823528" green="0.39215686274509803" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.12549019607843137" green="0.13333333333333333" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="CVV-MM-faO"/>
                                                         <constraint firstAttribute="width" constant="66" id="t2Q-pX-TYL"/>
@@ -87,6 +87,14 @@
                             <constraint firstItem="GeZ-Y9-h9k" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ztq-En-f8V"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="SVr-CV-c6u">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="9ge-Jj-XuA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtnTapped:" destination="Y6W-OH-hqX" id="bMx-a5-Gjv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="blockListTableView" destination="GeZ-Y9-h9k" id="cyb-o7-PrL"/>
                     </connections>
@@ -96,4 +104,7 @@
             <point key="canvasLocation" x="47.692307692307693" y="-28.436018957345969"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+    </resources>
 </document>
