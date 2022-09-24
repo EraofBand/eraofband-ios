@@ -125,17 +125,7 @@ class OtherUserViewController: UIViewController {
             }
             
         }
-        /*
-        AF.request(self.appDelegate.baseUrl + "/chat/chat-room/exist",
-                   method: .patch,
-                   parameters: [
-                    "firstUserIdx": appDelegate.userIdx!,
-                    "secondUserIdx": userData?.getUser.userIdx
-                   ],
-                   encoding: JSONEncoding.default,
-                   headers: header).responseJSON{ response in
-            print(response)
-        }*/
+
     }
     
     

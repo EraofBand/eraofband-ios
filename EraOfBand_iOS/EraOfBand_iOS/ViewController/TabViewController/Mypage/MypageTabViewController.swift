@@ -10,6 +10,8 @@ import Alamofire
 
 class MypageTabViewController: UIViewController {
     
+    var viewMode: Int = 0 //탭 바 마이페이지 눌렀을 때, 다른 데서 타고 넘어와서 마이페이지로 넘어왔을 때 구분
+    
     // 레이아웃 변수
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var introductionView: UIView!
@@ -30,6 +32,8 @@ class MypageTabViewController: UIViewController {
     @IBOutlet weak var porfolLabel: UILabel!
     @IBOutlet weak var sessionLabel: UILabel!
     @IBOutlet weak var sessionImageView: UIImageView!
+    
+    var refreshControl = UIRefreshControl()
     
     
     var userRegion: String = ""
@@ -94,6 +98,19 @@ class MypageTabViewController: UIViewController {
         let newSize = introductionLabel.sizeThatFits(introductionView.frame.size)
         introductionLabel.frame.size = newSize
         
+        /*리프레쉬 세팅*/
+        scrollView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        viewWillAppear(true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.scrollView.refreshControl?.endRefreshing()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +129,10 @@ class MypageTabViewController: UIViewController {
                     
                     /*마이페이지 유저 정보 입력*/
                     nickNameLabel.text = data.nickName
+                    
+                    if(self.viewMode == 1){
+                        self.title = data.nickName
+                    }
                     
                     let region = data.region
                     userRegion = region.components(separatedBy: " ")[1]
@@ -175,60 +196,69 @@ class MypageTabViewController: UIViewController {
     
     func setNavigationBar() {
         
-        var leftBarButtons: [UIBarButtonItem] = []
-        var rightBarButtons: [UIBarButtonItem] = []
+        if(viewMode == 0){
+            
+            var leftBarButtons: [UIBarButtonItem] = []
+            var rightBarButtons: [UIBarButtonItem] = []
+            
+            let mypageLabel = UILabel()
+            mypageLabel.text = "마이페이지"
+            mypageLabel.font = UIFont(name: "Pretendard-Medium", size: 25)
+            mypageLabel.textColor = .white
+            
+            let mypageBarButton = UIBarButtonItem(customView: mypageLabel)
+            
+            leftBarButtons.append(mypageBarButton)
+            
+            self.navigationItem.leftBarButtonItems = leftBarButtons
+            
+            let settingImage = UIImage(named: "ic_setting")
+            let settingButton = UIButton()
+            settingButton.backgroundColor = .clear
+            settingButton.setImage(settingImage, for: .normal)
+            settingButton.addTarget(self, action: #selector(settingAction(_:)), for: .touchUpInside)
+            
+            let settingBarButton = UIBarButtonItem(customView: settingButton)
+            var currWidth = settingBarButton.customView?.widthAnchor.constraint(equalToConstant: 22)
+            currWidth?.isActive = true
+            var currHeight = settingBarButton.customView?.heightAnchor.constraint(equalToConstant: 22)
+            currHeight?.isActive = true
+            
+            let editingImage = UIImage(named: "ic_editing")
+            let editingButton = UIButton()
+            editingButton.backgroundColor = .clear
+            editingButton.setImage(editingImage, for: .normal)
+            editingButton.addTarget(self, action: #selector(editingAction(_:)), for: .touchUpInside)
+            
+            let editingBarButton = UIBarButtonItem(customView: editingButton)
+            currWidth = editingBarButton.customView?.widthAnchor.constraint(equalToConstant: 22)
+            currWidth?.isActive = true
+            currHeight = editingBarButton.customView?.heightAnchor.constraint(equalToConstant: 22)
+            currHeight?.isActive = true
+            
+            let negativeSpacer1 = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                                  target: nil, action: nil)
+            negativeSpacer1.width = 15
+            
+            let negativeSpacer2 = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                                  target: nil, action: nil)
+            negativeSpacer2.width = 30
+            
+            rightBarButtons.append(negativeSpacer1)
+            rightBarButtons.append(settingBarButton)
+            rightBarButtons.append(negativeSpacer2)
+            rightBarButtons.append(editingBarButton)
+            
+            self.navigationItem.rightBarButtonItems = rightBarButtons
+        }else{
+            self.navigationController?.navigationBar.tintColor = .white
+            let leftBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backBtnTapped))
+            self.navigationItem.leftBarButtonItem = leftBtn
+        }
         
-        let mypageLabel = UILabel()
-        mypageLabel.text = "마이페이지"
-        mypageLabel.font = UIFont(name: "Pretendard-Medium", size: 25)
-        mypageLabel.textColor = .white
-        
-        let mypageBarButton = UIBarButtonItem(customView: mypageLabel)
-        
-        leftBarButtons.append(mypageBarButton)
-        
-        self.navigationItem.leftBarButtonItems = leftBarButtons
-        
-        let settingImage = UIImage(named: "ic_setting")
-        let settingButton = UIButton()
-        settingButton.backgroundColor = .clear
-        settingButton.setImage(settingImage, for: .normal)
-        settingButton.addTarget(self, action: #selector(settingAction(_:)), for: .touchUpInside)
-        
-        let settingBarButton = UIBarButtonItem(customView: settingButton)
-        var currWidth = settingBarButton.customView?.widthAnchor.constraint(equalToConstant: 22)
-        currWidth?.isActive = true
-        var currHeight = settingBarButton.customView?.heightAnchor.constraint(equalToConstant: 22)
-        currHeight?.isActive = true
-        
-        let editingImage = UIImage(named: "ic_editing")
-        let editingButton = UIButton()
-        editingButton.backgroundColor = .clear
-        editingButton.setImage(editingImage, for: .normal)
-        editingButton.addTarget(self, action: #selector(editingAction(_:)), for: .touchUpInside)
-        
-        let editingBarButton = UIBarButtonItem(customView: editingButton)
-        currWidth = editingBarButton.customView?.widthAnchor.constraint(equalToConstant: 22)
-        currWidth?.isActive = true
-        currHeight = editingBarButton.customView?.heightAnchor.constraint(equalToConstant: 22)
-        currHeight?.isActive = true
-        
-        let negativeSpacer1 = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
-                                             target: nil, action: nil)
-        negativeSpacer1.width = 15
-        
-        let negativeSpacer2 = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
-                                             target: nil, action: nil)
-        negativeSpacer2.width = 30
-        
-        rightBarButtons.append(negativeSpacer1)
-        rightBarButtons.append(settingBarButton)
-        rightBarButtons.append(negativeSpacer2)
-        rightBarButtons.append(editingBarButton)
-        
-        self.navigationItem.rightBarButtonItems = rightBarButtons
-        
-        
+    }
+    @objc func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func settingAction(_ sender: UIButton) {

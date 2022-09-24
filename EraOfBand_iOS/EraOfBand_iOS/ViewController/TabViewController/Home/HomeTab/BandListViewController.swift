@@ -18,6 +18,8 @@ class BandListViewController: UIViewController {
     var bandList: [bandInfo] = []
     var sessionNum: Int = 5
     
+    var refreshControl = UIRefreshControl()
+    
     /* 지역 선택 버튼 설정 */
     func setCityButton() {
         
@@ -127,8 +129,21 @@ class BandListViewController: UIViewController {
         
         getBandList()
         
+        /*리프레쉬 세팅*/
+        bandListTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
         sessionChoiceCollectionView.delegate = self
         sessionChoiceCollectionView.dataSource = self
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        getBandList()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.bandListTableView.refreshControl?.endRefreshing()
+        }
     }
 
 }
