@@ -61,7 +61,30 @@ class DeclarationAlertViewController: UIViewController {
         declarationButton.layer.cornerRadius = 10
         
         declareTextView.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 옵저버 등록
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // 옵저버 해제
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillShowNotification)
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillHideNotification)
+    }
+    
+    @objc func keyboardWillShow(noti: NSNotification) {
+        alertView.transform = CGAffineTransform(translationX: 0, y: -150)
+    }
+    
+    @objc func keyboardWillHide(noti: NSNotification) {
+        alertView.transform = .identity
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
 }

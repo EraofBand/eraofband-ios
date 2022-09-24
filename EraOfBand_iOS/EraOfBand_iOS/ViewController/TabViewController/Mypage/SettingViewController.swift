@@ -51,6 +51,13 @@ class SettingViewController: UIViewController {
         }
     }
     
+    @IBAction func blockBtnTapped(_ sender: Any) {
+        let blockVC = self.storyboard?.instantiateViewController(withIdentifier: "BlockListTable") as! BlockListViewController
+        
+        self.navigationController?.pushViewController(blockVC, animated: true)
+    }
+    
+    
     @IBAction func logOutBtnTapped(_ sender: Any) {
         print("테스트")
         UserApi.shared.logout {(error) in

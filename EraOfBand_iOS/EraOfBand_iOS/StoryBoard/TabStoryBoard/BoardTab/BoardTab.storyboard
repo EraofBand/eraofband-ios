@@ -29,7 +29,7 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vIh-Hv-FQj">
-                                <rect key="frame" x="344" y="748" width="60" height="60"/>
+                                <rect key="frame" x="349" y="748" width="60" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXK-2k-Qjx">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -49,7 +49,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vIh-Hv-FQj" secondAttribute="trailing" constant="10" id="Fie-ub-moL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vIh-Hv-FQj" secondAttribute="trailing" constant="5" id="Fie-ub-moL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="AmU-t3-7nO" secondAttribute="bottom" id="G9q-ti-liB"/>
                             <constraint firstItem="AmU-t3-7nO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="a7t-2i-DIx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vIh-Hv-FQj" secondAttribute="bottom" constant="5" id="ef6-Sz-jUU"/>

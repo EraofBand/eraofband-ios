@@ -213,6 +213,14 @@
             </objects>
             <point key="canvasLocation" x="1102.8985507246377" y="73.660714285714278"/>
         </scene>
+        <!--DeclartionAlert-->
+        <scene sceneID="mnY-M9-c2f">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="qVS-OQ-V2v" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CSp-et-tj9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1763" y="23"/>
+        </scene>
         <!--OtherUser-->
         <scene sceneID="160-LL-Fec">
             <objects>

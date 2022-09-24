@@ -224,7 +224,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하이" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af6-cU-7NC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하이" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af6-cU-7NC">
                                                     <rect key="frame" x="69" y="42" width="305" height="14.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="250" constant="14.5" id="EOf-xy-Kvv"/>
@@ -315,7 +315,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하이" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdr-7v-juW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하이" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdr-7v-juW">
                                                     <rect key="frame" x="117" y="42" width="257" height="14.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="250" constant="14.5" id="aoy-GM-Zhc"/>
@@ -472,6 +472,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_more" id="tKF-qr-2tD">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="moreButtonTapped:" destination="Y6W-OH-hqX" id="qAU-R5-6vt"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

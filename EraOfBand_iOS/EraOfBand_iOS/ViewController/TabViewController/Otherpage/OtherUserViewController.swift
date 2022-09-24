@@ -40,6 +40,8 @@ class OtherUserViewController: UIViewController {
     var chatListData: [messageListInfo] = [] //내 채팅 리스트
     let chatReference = Database.database().reference()
     
+    var blockCheck: Int = 0
+    
     /* 서버에서 채팅방 정보 리스트 가져오는 함수 */
     func getMessageList(completion: @escaping () -> Void) {
         
@@ -65,6 +67,42 @@ class OtherUserViewController: UIViewController {
             
         }
         
+    }
+    
+    func getBlockList() {
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        let url = appDelegate.baseUrl + "/users/info/block"
+        
+        AF.request(url,
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseDecodable(of: BlockListData.self){ response in
+            
+            switch response.result{
+            case .success(let blockListData):
+                self.blockCheck = self.checkBlocked(blockListData.result)
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+    }
+    
+    /*유저 차단 여부 확인 함수*/
+    func checkBlocked(_ blockList: [blockListInfo]) -> Int {
+        
+        for info in blockList {
+            if info.userIdx == userIdx {
+                if info.blockChecked == 1 {
+                    return 1
+                } else {
+                    return 0
+                }
+            }
+        }
+        return 0
     }
     
     @IBAction func messageBtnTapped(_ sender: Any) {
@@ -125,7 +163,6 @@ class OtherUserViewController: UIViewController {
             }
             
         }
-
     }
     
     
@@ -151,6 +188,82 @@ class OtherUserViewController: UIViewController {
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func moreBtnTapped(_ sender: Any) {
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        if blockCheck == 0 {
+            let block = UIAlertAction(title: "차단하기", style: .default) { _ in
+                self.blockCheck = 1
+                self.doBlock()
+            }
+            
+            actionSheet.addAction(block)
+        } else {
+            let unBlock = UIAlertAction(title: "차단해제", style: .default) { _ in
+                self.blockCheck = 0
+                self.doUnBlock()
+            }
+            
+            actionSheet.addAction(unBlock)
+        }
+        
+        
+        let declare = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+            let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+            
+            declareVC.reportLocation = 0
+            declareVC.reportLocationIdx = self.userData?.getUser.userIdx
+            declareVC.modalPresentationStyle = .overCurrentContext
+            
+            self.present(declareVC, animated: true)
+        }
+        
+        actionSheet.addAction(declare)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func doUnBlock() {
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/users/unblock/" + String(userIdx!),
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON { response in
+            switch response.result{
+            case .success:
+                print("차단 해제 성공")
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func doBlock() {
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/users/block/" + String(userIdx!),
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON { response in
+            switch response.result{
+            case .success:
+                print("차단 성공")
+            case .failure(let err):
+                print(err)
+            }
+        }
     }
     
     func doUnFollow(){
@@ -187,7 +300,7 @@ class OtherUserViewController: UIViewController {
             switch response.result{
             case.success:
                 self.followButton.setTitle("언팔로우", for: .normal)
-                self.followButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+                self.followButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1333333333, blue: 0.1568627451, alpha: 1)
             default:
                 return
             }
@@ -223,7 +336,7 @@ class OtherUserViewController: UIViewController {
             followButton.backgroundColor = #colorLiteral(red: 0.1057075635, green: 0.4936558008, blue: 0.9950549006, alpha: 1)
         }else{
             followButton.setTitle("언팔로우", for: .normal)
-            followButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+            followButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1333333333, blue: 0.1568627451, alpha: 1)
         }
         
         self.title = userData?.getUser.nickName
@@ -257,6 +370,7 @@ class OtherUserViewController: UIViewController {
         super.viewDidLoad()
         
         setUserInfo()
+        getBlockList()
         
         infoView.layer.cornerRadius = 15
         followButton.layer.cornerRadius = 15
@@ -272,15 +386,9 @@ class OtherUserViewController: UIViewController {
         followButton.tintColor = .white
         
         messageButton.layer.cornerRadius = 15
-        messageButton.backgroundColor = #colorLiteral(red: 0.1672143638, green: 0.1786631942, blue: 0.208065331, alpha: 1)
+        messageButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1333333333, blue: 0.1568627451, alpha: 1)
         messageButton.tintColor = #colorLiteral(red: 0.7675942779, green: 0.7675942779, blue: 0.7675942779, alpha: 1)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        //appDelegate.otherUserIdx = self.userIdx
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){

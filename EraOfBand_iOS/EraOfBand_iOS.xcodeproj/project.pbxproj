@@ -41,6 +41,7 @@
 		A81C647C28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81C647A28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib */; };
 		A81C648128ABD76100FBAD05 /* BoardImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C648028ABD76100FBAD05 /* BoardImageDataSource.swift */; };
 		A81CE06B28AFF82C00591FA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCB805C828AFAA58009CC6D9 /* GoogleService-Info.plist */; };
+		A8237E7928D6F4D500C9C13D /* BlockListTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8237E7828D6F4D500C9C13D /* BlockListTable.storyboard */; };
 		A83E4CF92897B54D00806D92 /* ApplicantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E4CF82897B54D00806D92 /* ApplicantsTableViewCell.swift */; };
 		A84C831F28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C831E28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift */; };
 		A84D35F32881A2B6007E8E3C /* OtherUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */; };
@@ -83,6 +84,9 @@
 		A858BC72288EF3F100B87E30 /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC71288EF3F100B87E30 /* BandListViewController.swift */; };
 		A858BC74288F04EA00B87E30 /* GetFollowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858BC73288F04EA00B87E30 /* GetFollowService.swift */; };
 		A8685585289F705F00192DEE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8685584289F705F00192DEE /* SearchViewController.swift */; };
+		A86AAE8B28D6F8A800CC3042 /* BlockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86AAE8A28D6F8A800CC3042 /* BlockListViewController.swift */; };
+		A86AAE8D28D6F91600CC3042 /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86AAE8C28D6F91600CC3042 /* BlockTableViewCell.swift */; };
+		A86AAE8F28D6FB1800CC3042 /* BlockListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86AAE8E28D6FB1800CC3042 /* BlockListData.swift */; };
 		A86D277028928112005CDDA4 /* SessionChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */; };
 		A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */; };
 		A86D27742892A556005CDDA4 /* LessonListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D27732892A556005CDDA4 /* LessonListData.swift */; };
@@ -278,6 +282,7 @@
 		A81C647928ABCB6700FBAD05 /* BoardImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A81C647A28ABCB6700FBAD05 /* BoardImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		A81C648028ABD76100FBAD05 /* BoardImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardImageDataSource.swift; sourceTree = "<group>"; };
+		A8237E7828D6F4D500C9C13D /* BlockListTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlockListTable.storyboard; sourceTree = "<group>"; };
 		A83E4CF82897B54D00806D92 /* ApplicantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsTableViewCell.swift; sourceTree = "<group>"; };
 		A84C831E28A8E11F006D6756 /* FeedChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUser.storyboard; sourceTree = "<group>"; };
@@ -311,6 +316,9 @@
 		A858BC71288EF3F100B87E30 /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
 		A858BC73288F04EA00B87E30 /* GetFollowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowService.swift; sourceTree = "<group>"; };
 		A8685584289F705F00192DEE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A86AAE8A28D6F8A800CC3042 /* BlockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockListViewController.swift; sourceTree = "<group>"; };
+		A86AAE8C28D6F91600CC3042 /* BlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
+		A86AAE8E28D6FB1800CC3042 /* BlockListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockListData.swift; sourceTree = "<group>"; };
 		A86D276F28928112005CDDA4 /* SessionChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		A86D27712892A4C4005CDDA4 /* GetLessonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonListService.swift; sourceTree = "<group>"; };
 		A86D27732892A556005CDDA4 /* LessonListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListData.swift; sourceTree = "<group>"; };
@@ -636,6 +644,7 @@
 				A8573626287D2F5300E2F0AB /* EditViewController.swift */,
 				A81351AA2883B96100078C9E /* SettingViewController.swift */,
 				A81351AD2884572D00078C9E /* SessionViewController.swift */,
+				A86AAE8A28D6F8A800CC3042 /* BlockListViewController.swift */,
 				BC2E99192886CF820034CBD9 /* FollowTab */,
 				A81351AC2884150100078C9E /* MypageTab */,
 			);
@@ -781,6 +790,7 @@
 				BCD3C22B2882FA2F00562FB4 /* CommentTable.storyboard */,
 				BC2E99152886CCDB0034CBD9 /* FollowingTable.storyboard */,
 				A84D35F22881A2B6007E8E3C /* OtherUser.storyboard */,
+				A8237E7828D6F4D500C9C13D /* BlockListTable.storyboard */,
 			);
 			path = MypageTab;
 			sourceTree = "<group>";
@@ -897,6 +907,7 @@
 				A8BCDCC928AB91410009BD0B /* BoardCommentTableViewCell.swift */,
 				BC08AF2C28AE790E0029E741 /* AddPostImageCollectionViewCell.swift */,
 				A8DF1F4928B1ECD000BACE80 /* BoardReCommentTableViewCell.swift */,
+				A86AAE8C28D6F91600CC3042 /* BlockTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -930,6 +941,7 @@
 				BC3686D228AA1215000C7903 /* OneOnOneChatInfo.swift */,
 				BCD0DF6C28ABDD7E00F1F74C /* BoardListModel.swift */,
 				A81C647728AB96E200FBAD05 /* BoardInfoData.swift */,
+				A86AAE8E28D6FB1800CC3042 /* BlockListData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1044,6 +1056,7 @@
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
+				A8237E7928D6F4D500C9C13D /* BlockListTable.storyboard in Resources */,
 				A854A816289BC29E00FDEB4D /* InAppAlarm.storyboard in Resources */,
 				BC0ADB7F28966EDF0028F57C /* LessonRecruit.storyboard in Resources */,
 				A8BD5CB6288BEA66009E7A1B /* WishBand.storyboard in Resources */,
@@ -1147,6 +1160,7 @@
 				A8ED885F289D51FC00A071E5 /* SearchUserData.swift in Sources */,
 				A854A814289AB07800FDEB4D /* AcceptAlertViewController.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
+				A86AAE8F28D6FB1800CC3042 /* BlockListData.swift in Sources */,
 				A854A810289A9E5D00FDEB4D /* SessionRecruitData.swift in Sources */,
 				A8545D94288154D6003E076A /* PortfolioViewController.swift in Sources */,
 				BC0728D22892FC8E007EA95D /* RecruitViewController.swift in Sources */,
@@ -1165,6 +1179,7 @@
 				BC6EFDF4289C0B5C00DBF298 /* LessonApplyAlertViewController.swift in Sources */,
 				BC6DD523287863990067D6B5 /* EraOfBand_iOS++Bundle.swift in Sources */,
 				A85736112874C68C00E2F0AB /* MessageTabViewController.swift in Sources */,
+				A86AAE8B28D6F8A800CC3042 /* BlockListViewController.swift in Sources */,
 				A86D27722892A4C4005CDDA4 /* GetLessonListService.swift in Sources */,
 				A809A7BD286F283400B9E08D /* ViewController.swift in Sources */,
 				BC439C0128735BCD006F5659 /* RegisterViewController5.swift in Sources */,
@@ -1286,6 +1301,7 @@
 				A802D8F028910DB5001A2F65 /* GetBandListService.swift in Sources */,
 				A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */,
 				A81351AB2883B96100078C9E /* SettingViewController.swift in Sources */,
+				A86AAE8D28D6F91600CC3042 /* BlockTableViewCell.swift in Sources */,
 				BC3686D328AA1215000C7903 /* OneOnOneChatInfo.swift in Sources */,
 				BCA3DA33287934480031028E /* RegisterNavigationController.swift in Sources */,
 			);
@@ -1435,8 +1451,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MMM58CZBQF;
 				ENABLE_BITCODE = NO;
@@ -1460,7 +1476,7 @@
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EoB.EraOfBand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = EraOfBand;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1473,8 +1489,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MMM58CZBQF;
 				ENABLE_BITCODE = NO;
@@ -1498,7 +1514,7 @@
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EoB.EraOfBand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = EraOfBand;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
