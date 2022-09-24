@@ -66,6 +66,48 @@ extension BlockListViewController {
             }
         }
     }
+    
+    func doBlock(_ userIdx: Int, completion: @escaping () -> Void) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/users/block/" + String(userIdx),
+                   method: .post,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON { response in
+            switch response.result{
+            case .success:
+                print("차단 성공")
+                completion()
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func doUnBlock(_ userIdx: Int, completion: @escaping () -> Void) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request(appDelegate.baseUrl + "/users/unblock/" + String(userIdx),
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON { response in
+            switch response.result{
+            case .success:
+                print("차단 해제 성공")
+                completion()
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
 }
 
 // MARK: tableView 세팅
@@ -87,7 +129,15 @@ extension BlockListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.nickName = blockList[indexPath.item].nickName
         
         cell.blockButton.tag = indexPath.row
-        cell.blockButton.addTarget(self, action: #selector(blockBtnTapped), for: .touchUpInside)
+        if blockList[indexPath.item].blockChecked == 1 {
+            cell.blockButton.setTitle("차단해제", for: .normal)
+            cell.blockButton.backgroundColor = UIColor(named: "unfollow_btn_color")
+            cell.blockButton.addTarget(self, action: #selector(unBlockBtnTapped), for: .touchUpInside)
+        } else {
+            cell.blockButton.setTitle("차단", for: .normal)
+            cell.blockButton.backgroundColor = UIColor(named: "on_icon_color")
+            cell.blockButton.addTarget(self, action: #selector(blockBtnTapped), for: .touchUpInside)
+        }
         
         cell.selectionStyle = .none
         
@@ -105,7 +155,24 @@ extension BlockListViewController {
     
     @objc func blockBtnTapped(_ sender: UIButton) {
         
-        print("button tapped")
+        let blocked = blockList[sender.tag]
         
+        //blockList[sender.tag].blockChecked = 1
+        doBlock(blocked.userIdx) { [self] in
+            blockList[sender.tag].blockChecked = 1
+            blockListTableView.reloadData()
+        }
+        
+    }
+    
+    @objc func unBlockBtnTapped(_ sender: UIButton) {
+        
+        let blocked = blockList[sender.tag]
+        
+        //blockList[sender.tag].blockChecked = 0
+        doUnBlock(blocked.userIdx) { [self] in
+            blockList[sender.tag].blockChecked = 0
+            blockListTableView.reloadData()
+        }
     }
 }
