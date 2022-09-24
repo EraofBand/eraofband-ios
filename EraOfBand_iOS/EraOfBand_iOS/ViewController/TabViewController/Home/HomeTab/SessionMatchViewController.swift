@@ -20,6 +20,9 @@ class SessionMatchViewController: UIViewController {
     @IBOutlet weak var secondBandIntro: UILabel!
     @IBOutlet weak var thirdBandTitleLabel: UILabel!
     @IBOutlet weak var thirdBandIntro: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var refreshControl = UIRefreshControl()
     
     var newBandList: [newBandInfo] = []
     var fameBandList: [fameBandInfo] = []
@@ -182,6 +185,18 @@ class SessionMatchViewController: UIViewController {
             thirdBandImageView.layer.cornerRadius = 16
         }
         
+        /*리프레쉬 세팅*/
+        scrollView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.scrollView.refreshControl?.endRefreshing()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

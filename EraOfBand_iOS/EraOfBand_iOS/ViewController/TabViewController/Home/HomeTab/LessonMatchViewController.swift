@@ -18,6 +18,8 @@ class LessonMatchViewController: UIViewController {
     var lessonList: [lessonInfo] = []
     var sessionNum: Int = 5
     
+    var refreshControl = UIRefreshControl()
+    
     func setCityButton() {
         
         var commands: [UIAction] = []
@@ -79,9 +81,22 @@ class LessonMatchViewController: UIViewController {
         
         getLessonList()
         
+        /*리프레쉬 세팅*/
+        LessonListTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
         sessionChoiceCollectionView.delegate = self
         sessionChoiceCollectionView.dataSource = self
         
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        getLessonList()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.LessonListTableView.refreshControl?.endRefreshing()
+        }
     }
     
 

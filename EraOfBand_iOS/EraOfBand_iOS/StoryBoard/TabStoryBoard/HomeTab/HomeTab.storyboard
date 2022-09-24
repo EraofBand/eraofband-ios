@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XO2-e8-bjy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XO2-e8-bjy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ls-jB-0uu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <connections>
                                     <segue destination="DlP-QO-8gw" kind="embed" id="wGD-6q-ibt"/>
                                 </connections>
@@ -152,6 +153,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GXf-vG-2tC" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-5" id="0cJ-Xe-tzU"/>
                             <constraint firstItem="6ls-jB-0uu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1Xt-Eh-aGk"/>
@@ -160,6 +162,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6ls-jB-0uu" secondAttribute="trailing" id="cxO-SY-7Mq"/>
                             <constraint firstItem="6ls-jB-0uu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qam-oV-TCG"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vzk-oc-709" appends="YES" id="vhh-zl-cAo"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="1Gh-HI-vXb"/>
                     <navigationItem key="navigationItem" id="Xcr-Ng-Ysj"/>
@@ -171,6 +176,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="Vzk-oc-709">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="Y6W-OH-hqX" id="sAX-1X-45r"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="79.6875"/>
         </scene>
@@ -201,7 +211,7 @@
                     <tabBarItem key="tabBarItem" title="" id="F6U-fc-TBh" userLabel="Home"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="730-Wq-oIk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -234,7 +244,7 @@
             <objects>
                 <viewController id="DlP-QO-8gw" customClass="HomaeTabManViewController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lCT-Hs-28b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dCF-h2-yeJ"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

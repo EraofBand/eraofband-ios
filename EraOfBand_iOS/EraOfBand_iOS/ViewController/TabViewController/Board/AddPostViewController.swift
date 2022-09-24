@@ -53,6 +53,39 @@ class AddPostViewController: UIViewController{
                 "x-access-token": self.appDelegate.jwt,
                 "Content-Type": "application/json"]
             
+            if(imgUrlArr == [["imgUrl": ""]]){
+                AF.request(self.appDelegate.baseUrl + "/board",
+                           method: .post,
+                           parameters: [
+                            "category": category,
+                            "content": self.descriptionTextView.text ?? "",
+                            "title": self.titleTextField.text ?? "",
+                            "userIdx": self.appDelegate.userIdx!
+                           ],
+                           encoding: JSONEncoding.default,
+                           headers: header
+                ).responseJSON{ response in
+                    print("게시글 업로드 결과")
+                    print(response)
+                }
+            }else{
+                AF.request(self.appDelegate.baseUrl + "/board",
+                           method: .post,
+                           parameters: [
+                            "category": category,
+                            "content": self.descriptionTextView.text ?? "",
+                            "postImgsUrl": imgUrlArr,
+                            "title": self.titleTextField.text ?? "",
+                            "userIdx": self.appDelegate.userIdx!
+                           ],
+                           encoding: JSONEncoding.default,
+                           headers: header
+                ).responseJSON{ response in
+                    print("게시글 업로드 결과")
+                    print(response)
+                }
+            }
+            /*
             AF.request(self.appDelegate.baseUrl + "/board",
                        method: .post,
                        parameters: [
@@ -67,7 +100,7 @@ class AddPostViewController: UIViewController{
             ).responseJSON{ response in
                 print("게시글 업로드 결과")
                 print(response)
-            }
+            }*/
             
             self.navigationController?.popViewController(animated: true)
         }

@@ -23,6 +23,8 @@ class CommunityTabViewController: UIViewController {
     let choiceLabel = ["전체", "팔로우"]
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var refreshControl = UIRefreshControl()
+    
     /* 네비바 세팅 */
     func setNavigationBar() {
         
@@ -80,8 +82,31 @@ class CommunityTabViewController: UIViewController {
         feedTableView.delegate = self
         feedTableView.dataSource = self
         
+        /*리프레쉬 세팅*/
+        feedTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
         getAllPofolList(0) {
             self.feedTableView.reloadData()
+        }
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        self.pofolList = []
+        if self.choice == 0 {
+            self.getAllPofolList(0) {
+                self.feedTableView.reloadData()
+            }
+        } else {
+            self.getFollowPofolList(0) {
+                self.feedTableView.reloadData()
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.feedTableView.refreshControl?.endRefreshing()
+            self.feedTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
     }
     
@@ -217,6 +242,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.thumbNailImg.kf.setImage(with: URL(string: (pofolList[indexPath.row].imgUrl)))
         
         cell.thumbNailImg.layer.cornerRadius = 10
+        cell.thumbNailView.layer.cornerRadius = 10
         
         cell.playBtn.tag = indexPath.row
         cell.playBtn.addTarget(self, action: #selector(playBtnTapped), for: .touchUpInside)

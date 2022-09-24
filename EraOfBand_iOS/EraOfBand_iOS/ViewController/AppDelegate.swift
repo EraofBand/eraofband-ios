@@ -10,6 +10,7 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import FirebaseCore
 import KakaoSDKUser
+import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -61,6 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstRun = false
         } nothingChanged: {
             isFirstRun = false
+        }
+        
+        /*무음모드에서 미디어 소리 활성화*/
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+        } catch let error as NSError {
+            print("Error : \(error), \(error.userInfo)")
+        }
+                
+        do {
+             try AVAudioSession.sharedInstance().setActive(true)
+        }
+          catch let error as NSError {
+            print("Error: Could not setActive to true: \(error), \(error.userInfo)")
         }
         
         return true

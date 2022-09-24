@@ -14,6 +14,8 @@ class WishLessonViewController: UIViewController {
     
     var lessonList: [lessonInfo] = []
     
+    var refreshControl = UIRefreshControl()
+    
     func getWishLessonList() {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -49,6 +51,19 @@ class WishLessonViewController: UIViewController {
 
         getWishLessonList()
         
+        /*리프레쉬 세팅*/
+        wishLessonTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        getWishLessonList()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.wishLessonTableView.refreshControl?.endRefreshing()
+        }
     }
     
 

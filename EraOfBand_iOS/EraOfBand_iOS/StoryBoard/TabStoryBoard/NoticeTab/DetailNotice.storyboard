@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,11 +30,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PXJ-mG-IEU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="694"/>
                                 <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardDetailTableViewCell" rowHeight="542" id="TEH-iW-dnI" customClass="BoardDetailTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="542"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="542"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEH-iW-dnI" id="LIL-CB-tE5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="542"/>
@@ -45,7 +46,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzt-1O-0py">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-0i-8id">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-0i-8id">
                                                                     <rect key="frame" x="22" y="19" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="50" id="9T5-B1-yd3"/>
@@ -100,7 +101,7 @@
                                                                     </collectionViewFlowLayout>
                                                                 </collectionView>
                                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2NP-sM-3D8">
-                                                                    <rect key="frame" x="149.5" y="272" width="115.5" height="26"/>
+                                                                    <rect key="frame" x="149" y="272" width="116.5" height="26"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </pageControl>
                                                             </subviews>
@@ -204,7 +205,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardCommentTableViewCell" rowHeight="90" id="g4J-wL-45N" customClass="BoardCommentTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="586.5" width="414" height="90"/>
+                                        <rect key="frame" x="0.0" y="592" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g4J-wL-45N" id="X7n-bz-QSN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -295,7 +296,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardReCommentTableViewCell" rowHeight="90" id="8uG-Tj-Vjh" customClass="BoardReCommentTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="676.5" width="414" height="90"/>
+                                        <rect key="frame" x="0.0" y="682" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8uG-Tj-Vjh" id="hUo-t9-I7U">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -398,6 +399,7 @@
                                             <constraint firstItem="GE9-WQ-WtP" firstAttribute="top" secondItem="ReF-z1-eZP" secondAttribute="top" id="8oR-vm-Kn9"/>
                                             <constraint firstAttribute="trailing" secondItem="GE9-WQ-WtP" secondAttribute="trailing" id="dJT-C7-aHc"/>
                                             <constraint firstItem="dnS-JD-W1z" firstAttribute="centerY" secondItem="Cz1-hG-Yr6" secondAttribute="centerY" id="mO9-1w-Jhh"/>
+                                            <constraint firstAttribute="height" constant="50" id="nsa-AW-C9j"/>
                                             <constraint firstItem="GE9-WQ-WtP" firstAttribute="leading" secondItem="ReF-z1-eZP" secondAttribute="leading" id="vN3-ho-h0x"/>
                                             <constraint firstAttribute="bottom" secondItem="Cz1-hG-Yr6" secondAttribute="bottom" constant="10" id="yEN-Qt-uSb"/>
                                         </constraints>
@@ -440,7 +442,6 @@
                                     <constraint firstAttribute="trailing" secondItem="ReF-z1-eZP" secondAttribute="trailing" id="3d8-Mu-C08"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="top" secondItem="ReF-z1-eZP" secondAttribute="bottom" constant="9" id="YrU-ae-f0V"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="centerX" secondItem="Tkv-um-o2z" secondAttribute="centerX" id="i2r-UH-9Og"/>
-                                    <constraint firstAttribute="height" priority="250" constant="120" id="iP1-Fa-NTg"/>
                                     <constraint firstItem="7eb-KF-ogi" firstAttribute="leading" secondItem="Tkv-um-o2z" secondAttribute="leading" constant="20" id="jfG-Tb-3YC"/>
                                     <constraint firstItem="ReF-z1-eZP" firstAttribute="leading" secondItem="Tkv-um-o2z" secondAttribute="leading" id="kEQ-Vb-G8x"/>
                                     <constraint firstItem="ReF-z1-eZP" firstAttribute="top" secondItem="Tkv-um-o2z" secondAttribute="top" id="l1P-6K-Tca"/>
@@ -482,11 +483,12 @@
                         <outlet property="keyboardView" destination="7eb-KF-ogi" id="8ec-wz-Ch5"/>
                         <outlet property="reCommentLabel" destination="dnS-JD-W1z" id="HC2-Pw-n7Z"/>
                         <outlet property="reCommentView" destination="ReF-z1-eZP" id="vEk-Yy-CSe"/>
+                        <outlet property="recommentHeight" destination="nsa-AW-C9j" id="lF4-8t-UBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="17"/>
+            <point key="canvasLocation" x="5.7971014492753632" y="16.741071428571427"/>
         </scene>
         <!--OtherUser-->
         <scene sceneID="USV-wd-VJP">
@@ -506,8 +508,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="ic_cancel_button" width="170.5" height="177.5"/>
         <image name="ic_more" width="4.5" height="23"/>
         <namedColor name="on_icon_color">
