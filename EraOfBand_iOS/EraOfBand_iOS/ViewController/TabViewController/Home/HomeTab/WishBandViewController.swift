@@ -13,6 +13,7 @@ class WishBandViewController: UIViewController {
     @IBOutlet weak var wishBandListTableView: UITableView!
     
     var bandList: [bandInfo] = []
+    var refreshControl = UIRefreshControl()
     
     func getWishBandList() {
         
@@ -49,6 +50,19 @@ class WishBandViewController: UIViewController {
 
         getWishBandList()
         
+        /*리프레쉬 세팅*/
+        wishBandListTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        getWishBandList()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.wishBandListTableView.refreshControl?.endRefreshing()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

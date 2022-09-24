@@ -167,6 +167,10 @@ class ChatViewController: MessagesViewController {
         
     }
     
+    @objc func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func setLayout(){
         
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
@@ -177,7 +181,8 @@ class ChatViewController: MessagesViewController {
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.topItem?.title = ""
         
-        //let leftBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: {self.navigationController?.popViewController(animated: true)})
+        let leftBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backBtnTapped))
+        self.navigationItem.leftBarButtonItem = leftBtn
         
         let rightBtn = UIBarButtonItem(image: UIImage(named: "ic_more"), style: .plain, target: self, action: #selector(menuBtnTapped))
         self.navigationItem.rightBarButtonItem = rightBtn

@@ -13,6 +13,8 @@ class QuestionBoardViewController: UIViewController{
     
     var postList: [BoardListResult] = [BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0),BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0)]
     
+    var refreshControl = UIRefreshControl()
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func getPostList(boardIdx: Int, completion: @escaping (BoardListModel)-> Void){
@@ -44,8 +46,24 @@ class QuestionBoardViewController: UIViewController{
             self.tableView.reloadData()
         }
         
+        /*리프레쉬 세팅*/
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        getPostList(boardIdx: 0){ data in
+            self.postList = data.result
+            self.tableView.reloadData()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +91,8 @@ extension QuestionBoardViewController: UITableViewDataSource, UITableViewDelegat
         cell.nickname.text = postList[indexPath.row].nickName
         cell.updatedAt.text = postList[indexPath.row].updatedAt
         cell.viewCount.text = "조회수 " + String(postList[indexPath.row].views)
+        cell.likeNum.text = String(postList[indexPath.row].boardLikeCount)
+        cell.commentNum.text = String(postList[indexPath.row].commentCount)
         
         if(postList[indexPath.row].imgUrl != "null" && postList[indexPath.row].imgUrl != ""){
             cell.postImgView.load(url: URL(string: postList[indexPath.row].imgUrl)!)

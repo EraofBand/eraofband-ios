@@ -51,6 +51,10 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>샤진첩에 접근할 수 있는 권한을 요청합니다</string>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라 기능을 사용할 수 있는 권한을 요청합니다</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 </dict>
