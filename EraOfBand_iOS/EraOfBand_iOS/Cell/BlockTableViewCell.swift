@@ -12,12 +12,14 @@ class BlockTableViewCell: UITableViewCell {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var blockButton: UIButton!
+    var nickName: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         userImageView.contentMode = .scaleAspectFill
-        // Initialization code
+        userImageView.layer.cornerRadius = 20
+        blockButton.layer.cornerRadius = 14
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

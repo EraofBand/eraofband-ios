@@ -52,7 +52,9 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func blockBtnTapped(_ sender: Any) {
+        let blockVC = self.storyboard?.instantiateViewController(withIdentifier: "BlockListTable") as! BlockListViewController
         
+        self.navigationController?.pushViewController(blockVC, animated: true)
     }
     
     

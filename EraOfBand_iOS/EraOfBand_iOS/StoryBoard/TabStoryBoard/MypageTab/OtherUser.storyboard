@@ -325,6 +325,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_more" id="qHi-RM-ygD">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="moreBtnTapped:" destination="Y6W-OH-hqX" id="b7t-CW-Hqn"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -333,7 +336,6 @@
                         <outlet property="followButton" destination="Ppr-NW-Uhj" id="gq1-mb-pia"/>
                         <outlet property="infoView" destination="pL6-Hu-m3a" id="ZEz-JO-PQS"/>
                         <outlet property="messageButton" destination="WcS-CH-Lb6" id="7t6-mn-ppB"/>
-                        <outlet property="moreButton" destination="qHi-RM-ygD" id="CZP-84-d6L"/>
                         <outlet property="topView" destination="6IP-fP-QOV" id="blH-lK-uGR"/>
                         <outlet property="userFollowerButton" destination="S9h-1p-a5h" id="ebx-9o-TNf"/>
                         <outlet property="userFollowingButton" destination="7NO-jL-VH9" id="65P-18-vLk"/>
@@ -348,6 +350,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="79.6875"/>
+        </scene>
+        <!--DeclartionAlert-->
+        <scene sceneID="qKn-g8-XTF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="2hD-Vq-MX6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3f2-8D-ewM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="18"/>
         </scene>
         <!--FollowingTable-->
         <scene sceneID="qpQ-IC-z7r">

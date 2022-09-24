@@ -178,7 +178,9 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
         /*댓글 메뉴 처리*/
         cell.menuBtn.tag = commentList[indexPath.row].pofolCommentIdx
         if(appDelegate.userIdx == commentList[indexPath.row].userIdx){
-            cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
+            cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
+        } else {
+            cell.menuBtn.addTarget(self, action: #selector(otherMenuBtnTapped(sender:)), for: .touchUpInside)
         }
         
         return cell
@@ -207,18 +209,40 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    /*댓글 메뉴 클릭시*/
-    @objc func menuBtnTapped(sender: UIButton){
+    /*내 댓글 메뉴 클릭시*/
+    @objc func myMenuBtnTapped(sender: UIButton){
         let optionMenu = UIAlertController(title: nil, message: "댓글", preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
                     (alert: UIAlertAction!) -> Void in
             self.deleteComment(commentIdx: sender.tag)
-                })
+        })
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-                (alert: UIAlertAction!) -> Void in
-              })
+            (alert: UIAlertAction!) -> Void in
+        })
         
         optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    /*다른 유저 댓글 메뉴 클릭시*/
+    @objc func otherMenuBtnTapped(sender: UIButton){
+        let optionMenu = UIAlertController(title: nil, message: "댓글", preferredStyle: .actionSheet)
+        let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+            let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+            
+            declareVC.reportLocation = 2
+            declareVC.reportLocationIdx = sender.tag
+            declareVC.modalPresentationStyle = .overCurrentContext
+            
+            self.present(declareVC, animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        optionMenu.addAction(declareAction)
         optionMenu.addAction(cancelAction)
         
         self.present(optionMenu, animated: true, completion: nil)

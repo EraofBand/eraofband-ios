@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tlv-dZ-Ixr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tlv-dZ-Ixr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q55-8F-Juy">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-Xg-Olw">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1455"/>
@@ -434,7 +435,7 @@
                                                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SessionMemberTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionMemberTableViewCell" rowHeight="81" id="8Xm-yg-GZK" customClass="SessionMemberTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="81"/>
+                                                                <rect key="frame" x="0.0" y="50" width="374" height="81"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Xm-yg-GZK" id="CBr-cq-qAb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="81"/>
@@ -840,7 +841,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="2R8-Fp-peS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="848"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-Cn-IgK">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
@@ -850,7 +851,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="Vjp-yk-OgX" customClass="ApplicantsTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="44.5" width="414" height="86"/>
+                                                        <rect key="frame" x="0.0" y="50" width="414" height="86"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vjp-yk-OgX" id="Ewl-UV-2Pi">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
@@ -969,11 +970,11 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ybf-V2-P8H">
-                                        <rect key="frame" x="0.0" y="302.5" width="414" height="549.5"/>
+                                        <rect key="frame" x="0.0" y="302.5" width="414" height="545.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="2wk-VR-JpI" customClass="SessionRecruitTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="414" height="200"/>
+                                                <rect key="frame" x="0.0" y="50" width="414" height="200"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2wk-VR-JpI" id="vRn-KN-IOL">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -1157,7 +1158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gqi-b9-Os1">
-                                <rect key="frame" x="20" y="77" width="374" height="252"/>
+                                <rect key="frame" x="20" y="81" width="374" height="252"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="252" id="Ta4-HK-xbc"/>
                                 </constraints>
@@ -1202,6 +1203,14 @@
             </objects>
             <point key="canvasLocation" x="171" y="-175"/>
         </scene>
+        <!--DeclartionAlert-->
+        <scene sceneID="Fun-OD-MXG">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="0Sh-4r-1Gb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqe-f7-c1F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="185" y="-107"/>
+        </scene>
         <!--OtherUser-->
         <scene sceneID="hjw-iB-Spy">
             <objects>
@@ -1223,17 +1232,17 @@
         </designable>
     </designables>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="clock" catalog="system" width="128" height="121"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="clock" catalog="system" width="128" height="123"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="ic_band_chat" width="128" height="128"/>
         <image name="ic_calendar" width="128" height="137.5"/>
         <image name="ic_map" width="128" height="157.5"/>
         <image name="ic_more" width="4.5" height="23"/>
-        <image name="mappin" catalog="system" width="105" height="128"/>
+        <image name="mappin" catalog="system" width="106" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <image name="ticket" catalog="system" width="128" height="84"/>
+        <image name="ticket" catalog="system" width="128" height="86"/>
         <namedColor name="on_icon_color">
             <color red="0.093999996781349182" green="0.3919999897480011" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
