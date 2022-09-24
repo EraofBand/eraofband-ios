@@ -18,6 +18,7 @@ struct BlockListData: Codable {
 
 struct blockListInfo: Codable {
     
+    var blockChecked: Int
     var nickName: String
     var profileImgUrl: String
     var userIdx: Int
