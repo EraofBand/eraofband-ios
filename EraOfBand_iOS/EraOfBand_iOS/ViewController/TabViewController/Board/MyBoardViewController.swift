@@ -20,6 +20,8 @@ class MyBoardViewController: UIViewController{
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var refreshControl = UIRefreshControl()
+    
     //작성 글 리스트 불러오기
     func getMyPostList(){
         let header : HTTPHeaders = [
@@ -72,14 +74,35 @@ class MyBoardViewController: UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         
+        /*리프레쉬 세팅*/
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        if choice == 0 {
+            getMyPostList()
+        } else {
+            getMyCommentList()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        getMyPostList()
+        if choice == 0 {
+            getMyPostList()
+        } else {
+            getMyCommentList()
+        }
     }
     
 }
@@ -96,6 +119,8 @@ extension MyBoardViewController: UITableViewDataSource, UITableViewDelegate{
         cell.title.text = postList[indexPath.row].title
         cell.updatedAt.text = postList[indexPath.row].updatedAt
         cell.viewCount.text = "조회수 " + String(postList[indexPath.row].views)
+        cell.likeNum.text = String(postList[indexPath.row].boardLikeCount)
+        cell.commentNum.text = String(postList[indexPath.row].commentCount)
         
         switch(postList[indexPath.row].category){
         case 0:

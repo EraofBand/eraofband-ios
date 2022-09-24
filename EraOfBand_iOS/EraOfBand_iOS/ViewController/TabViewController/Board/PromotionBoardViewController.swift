@@ -16,6 +16,8 @@ class PromotionBoardViewController: UIViewController{
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var refreshControl = UIRefreshControl()
+    
     func getPostList(boardIdx: Int, completion: @escaping (BoardListModel)-> Void){
         let header : HTTPHeaders = [
             "x-access-token": appDelegate.jwt,
@@ -45,8 +47,24 @@ class PromotionBoardViewController: UIViewController{
             self.tableView.reloadData()
         }
         
+        /*리프레쉬 세팅*/
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        getPostList(boardIdx: 0){ data in
+            self.postList = data.result
+            self.tableView.reloadData()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +92,8 @@ extension PromotionBoardViewController: UITableViewDataSource, UITableViewDelega
         cell.nickname.text = postList[indexPath.row].nickName
         cell.updatedAt.text = postList[indexPath.row].updatedAt
         cell.viewCount.text = "조회수 " + String(postList[indexPath.row].views)
+        cell.likeNum.text = String(postList[indexPath.row].boardLikeCount)
+        cell.commentNum.text = String(postList[indexPath.row].commentCount)
         
         if(postList[indexPath.row].imgUrl != "null" && postList[indexPath.row].imgUrl != ""){
             cell.postImgView.load(url: URL(string: postList[indexPath.row].imgUrl)!)

@@ -19,6 +19,8 @@ class DetailNoticeViewController: UIViewController {
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var inputButton: UIButton!
     
+    @IBOutlet weak var recommentHeight: NSLayoutConstraint!
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let category = ["자유", "질문", "홍보", "거래"]
     
@@ -62,6 +64,8 @@ class DetailNoticeViewController: UIViewController {
     }
     
     func setKeyBoard() {
+        recommentHeight.constant = 0
+        
         keyboardView.layer.cornerRadius = 20
         
         bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -119,6 +123,8 @@ class DetailNoticeViewController: UIViewController {
             }
         } else {
             postReComment(content!, reCommentGroupNum!) {
+                self.recommentHeight.constant = 0
+                self.reCommentView.isHidden = true
                 self.commentTableView.reloadData()
             }
         }
@@ -406,11 +412,13 @@ extension DetailNoticeViewController {
         isComment = false
         reCommentGroupNum = groupNum
         
-        bottomView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        //bottomView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
         //bottomView.frame.size.height = 120
         
         print("bottomview height : \(bottomView.frame.height)")
+        
+        recommentHeight.constant = 50
         
         reCommentView.isHidden = false
         reCommentLabel.text = "\(nickName)님에게 답글을 남기는 중"
@@ -468,14 +476,9 @@ extension DetailNoticeViewController {
         
         isComment = true
         
-        bottomView.heightAnchor.constraint(equalToConstant: 120).isActive = false
-        
-        //bottomView.frame.size.height = 80
-        
-        print("bottomview height : \(bottomView.frame.height)")
-        
         reCommentView.isHidden = true
         
+        recommentHeight.constant = 0
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
