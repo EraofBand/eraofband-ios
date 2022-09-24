@@ -29,6 +29,23 @@ class HomeTabViewController: UIViewController {
         return view
     }()
     
+    @IBAction func backgroundTapped(_ sender: Any) {
+        if isShowFloating {
+            UIView.animate(withDuration: 0.1) {
+                self.creatStackView.isHidden = true
+                self.view.layoutIfNeeded()
+            }
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.floatingDimView.alpha = 0
+            }) { (_) in
+                self.floatingDimView.isHidden = true
+            }
+            
+            isShowFloating = !isShowFloating
+        }
+    }
+    
     @IBAction func floatingAction(_ sender: Any) {
         if isShowFloating {
             UIView.animate(withDuration: 0.1) {
