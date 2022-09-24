@@ -80,6 +80,39 @@ class DetailNoticeViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func moreButtonTapped(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        if boardInfoResult?.userIdx == appDelegate.userIdx {
+            let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
+                print("수정")
+            }
+            let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
+                print("삭제")
+            }
+            
+            actionSheet.addAction(modify)
+            actionSheet.addAction(delete)
+            actionSheet.addAction(cancel)
+        } else {
+            let declare = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+                let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+                
+                declareVC.reportLocation = 5
+                declareVC.reportLocationIdx = self.boardInfoResult?.boardIdx
+                declareVC.modalPresentationStyle = .overCurrentContext
+                
+                self.present(declareVC, animated: true)
+            }
+            
+            actionSheet.addAction(declare)
+            actionSheet.addAction(cancel)
+        }
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
     @IBAction func inputButtonTapped(_ sender: Any) {
         
         let content = inputTextField.text
@@ -158,10 +191,11 @@ extension DetailNoticeViewController {
                         } else {
                             boardComments[comment.groupNum] = [comment]
                         }
-                    } else { // 대댓글일 경우 boardReComments에 추가
+                    } else {
                         if var arr = boardComments[comment.groupNum] {
-                            arr.append(comment)
+                            arr.insert(comment, at: 0)
                             boardComments[comment.groupNum] = arr
+                            print("arr : \(arr)")
                         } else {
                             boardComments[comment.groupNum] = [comment]
                         }
@@ -323,7 +357,7 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
                 cell.profileButton.tag = commentInfo.userIdx
                 cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
                 cell.moreButton.tag = commentInfo.boardCommentIdx
-                cell.moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
+                cell.moreButton.addTarget(self, action: #selector(commentMoreTapped), for: .touchUpInside)
                 
                 cell.selectionStyle = .none
                 
@@ -357,6 +391,7 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
 
 // MARK: @objc functions
 extension DetailNoticeViewController {
+    
     @objc func profileTapped(_ sender: UIButton) {
         
         let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as! OtherUserViewController
@@ -390,7 +425,7 @@ extension DetailNoticeViewController {
         
     }
     
-    @objc func moreTapped(_ sender: UIButton) {
+    @objc func commentMoreTapped(_ sender: UIButton) {
         
         var cellComment: boardCommentsInfo?
         
@@ -422,7 +457,7 @@ extension DetailNoticeViewController {
                 
                 declareVC.reportLocation = 6
                 declareVC.reportLocationIdx = cellComment?.boardCommentIdx
-                declareVC.modalPresentationStyle = .fullScreen
+                declareVC.modalPresentationStyle = .overCurrentContext
                 
                 self.present(declareVC, animated: true)
             }

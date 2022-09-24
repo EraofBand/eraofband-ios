@@ -123,9 +123,16 @@ class LessonRecruitViewController: UIViewController{
     
     /*우측 상단 메뉴 버튼 눌렀을 때*/
     @IBAction func menuBtnTapped(_ sender: Any) {
-        if(lessonInfo?.userIdx == appDelegate.userIdx){
         
-            let optionMenu = UIAlertController(title: nil, message: "레슨 모집", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "레슨 모집", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+              })
+        
+        optionMenu.addAction(cancelAction)
+        
+        if(lessonInfo?.userIdx == appDelegate.userIdx){
             let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                     (alert: UIAlertAction!) -> Void in
                 self.modifyRecruit()
@@ -134,29 +141,42 @@ class LessonRecruitViewController: UIViewController{
                     (alert: UIAlertAction!) -> Void in
                 self.deleteLesson()
             })
-            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-                    (alert: UIAlertAction!) -> Void in
-                  })
-            optionMenu.addAction(cancelAction)
+            
             optionMenu.addAction(modifyAction)
             optionMenu.addAction(deleteAction)
             
-        
-            self.present(optionMenu, animated: true, completion: nil)
         }else if(lessonMemberArr.contains(appDelegate.userIdx!)){
-            let optionMenu = UIAlertController(title: nil, message: "레슨 모집", preferredStyle: .actionSheet)
             let quitAction = UIAlertAction(title: "탈퇴하기", style: .destructive, handler: {
                     (alert: UIAlertAction!) -> Void in
                 self.quitLesson()
             })
-            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-                    (alert: UIAlertAction!) -> Void in
-                  })
-            optionMenu.addAction(cancelAction)
+            let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+                let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+                
+                declareVC.reportLocation = 4
+                declareVC.reportLocationIdx = self.lessonInfo?.lessonIdx
+                declareVC.modalPresentationStyle = .overCurrentContext
+                
+                self.present(declareVC, animated: true)
+            }
             optionMenu.addAction(quitAction)
+            optionMenu.addAction(declareAction)
             
-            self.present(optionMenu, animated: true, completion: nil)
+        } else {
+            let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+                let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+                
+                declareVC.reportLocation = 4
+                declareVC.reportLocationIdx = self.lessonInfo?.lessonIdx
+                declareVC.modalPresentationStyle = .overCurrentContext
+                
+                self.present(declareVC, animated: true)
+            }
+            optionMenu.addAction(declareAction)
         }
+        
+        
+        self.present(optionMenu, animated: true, completion: nil)
     }
     
     /*좋아요 처리*/

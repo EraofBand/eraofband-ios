@@ -99,25 +99,25 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19c-Tu-9lc">
-                                                    <rect key="frame" x="20" y="357" width="19.5" height="14"/>
+                                                    <rect key="frame" x="20" y="357" width="19.5" height="13"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="11"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlp-tf-FE7">
-                                                    <rect key="frame" x="20" y="384" width="32" height="22"/>
+                                                    <rect key="frame" x="20" y="383" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lA-tQ-ujm">
-                                                    <rect key="frame" x="20" y="417" width="21" height="15"/>
+                                                    <rect key="frame" x="20" y="415" width="21" height="14"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                     <color key="textColor" red="0.88627451660000001" green="0.88627451660000001" blue="0.88627451660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e9u-9e-kCc">
-                                                    <rect key="frame" x="20" y="471.5" width="22" height="26.5"/>
+                                                    <rect key="frame" x="20" y="468.5" width="22" height="26.5"/>
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="BYF-hf-lGG"/>
@@ -125,26 +125,26 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7a-6L-Rto">
-                                                    <rect key="frame" x="52" y="477.5" width="7.5" height="14.5"/>
+                                                    <rect key="frame" x="52" y="474.5" width="7" height="14"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                     <color key="textColor" red="0.88627451660000001" green="0.88627451660000001" blue="0.88627451660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="s6b-sL-4NH">
-                                                    <rect key="frame" x="79.5" y="475.5" width="18" height="18"/>
+                                                    <rect key="frame" x="79" y="472.5" width="18" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="JUH-Au-O5A"/>
                                                         <constraint firstAttribute="height" constant="18" id="Jah-t3-AOM"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ6-0e-sDR">
-                                                    <rect key="frame" x="107.5" y="477" width="8" height="15"/>
+                                                    <rect key="frame" x="107" y="474.5" width="7" height="14"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                     <color key="textColor" red="0.88627451660000001" green="0.88627451660000001" blue="0.88627451660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv2-Ib-pga">
-                                                    <rect key="frame" x="79.5" y="475.5" width="18" height="18"/>
+                                                    <rect key="frame" x="79" y="472.5" width="18" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="QNm-CV-h8m"/>
                                                         <constraint firstAttribute="height" constant="18" id="SuJ-Gt-gR7"/>
@@ -153,7 +153,7 @@
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDq-AG-OB8">
-                                                    <rect key="frame" x="20" y="470" width="22" height="23"/>
+                                                    <rect key="frame" x="20" y="467" width="22" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="NYF-kb-C0J"/>
                                                         <constraint firstAttribute="width" constant="22" id="hJF-ti-dPn"/>
@@ -168,7 +168,8 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uG-tX-WjR">
-                                                            <rect key="frame" x="165.5" y="109" width="43.5" height="34"/>
+                                                            <rect key="frame" x="165.5" y="109" width="43" height="34"/>
+
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                                         </button>
@@ -185,7 +186,7 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Kh-zFl">
-                                                    <rect key="frame" x="373" y="473.5" width="21" height="22"/>
+                                                    <rect key="frame" x="373" y="470.5" width="21" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="yMG-Kh-zFl" secondAttribute="height" multiplier="21:22" id="Dil-Al-ZBp"/>
                                                     </constraints>
@@ -283,6 +284,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="79.6875"/>
+        </scene>
+        <!--DeclartionAlert-->
+        <scene sceneID="k4B-EG-Vh9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="34r-Yn-ilg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kqq-AS-0SO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1540" y="15"/>
         </scene>
         <!--CommentTable-->
         <scene sceneID="mIm-Yv-hZv">

@@ -28,7 +28,7 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GXf-vG-2tC">
-                                <rect key="frame" x="344" y="748" width="60" height="60"/>
+                                <rect key="frame" x="349" y="748" width="60" height="60"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="77L-le-P0J">
                                         <rect key="frame" x="-80" y="0.0" width="140" height="101"/>
@@ -157,7 +157,7 @@
                         <constraints>
                             <constraint firstItem="GXf-vG-2tC" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-5" id="0cJ-Xe-tzU"/>
                             <constraint firstItem="6ls-jB-0uu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1Xt-Eh-aGk"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GXf-vG-2tC" secondAttribute="trailing" constant="10" id="Nfz-sq-UQY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GXf-vG-2tC" secondAttribute="trailing" constant="5" id="Nfz-sq-UQY"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="6ls-jB-0uu" secondAttribute="bottom" id="Peq-jj-GaR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6ls-jB-0uu" secondAttribute="trailing" id="cxO-SY-7Mq"/>
                             <constraint firstItem="6ls-jB-0uu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qam-oV-TCG"/>
