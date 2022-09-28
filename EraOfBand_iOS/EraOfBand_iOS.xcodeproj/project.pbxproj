@@ -544,10 +544,10 @@
 		A809A7D1287152F800B9E08D /* TabStoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				BCD0DF6428ABC6D900F1F74C /* BoardTab */,
 				A8BD5CB0288BE9E8009E7A1B /* HomeTab */,
 				BC1ED49528803F3900A5B931 /* MypageTab */,
-				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				A8BCDCBF28AB80910009BD0B /* NoticeTab */,
 				A89658C428A2830E00582A93 /* MessageTab */,
 			);

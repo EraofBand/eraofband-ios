@@ -72,16 +72,27 @@
                                                                         <constraint firstAttribute="height" constant="1" id="9c8-SH-i1u"/>
                                                                     </constraints>
                                                                 </view>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nby-ba-5pu">
+                                                                    <rect key="frame" x="22" y="19" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Nby-ba-5pu" secondAttribute="height" multiplier="1:1" id="JBu-w2-sk2"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstItem="Nby-ba-5pu" firstAttribute="width" secondItem="hxb-0i-8id" secondAttribute="width" id="4i3-kg-38x"/>
                                                                 <constraint firstAttribute="height" constant="89" id="5gw-V0-eg6"/>
                                                                 <constraint firstItem="KjG-hl-63i" firstAttribute="top" secondItem="hxb-0i-8id" secondAttribute="top" constant="5" id="7BO-lx-dT0"/>
                                                                 <constraint firstItem="hxb-0i-8id" firstAttribute="leading" secondItem="jzt-1O-0py" secondAttribute="leading" constant="22" id="8op-Uc-eSL"/>
                                                                 <constraint firstItem="hxb-0i-8id" firstAttribute="top" secondItem="jzt-1O-0py" secondAttribute="top" constant="19" id="C3B-aN-7gd"/>
                                                                 <constraint firstItem="naS-Rh-h9P" firstAttribute="leading" secondItem="jzt-1O-0py" secondAttribute="leading" id="TmU-O5-sIB"/>
                                                                 <constraint firstAttribute="bottom" secondItem="naS-Rh-h9P" secondAttribute="bottom" id="ToP-1S-td1"/>
+                                                                <constraint firstItem="Nby-ba-5pu" firstAttribute="centerY" secondItem="hxb-0i-8id" secondAttribute="centerY" id="VEL-3O-34z"/>
                                                                 <constraint firstItem="KjG-hl-63i" firstAttribute="leading" secondItem="hxb-0i-8id" secondAttribute="trailing" constant="12" id="dHv-GD-uRM"/>
+                                                                <constraint firstItem="Nby-ba-5pu" firstAttribute="centerX" secondItem="hxb-0i-8id" secondAttribute="centerX" id="drv-RR-k8W"/>
                                                                 <constraint firstItem="epy-6a-HaA" firstAttribute="top" secondItem="KjG-hl-63i" secondAttribute="bottom" constant="10" id="hoZ-RW-spr"/>
                                                                 <constraint firstItem="epy-6a-HaA" firstAttribute="leading" secondItem="KjG-hl-63i" secondAttribute="leading" id="if8-QA-LkD"/>
                                                                 <constraint firstAttribute="trailing" secondItem="naS-Rh-h9P" secondAttribute="trailing" id="mKB-Xf-nga"/>
@@ -198,6 +209,7 @@
                                             <outlet property="likeButton" destination="yKJ-qA-ctd" id="ftb-aI-iaO"/>
                                             <outlet property="noticeImgCollectionView" destination="3Jx-GB-rd4" id="3lh-Tb-Tvo"/>
                                             <outlet property="noticeImgView" destination="a5z-3U-jll" id="9jT-Ww-MLy"/>
+                                            <outlet property="profileButton" destination="Nby-ba-5pu" id="fS6-Es-CYu"/>
                                             <outlet property="titleLabel" destination="a26-v4-NI4" id="Aym-kQ-mLy"/>
                                             <outlet property="userImageView" destination="hxb-0i-8id" id="1B3-i6-WyX"/>
                                             <outlet property="userNicknameLabel" destination="KjG-hl-63i" id="aCR-VQ-TEj"/>

@@ -258,6 +258,13 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.profileImgView.kf.setImage(with: URL(string: pofolList[indexPath.row].profileImgUrl!))
         
         cell.profileImgView.layer.cornerRadius = 35/2
+        
+        if pofolList[indexPath.row].userIdx != appDelegate.userIdx {
+            let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileTapped))
+            profileTap.view?.tag = pofolList[indexPath.row].userIdx!
+            cell.profileImgView.isUserInteractionEnabled = true
+            cell.profileImgView.addGestureRecognizer(profileTap)
+        }
 
         
         cell.selectionStyle = .none
@@ -313,6 +320,23 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
                 }
             }
             loadCount += 1
+        }
+    }
+    
+    /* 다른 유저 프로필 클릭 */
+    @objc func profileTapped(sender: UITapGestureRecognizer) {
+        let otherUserIdx = sender.view?.tag
+        
+        guard let otherVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as? OtherUserViewController else { return }
+        
+        GetOtherUserDataService.getOtherUserInfo(otherUserIdx!){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherVC.userData = response.result
+                otherVC.userIdx = otherUserIdx
+                self.navigationController?.pushViewController(otherVC, animated: true)
+            }
+            
         }
     }
     
