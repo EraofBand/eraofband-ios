@@ -89,7 +89,7 @@ class DetailNoticeViewController: UIViewController {
                 print("수정")
             }
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
-                print("삭제")
+                self.deleteBoard()
             }
             
             actionSheet.addAction(modify)
@@ -267,6 +267,32 @@ extension DetailNoticeViewController {
             }
         }
     }
+    
+    /* 게시물 삭제 */
+    func deleteBoard() {
+        
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        let url = appDelegate.baseUrl + "/board/status/" + String(boardIdx!)
+        let params = ["userIdx": appDelegate.userIdx!]
+        
+        AF.request(
+            url,
+            method: .patch,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: header
+        ).responseData { dataResponse in
+            switch dataResponse.result {
+            case .success:
+                self.navigationController?.popViewController(animated: true)
+                print("게시글 삭제 성공")
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+    }
 }
 
 // MARK: tableView 세팅
@@ -316,6 +342,8 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
             cell.userTimeLabel.text = boardInfoResult!.updatedAt
             cell.titleLabel.text = boardInfoResult!.title
             cell.contentLabel.text = boardInfoResult!.content
+            cell.profileButton.tag = boardInfoResult!.userIdx
+            cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
 
             let likeCount = boardInfoResult!.boardLikeCount
             let commentCount = boardInfoResult!.getBoardComments.count
@@ -376,6 +404,8 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
                 cell.userNicknameLabel.text = commentInfo.nickName
                 cell.contentLabel.text = commentInfo.content
                 cell.updateAtLabel.text = commentInfo.updatedAt
+                cell.profileButton.tag = commentInfo.userIdx
+                cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
                 
                 cell.selectionStyle = .none
                 
@@ -397,7 +427,14 @@ extension DetailNoticeViewController {
         let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as! OtherUserViewController
         otherUserVC.userIdx = sender.tag
         
-        self.navigationController?.pushViewController(otherUserVC, animated: true)
+        GetOtherUserDataService.getOtherUserInfo(sender.tag){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = sender.tag
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+        }
     }
     
     @objc func reCommentTapped(_ sender: UIButton) {
