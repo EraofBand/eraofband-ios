@@ -290,6 +290,31 @@ extension DetailNoticeViewController {
             case .failure(let err):
                 print(err)
             }
+        }
+    }
+    
+    /* 게시물 댓글 삭제*/
+    func deleteComment(commentIdx: Int, completion: @escaping () -> Void) {
+        
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        let url = appDelegate.baseUrl + "/board/comment/status/" + String(commentIdx)
+        let params = ["userIdx": appDelegate.userIdx!]
+        
+        AF.request(
+            url,
+            method: .patch,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: header
+        ).responseData { dataResponse in
+            switch dataResponse.result {
+            case .success:
+                print("게시글 댓글 삭제 성공")
+                completion()
+            case .failure(let err):
+                print(err)
+            }
             
         }
     }
@@ -464,11 +489,15 @@ extension DetailNoticeViewController {
     
     @objc func commentMoreTapped(_ sender: UIButton) {
         
+        var commentGroupNum: Int = 0
+        var commentNum: Int = 0
         var cellComment: boardCommentsInfo?
         
-        for (_, comments) in boardComments {
-            for comment in comments {
+        for (groupNum, comments) in boardComments {
+            for (index,comment) in comments.enumerated() {
                 if comment.boardCommentIdx == sender.tag {
+                    commentGroupNum = groupNum
+                    commentNum = index
                     cellComment = comment
                 }
             }
@@ -482,7 +511,10 @@ extension DetailNoticeViewController {
                 print("수정")
             }
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
-                print("삭제")
+                self.deleteComment(commentIdx: cellComment!.boardCommentIdx) {
+                    self.boardComments[commentGroupNum]![commentNum].content = "삭제된 메세지 입니다."
+                    self.commentTableView.reloadData()
+                }
             }
             
             actionSheet.addAction(modify)
