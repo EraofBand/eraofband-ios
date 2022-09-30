@@ -202,6 +202,11 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYm-Gc-mGh">
+                                                    <rect key="frame" x="20" y="41.5" width="35" height="14"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -219,6 +224,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="7F9-fu-IwP" secondAttribute="trailing" id="GKF-yX-Rir"/>
                                                 <constraint firstItem="19c-Tu-9lc" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leadingMargin" id="HDa-nM-nFJ"/>
                                                 <constraint firstItem="KDq-AG-OB8" firstAttribute="top" secondItem="0lA-tQ-ujm" secondAttribute="bottom" constant="38" id="Jqa-Di-80S"/>
+                                                <constraint firstItem="sYm-Gc-mGh" firstAttribute="width" secondItem="gRi-Cg-QvC" secondAttribute="width" id="NfI-Hp-e0j"/>
                                                 <constraint firstItem="0lA-tQ-ujm" firstAttribute="leading" secondItem="H8F-Gf-Tds" secondAttribute="leadingMargin" id="Pkz-62-BWR"/>
                                                 <constraint firstItem="e9u-9e-kCc" firstAttribute="top" secondItem="0lA-tQ-ujm" secondAttribute="bottom" constant="38" id="WpP-hT-sqZ"/>
                                                 <constraint firstItem="Y7a-6L-Rto" firstAttribute="leading" secondItem="e9u-9e-kCc" secondAttribute="trailing" constant="10" id="XIJ-II-d5F"/>
@@ -236,7 +242,10 @@
                                                 <constraint firstItem="Uv2-Ib-pga" firstAttribute="leading" secondItem="s6b-sL-4NH" secondAttribute="leading" id="rMQ-nM-3rc"/>
                                                 <constraint firstItem="yMG-Kh-zFl" firstAttribute="trailing" secondItem="Yam-fs-gUg" secondAttribute="trailing" id="t02-Jf-GWo"/>
                                                 <constraint firstItem="s6b-sL-4NH" firstAttribute="leading" secondItem="Y7a-6L-Rto" secondAttribute="trailing" constant="20" id="ttN-id-LOI"/>
+                                                <constraint firstItem="sYm-Gc-mGh" firstAttribute="centerX" secondItem="gRi-Cg-QvC" secondAttribute="centerX" id="ug5-oi-e4c"/>
+                                                <constraint firstItem="sYm-Gc-mGh" firstAttribute="centerY" secondItem="gRi-Cg-QvC" secondAttribute="centerY" id="v8t-tX-uGx"/>
                                                 <constraint firstItem="nlp-tf-FE7" firstAttribute="top" secondItem="19c-Tu-9lc" secondAttribute="bottom" constant="13" id="v9Q-jK-Dwh"/>
+                                                <constraint firstItem="sYm-Gc-mGh" firstAttribute="height" secondItem="gRi-Cg-QvC" secondAttribute="height" multiplier="0.4" id="z7m-ns-mUY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -251,6 +260,7 @@
                                             <outlet property="menuBtn" destination="ubw-el-sAo" id="b8k-El-duQ"/>
                                             <outlet property="nameLabel" destination="itr-xH-ktH" id="NY2-0j-5F9"/>
                                             <outlet property="playBtn" destination="5uG-tX-WjR" id="b4Z-E3-vcu"/>
+                                            <outlet property="profileBtn" destination="sYm-Gc-mGh" id="Vda-Mc-G6L"/>
                                             <outlet property="profileImgView" destination="gRi-Cg-QvC" id="D1P-dl-jch"/>
                                             <outlet property="shareBtn" destination="yMG-Kh-zFl" id="Og4-BG-5X2"/>
                                             <outlet property="thumbNailImg" destination="Yam-fs-gUg" id="QVY-BC-Bgb"/>

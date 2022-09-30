@@ -260,13 +260,13 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.profileImgView.layer.cornerRadius = 35/2
         
         if pofolList[indexPath.row].userIdx != appDelegate.userIdx {
-            let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileTapped))
-            profileTap.view?.tag = pofolList[indexPath.row].userIdx!
-            cell.profileImgView.isUserInteractionEnabled = true
-            cell.profileImgView.addGestureRecognizer(profileTap)
+            cell.profileBtn.tag = pofolList[indexPath.row].userIdx!
+            cell.profileBtn.isEnabled = true
+            cell.profileBtn.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        } else {
+            cell.profileBtn.isEnabled = false
         }
 
-        
         cell.selectionStyle = .none
         
         
@@ -324,12 +324,13 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     /* 다른 유저 프로필 클릭 */
-    @objc func profileTapped(sender: UITapGestureRecognizer) {
-        let otherUserIdx = sender.view?.tag
+    @objc func profileTapped(sender: UIButton) {
+        let otherUserIdx = sender.tag
+        print("otherUserIdx: \(otherUserIdx)")
         
         guard let otherVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as? OtherUserViewController else { return }
         
-        GetOtherUserDataService.getOtherUserInfo(otherUserIdx!){ [self]
+        GetOtherUserDataService.getOtherUserInfo(otherUserIdx){ [self]
             (isSuccess, response) in
             if isSuccess{
                 otherVC.userData = response.result
