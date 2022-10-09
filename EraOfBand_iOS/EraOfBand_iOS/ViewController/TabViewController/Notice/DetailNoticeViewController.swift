@@ -40,14 +40,6 @@ class DetailNoticeViewController: UIViewController {
         
         setNavigationBar()
         
-        getBoardInfo() { [self] in
-            commentTableView.delegate = self
-            commentTableView.dataSource = self
-            
-            commentTableView.rowHeight = UITableView.automaticDimension
-            commentTableView.estimatedRowHeight = 90
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +47,16 @@ class DetailNoticeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        getBoardInfo() { [self] in
+            commentTableView.delegate = self
+            commentTableView.dataSource = self
+            
+            commentTableView.rowHeight = UITableView.automaticDimension
+            commentTableView.estimatedRowHeight = 90
+            
+            commentTableView.reloadData()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,7 +88,11 @@ class DetailNoticeViewController: UIViewController {
         
         if boardInfoResult?.userIdx == appDelegate.userIdx {
             let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
-                print("수정")
+                let modifyVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyPost") as! ModifyPostViewController
+                
+                modifyVC.boardInfo = self.boardInfoResult
+                
+                self.navigationController?.pushViewController(modifyVC, animated: true)
             }
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
                 self.deleteBoard()
