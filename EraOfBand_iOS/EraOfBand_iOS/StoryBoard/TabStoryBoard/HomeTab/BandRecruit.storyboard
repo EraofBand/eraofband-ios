@@ -101,6 +101,9 @@
                                                         <color key="tintColor" red="0.71764707569999997" green="0.71764707569999997" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="공유하기"/>
+                                                        <connections>
+                                                            <action selector="shareBtnTapped:" destination="tlv-dZ-Ixr" eventType="touchUpInside" id="OEB-qP-iyd"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -505,6 +505,14 @@
             </objects>
             <point key="canvasLocation" x="5.7971014492753632" y="16.741071428571427"/>
         </scene>
+        <!--ModifyPost-->
+        <scene sceneID="asm-UG-AxC">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ModifyPost" storyboardName="ModifyPost" id="0ML-iL-Jlb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3WR-e1-3Co" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="-196"/>
+        </scene>
         <!--OtherUser-->
         <scene sceneID="USV-wd-VJP">
             <objects>
@@ -519,7 +527,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="aIS-XL-4ao" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jy-qJ-43o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="88"/>
+            <point key="canvasLocation" x="720" y="1"/>
         </scene>
     </scenes>
     <resources>
