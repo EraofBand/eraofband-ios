@@ -169,7 +169,6 @@
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uG-tX-WjR">
                                                             <rect key="frame" x="165.5" y="109" width="43" height="34"/>
-
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                                         </button>
@@ -304,7 +303,7 @@
         <!--AddPofol-->
         <scene sceneID="eaO-ax-wzp">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AddPofol" storyboardName="AddPofol" id="2nL-vJ-IFt" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="AddPofolViewController" storyboardName="AddPofol" id="2nL-vJ-IFt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ye-o7-hRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1540" y="181"/>

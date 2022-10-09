@@ -47,6 +47,8 @@ class WishBandViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.wishBandListTableView.separatorStyle = .none
 
         getWishBandList()
         
