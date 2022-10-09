@@ -17,6 +17,8 @@ class OtherBandViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.bandTableView.separatorStyle = .none
 
         bandList = userData?.getUserBand
         

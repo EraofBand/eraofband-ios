@@ -189,6 +189,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <connections>
                                             <outlet property="boardContentView" destination="Ias-ar-qND" id="TXF-QK-ocz"/>
                                             <outlet property="boardStackView" destination="ogD-uT-ddc" id="4Mj-qb-CSp"/>
@@ -285,6 +286,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <connections>
                                             <outlet property="commentLabel" destination="af6-cU-7NC" id="R3B-Ha-5My"/>
                                             <outlet property="moreButton" destination="ClE-6M-lpb" id="Ry9-YU-HIl"/>
@@ -355,6 +357,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <connections>
                                             <outlet property="contentLabel" destination="Vdr-7v-juW" id="SOl-in-XuG"/>
                                             <outlet property="profileButton" destination="f7o-Zm-8u7" id="mHg-Bp-idD"/>
