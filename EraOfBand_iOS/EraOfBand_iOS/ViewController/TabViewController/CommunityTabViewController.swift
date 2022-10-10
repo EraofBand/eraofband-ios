@@ -258,8 +258,15 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.profileImgView.kf.setImage(with: URL(string: pofolList[indexPath.row].profileImgUrl!))
         
         cell.profileImgView.layer.cornerRadius = 35/2
-
         
+        if pofolList[indexPath.row].userIdx != appDelegate.userIdx {
+            cell.profileBtn.tag = pofolList[indexPath.row].userIdx!
+            cell.profileBtn.isEnabled = true
+            cell.profileBtn.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        } else {
+            cell.profileBtn.isEnabled = false
+        }
+
         cell.selectionStyle = .none
         
         
@@ -313,6 +320,24 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
                 }
             }
             loadCount += 1
+        }
+    }
+    
+    /* 다른 유저 프로필 클릭 */
+    @objc func profileTapped(sender: UIButton) {
+        let otherUserIdx = sender.tag
+        print("otherUserIdx: \(otherUserIdx)")
+        
+        guard let otherVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as? OtherUserViewController else { return }
+        
+        GetOtherUserDataService.getOtherUserInfo(otherUserIdx){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherVC.userData = response.result
+                otherVC.userIdx = otherUserIdx
+                self.navigationController?.pushViewController(otherVC, animated: true)
+            }
+            
         }
     }
     

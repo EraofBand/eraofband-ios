@@ -93,6 +93,8 @@
 		A86FFB86288EBC3D00F57F5A /* BandList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86FFB85288EBC3D00F57F5A /* BandList.storyboard */; };
 		A875069328A1476400FE3C52 /* CheckRegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875069228A1476400FE3C52 /* CheckRegisterService.swift */; };
 		A87A835628900F5400130B8F /* NewBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A835528900F5400130B8F /* NewBandData.swift */; };
+		A87F17D228E7DC0000DD5D8E /* ModifyPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87F17D128E7DC0000DD5D8E /* ModifyPost.storyboard */; };
+		A87F17D428E7DD3600DD5D8E /* ModifyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F17D328E7DD3600DD5D8E /* ModifyPostViewController.swift */; };
 		A88B49932890330F0029A2BF /* FameBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B49922890330F0029A2BF /* FameBandData.swift */; };
 		A89381B328940549002D55EF /* SessionRecruitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */; };
 		A89658C128A2421D00582A93 /* MessageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89658C028A2421D00582A93 /* MessageListTableViewCell.swift */; };
@@ -325,6 +327,8 @@
 		A86FFB85288EBC3D00F57F5A /* BandList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandList.storyboard; sourceTree = "<group>"; };
 		A875069228A1476400FE3C52 /* CheckRegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckRegisterService.swift; sourceTree = "<group>"; };
 		A87A835528900F5400130B8F /* NewBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBandData.swift; sourceTree = "<group>"; };
+		A87F17D128E7DC0000DD5D8E /* ModifyPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModifyPost.storyboard; sourceTree = "<group>"; };
+		A87F17D328E7DD3600DD5D8E /* ModifyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyPostViewController.swift; sourceTree = "<group>"; };
 		A88B49922890330F0029A2BF /* FameBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameBandData.swift; sourceTree = "<group>"; };
 		A89381B228940549002D55EF /* SessionRecruitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecruitTableViewCell.swift; sourceTree = "<group>"; };
 		A89658C028A2421D00582A93 /* MessageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListTableViewCell.swift; sourceTree = "<group>"; };
@@ -544,10 +548,10 @@
 		A809A7D1287152F800B9E08D /* TabStoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				BCD0DF6428ABC6D900F1F74C /* BoardTab */,
 				A8BD5CB0288BE9E8009E7A1B /* HomeTab */,
 				BC1ED49528803F3900A5B931 /* MypageTab */,
-				A809A7D22871533A00B9E08D /* CommunityTab.storyboard */,
 				A8BCDCBF28AB80910009BD0B /* NoticeTab */,
 				A89658C428A2830E00582A93 /* MessageTab */,
 			);
@@ -960,6 +964,7 @@
 			children = (
 				A809A7D42871537B00B9E08D /* BoardTab.storyboard */,
 				BC08AF2828AE63180029E741 /* AddPost.storyboard */,
+				A87F17D128E7DC0000DD5D8E /* ModifyPost.storyboard */,
 			);
 			path = BoardTab;
 			sourceTree = "<group>";
@@ -975,6 +980,7 @@
 				BC08AF2428ACBD720029E741 /* TradeBoardViewController.swift */,
 				BC08AF2628ACD5E50029E741 /* MyBoardViewController.swift */,
 				BC08AF2A28AE65530029E741 /* AddPostViewController.swift */,
+				A87F17D328E7DD3600DD5D8E /* ModifyPostViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -1056,6 +1062,7 @@
 				A8573617287534EC00E2F0AB /* Pretendard-ExtraLight.otf in Resources */,
 				A809A7C5286F283600B9E08D /* LaunchScreen.storyboard in Resources */,
 				BC1ED4A12881383400A5B931 /* MainTabBar.storyboard in Resources */,
+				A87F17D228E7DC0000DD5D8E /* ModifyPost.storyboard in Resources */,
 				A8237E7928D6F4D500C9C13D /* BlockListTable.storyboard in Resources */,
 				A854A816289BC29E00FDEB4D /* InAppAlarm.storyboard in Resources */,
 				BC0ADB7F28966EDF0028F57C /* LessonRecruit.storyboard in Resources */,
@@ -1255,6 +1262,7 @@
 				BCD3C2322882FE3B00562FB4 /* CommentData.swift in Sources */,
 				BC0ADB732893A6F60028F57C /* Extension.swift in Sources */,
 				A89658C928A284AE00582A93 /* MessageTableHeaderView.swift in Sources */,
+				A87F17D428E7DD3600DD5D8E /* ModifyPostViewController.swift in Sources */,
 				A84D35F52881AF31007E8E3C /* OtherUserViewController.swift in Sources */,
 				BCD0DF6728ABD1C700F1F74C /* BoardTabManViewController.swift in Sources */,
 				BC0728BF28902AF9007EA95D /* CreateLessonViewController.swift in Sources */,

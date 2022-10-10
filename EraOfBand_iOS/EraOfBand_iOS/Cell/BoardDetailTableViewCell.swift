@@ -13,6 +13,7 @@ class BoardDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var boardStackView: UIStackView!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var userNicknameLabel: UILabel!
     @IBOutlet weak var userTimeLabel: UILabel!
     @IBOutlet weak var noticeImgView: UIView!

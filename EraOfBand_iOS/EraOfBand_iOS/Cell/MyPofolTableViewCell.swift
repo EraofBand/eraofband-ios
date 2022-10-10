@@ -10,6 +10,7 @@ import UIKit
 class MyPofolTableViewCell: UITableViewCell{
     
     @IBOutlet weak var profileImgView: UIImageView!
+    @IBOutlet weak var profileBtn: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
