@@ -36,6 +36,10 @@ class SearchViewController: UIViewController {
                 getLessonResult(textField.text!) { lessonResultResponse in
                     
                     NotificationCenter.default.post(name: .searchNotifName, object: nil, userInfo: ["user": userResultResponse, "band": bandResultResponse, "lesson": lessonResultResponse])
+                    
+                    print("user: \(userResultResponse)")
+                    print("band: \(bandResultResponse)")
+                    print("lesson: \(lessonResultResponse)")
                 }
             }
         }
@@ -134,7 +138,7 @@ class SearchViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         //print(currentSearch)
         if segue.identifier == "searchEmbed"{
-            let containerVC = segue.destination as!SearchTabManViewController
+            let containerVC = segue.destination as! SearchTabManViewController
             
             containerVC.currentSearch = self.currentSearch
         }
