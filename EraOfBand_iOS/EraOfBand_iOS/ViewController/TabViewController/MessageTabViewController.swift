@@ -97,17 +97,18 @@ class MessageTabViewController: UIViewController {
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/chat/chat-room"
         
-        self.chatListData = []
-        self.searchListData = []
+        
         
         AF.request(url,
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
         ).responseDecodable(of: MessageListData.self){ response in
-            
             switch response.result{
             case .success(let messageInfoData):
+                
+                self.chatListData = []
+                self.searchListData = []
                 
                 print("message: \(messageInfoData)")
                 self.chatListData = messageInfoData.result
@@ -237,12 +238,6 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
         var otherUserIdx: Int = 0
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        /*
-        if userInfo.firstUserIdx == appDelegate.userIdx {
-            otherUserIdx = userInfo.secondUserIdx // secondUserIdx 값이 otherUserIdx
-        } else {
-            otherUserIdx = userInfo.firstUserIdx // firstUserIdx 값이 otherUserIdx
-        }*/
         otherUserIdx = searchListData[indexPath.item].otherUserIdx
         
         
@@ -252,8 +247,6 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
                 let messageVC = ChatViewController()
                 messageVC.chatRoomIdx = chatRoomIdx
                 messageVC.otherUserInfo = response.result.getUser
-                //messageVC.otherUserIdx = otherUserIdx
-                //messageVC.otherUserName = response.result.getUser.nickName
                 messageVC.hidesBottomBarWhenPushed = true // 채팅방에서 bottomBar 안보이게 설정
                 self.navigationController?.pushViewController(messageVC, animated: true)
             }
