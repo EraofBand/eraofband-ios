@@ -14,6 +14,7 @@ class SearchTabManViewController: TabmanViewController {
 
     var currentSearch = "user"
     var viewControllers: Array<UIViewController> = []
+    var result: [String: Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,24 @@ extension SearchTabManViewController: PageboyViewControllerDataSource, TMBarData
     }
     
 }
+
+//extension SearchTabManViewController {
+//
+//    @objc func dataReload(notification: NSNotification) {
+//
+//        print("reload Data")
+//
+//        guard let getUserResult: [userResultInfo] = notification.userInfo?["user"] as? [userResultInfo] else { return }
+//        guard let getBandResult: [bandInfo] = notification.userInfo?["band"] as? [bandInfo] else { return }
+//        guard let getLessonResult: [lessonInfo] = notification.userInfo?["lesson"] as? [lessonInfo] else { return }
+//
+//        self.result["user"] = getUserResult
+//        self.result["band"] = getBandResult
+//        self.result["lesson"] = getLessonResult
+//
+//    }
+//
+//}
 
 func settingSearchTabBar (ctBar : TMBar.ButtonBar) {
     ctBar.layout.transitionStyle = .snap

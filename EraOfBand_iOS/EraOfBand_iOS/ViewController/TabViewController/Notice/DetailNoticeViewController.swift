@@ -40,14 +40,6 @@ class DetailNoticeViewController: UIViewController {
         
         setNavigationBar()
         
-        getBoardInfo() { [self] in
-            commentTableView.delegate = self
-            commentTableView.dataSource = self
-            
-            commentTableView.rowHeight = UITableView.automaticDimension
-            commentTableView.estimatedRowHeight = 90
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +47,16 @@ class DetailNoticeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        getBoardInfo() { [self] in
+            commentTableView.delegate = self
+            commentTableView.dataSource = self
+            
+            commentTableView.rowHeight = UITableView.automaticDimension
+            commentTableView.estimatedRowHeight = 90
+            
+            commentTableView.reloadData()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,10 +88,14 @@ class DetailNoticeViewController: UIViewController {
         
         if boardInfoResult?.userIdx == appDelegate.userIdx {
             let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
-                print("수정")
+                let modifyVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyPost") as! ModifyPostViewController
+                
+                modifyVC.boardInfo = self.boardInfoResult
+                
+                self.navigationController?.pushViewController(modifyVC, animated: true)
             }
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
-                print("삭제")
+                self.deleteBoard()
             }
             
             actionSheet.addAction(modify)
@@ -267,6 +273,57 @@ extension DetailNoticeViewController {
             }
         }
     }
+    
+    /* 게시물 삭제 */
+    func deleteBoard() {
+        
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        let url = appDelegate.baseUrl + "/board/status/" + String(boardIdx!)
+        let params = ["userIdx": appDelegate.userIdx!]
+        
+        AF.request(
+            url,
+            method: .patch,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: header
+        ).responseData { dataResponse in
+            switch dataResponse.result {
+            case .success:
+                self.navigationController?.popViewController(animated: true)
+                print("게시글 삭제 성공")
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    /* 게시물 댓글 삭제*/
+    func deleteComment(commentIdx: Int, completion: @escaping () -> Void) {
+        
+        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+                                    "Content-Type": "application/json"]
+        let url = appDelegate.baseUrl + "/board/comment/status/" + String(commentIdx)
+        let params = ["userIdx": appDelegate.userIdx!]
+        
+        AF.request(
+            url,
+            method: .patch,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: header
+        ).responseData { dataResponse in
+            switch dataResponse.result {
+            case .success:
+                print("게시글 댓글 삭제 성공")
+                completion()
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+    }
 }
 
 // MARK: tableView 세팅
@@ -316,6 +373,8 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
             cell.userTimeLabel.text = boardInfoResult!.updatedAt
             cell.titleLabel.text = boardInfoResult!.title
             cell.contentLabel.text = boardInfoResult!.content
+            cell.profileButton.tag = boardInfoResult!.userIdx
+            cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
 
             let likeCount = boardInfoResult!.boardLikeCount
             let commentCount = boardInfoResult!.getBoardComments.count
@@ -376,6 +435,8 @@ extension DetailNoticeViewController: UITableViewDelegate, UITableViewDataSource
                 cell.userNicknameLabel.text = commentInfo.nickName
                 cell.contentLabel.text = commentInfo.content
                 cell.updateAtLabel.text = commentInfo.updatedAt
+                cell.profileButton.tag = commentInfo.userIdx
+                cell.profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
                 
                 cell.selectionStyle = .none
                 
@@ -397,7 +458,14 @@ extension DetailNoticeViewController {
         let otherUserVC = self.storyboard?.instantiateViewController(withIdentifier: "OtherUser") as! OtherUserViewController
         otherUserVC.userIdx = sender.tag
         
-        self.navigationController?.pushViewController(otherUserVC, animated: true)
+        GetOtherUserDataService.getOtherUserInfo(sender.tag){ [self]
+            (isSuccess, response) in
+            if isSuccess{
+                otherUserVC.userData = response.result
+                otherUserVC.userIdx = sender.tag
+                self.navigationController?.pushViewController(otherUserVC, animated: true)
+            }
+        }
     }
     
     @objc func reCommentTapped(_ sender: UIButton) {
@@ -427,11 +495,15 @@ extension DetailNoticeViewController {
     
     @objc func commentMoreTapped(_ sender: UIButton) {
         
+        var commentGroupNum: Int = 0
+        var commentNum: Int = 0
         var cellComment: boardCommentsInfo?
         
-        for (_, comments) in boardComments {
-            for comment in comments {
+        for (groupNum, comments) in boardComments {
+            for (index,comment) in comments.enumerated() {
                 if comment.boardCommentIdx == sender.tag {
+                    commentGroupNum = groupNum
+                    commentNum = index
                     cellComment = comment
                 }
             }
@@ -445,7 +517,10 @@ extension DetailNoticeViewController {
                 print("수정")
             }
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) {_ in
-                print("삭제")
+                self.deleteComment(commentIdx: cellComment!.boardCommentIdx) {
+                    self.boardComments[commentGroupNum]![commentNum].content = "삭제된 메세지 입니다."
+                    self.commentTableView.reloadData()
+                }
             }
             
             actionSheet.addAction(modify)
