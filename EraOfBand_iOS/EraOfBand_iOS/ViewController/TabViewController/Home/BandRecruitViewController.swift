@@ -9,8 +9,8 @@ import UIKit
 import Alamofire
 import Kingfisher
 import SafariServices
-import KakaoSDKShare
-import KakaoSDKTemplate
+//import KakaoSDKShare
+//import KakaoSDKTemplate
 
 class BandRecruitViewController: UIViewController{
     @IBOutlet weak var bandImageView: UIImageView!
