@@ -36,6 +36,7 @@ class ChatViewController: MessagesViewController {
     var chatList: [chatInfo]?
     var chatUserInfo: userIdxInfo?
     var myOutIdx: Int = -1
+    var lastChatIdx: Int = -1
     
     var currentUser = Sender(senderId: "current", displayName: "Jaem")
     var otherUser: SenderType = Sender(senderId: "other", displayName: "Harry")
@@ -145,6 +146,9 @@ class ChatViewController: MessagesViewController {
         
         AF.request(appDelegate.baseUrl + "/chat/status/" + self.chatRoomIdx,
                    method: .patch,
+                   parameters: [
+                    "lastChatIdx": self.lastChatIdx
+                   ],
                    encoding: JSONEncoding.default,
                    headers: header
         ).responseJSON{ [self] response in
@@ -229,7 +233,6 @@ class ChatViewController: MessagesViewController {
         
         setLayout()
         
-        
         if(chatRoomIdx != "none"){
             /*내가 나간 시점의 인덱스 값 구하기*/
             getChatUserInfo { [self] in
@@ -282,7 +285,9 @@ class ChatViewController: MessagesViewController {
             }
             
             self.messagesCollectionView.reloadData()
-            self.messagesCollectionView.scrollToLastItem()
+            
+            //self.messagesCollectionView.scrollToLastItem(animated: true)
+            self.messagesCollectionView.scrollToBottom(animated: true)
         }
     }
 
