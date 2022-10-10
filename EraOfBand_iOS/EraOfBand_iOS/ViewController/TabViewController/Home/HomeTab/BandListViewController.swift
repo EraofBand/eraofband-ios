@@ -122,6 +122,8 @@ class BandListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.bandListTableView.separatorStyle = .none
 
         setNavigationBar()
         

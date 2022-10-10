@@ -35,6 +35,7 @@ class LessonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.lessonTableView.separatorStyle = .none
 
         lessonTableView.delegate = self
         lessonTableView.dataSource = self

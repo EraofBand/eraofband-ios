@@ -49,6 +49,8 @@ class WishLessonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.wishLessonTableView.separatorStyle = .none
+        
         getWishLessonList()
         
         /*리프레쉬 세팅*/
