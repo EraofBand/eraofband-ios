@@ -77,6 +77,8 @@ class LessonMatchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.LessonListTableView.separatorStyle = .none
+        
         setCityButton()
         
         getLessonList()

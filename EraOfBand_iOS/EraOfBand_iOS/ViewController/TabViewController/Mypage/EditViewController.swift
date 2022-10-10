@@ -179,12 +179,14 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func cameraButton(_ sender: Any) {
+        /*
         if #available(iOS 14, *){
             pickImage()
         } else {
             openGallery()
-        }
+        }*/
         
+        openGallery()
     }
     
     @IBAction func maleAction(_ sender: Any) {

@@ -105,6 +105,7 @@ class HomeTabViewController: UIViewController {
     }
     
     func setNavigationBar() {
+        self.navigationController?.navigationBar.clipsToBounds = true //네비게이션 바 밑 보더 지우기
         
         var leftBarButtons: [UIBarButtonItem] = []
         var rightBarButtons: [UIBarButtonItem] = []
