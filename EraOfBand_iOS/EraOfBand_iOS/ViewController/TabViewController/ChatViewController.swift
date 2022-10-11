@@ -24,7 +24,16 @@ struct Message: MessageType{
     var readUser: Bool
 }
 
+struct ChatroomInData: Codable{
+    var code: Int
+    var isSuccess: Bool
+    var message: String
+    var result: ChatroomInResult
+}
 
+struct ChatroomInResult: Codable{
+    var lastChatIdx: Int
+}
 
 class ChatViewController: MessagesViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -147,19 +156,13 @@ class ChatViewController: MessagesViewController {
         AF.request(appDelegate.baseUrl + "/chat/status/" + self.chatRoomIdx,
                    method: .patch,
                    parameters: [
-                    "lastChatIdx": self.lastChatIdx
+                    "lastChatIdx": self.chatList!.count - 1
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
         ).responseJSON{ [self] response in
             switch(response.result){
             case.success :
-                if(self.chatUserInfo?.firstUserIdx == self.appDelegate.userIdx){
-                    self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstOutIdx").setValue(self.chatList!.count - 1)
-                }else{
-                    self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondOutIdx").setValue(self.chatList!.count - 1)
-                }
-                
                 self.navigationController?.popViewController(animated: true)
             
             default:
@@ -167,8 +170,33 @@ class ChatViewController: MessagesViewController {
             }
             
         }
+    }
+    
+    /*채팅방 들어가기 - 마지막 나가기 인덱스 가져오기*/
+    func chatroomIn(){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
         
-        
+        AF.request(appDelegate.baseUrl + "/chat/chatroom-in",
+                   method: .patch,
+                   parameters: [
+                    "chatRoomIdx": self.chatRoomIdx
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseDecodable(of: ChatroomInData.self){ response in
+            switch(response.result){
+            case.success(let chatroomInData) :
+                print("테스트 : ", chatroomInData.result)
+                self.lastChatIdx = chatroomInData.result.lastChatIdx
+                self.loadChat()
+            default:
+                print(response)
+                return
+            }
+            
+        }
     }
     
     @objc func backBtnTapped(_ sender: Any) {
@@ -233,6 +261,7 @@ class ChatViewController: MessagesViewController {
         
         setLayout()
         
+        /*
         if(chatRoomIdx != "none"){
             /*내가 나간 시점의 인덱스 값 구하기*/
             getChatUserInfo { [self] in
@@ -246,7 +275,9 @@ class ChatViewController: MessagesViewController {
             loadChat()
         }else{
             
-        }
+        }*/
+        
+        chatroomIn()
 
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -264,7 +295,7 @@ class ChatViewController: MessagesViewController {
             self.chatList = result
             //print(self.chatList)
             messages = []
-            for i in (myOutIdx + 1)..<self.chatList!.count{
+            for i in (lastChatIdx + 1)..<self.chatList!.count{
                 if(self.chatList![i].userIdx == self.appDelegate.userIdx){
                     messages.append(Message(sender: currentUser,
                                             messageId: String(i),
@@ -309,8 +340,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
             makeChat(completion: {
                 self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstUserIdx").setValue(self.appDelegate.userIdx)
                 self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondUserIdx").setValue(self.otherUserInfo?.userIdx)
-                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstOutIdx").setValue(-1)
-                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondOutIdx").setValue(-1)
                 self.sendMessage(text: text, chatIdx: "0")
                 self.loadChat()
             })
