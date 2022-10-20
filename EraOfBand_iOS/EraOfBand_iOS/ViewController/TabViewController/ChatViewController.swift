@@ -39,16 +39,14 @@ class ChatViewController: MessagesViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var chatRoomIdx: String = "none"
-    //var otherUserIdx: Int?
-    //var otherUserName: String?
     var otherUserInfo: GetOtherUser?
     var chatList: [chatInfo]?
     var chatUserInfo: userIdxInfo?
     var myOutIdx: Int = -1
     var lastChatIdx: Int = -1
     
-    var currentUser = Sender(senderId: "current", displayName: "Jaem")
-    var otherUser: SenderType = Sender(senderId: "other", displayName: "Harry")
+    var currentUser = Sender(senderId: "current", displayName: "Me")
+    var otherUser: SenderType = Sender(senderId: "other", displayName: "Other")
     
     var messages = [Message]()
     let chatReference = Database.database().reference()
@@ -329,6 +327,7 @@ extension ChatViewController: MessageCellDelegate {
     @objc(didTapBackgroundIn:) func didTapBackground(in cell: MessageCollectionViewCell) {
         self.messageInputBar.inputTextView.resignFirstResponder()
     }
+    
 }
 
 extension ChatViewController: InputBarAccessoryViewDelegate{
@@ -428,11 +427,13 @@ extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAccessoryView(_ accessoryView: UIView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         
+        accessoryView.subviews.forEach{
+            $0.removeFromSuperview()
+        }
+        
         accessoryView.height = 15
         accessoryView.width = 100
         let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 15))
-        
-        accessoryLabel.text = ""
         accessoryLabel.text = message.sentDate.toString().substring(from: 11, to: 15)
         accessoryLabel.font = UIFont(name: "Pretendard-Medium", size: 10)
         accessoryLabel.textColor = UIColor(red: 0.576, green: 0.576, blue: 0.576, alpha: 1)
@@ -454,6 +455,7 @@ extension ChatViewController: MessagesDisplayDelegate {
             accessoryView.addSubview(accessoryLabel)
         }
     }
+
 }
 
 extension Date{
