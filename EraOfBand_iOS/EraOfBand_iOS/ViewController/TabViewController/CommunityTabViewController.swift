@@ -232,7 +232,6 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPofolTableViewCell", for: indexPath) as! MyPofolTableViewCell
         
-        cell.pofolInfo = pofolList[indexPath.row]
         cell.thumbNailImg.kf.setImage(with: URL(string: (pofolList[indexPath.row].imgUrl)))
         
         cell.thumbNailImg.layer.cornerRadius = 10
@@ -280,13 +279,14 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         cell.menuBtn.pofolIdx = pofolList[indexPath.row].pofolIdx ?? 0
+        cell.menuBtn.userIdx = pofolList[indexPath.row].userIdx ?? 0
         cell.menuBtn.thumbIdx = indexPath.row
+        cell.menuBtn.tag = cell.menuBtn.pofolIdx!
         
-        if appDelegate.userIdx != cell.pofolInfo?.userIdx {
-            cell.menuBtn.tag = cell.pofolInfo!.pofolIdx!
-            cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped), for: .touchUpInside)
-        }else{
-            cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped), for: .touchUpInside)
+        if appDelegate.userIdx != cell.menuBtn.userIdx {
+            cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
+        } else {
+            cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
         }
         
         return cell
@@ -335,33 +335,35 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     
     /* 다른 유저의 포폴 더보기 버튼 */
     @objc func menuBtnTapped(sender: PofolMenuButton){
-        
+
         print("pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
-        
+
         let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
             let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
-            
+
             declareVC.reportLocation = 1
             declareVC.reportLocationIdx = sender.tag
             declareVC.modalPresentationStyle = .overCurrentContext
-            
+
             self.present(declareVC, animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
               })
-        
+
         optionMenu.addAction(declareAction)
         optionMenu.addAction(cancelAction)
-        
+
         self.present(optionMenu, animated: true, completion: nil)
     }
-    
+
     /* 내 포폴 더보기 버튼 */
     @objc func myMenuBtnTapped(sender: PofolMenuButton) {
+
+        print("my pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
-        
+
         let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
            print("수정하기 버튼 누름")
@@ -373,11 +375,11 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
               })
-        
+
         optionMenu.addAction(modifyAction)
         optionMenu.addAction(deleteAction)
         optionMenu.addAction(cancelAction)
-        
+
         self.present(optionMenu, animated: true, completion: nil)
     }
     
