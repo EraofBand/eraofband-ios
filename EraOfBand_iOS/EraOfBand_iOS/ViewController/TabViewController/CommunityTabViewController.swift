@@ -357,6 +357,43 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
 
         self.present(optionMenu, animated: true, completion: nil)
     }
+    
+    /* 포폴 수정하기 함수 */
+    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
+        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofol") as? AddPofolViewController else { return }
+                
+        addPofolVC.isModifying = true
+        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
+        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
+        addPofolVC.currentThumbNailUrl = pofolList[thumbIdx].imgUrl
+        addPofolVC.pofolIdx = pofolIdx
+        
+        self.navigationController?.pushViewController(addPofolVC, animated: true)
+    }
+    
+    /* 포폴 삭제하기 함수 */
+    func deletePofol(pofolIdx: Int, thumbIdx: Int){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
+                   method: .patch,
+                   parameters: [
+                    "userIdx": appDelegate.userIdx!
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case .success:
+                print("삭제됨")
+            default:
+                return
+            }
+            
+        }
+    }
 
     /* 내 포폴 더보기 버튼 */
     @objc func myMenuBtnTapped(sender: PofolMenuButton) {
@@ -366,11 +403,11 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
 
         let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
-           print("수정하기 버튼 누름")
+            self.modifyPofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
             })
-        let deleteAction = UIAlertAction(title: "삭제하기", style: .default, handler: {
+        let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("삭제하기 버튼 누름")
+            self.deletePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
         })
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
