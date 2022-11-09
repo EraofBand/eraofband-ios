@@ -110,13 +110,6 @@ class CommunityTabViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        getAllPofolList(0) {
-            self.feedTableView.reloadData()
-        }
-    }
 
 }
 
@@ -139,7 +132,7 @@ extension CommunityTabViewController {
                     print("\(name.userIdx!)", terminator: " ")
                 }
                 print("")
-                print("pofolCount : \(self.pofolList.count)")
+                print("all pofolCount : \(self.pofolList.count)")
                 completion()
             case .failure(let err):
                 print(err.errorDescription as Any)
@@ -166,7 +159,7 @@ extension CommunityTabViewController {
                     print("\(name.userIdx!)", terminator: " ")
                 }
                 print("")
-                print("pofolCount : \(self.pofolList.count)")
+                print("follow pofolCount : \(self.pofolList.count)")
                 completion()
             case .failure(let err):
                 print(err.errorDescription!)
@@ -239,6 +232,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPofolTableViewCell", for: indexPath) as! MyPofolTableViewCell
         
+        cell.pofolInfo = pofolList[indexPath.row]
         cell.thumbNailImg.kf.setImage(with: URL(string: (pofolList[indexPath.row].imgUrl)))
         
         cell.thumbNailImg.layer.cornerRadius = 10
@@ -288,12 +282,10 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.menuBtn.pofolIdx = pofolList[indexPath.row].pofolIdx ?? 0
         cell.menuBtn.thumbIdx = indexPath.row
         
-        print("cell: \(pofolList[indexPath.item].userIdx!)")
-        if appDelegate.userIdx != pofolList[indexPath.item].userIdx {
-            cell.menuBtn.tag = pofolList[indexPath.item].pofolIdx!
+        if appDelegate.userIdx != cell.pofolInfo?.userIdx {
+            cell.menuBtn.tag = cell.pofolInfo!.pofolIdx!
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped), for: .touchUpInside)
-        }
-        if appDelegate.userIdx == pofolList[indexPath.item].userIdx {
+        }else{
             cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped), for: .touchUpInside)
         }
         
@@ -343,6 +335,8 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     
     /* 다른 유저의 포폴 더보기 버튼 */
     @objc func menuBtnTapped(sender: PofolMenuButton){
+        
+        print("pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
         let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
