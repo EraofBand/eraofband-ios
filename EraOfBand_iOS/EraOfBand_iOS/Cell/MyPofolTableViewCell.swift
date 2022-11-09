@@ -25,7 +25,12 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var menuBtn: PofolMenuButton!
     @IBOutlet weak var shareBtn: UIButton!
+    var pofolInfo: PofolResult?
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
     
     override class func awakeFromNib() {
         super.awakeFromNib()

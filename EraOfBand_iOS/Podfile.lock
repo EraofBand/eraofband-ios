@@ -1,5 +1,5 @@
 PODS:
-  - Kingfisher (7.2.2)
+  - Kingfisher (7.3.0)
   - Pageboy (3.6.2)
   - SnapKit (5.6.0)
   - Tabman (2.12.0):
@@ -18,12 +18,11 @@ SPEC REPOS:
     - Tabman
 
 SPEC CHECKSUMS:
-  Kingfisher: 184d4d1a8c36666e663caf8e08abe87898595c53
+  Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Tabman: 447a50447ed2869c39ab3b1a779327e43e067c4e
 
-PODFILE CHECKSUM: 68378a8bc825f3a4b3671f71b45c8572ab659b1e
-759a7eb801f546935633947a68c396cbe7a05438
+PODFILE CHECKSUM: c8c2c444be086d6519b698dadf590b743a2a6f5a
 
 COCOAPODS: 1.11.3
