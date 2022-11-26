@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "205D6EF1B8DCC8419E2F53266F6ADCDC"
-               BuildableName = "KakaoSDKCommon.framework"
-               BlueprintName = "KakaoSDKCommon"
+               BlueprintIdentifier = "B990BD87169C76A3ED3FE8A9258D91A3"
+               BuildableName = "Toast_Swift.framework"
+               BlueprintName = "Toast-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

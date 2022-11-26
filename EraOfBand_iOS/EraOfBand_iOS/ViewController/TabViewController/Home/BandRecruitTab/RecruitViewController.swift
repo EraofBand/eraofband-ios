@@ -157,7 +157,9 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
             cell.updateTimeLabel.text = applicant.updatedAt!
             cell.updateTimeLabel.sizeToFit()
             
+            
             cell.selectionStyle = .none
+            
             
             return cell
             
