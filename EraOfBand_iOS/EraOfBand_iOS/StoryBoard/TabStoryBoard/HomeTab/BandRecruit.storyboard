@@ -102,7 +102,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="공유하기"/>
                                                         <connections>
-                                                            <action selector="shareBtnTapped:" destination="tlv-dZ-Ixr" eventType="touchUpInside" id="OEB-qP-iyd"/>
+                                                            <action selector="shareBtnTapped:" destination="tlv-dZ-Ixr" eventType="touchUpInside" id="HBi-9S-Qs8"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

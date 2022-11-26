@@ -22,6 +22,7 @@ class SessionRecruitTableViewCell: UITableViewCell {
     @objc func recruitClicked() {
         cellDelegate?.recruitButtonTapped()
     }
+    
     @objc func shareClicked() {
         cellDelegate?.shareButtonTapped()
     }
