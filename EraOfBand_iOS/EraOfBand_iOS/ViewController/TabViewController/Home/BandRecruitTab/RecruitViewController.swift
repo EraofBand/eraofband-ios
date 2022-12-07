@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import KakaoSDKShare
+import KakaoSDKTemplate
+import KakaoSDKCommon
 
 class RecruitViewController: UIViewController{
 
@@ -249,8 +252,56 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension RecruitViewController: CellButtonDelegate {
     
-    func shareButtonTapped() {
+    //세션 모집 공유하기
+    func shareRecruit(recruitTitle: String, recruitDescription: String){
+        
+        if ShareApi.isKakaoTalkSharingAvailable(){
+            
+            let appLink = Link(iosExecutionParams: ["second": "vvv"])
+
+            // 해당 appLink를 들고 있을 버튼을 만들어준다.
+            let button = Button(title: "앱으로 보기", link: appLink)
+            
+            // Content는 이제 사진과 함께 글들이 적혀있다.
+            let content = Content(title: recruitTitle,
+                                  imageUrl: URL(string:bandInfo?.bandImgUrl ?? "")!,
+                                  description: recruitDescription,
+                                link: appLink)
+            
+            // 템플릿에 버튼을 추가할때 아래 buttons에 배열의 형태로 넣어준다.
+            // 만약 버튼을 하나 더 추가하려면 버튼 변수를 만들고 [button, button2] 이런 식으로 진행하면 된다 .
+            let template = FeedTemplate(content: content, buttons: [button])
+            
+            //메시지 템플릿 encode
+            if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
+                
+                //생성한 메시지 템플릿 객체를 jsonObject로 변환
+                if let templateJsonObject = SdkUtils.toJsonObject(templateJsonData) {
+                    ShareApi.shared.shareDefault(templateObject:templateJsonObject) {(linkResult, error) in
+                        if let error = error {
+                            print("error : \(error)")
+                        }
+                        else {
+                            print("defaultLink(templateObject:templateJsonObject) success.")
+                            guard let linkResult = linkResult else { return }
+                            UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            print("카카오톡 미설치")
+            // 카카오톡 미설치: 웹 공유 사용 권장
+            // 아래 함수는 따로 구현해야함.
+            
+        }
+         
+    }
+    
+    func shareButtonTapped(recruitTitle: String, recruitDescription: String) {
         print("공유하기 버튼 누름")
+        shareRecruit(recruitTitle: recruitTitle, recruitDescription: recruitDescription)
     }
     
     func recruitButtonTapped() {
