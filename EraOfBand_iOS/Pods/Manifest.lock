@@ -1,14 +1,16 @@
 PODS:
-  - Kingfisher (7.3.0)
-  - Pageboy (3.6.2)
+  - Kingfisher (7.3.2)
+  - Pageboy (3.7.0)
   - SnapKit (5.6.0)
-  - Tabman (2.12.0):
-    - Pageboy (~> 3.6.0)
+  - Tabman (2.13.0):
+    - Pageboy (~> 3.7.0)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - Kingfisher (~> 7.0)
   - SnapKit (~> 5.6.0)
   - Tabman (~> 2.12)
+  - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - Pageboy
     - SnapKit
     - Tabman
+    - Toast-Swift
 
 SPEC CHECKSUMS:
-  Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
-  Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
+  Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
+  Pageboy: fe646118f7168960058bea7a96038386aa7c0da8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  Tabman: 447a50447ed2869c39ab3b1a779327e43e067c4e
+  Tabman: 66ea44c44488327ec20f3c8dc5554a5d22f5908c
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: c8c2c444be086d6519b698dadf590b743a2a6f5a
+PODFILE CHECKSUM: cf3cb56e89057374404f79dba977aef76a078737
 
 COCOAPODS: 1.11.3

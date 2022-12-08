@@ -24,22 +24,29 @@ struct Message: MessageType{
     var readUser: Bool
 }
 
+struct ChatroomInData: Codable{
+    var code: Int
+    var isSuccess: Bool
+    var message: String
+    var result: ChatroomInResult
+}
 
+struct ChatroomInResult: Codable{
+    var lastChatIdx: Int
+}
 
 class ChatViewController: MessagesViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var chatRoomIdx: String = "none"
-    //var otherUserIdx: Int?
-    //var otherUserName: String?
     var otherUserInfo: GetOtherUser?
     var chatList: [chatInfo]?
     var chatUserInfo: userIdxInfo?
     var myOutIdx: Int = -1
     var lastChatIdx: Int = -1
     
-    var currentUser = Sender(senderId: "current", displayName: "Jaem")
-    var otherUser: SenderType = Sender(senderId: "other", displayName: "Harry")
+    var currentUser = Sender(senderId: "current", displayName: "Me")
+    var otherUser: SenderType = Sender(senderId: "other", displayName: "Other")
     
     var messages = [Message]()
     let chatReference = Database.database().reference()
@@ -147,19 +154,13 @@ class ChatViewController: MessagesViewController {
         AF.request(appDelegate.baseUrl + "/chat/status/" + self.chatRoomIdx,
                    method: .patch,
                    parameters: [
-                    "lastChatIdx": self.lastChatIdx
+                    "lastChatIdx": self.chatList!.count - 1
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
         ).responseJSON{ [self] response in
             switch(response.result){
             case.success :
-                if(self.chatUserInfo?.firstUserIdx == self.appDelegate.userIdx){
-                    self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstOutIdx").setValue(self.chatList!.count - 1)
-                }else{
-                    self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondOutIdx").setValue(self.chatList!.count - 1)
-                }
-                
                 self.navigationController?.popViewController(animated: true)
             
             default:
@@ -167,8 +168,33 @@ class ChatViewController: MessagesViewController {
             }
             
         }
+    }
+    
+    /*채팅방 들어가기 - 마지막 나가기 인덱스 가져오기*/
+    func chatroomIn(){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
         
-        
+        AF.request(appDelegate.baseUrl + "/chat/chatroom-in",
+                   method: .patch,
+                   parameters: [
+                    "chatRoomIdx": self.chatRoomIdx
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseDecodable(of: ChatroomInData.self){ response in
+            switch(response.result){
+            case.success(let chatroomInData) :
+                print("테스트 : ", chatroomInData.result)
+                self.lastChatIdx = chatroomInData.result.lastChatIdx
+                self.loadChat()
+            default:
+                print(response)
+                return
+            }
+            
+        }
     }
     
     @objc func backBtnTapped(_ sender: Any) {
@@ -233,6 +259,7 @@ class ChatViewController: MessagesViewController {
         
         setLayout()
         
+        /*
         if(chatRoomIdx != "none"){
             /*내가 나간 시점의 인덱스 값 구하기*/
             getChatUserInfo { [self] in
@@ -246,7 +273,9 @@ class ChatViewController: MessagesViewController {
             loadChat()
         }else{
             
-        }
+        }*/
+        
+        chatroomIn()
 
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -264,7 +293,7 @@ class ChatViewController: MessagesViewController {
             self.chatList = result
             //print(self.chatList)
             messages = []
-            for i in (myOutIdx + 1)..<self.chatList!.count{
+            for i in (lastChatIdx + 1)..<self.chatList!.count{
                 if(self.chatList![i].userIdx == self.appDelegate.userIdx){
                     messages.append(Message(sender: currentUser,
                                             messageId: String(i),
@@ -298,6 +327,7 @@ extension ChatViewController: MessageCellDelegate {
     @objc(didTapBackgroundIn:) func didTapBackground(in cell: MessageCollectionViewCell) {
         self.messageInputBar.inputTextView.resignFirstResponder()
     }
+    
 }
 
 extension ChatViewController: InputBarAccessoryViewDelegate{
@@ -309,8 +339,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
             makeChat(completion: {
                 self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstUserIdx").setValue(self.appDelegate.userIdx)
                 self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondUserIdx").setValue(self.otherUserInfo?.userIdx)
-                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstOutIdx").setValue(-1)
-                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondOutIdx").setValue(-1)
                 self.sendMessage(text: text, chatIdx: "0")
                 self.loadChat()
             })
@@ -399,11 +427,13 @@ extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAccessoryView(_ accessoryView: UIView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         
+        accessoryView.subviews.forEach{
+            $0.removeFromSuperview()
+        }
+        
         accessoryView.height = 15
         accessoryView.width = 100
         let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 15))
-        
-        accessoryLabel.text = ""
         accessoryLabel.text = message.sentDate.toString().substring(from: 11, to: 15)
         accessoryLabel.font = UIFont(name: "Pretendard-Medium", size: 10)
         accessoryLabel.textColor = UIColor(red: 0.576, green: 0.576, blue: 0.576, alpha: 1)
@@ -425,6 +455,7 @@ extension ChatViewController: MessagesDisplayDelegate {
             accessoryView.addSubview(accessoryLabel)
         }
     }
+
 }
 
 extension Date{
