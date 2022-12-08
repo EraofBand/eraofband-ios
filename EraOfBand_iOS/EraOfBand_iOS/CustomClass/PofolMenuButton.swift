@@ -10,4 +10,5 @@ import UIKit
 class PofolMenuButton: UIButton{
     var pofolIdx: Int?
     var thumbIdx: Int?
+    var userIdx: Int?
 }

@@ -11,12 +11,18 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import Alamofire
 import MessageUI
+import SafariServices
 
 class SettingViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @IBAction func noticeBtnTapped(_ sender: Any) {
+        let noticeURL = NSURL(string: "https://eraofband.tistory.com/")
+        let noticeURLView: SFSafariViewController = SFSafariViewController(url: noticeURL! as URL)
+        self.present(noticeURLView, animated: true)
+    }
     
-    @IBAction func SendMailBtnTapped(_ sender: Any) {
+    @IBAction func sendMailBtnTapped(_ sender: Any) {
         if MFMailComposeViewController.canSendMail() {
             let composeViewController = MFMailComposeViewController()
             composeViewController.mailComposeDelegate = self
@@ -49,6 +55,10 @@ class SettingViewController: UIViewController {
             sendMailErrorAlert.addAction(cancleAction)
             self.present(sendMailErrorAlert, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func alarmBtnTapped(_ sender: Any) {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
     
     @IBAction func blockBtnTapped(_ sender: Any) {
