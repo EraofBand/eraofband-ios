@@ -115,14 +115,6 @@ class CommunityTabViewController: UIViewController {
             self.feedTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        getAllPofolList(0) {
-            self.feedTableView.reloadData()
-        }
-    }
 
 }
 
@@ -145,7 +137,7 @@ extension CommunityTabViewController {
                     print("\(name.userIdx!)", terminator: " ")
                 }
                 print("")
-                print("pofolCount : \(self.pofolList.count)")
+                print("all pofolCount : \(self.pofolList.count)")
                 completion()
             case .failure(let err):
                 print(err.errorDescription as Any)
@@ -172,7 +164,7 @@ extension CommunityTabViewController {
                     print("\(name.userIdx!)", terminator: " ")
                 }
                 print("")
-                print("pofolCount : \(self.pofolList.count)")
+                print("follow pofolCount : \(self.pofolList.count)")
                 completion()
             case .failure(let err):
                 print(err.errorDescription!)
@@ -383,13 +375,14 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         cell.menuBtn.pofolIdx = pofolList[indexPath.row].pofolIdx ?? 0
+        cell.menuBtn.userIdx = pofolList[indexPath.row].userIdx ?? 0
         cell.menuBtn.thumbIdx = indexPath.row
+        cell.menuBtn.tag = cell.menuBtn.pofolIdx!
         
-        print("cell: \(pofolList[indexPath.item].userIdx!)")
-        if(appDelegate.userIdx == pofolList[indexPath.row].userIdx){
-            cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
-        }else{
+        if appDelegate.userIdx != cell.menuBtn.userIdx {
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
+        } else {
+            cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
         }
         
         return cell
@@ -439,19 +432,22 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     
     /* 다른 유저의 포폴 더보기 버튼 */
     @objc func menuBtnTapped(sender: PofolMenuButton){
+
+        print("pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
         let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
             })
+
         let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
             let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
-            
+
             declareVC.reportLocation = 1
             declareVC.reportLocationIdx = sender.tag
             declareVC.modalPresentationStyle = .overCurrentContext
-            
+
             self.present(declareVC, animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
@@ -461,12 +457,51 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         optionMenu.addAction(shareAction)
         optionMenu.addAction(declareAction)
         optionMenu.addAction(cancelAction)
-        
+
         self.present(optionMenu, animated: true, completion: nil)
     }
     
+    /* 포폴 수정하기 함수 */
+    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
+        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofol") as? AddPofolViewController else { return }
+                
+        addPofolVC.isModifying = true
+        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
+        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
+        addPofolVC.currentThumbNailUrl = pofolList[thumbIdx].imgUrl
+        addPofolVC.pofolIdx = pofolIdx
+        
+        self.navigationController?.pushViewController(addPofolVC, animated: true)
+    }
+    
+    /* 포폴 삭제하기 함수 */
+    func deletePofol(pofolIdx: Int, thumbIdx: Int){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
+                   method: .patch,
+                   parameters: [
+                    "userIdx": appDelegate.userIdx!
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case .success:
+                print("삭제됨")
+            default:
+                return
+            }
+            
+        }
+    }
+
     /* 내 포폴 더보기 버튼 */
     @objc func myMenuBtnTapped(sender: PofolMenuButton) {
+
+        print("my pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
         let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
@@ -479,7 +514,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
             })
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.deletePofol(pofolIdx: sender.pofolIdx ?? 0)
+            self.deletePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
         })
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
@@ -489,7 +524,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         optionMenu.addAction(modifyAction)
         optionMenu.addAction(deleteAction)
         optionMenu.addAction(cancelAction)
-        
+
         self.present(optionMenu, animated: true, completion: nil)
     }
     
