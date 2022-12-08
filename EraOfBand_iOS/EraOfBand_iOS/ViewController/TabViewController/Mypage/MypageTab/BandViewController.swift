@@ -35,6 +35,7 @@ class BandViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bandTableView.separatorStyle = .none
 
         bandTableView.delegate = self
         bandTableView.dataSource = self

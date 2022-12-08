@@ -142,6 +142,9 @@ class DetailNoticeViewController: UIViewController {
     
     /* 네비바 세팅 */
     func setNavigationBar() {
+        self.navigationController?.navigationBar.clipsToBounds = true //네비게이션 바 밑 보더 지우기
+        commentTableView.tableHeaderView = UIView() //첫번째 separator 지우기
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         
         let category = category[boardCategory!]
         self.navigationItem.title = "\(category)게시판"
