@@ -23,10 +23,13 @@ class CommunityTabViewController: UIViewController {
     let choiceLabel = ["전체", "팔로우"]
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var modifyIdx = 0
+    
     var refreshControl = UIRefreshControl()
     
     /* 네비바 세팅 */
     func setNavigationBar() {
+        self.navigationController?.navigationBar.clipsToBounds = true //네비게이션 바 밑 보더 지우기
         
         var leftBarButtons: [UIBarButtonItem] = []
         var rightBarButtons: [UIBarButtonItem] = []
@@ -168,6 +171,50 @@ extension CommunityTabViewController {
         }
         
     }
+    
+    func deletePofol(pofolIdx: Int){
+        let header : HTTPHeaders = [
+            "x-access-token": appDelegate.jwt,
+            "Content-Type": "application/json"]
+        
+        AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
+                   method: .patch,
+                   parameters: [
+                    "userIdx": appDelegate.userIdx!
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON{ response in
+            switch(response.result){
+            case.success :
+                self.pofolList = []
+                if self.choice == 0 {
+                    self.getAllPofolList(0) {
+                        self.feedTableView.reloadData()
+                    }
+                } else {
+                    self.getFollowPofolList(0) {
+                        self.feedTableView.reloadData()
+                    }
+                }
+            default:
+                return
+            }
+            
+        }
+    }
+    
+    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
+        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else {return}
+                
+        addPofolVC.isModifying = true
+        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
+        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
+        addPofolVC.currentThumbNailUrl = pofolList[thumbIdx].imgUrl
+        addPofolVC.pofolIdx = pofolIdx
+        
+        self.navigationController?.pushViewController(addPofolVC, animated: true)
+    }
 }
 
 // MARK: CollectionView 설정
@@ -295,6 +342,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 520
     }
+    
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row + 1 == pofolList.count {
