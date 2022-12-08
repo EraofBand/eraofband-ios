@@ -9,8 +9,9 @@ import UIKit
 import Alamofire
 import Kingfisher
 import SafariServices
-//import KakaoSDKShare
-//import KakaoSDKTemplate
+import KakaoSDKShare
+import KakaoSDKTemplate
+import KakaoSDKCommon
 
 class BandRecruitViewController: UIViewController{
     @IBOutlet weak var bandImageView: UIImageView!
@@ -181,76 +182,50 @@ class BandRecruitViewController: UIViewController{
         }
     }
     
-//    @IBAction func shareBtnTapped(_ sender: Any) {
-//        // templatable은 메시지 만들기 항목 참고
-//        let title = "피드 메시지"
-//        let description = "피드 메시지 예제"
-//
-//        let feedTemplateJsonStringData: [String: Any] =
-//        [
-//            "object_type": "feed",
-//            "content": [
-//                "title": bandInfo!.bandTitle!,
-//                "description": bandInfo!.bandIntroduction!,
-//                "imageUrl": bandInfo!.bandImgUrl!,
-//                "link": [
-//                    "mobile_web_url": "com.EoB.EraOfBand"
-//                ]
-//            ],
-//            "social": [
-//                "like_count": bandInfo!.bandLikeCount!
-//            ],
-//            "buttons": [
-//                [
-//                    "title": "앱으로 보기",
-//                    "link": [
-//                        "ios_execution_params": "key1=value1&key2=value2"
-//                    ]
-//                ]
-//            ]
-//        ] as Dictionary
-//
-//        do {
-//            let shareJson = try JSONSerialization.data(withJSONObject: feedTemplateJsonStringData, options: .prettyPrinted)
-//            let feedTemplateData = String(data:shareJson, encoding: .utf8)
-//
-//            guard let templatable = try? JSONDecoder().decode(FeedTemplate.self, from: shareJson) else { return }
-//
-//            // 카카오톡 설치여부 확인
-//            if ShareApi.isKakaoTalkSharingAvailable() {
-//                // 카카오톡으로 카카오톡 공유 가능
-//                ShareApi.shared.shareDefault(templatable: templatable) {(sharingResult, error) in
-//                    if let error = error {
-//                        print(error)
-//                    }
-//                    else {
-//                        print("shareDefault() success.")
-//
-//                        if let sharingResult = sharingResult {
-//                            UIApplication.shared.open(sharingResult.url,
-//                                                      options: [:], completionHandler: nil)
-//                        }
-//                    }
-//                }
-//            } else {
-//                // 카카오톡 미설치: 웹 공유 사용 권장
-//                // Custom WebView 또는 디폴트 브라우져 사용 가능
-//                // 웹 공유 예시 코드
-//                if let url = ShareApi.shared.makeDefaultUrl(templatable: templatable) {
-//                    self.safariViewController = SFSafariViewController(url: url)
-//                    self.safariViewController?.modalTransitionStyle = .crossDissolve
-//                    self.safariViewController?.modalPresentationStyle = .overCurrentContext
-//                    self.present(self.safariViewController!, animated: true) {
-//                        print("웹 present success")
-//                    }
-//                }
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//
-//
-//    }
+    @IBAction func shareBtnTapped(_ sender: Any) {
+        if ShareApi.isKakaoTalkSharingAvailable(){
+            
+            let appLink = Link(iosExecutionParams: ["second": "vvv"])
+
+            // 해당 appLink를 들고 있을 버튼을 만들어준다.
+            let button = Button(title: "앱으로 보기", link: appLink)
+            
+            // Content는 이제 사진과 함께 글들이 적혀있다.
+            let content = Content(title: (bandInfo?.bandTitle)!,
+                                  imageUrl: URL(string:(bandInfo?.bandImgUrl)!)!,
+                                  description: bandInfo?.bandIntroduction,
+                                link: appLink)
+            
+            // 템플릿에 버튼을 추가할때 아래 buttons에 배열의 형태로 넣어준다.
+            // 만약 버튼을 하나 더 추가하려면 버튼 변수를 만들고 [button, button2] 이런 식으로 진행하면 된다 .
+            let template = FeedTemplate(content: content, buttons: [button])
+            
+            //메시지 템플릿 encode
+            if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
+                
+                //생성한 메시지 템플릿 객체를 jsonObject로 변환
+                if let templateJsonObject = SdkUtils.toJsonObject(templateJsonData) {
+                    ShareApi.shared.shareDefault(templateObject:templateJsonObject) {(linkResult, error) in
+                        if let error = error {
+                            print("error : \(error)")
+                        }
+                        else {
+                            print("defaultLink(templateObject:templateJsonObject) success.")
+                            guard let linkResult = linkResult else { return }
+                            UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            print("카카오톡 미설치")
+            // 카카오톡 미설치: 웹 공유 사용 권장
+            // 아래 함수는 따로 구현해야함.
+            
+        }
+        
+    }
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

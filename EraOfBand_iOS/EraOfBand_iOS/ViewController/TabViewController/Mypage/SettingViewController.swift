@@ -11,6 +11,7 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import Alamofire
 import MessageUI
+import Toast_Swift
 import SafariServices
 
 class SettingViewController: UIViewController {
@@ -67,6 +68,12 @@ class SettingViewController: UIViewController {
         self.navigationController?.pushViewController(blockVC, animated: true)
     }
     
+    @IBAction func versionBtnTapped(_ sender: Any) {
+        var toastStyle = ToastStyle()
+        toastStyle.backgroundColor = .darkGray
+        
+        self.view.makeToast("버전 정보: 1.0", style: toastStyle)
+    }
     
     @IBAction func logOutBtnTapped(_ sender: Any) {
         print("테스트")

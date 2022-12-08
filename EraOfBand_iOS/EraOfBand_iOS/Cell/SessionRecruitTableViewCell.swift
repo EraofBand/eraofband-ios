@@ -22,8 +22,9 @@ class SessionRecruitTableViewCell: UITableViewCell {
     @objc func recruitClicked() {
         cellDelegate?.recruitButtonTapped()
     }
+    
     @objc func shareClicked() {
-        cellDelegate?.shareButtonTapped()
+        cellDelegate?.shareButtonTapped(recruitTitle: titleLabel.text ?? "", recruitDescription: introLabel.text ?? "")
     }
     
     override func awakeFromNib() {
@@ -64,6 +65,6 @@ class SessionRecruitTableViewCell: UITableViewCell {
 protocol CellButtonDelegate: AnyObject {
     
     func recruitButtonTapped()
-    func shareButtonTapped()
+    func shareButtonTapped(recruitTitle: String, recruitDescription: String)
     
 }
