@@ -72,7 +72,7 @@ class CommunityTabViewController: UIViewController {
     }
     
     @objc func editingAction(_ sender: UIButton) {
-        let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofol") as! AddPofolViewController
+        let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as! AddPofolViewController
         
         self.navigationController?.pushViewController(addPofolVC, animated: true)
     }
@@ -207,23 +207,12 @@ extension CommunityTabViewController {
         }
     }
     
-    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
-        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else {return}
-                
-        addPofolVC.isModifying = true
-        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
-        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
-        addPofolVC.currentThumbNailUrl = pofolList[thumbIdx].imgUrl
-        addPofolVC.pofolIdx = pofolIdx
-        
-        self.navigationController?.pushViewController(addPofolVC, animated: true)
-    }
     
     func sharePofol(pofolIdx: Int, thumbIdx: Int){
         
         if ShareApi.isKakaoTalkSharingAvailable(){
             
-            let appLink = Link(iosExecutionParams: ["second": "vvv"])
+            let appLink = Link(androidExecutionParams: ["second": "vvv"], iosExecutionParams: ["second": "vvv"])
 
             // 해당 appLink를 들고 있을 버튼을 만들어준다.
             let button = Button(title: "앱으로 보기", link: appLink)
@@ -463,7 +452,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     
     /* 포폴 수정하기 함수 */
     func modifyPofol(pofolIdx: Int, thumbIdx: Int){
-        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofol") as? AddPofolViewController else { return }
+        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else { return }
                 
         addPofolVC.isModifying = true
         addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""

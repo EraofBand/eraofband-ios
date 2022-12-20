@@ -309,16 +309,6 @@
 		2AD31FD77407860185D98EC1427B01FE /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
 		2BD0620AA4AF870EEEB7297111BD1444 /* TMLabelBarButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMLabelBarButton.swift; path = Sources/Tabman/Bar/BarButton/Types/TMLabelBarButton.swift; sourceTree = "<group>"; };
 		2C44615EAF21DAE6BF07E529CCF5CCED /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
-		23D261A0B2C361ED2FD2104A465004F8 /* PageboyViewController+Transitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PageboyViewController+Transitioning.swift"; path = "Sources/Pageboy/Transitioning/PageboyViewController+Transitioning.swift"; sourceTree = "<group>"; };
-		23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pageboy; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2406A5A7989F74005CDF34A539B48920 /* PageboyNavigationDirection+Tabman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PageboyNavigationDirection+Tabman.swift"; path = "Sources/Tabman/Extensions/PageboyNavigationDirection+Tabman.swift"; sourceTree = "<group>"; };
-		24B11C7C4B6F8EEE09C79040A7272DA6 /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
-		257F0AFECE6BAAF54267130A65D639E1 /* ViewTitleViewContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewTitleViewContainer.swift; path = Sources/Tabman/Bar/Generic/ViewTitleViewContainer.swift; sourceTree = "<group>"; };
-		25A5FCFB3F6BD50A83734998619B7D28 /* TMBar+Templates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TMBar+Templates.swift"; path = "Sources/Tabman/Bar/TMBar+Templates.swift"; sourceTree = "<group>"; };
-		263BD6025C5A076CBE5747A0844B4944 /* BarMath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarMath.swift; path = Sources/Tabman/Bar/Utility/BarMath.swift; sourceTree = "<group>"; };
-		278CAA581A73E1B350253649DB151C98 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Sources/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
-		292218018B06C6EA83D547B60DFE8D38 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Sources/Utility/Result.swift; sourceTree = "<group>"; };
-		2C43B96265F5091A75CBB9C1D368DB8C /* TMAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMAnimation.swift; path = Sources/Tabman/Bar/TMAnimation.swift; sourceTree = "<group>"; };
 		2C7EFE2D771B808D52ABDFDB72015B0D /* Pods-EraOfBand_iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EraOfBand_iOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		2DEA3A70F0367A0DC27C589FBE34011B /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/Extensions/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		2EAEE1F451E076C6FEE91F91B50404C0 /* Tabman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Tabman.debug.xcconfig; sourceTree = "<group>"; };
@@ -449,43 +439,6 @@
 		B38588EFCA9C6AE82D20DDFEAAD82A5C /* BarMath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarMath.swift; path = Sources/Tabman/Bar/Utility/BarMath.swift; sourceTree = "<group>"; };
 		B3D1D914B9889A0D1C443FDB4A624AF1 /* TMHidingBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMHidingBar.swift; path = Sources/Tabman/Bar/BarExtensions/AutoHidingBar/TMHidingBar.swift; sourceTree = "<group>"; };
 		B49F8F01444DA75B62BB506F90F02982 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		981E94F004E54D6D34FF695163E0DD4D /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Sources/Cache/Storage.swift; sourceTree = "<group>"; };
-		98CAE7E6CDEFD8E469A083DF4DB0F5F9 /* AnimateableLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimateableLabel.swift; path = Sources/Tabman/Bar/Generic/AnimateableLabel.swift; sourceTree = "<group>"; };
-		9B740DCF0A5886CEE66E7E7665611030 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Sources/ConstraintInsets.swift; sourceTree = "<group>"; };
-		9D5386C2892A2139BD3D825222C71707 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Sources/ConstraintRelation.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DF1257EBFBBED7276081F5CAA2FD170 /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/General/KingfisherManager.swift; sourceTree = "<group>"; };
-		9EF8D054B4B6E8524EED1F608BC9AE6C /* TMBlockBarIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMBlockBarIndicator.swift; path = Sources/Tabman/Bar/BarIndicator/Types/TMBlockBarIndicator.swift; sourceTree = "<group>"; };
-		9F25F7E6EA0CE3A81A2D9A9E983F4FA8 /* TMLineBarIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMLineBarIndicator.swift; path = Sources/Tabman/Bar/BarIndicator/Types/TMLineBarIndicator.swift; sourceTree = "<group>"; };
-		A0A61C9A8EF8434B86C428B5A72D583C /* SizeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SizeExtensions.swift; path = Sources/Utility/SizeExtensions.swift; sourceTree = "<group>"; };
-		A1702288E0A0046B54A7AC907C73E78C /* UIKit+TMBarItemable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIKit+TMBarItemable.swift"; path = "Sources/Tabman/Bar/BarItem/UIKit+TMBarItemable.swift"; sourceTree = "<group>"; };
-		A1AF0523272151C5B63C1B180EA1D5B7 /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintMakerRelatable+Extensions.swift"; path = "Sources/ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
-		A20180C73F50A81BD98484A4D2A0F554 /* TMHorizontalBarLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMHorizontalBarLayout.swift; path = Sources/Tabman/Bar/BarLayout/Types/TMHorizontalBarLayout.swift; sourceTree = "<group>"; };
-		A38ACBCBC04934411643E14B17AB1B2A /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
-		A38DC93FB0E5ACB3E69F03FEAA00D980 /* UIView+LayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+LayoutGuide.swift"; path = "Sources/Tabman/Extensions/UIView+LayoutGuide.swift"; sourceTree = "<group>"; };
-		A46929FCBE0B2A7DDC0E430AD7787DA5 /* TMBadgeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMBadgeView.swift; path = Sources/Tabman/Bar/BarButton/Badge/TMBadgeView.swift; sourceTree = "<group>"; };
-		A62238F95A58259C7F39A907FD58824A /* AutoInsetSpec.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoInsetSpec.swift; path = Sources/Tabman/AutoInsetter/AutoInsetSpec.swift; sourceTree = "<group>"; };
-		A7CA2EBEDA9CB6B8068CDEC2ED48553B /* TabmanViewController+Insets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TabmanViewController+Insets.swift"; path = "Sources/Tabman/TabmanViewController+Insets.swift"; sourceTree = "<group>"; };
-		A8C1EE43683BA9E01CFD0B48EF45218C /* AutoInsetter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoInsetter.swift; path = Sources/Tabman/AutoInsetter/AutoInsetter.swift; sourceTree = "<group>"; };
-		A993A02740A19EA6EF6732551CC418CB /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
-		A9DAC91BDF73F31BC9F6D9FF44A19294 /* Pageboy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Pageboy.modulemap; sourceTree = "<group>"; };
-		AA6A9D0C9A94A74C9757199888A36A76 /* KFOptionsSetter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFOptionsSetter.swift; path = Sources/General/KFOptionsSetter.swift; sourceTree = "<group>"; };
-		AB61F4B22048A934AB883B859F0472DB /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Sources/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
-		AB7C4F404CE1A39739D3EAA3F71E3C5D /* UIApplication+SafeShared.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIApplication+SafeShared.swift"; path = "Sources/Pageboy/Utilities/Extensions/UIApplication+SafeShared.swift"; sourceTree = "<group>"; };
-		ABAA16E70F508AAABBAA71637401DD2E /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Sources/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
-		ABB310D2B02ED939ABE29DC475473D3A /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Sources/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
-		ABD09CE8D6E46C462E8B172D6FC96B85 /* UIScrollView+Interaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+Interaction.swift"; path = "Sources/Pageboy/Utilities/Extensions/UIScrollView+Interaction.swift"; sourceTree = "<group>"; };
-		AC18315C091E9A24C7E22EA67756C1A5 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/Networking/ImagePrefetcher.swift; sourceTree = "<group>"; };
-		AF919642E3EA60CC1411AB1DD7063EBB /* TMBarViewLayoutGrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMBarViewLayoutGrid.swift; path = Sources/Tabman/Bar/BarView/TMBarViewLayoutGrid.swift; sourceTree = "<group>"; };
-		AFBC0A22684052257565C9FA3B5AA1F6 /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPrioritizable.swift; path = Sources/ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
-		B0C80C19013AC40023D4CA2D8906B11F /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Sources/ConstraintMaker.swift; sourceTree = "<group>"; };
-		B0ED10E6F5BD678327C8642C0D487EAA /* UIViewController+Tabman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Tabman.swift"; path = "Sources/Tabman/Extensions/UIViewController+Tabman.swift"; sourceTree = "<group>"; };
-		B149ADC3C4D8ABB0B3531ED9F5EB27FF /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Views/Indicator.swift; sourceTree = "<group>"; };
-		B2073F6A07DC980C133EA2E3061D43EA /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kingfisher.modulemap; sourceTree = "<group>"; };
-		B2753E956ABBA3555D59B43694DAE86F /* Kingfisher-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kingfisher-Info.plist"; sourceTree = "<group>"; };
-		B2FA19AB4403328B65A77C486F41B8B2 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/Networking/ImageDownloader.swift; sourceTree = "<group>"; };
-		B3F7AE3A2CC08ABD5696C15226B914E7 /* ImageDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDataProvider.swift; path = Sources/General/ImageSource/ImageDataProvider.swift; sourceTree = "<group>"; };
-		B41B6B4C5C2FDA4C5697041B7A5AB88A /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Sources/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		B4AD923E6EE78B52A176B3BBBD2797DB /* Pods-EraOfBand_iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EraOfBand_iOS.modulemap"; sourceTree = "<group>"; };
 		B5D380E18D1A914F326985B5DA1E9EB1 /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Views/Indicator.swift; sourceTree = "<group>"; };
 		B5D3BE3010732E4B5707DC993D11A63B /* MemoryStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryStorage.swift; path = Sources/Cache/MemoryStorage.swift; sourceTree = "<group>"; };
@@ -634,107 +587,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Tabman";
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1081383F148551513277EE86D9AEA7FD /* Tabman */ = {
-			isa = PBXGroup;
-			children = (
-				98CAE7E6CDEFD8E469A083DF4DB0F5F9 /* AnimateableLabel.swift */,
-				A62238F95A58259C7F39A907FD58824A /* AutoInsetSpec.swift */,
-				A8C1EE43683BA9E01CFD0B48EF45218C /* AutoInsetter.swift */,
-				263BD6025C5A076CBE5747A0844B4944 /* BarMath.swift */,
-				8AD914C64C4A83B5AC25E6EA0D8F9A8D /* CGRect+Interpolation.swift */,
-				38ACD878F86F7F97F57D3CB3B4D97AEC /* CollectionViewInsetCalculator.swift */,
-				78926EE949DBF6F5436B0351003B2400 /* DefaultInsetStore.swift */,
-				E18972346EB310B0C1F1E164A3930A08 /* EdgeFadedView.swift */,
-				8087B6B24642F8FC4082DCD76118674B /* GestureScrollView.swift */,
-				DDE7081C5008A6BD96FD78ADC810D4D2 /* InsetCalculations.swift */,
-				D49F929DBA6C23083480460A70945486 /* InsetCalculator.swift */,
-				6CBF9561C6B09BA5719A5B64C23339BE /* InsetExecutor.swift */,
-				10B8CC9A4277B33ACC49EBCF51287249 /* InsetStore.swift */,
-				2406A5A7989F74005CDF34A539B48920 /* PageboyNavigationDirection+Tabman.swift */,
-				E07692423B8B579084065F34E3658C46 /* PageboyViewController+RelativeCurrentPosition.swift */,
-				CF42155E14624146619EDC459F51A935 /* ScrollViewInsetCalculator.swift */,
-				101F034C5CD43306A44CB70CF992D43A /* TableViewInsetCalculator.swift */,
-				F863E6E5255D2299F6D363D0F6DCF899 /* Tabman.h */,
-				433CBE3DF5DC4F9B260A14F2EC40C552 /* TabmanViewController.swift */,
-				A7CA2EBEDA9CB6B8068CDEC2ED48553B /* TabmanViewController+Insets.swift */,
-				2C43B96265F5091A75CBB9C1D368DB8C /* TMAnimation.swift */,
-				A46929FCBE0B2A7DDC0E430AD7787DA5 /* TMBadgeView.swift */,
-				723348FF14732D5F1A825CF97D787DE0 /* TMBar.swift */,
-				25A5FCFB3F6BD50A83734998619B7D28 /* TMBar+Templates.swift */,
-				E5D55841F6116361C0159FBA5F6EA17F /* TMBarBackgroundView.swift */,
-				832BC04909B7F603CA2C89204285C333 /* TMBarButton.swift */,
-				B64F6819A732249EC51CBB72273DF846 /* TMBarButton+None.swift */,
-				3388BCDA8315FE18BE5C7BDB8359BF31 /* TMBarButtonCollection.swift */,
-				526777E161825F54E9251E1381623C92 /* TMBarButtonController.swift */,
-				8019BDEC2A797AAD36FC16A3FDD24D29 /* TMBarButtonInteractionController.swift */,
-				160B7A23E51DEF6840174EE812D0941B /* TMBarButtonStateController.swift */,
-				2F45B0D406F642E009DB799A67D8F7F9 /* TMBarIndicator.swift */,
-				7345936571C7D45C4B1AFAD9CA1D223F /* TMBarIndicator+None.swift */,
-				2CF802CAA351EDDC83BC1E8C3C94516C /* TMBarIndicatorContainer.swift */,
-				77B070FC941DCA1F9EB01863AD02AD6E /* TMBarIndicatorLayoutHandler.swift */,
-				DC064D93A974B3694D5B79EA42BAC90B /* TMBarItem.swift */,
-				CB01D28908EAB49D1ED1C2B2B0DC2492 /* TMBarLayout.swift */,
-				E14343DB75F103F928BDF875062DAE6E /* TMBarLayout+None.swift */,
-				F67D6A73A1425F21B3BC14DC8ED72486 /* TMBarLayoutInsetGuides.swift */,
-				0F2829A18DF964F5D47054977953BFC5 /* TMBarLayoutParent.swift */,
-				515296BD113319B72F0ED125AD324838 /* TMBarView.swift */,
-				971C28E5DEAC539E395B48CFD278D1AB /* TMBarViewContentInsetGuides.swift */,
-				C46A3C4A1226FAE1BDDF117C175B2CA3 /* TMBarViewFocusProvider.swift */,
-				852A488844BF0BFE1FD45094D8498369 /* TMBarViewFocusRect.swift */,
-				AF919642E3EA60CC1411AB1DD7063EBB /* TMBarViewLayoutGrid.swift */,
-				183EAD699DA9322F7910973412484AD5 /* TMBarViewScrollHandler.swift */,
-				52CCE4C9D126B4584CF1872FAAD3533B /* TMBarViewUpdateHandler.swift */,
-				9EF8D054B4B6E8524EED1F608BC9AE6C /* TMBlockBarIndicator.swift */,
-				FCD828653ED441E61999A34ABC94028C /* TMChevronBarIndicator.swift */,
-				E6F30B273723F3B2439790F84BD8B787 /* TMConstrainedHorizontalBarLayout.swift */,
-				CB3FB4E7DF3718233C1A46974F6964A0 /* TMDotBarIndicator.swift */,
-				F77C6DDBEEF6411AB1DD0E197BD0FEAB /* TMHidingBar.swift */,
-				373451E1E2BEAE3022B5AD313ED80ABA /* TMHidingBar+Triggers.swift */,
-				A20180C73F50A81BD98484A4D2A0F554 /* TMHorizontalBarLayout.swift */,
-				72A19510362B64CCDE08222A5B2DDC74 /* TMHorizontalBarLayout+Separator.swift */,
-				FCC276CC98F317406392A39EA9044B2A /* TMLabelBarButton.swift */,
-				9F25F7E6EA0CE3A81A2D9A9E983F4FA8 /* TMLineBarIndicator.swift */,
-				F79A467B573B39A74D85B3CB35249F5D /* TMSystemBar.swift */,
-				BCFDA58903DF8FBC3B62BF83E322CD92 /* TMTabItemBarButton.swift */,
-				F2FE9B87076AB41EE1301434ECE36A22 /* TMTransition.swift */,
-				81332DC10C5B2D25E6E8B585B3DA7A09 /* UIColor+Interpolation.swift */,
-				A1702288E0A0046B54A7AC907C73E78C /* UIKit+TMBarItemable.swift */,
-				DCC320DA7853687F101CE266680BF527 /* UIView+DefaultTintColor.swift */,
-				A38DC93FB0E5ACB3E69F03FEAA00D980 /* UIView+LayoutGuide.swift */,
-				D6FE2BFEDCA3F254AD978211BC7EA5F7 /* UIViewController+ScrollViewDetection.swift */,
-				B0ED10E6F5BD678327C8642C0D487EAA /* UIViewController+Tabman.swift */,
-				257F0AFECE6BAAF54267130A65D639E1 /* ViewTitleViewContainer.swift */,
-				7378F978CEF1BFB8E30A14733C378AE7 /* WeakContainer.swift */,
-				D28C35E8AAFC5B166C1228B7FC2FD54D /* Support Files */,
-			);
-			name = Tabman;
-			path = Tabman;
-			sourceTree = "<group>";
-		};
-		11A9D72339AAE4B2EFFF57C034B16DBF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				436AFDF3B2C9D614A474AE5B018E270B /* Kingfisher */,
-				B9CC759735AAE90479D8859468678C38 /* Pageboy */,
-				2C0B8A231AAF236C5D6A041B956FE3BD /* SnapKit */,
-				1081383F148551513277EE86D9AEA7FD /* Tabman */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		23934685616A01A04E6E1DA07F7D4D9D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
-				23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy */,
-				8BE5FF0F456556382236B0714A2CEBCA /* Pods-EraOfBand_iOS */,
-				979486118B3E90C08386079D57962701 /* SnapKit */,
-				4D4799138F8AC5FFF2497DCB60AF4CBB /* Tabman */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		249F38D8A8818158ACDC0E6236089A07 /* Targets Support Files */ = {
@@ -758,8 +610,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pageboy";
-			name = SnapKit;
-			path = SnapKit;
 			sourceTree = "<group>";
 		};
 		2EE65F45C1FEDF12AF0397526A418F14 /* Support Files */ = {
@@ -878,8 +728,6 @@
 			);
 			name = Tabman;
 			path = Tabman;
-			name = Kingfisher;
-			path = Kingfisher;
 			sourceTree = "<group>";
 		};
 		58768E11868A03A8D45744CD67B67462 /* Pods-EraOfBand_iOS */ = {
@@ -1892,7 +1740,6 @@
 			name = Debug;
 		};
 		A5D945EC371DC1832D4989C35AE8F6F5 /* Debug */ = {
-		4EBDD2847B077D41DBA5D4CC0D1BF93E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8281AA26E2B2857528A41E783199AE43 /* Pods-EraOfBand_iOS.debug.xcconfig */;
 			buildSettings = {
@@ -2218,11 +2065,6 @@
 			buildConfigurations = (
 				1F6D3DD34E8A819816BB3E88E22EDACC /* Debug */,
 				DD076AFEEE0A686B597DD62BCA7E46CF /* Release */,
-		1F317869420D9B73623ED8519ACBDEF6 /* Build configuration list for PBXNativeTarget "Pods-EraOfBand_iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4EBDD2847B077D41DBA5D4CC0D1BF93E /* Debug */,
-				A9548D473CA8431D6FC482AFC68F8205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
