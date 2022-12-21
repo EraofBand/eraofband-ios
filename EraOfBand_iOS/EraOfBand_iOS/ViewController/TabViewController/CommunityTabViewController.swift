@@ -208,7 +208,9 @@ extension CommunityTabViewController {
     }
     
     
-    func sharePofol(pofolIdx: Int, thumbIdx: Int){
+    @objc func sharePofol(sender: PofolShareButton){
+        
+        let thumbIdx = sender.thumbIdx ?? 0
         
         if ShareApi.isKakaoTalkSharingAvailable(){
             
@@ -223,9 +225,11 @@ extension CommunityTabViewController {
                                   description: pofolList[thumbIdx].content,
                                 link: appLink)
             
+            let social = Social(likeCount: pofolList[thumbIdx].pofolLikeCount, commentCount: pofolList[thumbIdx].commentCount)
+            
             // 템플릿에 버튼을 추가할때 아래 buttons에 배열의 형태로 넣어준다.
             // 만약 버튼을 하나 더 추가하려면 버튼 변수를 만들고 [button, button2] 이런 식으로 진행하면 된다 .
-            let template = FeedTemplate(content: content, buttons: [button])
+            let template = FeedTemplate(content: content, social: social, buttons: [button])
             
             //메시지 템플릿 encode
             if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
@@ -308,6 +312,14 @@ extension CommunityTabViewController: UICollectionViewDelegate, UICollectionView
     
 }
 
+/*
+// MARK: 공유버튼 액션 설정
+extension CommunityTabViewController: CellButtonDelegate{
+    func shareButtonTapped(recruitTitle: String, recruitDescription: String) {
+        sharePofol(sender: <#T##PofolShareButton#>)
+    }
+}*/
+
 // MARK: TabelView 설정
 extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -374,6 +386,9 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
             cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
         }
         
+        cell.shareBtn.thumbIdx = indexPath.row
+        cell.shareBtn.addTarget(self, action: #selector(sharePofol(sender:)), for: .touchUpInside)
+        
         return cell
     }
     
@@ -425,10 +440,10 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         print("pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
-        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
-            })
+//        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
+//            })
 
         let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
             let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
@@ -443,7 +458,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
                 (alert: UIAlertAction!) -> Void in
               })
         
-        optionMenu.addAction(shareAction)
+//        optionMenu.addAction(shareAction)
         optionMenu.addAction(declareAction)
         optionMenu.addAction(cancelAction)
 
@@ -493,10 +508,10 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         print("my pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
-        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
-            })
+//        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
+//            })
         let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
             self.modifyPofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
@@ -509,7 +524,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
                 (alert: UIAlertAction!) -> Void in
               })
         
-        optionMenu.addAction(shareAction)
+//        optionMenu.addAction(shareAction)
         optionMenu.addAction(modifyAction)
         optionMenu.addAction(deleteAction)
         optionMenu.addAction(cancelAction)

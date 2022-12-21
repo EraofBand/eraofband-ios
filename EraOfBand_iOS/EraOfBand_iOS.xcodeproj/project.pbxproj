@@ -155,6 +155,7 @@
 		BC0ADB83289673A20028F57C /* GetLessonInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */; };
 		BC0ADB85289675270028F57C /* LessonRecruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */; };
 		BC0ADB87289BD2F50028F57C /* GetOtherUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ADB86289BD2F50028F57C /* GetOtherUserDataService.swift */; };
+		BC14FE2D2951EABB00079902 /* PofolShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14FE2C2951EABA00079902 /* PofolShareButton.swift */; };
 		BC15BF8928B23959000F7193 /* RegisterViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC15BF8828B23959000F7193 /* RegisterViewController7.swift */; };
 		BC1C6A8028744720009A1FE7 /* RegisterViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */; };
 		BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED4912880264600A5B931 /* PofolTableViewController.swift */; };
@@ -392,6 +393,7 @@
 		BC0ADB82289673A20028F57C /* GetLessonInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLessonInfoService.swift; sourceTree = "<group>"; };
 		BC0ADB84289675270028F57C /* LessonRecruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRecruitViewController.swift; sourceTree = "<group>"; };
 		BC0ADB86289BD2F50028F57C /* GetOtherUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOtherUserDataService.swift; sourceTree = "<group>"; };
+		BC14FE2C2951EABA00079902 /* PofolShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolShareButton.swift; sourceTree = "<group>"; };
 		BC15BF8828B23959000F7193 /* RegisterViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController7.swift; sourceTree = "<group>"; };
 		BC1C6A7F28744720009A1FE7 /* RegisterViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController6.swift; sourceTree = "<group>"; };
 		BC1ED4912880264600A5B931 /* PofolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofolTableViewController.swift; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 			isa = PBXGroup;
 			children = (
 				BC0728C42891510F007EA95D /* PofolMenuButton.swift */,
+				BC14FE2C2951EABA00079902 /* PofolShareButton.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -1260,6 +1263,7 @@
 				BCD0DF6928ABDC0C00F1F74C /* FreeBoardViewController.swift in Sources */,
 				BCD3C2302882FBB600562FB4 /* CommentTableViewCell.swift in Sources */,
 				A89658C128A2421D00582A93 /* MessageListTableViewCell.swift in Sources */,
+				BC14FE2D2951EABB00079902 /* PofolShareButton.swift in Sources */,
 				BC1ED4922880264600A5B931 /* PofolTableViewController.swift in Sources */,
 				BC08AF2D28AE790E0029E741 /* AddPostImageCollectionViewCell.swift in Sources */,
 				A8685585289F705F00192DEE /* SearchViewController.swift in Sources */,
