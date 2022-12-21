@@ -24,15 +24,18 @@ class MyPofolTableViewCell: UITableViewCell{
     @IBOutlet weak var thumbNailImg: UIImageView!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var menuBtn: PofolMenuButton!
-    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var shareBtn: PofolShareButton!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
         menuBtn.removeTarget(nil, action: nil, for: .allEvents)
+        //shareBtn.removeTarget(nil, action: nil, for: .allEvents)
     }
     
     override class func awakeFromNib() {
         super.awakeFromNib()
+    
     }
 }
+

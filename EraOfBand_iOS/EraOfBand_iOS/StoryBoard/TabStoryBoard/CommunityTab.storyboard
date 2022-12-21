@@ -184,7 +184,7 @@
                                                         <constraint firstAttribute="height" constant="252" id="uzn-Ri-gxE"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Kh-zFl">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Kh-zFl" customClass="PofolShareButton" customModule="EraOfBand_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="373" y="470.5" width="21" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="yMG-Kh-zFl" secondAttribute="height" multiplier="21:22" id="Dil-Al-ZBp"/>
