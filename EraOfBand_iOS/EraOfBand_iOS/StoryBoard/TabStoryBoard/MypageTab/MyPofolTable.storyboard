@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qR9-xp-yXM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qR9-xp-yXM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +32,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.065940469500000001" green="0.065940469500000001" blue="0.065940469500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="MyPofolTableViewCell" rowHeight="520" id="CHt-Wz-3kM" customClass="MyPofolTableViewCell" customModule="EraOfBand_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="520"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="520"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CHt-Wz-3kM" id="1cg-3u-Wsa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="520"/>
@@ -127,7 +128,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71y-qS-3zz">
-                                                            <rect key="frame" x="167" y="110.5" width="40" height="31"/>
+                                                            <rect key="frame" x="165.5" y="109" width="43.5" height="34"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                                         </button>
@@ -152,6 +153,12 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKn-hZ-gvg" userLabel="ShareBtn" customClass="PofolShareButton" customModule="EraOfBand_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="373" y="475.5" width="21" height="18"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="arrowshape.turn.up.right" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.054843842980000002" green="0.054843842980000002" blue="0.054843842980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -164,6 +171,7 @@
                                                 <constraint firstItem="ere-yg-5cR" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leadingMargin" id="Ofj-Bh-nu4"/>
                                                 <constraint firstItem="0Vq-nj-3tm" firstAttribute="centerY" secondItem="tbR-Dg-Sdp" secondAttribute="centerY" id="Olr-4H-WsR"/>
                                                 <constraint firstItem="Iv0-Ui-u1W" firstAttribute="centerY" secondItem="J9h-u4-zqS" secondAttribute="centerY" id="Oq2-hs-V1G"/>
+                                                <constraint firstItem="JKn-hZ-gvg" firstAttribute="centerY" secondItem="Fm8-ME-aEB" secondAttribute="centerY" id="RR3-Z4-Ofe"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DkO-fu-E4G" secondAttribute="trailing" id="SwR-vH-Xtf"/>
                                                 <constraint firstItem="RO5-Pv-Bt9" firstAttribute="top" secondItem="mMK-0M-STs" secondAttribute="bottom" constant="13" id="UiI-JF-Qer"/>
                                                 <constraint firstItem="J9h-u4-zqS" firstAttribute="centerY" secondItem="bjP-sl-8gS" secondAttribute="centerY" id="V9Y-xy-yNd"/>
@@ -174,12 +182,14 @@
                                                 <constraint firstItem="aS9-bm-35w" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leading" constant="20" id="dRC-Ac-maU"/>
                                                 <constraint firstItem="0Vq-nj-3tm" firstAttribute="leading" secondItem="tbR-Dg-Sdp" secondAttribute="trailing" constant="20" id="ecf-On-6C3"/>
                                                 <constraint firstAttribute="trailing" secondItem="Iv0-Ui-u1W" secondAttribute="trailing" constant="20" id="gtz-d9-QVr"/>
+                                                <constraint firstItem="JKn-hZ-gvg" firstAttribute="top" secondItem="Fm8-ME-aEB" secondAttribute="top" id="hWb-9v-bZl"/>
                                                 <constraint firstItem="mMK-0M-STs" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leadingMargin" id="hpj-xY-pfM"/>
                                                 <constraint firstItem="J9h-u4-zqS" firstAttribute="leading" secondItem="bjP-sl-8gS" secondAttribute="trailing" constant="10" id="j7i-6z-8w5"/>
                                                 <constraint firstItem="DkO-fu-E4G" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leadingMargin" id="k3e-cF-klC"/>
                                                 <constraint firstItem="bjP-sl-8gS" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leadingMargin" id="k62-aY-PJ3"/>
                                                 <constraint firstItem="jUb-jO-ryC" firstAttribute="centerY" secondItem="Iv0-Ui-u1W" secondAttribute="centerY" id="l3g-np-BR5"/>
                                                 <constraint firstItem="jUb-jO-ryC" firstAttribute="centerX" secondItem="Iv0-Ui-u1W" secondAttribute="centerX" id="twZ-mJ-Y0D"/>
+                                                <constraint firstItem="JKn-hZ-gvg" firstAttribute="trailing" secondItem="RdU-O7-T9m" secondAttribute="trailing" id="u0h-0y-5YS"/>
                                                 <constraint firstItem="UvU-bl-KwF" firstAttribute="leading" secondItem="1cg-3u-Wsa" secondAttribute="leading" constant="20" id="uMl-FC-a3J"/>
                                                 <constraint firstItem="5i1-rV-5xx" firstAttribute="leading" secondItem="0Vq-nj-3tm" secondAttribute="trailing" constant="10" id="vTU-ag-3yR"/>
                                                 <constraint firstItem="5i1-rV-5xx" firstAttribute="centerY" secondItem="0Vq-nj-3tm" secondAttribute="centerY" id="vbe-Kq-dc8"/>
@@ -200,6 +210,7 @@
                                             <outlet property="nameLabel" destination="J9h-u4-zqS" id="eTO-bq-MPn"/>
                                             <outlet property="playBtn" destination="71y-qS-3zz" id="OzQ-Fu-krE"/>
                                             <outlet property="profileImgView" destination="bjP-sl-8gS" id="qJ2-pm-RNE"/>
+                                            <outlet property="shareBtn" destination="JKn-hZ-gvg" id="ooa-2C-YWO"/>
                                             <outlet property="thumbNailImg" destination="RdU-O7-T9m" id="Cdl-q5-PIe"/>
                                             <outlet property="thumbNailView" destination="DkO-fu-E4G" id="J9B-QX-Yto"/>
                                             <outlet property="titleLabel" destination="RO5-Pv-Bt9" id="w6Y-rY-1Iy"/>
@@ -249,12 +260,21 @@
             </objects>
             <point key="canvasLocation" x="1345" y="264"/>
         </scene>
+        <!--DeclartionAlert-->
+        <scene sceneID="GcL-c1-YbS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DeclartionAlert" storyboardName="DeclartionAlert" id="I7P-62-OIS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O56-fB-0DE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346" y="86"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="104"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="comment" width="128" height="128"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="three_dot" width="128" height="576"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -68,7 +68,9 @@ class AddPostViewController: UIViewController{
                     print("게시글 업로드 결과")
                     print(response)
                 }
-            }else{
+            }
+            /*
+            else{
                 AF.request(self.appDelegate.baseUrl + "/board",
                            method: .post,
                            parameters: [
@@ -84,7 +86,7 @@ class AddPostViewController: UIViewController{
                     print("게시글 업로드 결과")
                     print(response)
                 }
-            }
+            }*/
             /*
             AF.request(self.appDelegate.baseUrl + "/board",
                        method: .post,

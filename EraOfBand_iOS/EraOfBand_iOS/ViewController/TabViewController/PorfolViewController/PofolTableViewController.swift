@@ -165,8 +165,13 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         cell.menuBtn.pofolIdx = pofolList[indexPath.row].pofolIdx ?? 0
         cell.menuBtn.thumbIdx = indexPath.row
         if(appDelegate.userIdx == pofolList[indexPath.row].userIdx){
+            cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
+        }else{
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
         }
+        
+        cell.shareBtn.thumbIdx = indexPath.row
+        cell.shareBtn.addTarget(self, action: #selector(sharePofol(sender:)), for: .touchUpInside)
         
         return cell
     }
@@ -207,14 +212,19 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         self.navigationController?.pushViewController(addPofolVC, animated: true)
     }
     
-    func sharePofol(pofolIdx: Int, thumbIdx: Int){
+    @objc func sharePofol(sender: PofolShareButton){
+
+        let thumbIdx = sender.thumbIdx ?? 0
         
         if ShareApi.isKakaoTalkSharingAvailable(){
             
             let appLink = Link(iosExecutionParams: ["second": "vvv"])
+            
+            
 
             // 해당 appLink를 들고 있을 버튼을 만들어준다.
             let button = Button(title: "앱으로 보기", link: appLink)
+            
             
             // Content는 이제 사진과 함께 글들이 적혀있다.
             let content = Content(title: pofolList[thumbIdx].title ?? "",
@@ -222,9 +232,11 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
                                   description: pofolList[thumbIdx].content,
                                 link: appLink)
             
+            let social = Social(likeCount: pofolList[thumbIdx].pofolLikeCount, commentCount: pofolList[thumbIdx].commentCount)
+            
             // 템플릿에 버튼을 추가할때 아래 buttons에 배열의 형태로 넣어준다.
             // 만약 버튼을 하나 더 추가하려면 버튼 변수를 만들고 [button, button2] 이런 식으로 진행하면 된다 .
-            let template = FeedTemplate(content: content, buttons: [button])
+            let template = FeedTemplate(content: content, social: social, buttons: [button])
             
             //메시지 템플릿 encode
             if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
@@ -253,31 +265,55 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
          
     }
     
-    @objc func menuBtnTapped(sender: PofolMenuButton){
+    /* 내 포폴 더보기 버튼 */
+    @objc func myMenuBtnTapped(sender: PofolMenuButton) {
+
+        print("my pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
-        
-        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
-            })
         
         let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
             self.modifyPofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
             })
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
-                    (alert: UIAlertAction!) -> Void in
+            (alert: UIAlertAction!) -> Void in
             self.deletePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
-                })
+        })
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
               })
         
-        optionMenu.addAction(shareAction)
+//        optionMenu.addAction(shareAction)
         optionMenu.addAction(modifyAction)
         optionMenu.addAction(deleteAction)
         optionMenu.addAction(cancelAction)
+
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    /* 다른 유저의 포폴 더보기 버튼 */
+    @objc func menuBtnTapped(sender: PofolMenuButton){
+
+        print("pofol Idx: \(sender.tag)")
+        let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
+
+        let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
+            let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
+
+            declareVC.reportLocation = 1
+            declareVC.reportLocationIdx = sender.tag
+            declareVC.modalPresentationStyle = .overCurrentContext
+
+            self.present(declareVC, animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+              })
         
+//        optionMenu.addAction(shareAction)
+        optionMenu.addAction(declareAction)
+        optionMenu.addAction(cancelAction)
+
         self.present(optionMenu, animated: true, completion: nil)
     }
     
