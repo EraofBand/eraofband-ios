@@ -113,6 +113,8 @@ class ModifyPostViewController: UIViewController {
         self.title = "게시물 수정"
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
+        collectionView.isHidden = true
+        
         setBoardButton()
         
         titleTextField.borderStyle = .none

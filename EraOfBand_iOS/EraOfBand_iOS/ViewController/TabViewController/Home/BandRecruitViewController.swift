@@ -221,7 +221,14 @@ class BandRecruitViewController: UIViewController{
         else {
             print("카카오톡 미설치")
             // 카카오톡 미설치: 웹 공유 사용 권장
-            // 아래 함수는 따로 구현해야함.
+            
+            let url = URL(string: "https://www.naver.com")!
+            
+            let safariViewController = SFSafariViewController(url: url)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.present(safariViewController, animated: false, completion: nil)
+            }
             
         }
         
