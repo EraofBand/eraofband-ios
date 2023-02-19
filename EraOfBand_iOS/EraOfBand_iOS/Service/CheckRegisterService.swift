@@ -12,11 +12,11 @@ import Alamofire
 class CheckRegisterService {
     
     // 회원가입 여부 확인 함수
-    static func checkRegister(_ kakoEmail: String, completion: @escaping (LoginUserData) -> Void) {
+    static func checkRegister(_ kakoToken: String, completion: @escaping (LoginUserData) -> Void) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let header : HTTPHeaders = ["Content-Type": "application/json"]
-        let url = appDelegate.baseUrl + "/users/login/" + kakoEmail
+        let url = appDelegate.baseUrl + "/users/login/" + kakoToken
         
         AF.request(url,
                    method: .post,

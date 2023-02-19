@@ -15,6 +15,8 @@ struct LoginUserData: Codable{
 }
 
 struct LoginResult: Codable{
+    var expiration: Int?
     var jwt: String?
+    var refresh: String?
     var userIdx: Int?
 }
