@@ -215,7 +215,7 @@ class EditViewController: UIViewController {
                                                        "nickName": nickNameTextView.text!,
                                                        "profileImgUrl": imgUrl,
                                                        "region": region,
-                                                       "userIdx": appDelegate.userIdx!]
+                                                        "userIdx": appDelegate.userIdx]
                 
                 PostUserService.postUserInfo(params) { response in
                     if response {

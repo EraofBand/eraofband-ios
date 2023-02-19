@@ -32,14 +32,20 @@ class LoginViewController: UIViewController{
                 self.appDelegate.myKakaoData = myKakaoData
                 
                 // 회원가입 된 이메일인지 확인
-                CheckRegisterService.checkRegister(myKakaoData.kakaoEmail) { [self] getData in
+                
+                CheckRegisterService.checkRegister(myKakaoData.kakaoToken) { [self] getData in
+                    
+                    print(getData)
+                    
                     if (getData.result.jwt! == "NULL") { // 회원가입 되어있지 않은 이메일일 경우 회원가입 뷰로 이동
                         guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
                         registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
                     
                         self.present(registerVC, animated: true)
                     } else { // 회원가입 되어있는 이메일일 경우 메인화면으로 이동
+                        self.appDelegate.expiration = getData.result.expiration
                         self.appDelegate.jwt = getData.result.jwt ?? ""
+                        self.appDelegate.refresh = getData.result.refresh ?? ""
                         self.appDelegate.userIdx = getData.result.userIdx!
                         
                         guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
@@ -47,6 +53,7 @@ class LoginViewController: UIViewController{
                     
                         self.present(mainTabBarVC, animated: true)
                     }
+                     
                 }
                 
             }
@@ -69,7 +76,6 @@ class LoginViewController: UIViewController{
                 print(error)
             }else{
                 print("loginWithKakaoTalk() success.")
-                //self.kakaoToken =
                 
                 self.getKakaoData(kakaoToken: (oauthToken?.accessToken)! as String)
             }
@@ -83,7 +89,6 @@ class LoginViewController: UIViewController{
                 print(error)
             }else{
                 print("loginWithKakaoTalk() success.")
-                //self.kakaoToken = (oauthToken?.accessToken)! as String
 
                 self.getKakaoData(kakaoToken: (oauthToken?.accessToken)! as String)
             }
