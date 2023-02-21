@@ -41,6 +41,7 @@ class EditViewController: UIViewController {
     let districtGyeonggi = ["가평군","고양시","과천시","광명시","광주시","구리시","군포시","남양주시","동두천시","부천시","성남시","수원시","시흥시","안산시","안성시","안양시","양주시","양편군","여주시","연천군","오산시","용인시","의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시",]
     
     var gender: String = "MALE"
+    let defaults = UserDefaults.standard
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var imgUrl: String = ""
     
@@ -215,7 +216,7 @@ class EditViewController: UIViewController {
                                                        "nickName": nickNameTextView.text!,
                                                        "profileImgUrl": imgUrl,
                                                        "region": region,
-                                                        "userIdx": appDelegate.userIdx]
+                                                        "userIdx": defaults.integer(forKey: "userIdx")]
                 
                 PostUserService.postUserInfo(params) { response in
                     if response {

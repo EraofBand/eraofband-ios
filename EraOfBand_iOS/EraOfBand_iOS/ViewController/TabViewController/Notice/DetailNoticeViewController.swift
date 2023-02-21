@@ -22,6 +22,7 @@ class DetailNoticeViewController: UIViewController {
     @IBOutlet weak var recommentHeight: NSLayoutConstraint!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     let category = ["자유", "질문", "홍보", "거래"]
     
     var boardCategory: Int?
@@ -86,7 +87,7 @@ class DetailNoticeViewController: UIViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
-        if boardInfoResult?.userIdx == appDelegate.userIdx {
+        if boardInfoResult?.userIdx == defaults.integer(forKey: "userIdx") {
             let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
                 let modifyVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyPost") as! ModifyPostViewController
                 
@@ -175,7 +176,7 @@ extension DetailNoticeViewController {
     /* 게시물 정보 호출 */
     func getBoardInfo(completion: @escaping () -> Void) {
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/info/" + String(boardIdx!)
         
@@ -222,10 +223,10 @@ extension DetailNoticeViewController {
     
     /* 댓글 달기 */
     func postComment(_ content: String, completion: @escaping () -> Void) {
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/comment/" + String(boardIdx!)
-        let params = ["content": content, "userIdx": appDelegate.userIdx!] as Dictionary
+        let params = ["content": content, "userIdx": defaults.integer(forKey: "userIdx")] as Dictionary
         
         AF.request(
             url,
@@ -250,10 +251,10 @@ extension DetailNoticeViewController {
     
     /* 대댓글 달기 */
     func postReComment(_ content: String, _ groupNum: Int, completion: @escaping () -> Void) {
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/re-comment/" + String(boardIdx!)
-        let params = ["content": content, "groupNum": groupNum, "userIdx": appDelegate.userIdx!] as Dictionary
+        let params = ["content": content, "groupNum": groupNum, "userIdx": defaults.integer(forKey: "userIdx")] as Dictionary
         
         AF.request(
             url,
@@ -280,10 +281,10 @@ extension DetailNoticeViewController {
     /* 게시물 삭제 */
     func deleteBoard() {
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/status/" + String(boardIdx!)
-        let params = ["userIdx": appDelegate.userIdx!]
+        let params = ["userIdx": defaults.integer(forKey: "userIdx")]
         
         AF.request(
             url,
@@ -305,10 +306,10 @@ extension DetailNoticeViewController {
     /* 게시물 댓글 삭제*/
     func deleteComment(commentIdx: Int, completion: @escaping () -> Void) {
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/comment/status/" + String(commentIdx)
-        let params = ["userIdx": appDelegate.userIdx!]
+        let params = ["userIdx": defaults.integer(forKey: "userIdx")]
         
         AF.request(
             url,
@@ -515,7 +516,7 @@ extension DetailNoticeViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
-        if cellComment?.userIdx == appDelegate.userIdx {
+        if cellComment?.userIdx == defaults.integer(forKey: "userIdx") {
             let modify = UIAlertAction(title: "수정하기", style: .default) {_ in
                 print("수정")
             }
@@ -588,7 +589,7 @@ extension DetailNoticeViewController {
     /* 좋아요 post */
     @objc func postLike(_ sender: Any) {
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/likes/" + String(boardIdx!)
         
@@ -612,7 +613,7 @@ extension DetailNoticeViewController {
     /* 좋아요 delete */
     @objc func deleteLike(_ sender: Any) {
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/board/unlikes/" + String(boardIdx!)
         

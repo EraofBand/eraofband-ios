@@ -18,6 +18,7 @@ class RegisterViewController6: UIViewController{
     var myRegisterData: RegisterData!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     var admitBool: [Bool] = [false, false, false]
     
@@ -38,25 +39,25 @@ class RegisterViewController6: UIViewController{
                     "userSession": myRegisterData.userSession
                     ],
                    encoding: JSONEncoding.default,
-                   headers: header).responseJSON{ response in
+                   headers: header).responseDecodable(of: LoginUserData.self){ response in
             switch response.result{
-            case .success(let obj):
-                do{
-                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(LoginUserData.self, from: dataJSON)
+            case .success(let data):
+                self.defaults.set(data.result.jwt, forKey: "jwt")
+                self.defaults.set(data.result.userIdx, forKey: "userIdx")
+                self.defaults.set(data.result.refresh, forKey: "refresh")
+                self.defaults.set(data.result.expiration, forKey: "expiration")
+                self.appDelegate.userSession = self.myRegisterData.userSession
                     
+                    /*
                     self.appDelegate.jwt = getData.result.jwt ?? ""
                     self.appDelegate.userIdx = getData.result.userIdx!
-                    self.appDelegate.userSession = self.myRegisterData.userSession
+                    self.appDelegate.userSession = self.myRegisterData.userSession*/
                     
                     guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController7") as? RegisterViewController7 else {return}
                     nextVC.myRegisterData = self.myRegisterData
                     self.navigationController?.pushViewController(nextVC, animated: true)
-                }catch{
-                    print(error.localizedDescription)
-                }
-            default:
-                return
+            case .failure(let err):
+                print(err)
             }
             
         }

@@ -13,6 +13,8 @@ import SafariServices
 
 class RecruitViewController: UIViewController{
 
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var applicantView: UIView!
     @IBOutlet weak var applicantTableView: UITableView!
     @IBOutlet weak var recruitTableView: UITableView!
@@ -98,7 +100,7 @@ class RecruitViewController: UIViewController{
             
         }
         
-        if appDelegate.userIdx != bandInfo!.userIdx {
+        if defaults.integer(forKey: "userIdx") != bandInfo!.userIdx {
             
             applicantView.isHidden = true
             applicantView.height = 0
@@ -112,7 +114,7 @@ extension RecruitViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == applicantTableView {
-            if(bandInfo?.userIdx == appDelegate.userIdx){
+            if(bandInfo?.userIdx == defaults.integer(forKey: "userIdx")){
                 if applicantsInfo.count > 3 {
                     return 3
                 } else {
@@ -318,7 +320,7 @@ extension RecruitViewController: CellButtonDelegate {
         alert?.bandIdx = bandInfo?.bandIdx
         alert?.modalPresentationStyle = .overCurrentContext
         
-        if bandInfo?.userIdx == appDelegate.userIdx {
+        if bandInfo?.userIdx == defaults.integer(forKey: "userIdx") {
             alert?.validIdx = 0
         } else {
             alert?.validIdx = 1

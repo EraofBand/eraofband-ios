@@ -17,6 +17,7 @@ class LoginViewController: UIViewController{
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let header : HTTPHeaders = ["Content-Type": "application/json"]
+    let defaults = UserDefaults.standard
     
     //로그인 이후 카카오 유저 정보 가져오기
     func getKakaoData(kakaoToken: String){
@@ -31,8 +32,7 @@ class LoginViewController: UIViewController{
                 let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String, kakaoEmail: (user?.kakaoAccount?.email)! as String)
                 self.appDelegate.myKakaoData = myKakaoData
                 
-                // 회원가입 된 이메일인지 확인
-                
+                // 회원가입 된 계정인지 확인
                 CheckRegisterService.checkRegister(myKakaoData.kakaoToken) { [self] getData in
                     
                     print(getData)
@@ -43,10 +43,17 @@ class LoginViewController: UIViewController{
                     
                         self.present(registerVC, animated: true)
                     } else { // 회원가입 되어있는 이메일일 경우 메인화면으로 이동
+                        
+                        defaults.setValue(getData.result.expiration, forKey: "expiration")
+                        defaults.setValue(getData.result.jwt, forKey: "jwt")
+                        defaults.setValue(getData.result.refresh, forKey: "refresh")
+                        defaults.setValue(getData.result.userIdx, forKey: "userIdx")
+                        
+                        /*
                         self.appDelegate.expiration = getData.result.expiration
                         self.appDelegate.jwt = getData.result.jwt ?? ""
                         self.appDelegate.refresh = getData.result.refresh ?? ""
-                        self.appDelegate.userIdx = getData.result.userIdx!
+                        self.appDelegate.userIdx = getData.result.userIdx!*/
                         
                         guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
                         mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen

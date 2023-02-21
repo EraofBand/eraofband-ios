@@ -38,6 +38,7 @@ class LessonRecruitViewController: UIViewController{
     
     var lessonIdx: Int?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     var lessonInfo: LessonInfoResult?
     
     var lessonMemberArr: [Int] = []
@@ -47,7 +48,7 @@ class LessonRecruitViewController: UIViewController{
     @IBAction func applyBtnTapped(_ sender: Any) {
         
         let alert = self.storyboard?.instantiateViewController(withIdentifier: "LessonApplyAlertViewController") as? LessonApplyAlertViewController
-        if(lessonMemberArr.contains(appDelegate.userIdx!)){
+        if(lessonMemberArr.contains(defaults.integer(forKey: "userIdx"))){
             alert?.isMember = true
         }
         if(lessonInfo?.capacity ?? 0 <= lessonInfo?.memberCount ?? 0){
@@ -90,7 +91,7 @@ class LessonRecruitViewController: UIViewController{
         AF.request("\(appDelegate.baseUrl)/lessons/status/\(lessonIdx ?? 0)",
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -196,7 +197,7 @@ class LessonRecruitViewController: UIViewController{
         
         optionMenu.addAction(cancelAction)
         
-        if(lessonInfo?.userIdx == appDelegate.userIdx){
+        if(lessonInfo?.userIdx == defaults.integer(forKey: "userIdx")){
             let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                     (alert: UIAlertAction!) -> Void in
                 self.modifyRecruit()
@@ -209,7 +210,7 @@ class LessonRecruitViewController: UIViewController{
             optionMenu.addAction(modifyAction)
             optionMenu.addAction(deleteAction)
             
-        }else if(lessonMemberArr.contains(appDelegate.userIdx!)){
+        }else if(lessonMemberArr.contains(defaults.integer(forKey: "userIdx"))){
             let quitAction = UIAlertAction(title: "탈퇴하기", style: .destructive, handler: {
                     (alert: UIAlertAction!) -> Void in
                 self.quitLesson()
@@ -364,7 +365,7 @@ class LessonRecruitViewController: UIViewController{
         leaderNicknameLabel.text = lessonInfo?.nickName
         leaderIntroLabel.text = lessonInfo?.userIntroduction
         
-        if(lessonMemberArr.contains(appDelegate.userIdx!)){
+        if(lessonMemberArr.contains(defaults.integer(forKey: "userIdx"))){
             chatLinkLabel.text = lessonInfo?.chatRoomLink
             //applyBtn.isEnabled = false
         }else{
@@ -379,7 +380,7 @@ class LessonRecruitViewController: UIViewController{
         super.viewDidLoad()
         
         header = [
-            "x-access-token": self.appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         lessonMemberArr.append(lessonInfo?.userIdx ?? 0)

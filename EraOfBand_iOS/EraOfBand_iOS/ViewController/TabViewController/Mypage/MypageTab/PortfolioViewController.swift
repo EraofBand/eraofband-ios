@@ -17,13 +17,14 @@ class PortfolioViewController: UIViewController{
     @IBOutlet weak var porfolCollectionView: UICollectionView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     func getPofolList(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/users/info/my-page/" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/users/info/my-page/" + String(defaults.integer(forKey: "userIdx")),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header
@@ -95,7 +96,7 @@ extension PortfolioViewController: UICollectionViewDelegate, UICollectionViewDat
         
         guard let myPofolTableVC = self.storyboard?.instantiateViewController(withIdentifier: "PofolTableViewController") as? PofolTableViewController else {return}
         myPofolTableVC.selectedIndex = indexPath
-        myPofolTableVC.userIdx = appDelegate.userIdx ?? 0
+        myPofolTableVC.userIdx = defaults.integer(forKey: "userIdx")
         myPofolTableVC.thumbNailList = self.thumbNailList
                 
         self.navigationController?.pushViewController(myPofolTableVC, animated: true)

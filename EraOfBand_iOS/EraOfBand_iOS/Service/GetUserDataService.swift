@@ -11,6 +11,7 @@ import UIKit
 
 struct GetUserDataService {
     
+    let defaults = UserDefaults.standard
     // 여러 vc에서도 shared로 접근하면 같은 인스턴스에 접근할 수 있음
     static let shared = GetUserDataService()
     
@@ -20,9 +21,9 @@ struct GetUserDataService {
     func getUserInfo(completion : @escaping (NetworkResult<Any>) -> Void) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let URL = appDelegate.baseUrl + "/users/info/my-page/" + String(appDelegate.userIdx!)
+        let URL = appDelegate.baseUrl + "/users/info/my-page/" + String(defaults.integer(forKey: "userIdx"))
 
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         
         let dataRequest = AF.request(URL,

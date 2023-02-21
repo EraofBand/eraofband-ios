@@ -48,7 +48,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         }
                     } else { // 토큰 유효성 체크 성공 (필요 시 토큰 갱신됨)
                         
-                        print(AuthApi.token(accessTokenInfo))
                         /*
                         UserApi.shared.me { (user, error) in
                             // 회원가입 되어있는 이메일인지 확인
@@ -64,8 +63,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                     guard let mainTabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
                                     self.window?.rootViewController = mainTabBarVC
                                 }
-                            }*/
-                        }
+                            }
+                        }*/
                         
                     }
 

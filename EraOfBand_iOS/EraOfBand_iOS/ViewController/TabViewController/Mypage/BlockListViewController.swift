@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 
 class BlockListViewController: UIViewController {
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var blockListTableView: UITableView!
     
@@ -48,7 +49,7 @@ extension BlockListViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let url = appDelegate.baseUrl + "/users/info/block"
         let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "x-access-token": appDelegate.jwt]
+                                   "x-access-token": defaults.string(forKey: "jwt")!]
         
         AF.request(
             url,
@@ -70,7 +71,7 @@ extension BlockListViewController {
     func doBlock(_ userIdx: Int, completion: @escaping () -> Void) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/block/" + String(userIdx),
@@ -91,7 +92,7 @@ extension BlockListViewController {
     func doUnBlock(_ userIdx: Int, completion: @escaping () -> Void) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/unblock/" + String(userIdx),
