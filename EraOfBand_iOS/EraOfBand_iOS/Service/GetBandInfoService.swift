@@ -14,10 +14,11 @@ struct GetBandInfoService{
     static func getBandInfo(_ bandIdx: Int, completion: @escaping (Bool, BandInfoData) -> Void){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let defaults = UserDefaults.standard
         let url = "\(appDelegate.baseUrl)/sessions/info/\(bandIdx)"
         //print(url)
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(

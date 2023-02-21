@@ -14,6 +14,8 @@ protocol SendDataDelegate:AnyObject{
 
 class LessonApplyAlertViewController: UIViewController{
     
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var decisionView: UIView!
     @IBOutlet weak var doneView: UIView!
     @IBOutlet weak var dicisionLabel: UILabel!
@@ -92,7 +94,7 @@ class LessonApplyAlertViewController: UIViewController{
     func apply(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
 
         AF.request("\(appDelegate.baseUrl)/lessons/\(lessonIdx ?? 0)",

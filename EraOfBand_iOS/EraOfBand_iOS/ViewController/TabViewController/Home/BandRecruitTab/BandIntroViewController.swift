@@ -11,6 +11,8 @@ import SafariServices
 
 class BandIntroViewController: UIViewController{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var leaderProfileImgView: UIImageView!
     @IBOutlet weak var leaderNicknameLabel: UILabel!
@@ -146,7 +148,7 @@ class BandIntroViewController: UIViewController{
             performPriceLabel.text = String(self.bandInfo?.performFee ?? 0) + "원"
         }
         
-        if(bandMemberArr.contains(appDelegate.userIdx!)){
+        if(bandMemberArr.contains(defaults.integer(forKey: "userIdx"))){
             chatLinkLabel.text = bandInfo?.chatRoomLink
         }else{
             chatLinkLabel.text = "밴드 멤버에게만 공개됩니다"

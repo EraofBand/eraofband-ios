@@ -23,6 +23,7 @@ class PofolTableViewController: UIViewController{
     
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     var userIdx: Int = 0
     
     @IBOutlet weak var tableView: UITableView!
@@ -35,7 +36,7 @@ class PofolTableViewController: UIViewController{
     /*좋아요 업데이트를 위한 포폴리스트 리로드 함수*/
     func reloadPofolList(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/info/" + String(self.userIdx),
@@ -63,7 +64,7 @@ class PofolTableViewController: UIViewController{
     /*뷰 최초 실행시 포폴리스트 가져오기 함수*/
     func getPofolList(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         //print(appDelegate.baseUrl + "/pofol/my/" + "?userIdx=" + String(appDelegate.userIdx!))
         
@@ -165,7 +166,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.menuBtn.pofolIdx = pofolList[indexPath.row].pofolIdx ?? 0
         cell.menuBtn.thumbIdx = indexPath.row
-        if(appDelegate.userIdx == pofolList[indexPath.row].userIdx){
+        if(defaults.integer(forKey: "userIdx") == pofolList[indexPath.row].userIdx){
             cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
         }else{
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
@@ -179,13 +180,13 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
     
     func deletePofol(pofolIdx: Int, thumbIdx: Int){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx!
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -337,7 +338,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
     /*좋아요 취소*/
     @objc func deleteLike(sender: UIButton){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/unlikes/" + String(sender.tag),
@@ -358,7 +359,7 @@ extension PofolTableViewController: UITableViewDataSource, UITableViewDelegate{
     /*좋아요 누르기*/
     @objc func postLike(sender: UIButton){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/likes/" + String(sender.tag),

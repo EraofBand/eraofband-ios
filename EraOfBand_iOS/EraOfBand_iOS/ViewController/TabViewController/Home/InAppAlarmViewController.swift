@@ -10,6 +10,8 @@ import Alamofire
 
 class InAppAlarmViewController: UIViewController {
 
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var alarmTableView: UITableView!
     
     var alarmData: [alarmInfo] = []
@@ -66,9 +68,9 @@ class InAppAlarmViewController: UIViewController {
     func getAlarm(completion: @escaping () -> Void) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let url = "\(appDelegate.baseUrl)/notice/\(appDelegate.userIdx!)"
+        let url = "\(appDelegate.baseUrl)/notice/\(defaults.integer(forKey: "userIdx"))"
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         AF.request(
             url,
@@ -92,7 +94,7 @@ class InAppAlarmViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let url = "\(appDelegate.baseUrl)/notice/status"
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         AF.request(
             url,

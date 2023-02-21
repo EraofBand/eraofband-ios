@@ -21,6 +21,7 @@ class AddPostViewController: UIViewController{
     let imgPicker = UIImagePickerController()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -50,7 +51,7 @@ class AddPostViewController: UIViewController{
         
         if (numOfImg == 0){
             let header : HTTPHeaders = [
-                "x-access-token": self.appDelegate.jwt,
+                "x-access-token": self.defaults.string(forKey: "jwt")!,
                 "Content-Type": "application/json"]
             
             if(imgUrlArr == [["imgUrl": ""]]){
@@ -60,7 +61,7 @@ class AddPostViewController: UIViewController{
                             "category": category,
                             "content": self.descriptionTextView.text ?? "",
                             "title": self.titleTextField.text ?? "",
-                            "userIdx": self.appDelegate.userIdx!
+                            "userIdx": self.defaults.integer(forKey: "userIdx")
                            ],
                            encoding: JSONEncoding.default,
                            headers: header
@@ -119,7 +120,7 @@ class AddPostViewController: UIViewController{
                     
                     if(i == (numOfImg - 1)){
                         let header : HTTPHeaders = [
-                            "x-access-token": self.appDelegate.jwt,
+                            "x-access-token": self.defaults.string(forKey: "jwt")!,
                             "Content-Type": "application/json"]
                         
                         AF.request(self.appDelegate.baseUrl + "/board",
@@ -129,7 +130,7 @@ class AddPostViewController: UIViewController{
                                     "content": self.descriptionTextView.text ?? "",
                                     "postImgsUrl": self.imgUrlArr,
                                     "title": self.titleTextField.text ?? "",
-                                    "userIdx": self.appDelegate.userIdx!
+                                    "userIdx": self.defaults.integer(forKey: "userIdx")
                                    ],
                                    encoding: JSONEncoding.default,
                                    headers: header

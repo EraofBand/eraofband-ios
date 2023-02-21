@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 
 class SessionViewController: UIViewController {
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var sessionCollectionView: UICollectionView!
     @IBOutlet weak var saveButton: UIButton!
@@ -40,11 +41,11 @@ class SessionViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        let params: Dictionary<String, Any?> = ["userIdx": appDelegate.userIdx,
+        let params: Dictionary<String, Any?> = ["userIdx": defaults.integer(forKey: "userIdx"),
                                                 "userSession": session]
         
         let urlString = appDelegate.baseUrl + "/users/user-session"
-        let header: HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header: HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                    "Content-Type": "application/json"]
         
         var request = URLRequest(url: URL(string: urlString)!)

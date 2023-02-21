@@ -16,10 +16,11 @@ class QuestionBoardViewController: UIViewController{
     var refreshControl = UIRefreshControl()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     func getPostList(boardIdx: Int, completion: @escaping (BoardListModel)-> Void){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/board/list/info/1/" + String(boardIdx),

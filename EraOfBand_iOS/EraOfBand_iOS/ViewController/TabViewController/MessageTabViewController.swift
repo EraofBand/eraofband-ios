@@ -15,6 +15,7 @@ class MessageTabViewController: UIViewController {
 
     let chatReference = Database.database().reference()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     var chatListData: [messageListInfo] = [] // 서버에서 가져온 모든 채팅방 정보 저장 변수
     var searchListData: [messageListInfo] = [] // 검색창에 검색해 나온 채팅방 정보만 저장될 변수
@@ -93,11 +94,9 @@ class MessageTabViewController: UIViewController {
     /* 서버에서 채팅방 정보 리스트 가져오는 함수 */
     func getMessageList(completion: @escaping () -> Void) {
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/chat/chat-room"
-        
-        
         
         AF.request(url,
                    method: .get,
@@ -199,7 +198,7 @@ extension MessageTabViewController: UITableViewDelegate, UITableViewDataSource {
         cell.RecentMessageLabel.text = lastChatData[chatIdx]?.message // 채팅방 Idx를 key로 가진 value값의 message값을 cell 라벨의 text값으로 지정
         
         if let checkBool = lastChatData[chatIdx]?.readUser {
-            if (checkBool) || (lastChatData[chatIdx]?.userIdx == appDelegate.userIdx) {
+            if (checkBool) || (lastChatData[chatIdx]?.userIdx == defaults.integer(forKey: "userIdx")) {
                 cell.checkView.isHidden = true // 최근 message를 읽었을 경우 빨간점 isHidden
             } else {
                 cell.checkView.isHidden = false // 최근 message를 읽지 않았을 경우 빨간점 보이게

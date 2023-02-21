@@ -10,6 +10,8 @@ import Alamofire
 
 class DeclarationAlertViewController: UIViewController {
     
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var declareTextView: UITextView!
     @IBOutlet weak var declareView: UIView!
@@ -29,10 +31,10 @@ class DeclarationAlertViewController: UIViewController {
         let message = declareTextView.text
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/notice/report"
-        let params = ["message": message!, "reportLocation": reportLocation!, "reportLocationIdx": reportLocationIdx!, "userIdx": appDelegate.userIdx!] as Dictionary
+        let params = ["message": message!, "reportLocation": reportLocation!, "reportLocationIdx": reportLocationIdx!, "userIdx": defaults.integer(forKey: "userIdx")] as Dictionary
         
         AF.request(
             url,

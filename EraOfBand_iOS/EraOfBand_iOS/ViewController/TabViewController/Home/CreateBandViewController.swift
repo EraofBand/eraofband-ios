@@ -50,6 +50,7 @@ class CreateBandViewController: UIViewController{
     var currentMemberSessionNum: [Int] = [0,0,0,0,0]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
@@ -76,51 +77,62 @@ class CreateBandViewController: UIViewController{
         self.view.endEditing(true)
     }
     
-    @IBAction func registerBtnTapped(_ sender: Any) {
+    func uploadSession(result: String){
+        let header : HTTPHeaders = [
+            "x-access-token": self.defaults.string(forKey: "jwt")!,
+            "Content-Type": "application/json"]
         
-        if(!isModifying){
-            PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
-                if isSuccess{
-                    imgUrl = result
-                    
-                    let header : HTTPHeaders = [
-                        "x-access-token": self.appDelegate.jwt,
-                        "Content-Type": "application/json"]
-                    
-                    AF.request(appDelegate.baseUrl + "/sessions",
-                               method: .post,
-                               parameters: [
-                                "bandContent": introTextView.text ?? "",
-                                "bandImgUrl": imgUrl,
-                                "bandIntroduction": shortIntroTextField.text ?? "",
-                                "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
-                                "bandTitle": titleTextField.text ?? "",
-                                "base": Int(bassNumLabel.text ?? "0") ?? 0,
-                                "baseComment": bassTextField.text ?? "",
-                                "chatRoomLink": chatLinkTextField.text ?? "",
-                                "drum": Int(drumNumLabel.text ?? "0") ?? 0,
-                                "drumComment": drumTextField.text ?? "",
-                                "guitar": Int(guitarNumLabel.text ?? "0") ?? 0,
-                                "guitarComment": guitarTextField.text ?? "",
-                                "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
-                                "keyboardComment": keyboardTextField.text ?? "",
-                                "userIdx": appDelegate.userIdx ?? 0,
-                                "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
-                                "vocalComment": vocalTextField.text ?? ""
-                               ],
-                               encoding: JSONEncoding.default,
-                               headers: header).responseJSON{ response in
-                        switch response.result{
-                        case .success:
-                            self.navigationController?.popViewController(animated: true)
-                            print(response)
-                        default:
-                            return
-                        }
-                    }
-                    
-                }
+        AF.request(appDelegate.baseUrl + "/sessions/band-info/" + String(bandInfo?.bandIdx ?? 0),
+                   method: .patch,
+                   parameters: [
+                    "bandContent": introTextView.text ?? "",
+                    "bandImgUrl": result,
+                    "bandIntroduction": shortIntroTextField.text ?? "",
+                    "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
+                    "bandTitle": titleTextField.text ?? "",
+                    "base": Int(bassNumLabel.text ?? "0") ?? 0,
+                    "baseComment": bassTextField.text ?? "",
+                    "chatRoomLink": chatLinkTextField.text ?? "",
+                    "drum": Int(drumNumLabel.text ?? "0") ?? 0,
+                    "drumComment": drumTextField.text ?? "",
+                    "guitar": Int(guitarNumLabel.text ?? "0") ?? 0,
+                    "guitarComment": guitarTextField.text ?? "",
+                    "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
+                    "keyboardComment": keyboardTextField.text ?? "",
+                    "performDate": dateTextField.text ?? "",
+                    "performFee": Int(performFeeTextField.text ?? ""),
+                    "performLocation": performPlaceTextField.text ?? "",
+                    "performTime": timeTextField.text ?? "",
+                    "performTitle": performTitleTextField.text ?? "",
+                    "userIdx": defaults.integer(forKey: "userIdx"),
+                    "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
+                    "vocalComment": vocalTextField.text ?? ""
+                   ],
+                   encoding: JSONEncoding.default,
+                   headers: header).responseJSON{ response in
+            switch response.result{
+            case .success:
+                self.navigationController?.popViewController(animated: true)
+                print(response)
+            default:
+                return
             }
+        }
+    }
+    
+    func uploadImg(img: UIImage){
+        let service = PostUserService.self
+        service.getImgUrl(img) { [self] (isSuccess, result) in
+            if(isSuccess){
+                uploadSession(result: result)
+            }
+        }
+    }
+    
+    @IBAction func registerBtnTapped(_ sender: Any) {
+        if(!isModifying){
+            let img = bandImageView.image
+            uploadImg(img: img!)
         }
         else{
             if currentImg == self.bandImageView.image{
@@ -128,7 +140,7 @@ class CreateBandViewController: UIViewController{
                 print(appDelegate.baseUrl + "/sessions/band-info/" + String(bandInfo?.bandIdx ?? 0))
                 
                 let header : HTTPHeaders = [
-                    "x-access-token": self.appDelegate.jwt,
+                    "x-access-token": self.defaults.string(forKey: "jwt")!,
                     "Content-Type": "application/json"]
                 
                 AF.request(appDelegate.baseUrl + "/sessions/band-info/" + String(bandInfo?.bandIdx ?? 0),
@@ -153,7 +165,7 @@ class CreateBandViewController: UIViewController{
                             "performLocation": performPlaceTextField.text ?? "",
                             "performTime": timeTextField.text ?? "",
                             "performTitle": performTitleTextField.text ?? "",
-                            "userIdx": appDelegate.userIdx ?? 0,
+                            "userIdx": defaults.integer(forKey: "userIdx"),
                             "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
                             "vocalComment": vocalTextField.text ?? ""
                            ],
@@ -168,53 +180,8 @@ class CreateBandViewController: UIViewController{
                     }
                 }
             }else{
-                
-                PostUserService.getImgUrl(bandImageView.image) { [self] (isSuccess, result) in
-                    if isSuccess{
-                        imgUrl = result
-                        let header : HTTPHeaders = [
-                            "x-access-token": self.appDelegate.jwt,
-                            "Content-Type": "application/json"]
-                        
-                        AF.request(appDelegate.baseUrl + "/sessions/band-info/" + String(bandInfo?.bandIdx ?? 0),
-                                   method: .patch,
-                                   parameters: [
-                                    "bandContent": introTextView.text ?? "",
-                                    "bandImgUrl": imgUrl,
-                                    "bandIntroduction": shortIntroTextField.text ?? "",
-                                    "bandRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
-                                    "bandTitle": titleTextField.text ?? "",
-                                    "base": Int(bassNumLabel.text ?? "0") ?? 0,
-                                    "baseComment": bassTextField.text ?? "",
-                                    "chatRoomLink": chatLinkTextField.text ?? "",
-                                    "drum": Int(drumNumLabel.text ?? "0") ?? 0,
-                                    "drumComment": drumTextField.text ?? "",
-                                    "guitar": Int(guitarNumLabel.text ?? "0") ?? 0,
-                                    "guitarComment": guitarTextField.text ?? "",
-                                    "keyboard": Int(keyboardNumLabel.text ?? "") ?? 0,
-                                    "keyboardComment": keyboardTextField.text ?? "",
-                                    "performDate": dateTextField.text ?? "",
-                                    "performFee": Int(performFeeTextField.text ?? ""),
-                                    "performLocation": performPlaceTextField.text ?? "",
-                                    "performTime": timeTextField.text ?? "",
-                                    "performTitle": performTitleTextField.text ?? "",
-                                    "userIdx": appDelegate.userIdx ?? 0,
-                                    "vocal": Int(vocalNumLabel.text ?? "0") ?? 0,
-                                    "vocalComment": vocalTextField.text ?? ""
-                                   ],
-                                   encoding: JSONEncoding.default,
-                                   headers: header).responseJSON{ response in
-                            switch response.result{
-                            case .success:
-                                self.navigationController?.popViewController(animated: true)
-                                print(response)
-                            default:
-                                return
-                            }
-                        }
-                    }
-                }
-                
+                let img = bandImageView.image
+                uploadImg(img: img!)
                 
             }
         }

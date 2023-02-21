@@ -12,7 +12,6 @@ import UIKit
 class PostUserService {
     
     static func getImgUrl(_ image: UIImage?, completion: @escaping (Bool, String) -> Void) {
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let urlString = appDelegate.baseUrl + "/api/v1/upload"
         let header : HTTPHeaders = ["Content-Type": "multipart/form-data"]
@@ -63,8 +62,9 @@ class PostUserService {
     static func postUserInfo(_ params: Dictionary<String, Any?>, completion: @escaping(Bool) -> Void) {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let defaults = UserDefaults.standard
         let urlString = appDelegate.baseUrl + "/users/user-info"
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         
         var request = URLRequest(url: URL(string: urlString)!)

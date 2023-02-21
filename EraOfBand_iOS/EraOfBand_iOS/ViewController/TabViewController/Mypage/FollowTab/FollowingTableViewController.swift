@@ -14,6 +14,7 @@ class FollowingTableViewController: UIViewController{
     var followingUserList: [FollowUserList] = [FollowUserList(nickName: "", profileImgUrl: "", userIdx: 0)]
     var filteredData: [FollowUserList] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     var userIdx: Int?
     
     @IBOutlet weak var tableView: UITableView!
@@ -91,7 +92,7 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
         
         cell.followBtn.layer.cornerRadius = 15
         
-        if filteredData[indexPath.row].userIdx == appDelegate.userIdx{
+        if filteredData[indexPath.row].userIdx == defaults.integer(forKey: "userIdx"){
             cell.followBtn.isHidden = true
         }
         
@@ -131,7 +132,7 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
     
     func doUnFollow(targetIdx: Int, targetIndexPath: Int){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/unfollow/" + String(targetIdx),
@@ -157,7 +158,7 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
     func doFollow(targetIdx: Int, targetIndexPath: Int){
         
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/follow/" + String(targetIdx),
@@ -182,7 +183,7 @@ extension FollowingTableViewController: UITableViewDataSource, UITableViewDelega
     
     @objc func otherUserTapped(sender: UIButton){
         
-        if(sender.tag == appDelegate.userIdx){
+        if(sender.tag == defaults.integer(forKey: "userIdx")){
             guard let myPageVC = self.storyboard?.instantiateViewController(withIdentifier: "MypageTabViewController") as? MypageTabViewController else {return}
             
             myPageVC.viewMode = 1
