@@ -21,6 +21,7 @@ class AddPostViewController: UIViewController{
     let imgPicker = UIImagePickerController()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -50,7 +51,7 @@ class AddPostViewController: UIViewController{
         
         if (numOfImg == 0){
             let header : HTTPHeaders = [
-                "x-access-token": self.appDelegate.jwt,
+                "x-access-token": self.defaults.string(forKey: "jwt")!,
                 "Content-Type": "application/json"]
             
             if(imgUrlArr == [["imgUrl": ""]]){
@@ -60,7 +61,7 @@ class AddPostViewController: UIViewController{
                             "category": category,
                             "content": self.descriptionTextView.text ?? "",
                             "title": self.titleTextField.text ?? "",
-                            "userIdx": self.appDelegate.userIdx!
+                            "userIdx": self.defaults.integer(forKey: "userIdx")
                            ],
                            encoding: JSONEncoding.default,
                            headers: header
@@ -119,7 +120,7 @@ class AddPostViewController: UIViewController{
                     
                     if(i == (numOfImg - 1)){
                         let header : HTTPHeaders = [
-                            "x-access-token": self.appDelegate.jwt,
+                            "x-access-token": self.defaults.string(forKey: "jwt")!,
                             "Content-Type": "application/json"]
                         
                         AF.request(self.appDelegate.baseUrl + "/board",
@@ -129,7 +130,7 @@ class AddPostViewController: UIViewController{
                                     "content": self.descriptionTextView.text ?? "",
                                     "postImgsUrl": self.imgUrlArr,
                                     "title": self.titleTextField.text ?? "",
-                                    "userIdx": self.appDelegate.userIdx!
+                                    "userIdx": self.defaults.integer(forKey: "userIdx")
                                    ],
                                    encoding: JSONEncoding.default,
                                    headers: header
@@ -160,11 +161,11 @@ class AddPostViewController: UIViewController{
             commands.append(command)
         }
         
-        choiceBoardBtn.menu = UIMenu(options: .singleSelection, children: commands)
+        choiceBoardBtn.menu = UIMenu(image: nil, identifier: nil, options: .singleSelection, children: commands)
         
         self.choiceBoardBtn.showsMenuAsPrimaryAction = true
         self.choiceBoardBtn.changesSelectionAsPrimaryAction = true
-        
+
         var configuration = UIButton.Configuration.plain()
         
         let imageConfig = UIImage.SymbolConfiguration(weight: .light)
@@ -179,7 +180,6 @@ class AddPostViewController: UIViewController{
             outgoing.font = UIFont.boldSystemFont(ofSize: 20)
             return outgoing
         }
-        
         choiceBoardBtn.configuration = configuration
         choiceBoardBtn.tintColor = .white
     }
@@ -223,7 +223,14 @@ class AddPostViewController: UIViewController{
         
         titleTextField.delegate = self
         descriptionTextView.delegate = self
+        
+        /*이미지 콜렉션뷰에 탭 제스쳐를 넣기 위한 코드*/
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapOutsideCollectionView(recognizer:)))
+        tap.numberOfTapsRequired = 1
+        self.collectionView.addGestureRecognizer(tap)
     }
+    
+    
 }
 
 extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -269,6 +276,36 @@ extension AddPostViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
+    func tapHandler(sender: UITapGestureRecognizer){
+
+        if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
+            let optionMenu = UIAlertController(title: nil, message: "이미지", preferredStyle: .actionSheet)
+            
+            let addAction = UIAlertAction(title: "추가하기", style: .default, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                self.addImage()
+                })
+            let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: {
+                        (alert: UIAlertAction!) -> Void in
+                self.deleteImage(targetIdx: indexPath.row)
+                    })
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                  })
+            
+            optionMenu.addAction(addAction)
+            if(postImgArr[indexPath.row] != UIImage()){
+                optionMenu.addAction(deleteAction)
+            }
+            optionMenu.addAction(cancelAction)
+            
+            self.present(optionMenu, animated: true, completion: nil)
+        } else {
+            self.view.endEditing(true)
+        }
+    }
+    
+    /*
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let optionMenu = UIAlertController(title: nil, message: "이미지", preferredStyle: .actionSheet)
         
@@ -292,7 +329,7 @@ extension AddPostViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         self.present(optionMenu, animated: true, completion: nil)
         
-    }
+    }*/
     
     func addImage(){
         imgPicker.sourceType = .photoLibrary
@@ -356,7 +393,16 @@ extension AddPostViewController: UITextFieldDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
         }
-        
+    
+    //콜렉션뷰 터치시 키보드 내리기
+    @objc func didTapOutsideCollectionView(recognizer: UITapGestureRecognizer){
+        let tapLocation = recognizer.location(in: self.view)
+        //The point is outside of collection cell
+        if collectionView.indexPathForItem(at: tapLocation) == nil {
+            tapHandler(sender: recognizer)
+        }
+    }
+    
     //리턴 버튼 터치시 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()

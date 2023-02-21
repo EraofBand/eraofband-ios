@@ -16,6 +16,7 @@ import SafariServices
 
 class SettingViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
 
     @IBAction func noticeBtnTapped(_ sender: Any) {
         let noticeURL = NSURL(string: "https://eraofband.tistory.com/")
@@ -102,12 +103,13 @@ class SettingViewController: UIViewController {
     func deleteUser(alert: UIAlertAction!){
         //print("탈퇴하기")
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
-        print(appDelegate.baseUrl + "/users/status/" + String(appDelegate.userIdx!))
+        /*
+        print(appDelegate.baseUrl + "/users/status/" + String(defaults.integer(forKey: "userIdx")))*/
         
-        AF.request(appDelegate.baseUrl + "/users/status/" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/users/status/" + String(defaults.integer(forKey: "userIdx")),
                    method: .patch,
                    encoding: JSONEncoding.default,
                    headers: header

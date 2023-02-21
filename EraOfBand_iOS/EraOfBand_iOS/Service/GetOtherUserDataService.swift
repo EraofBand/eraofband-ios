@@ -14,10 +14,11 @@ struct GetOtherUserDataService{
     static func getOtherUserInfo(_ userIdx: Int, completion: @escaping (Bool, OtherUserDataModel) -> Void){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let defaults = UserDefaults.standard
         let url = "\(appDelegate.baseUrl)/users/info/\(userIdx)"
         
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(

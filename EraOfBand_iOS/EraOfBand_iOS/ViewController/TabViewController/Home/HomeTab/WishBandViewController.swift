@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class WishBandViewController: UIViewController {
-
+    let defaults = UserDefaults.standard
     @IBOutlet weak var wishBandListTableView: UITableView!
     
     var bandList: [bandInfo] = []
@@ -22,7 +22,7 @@ class WishBandViewController: UIViewController {
         print("url: \(url)")
         
         url = url.encodeUrl()!
-        let header: HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header: HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                    "Content-Type": "application/json"]
         
         let request = AF.request(url,

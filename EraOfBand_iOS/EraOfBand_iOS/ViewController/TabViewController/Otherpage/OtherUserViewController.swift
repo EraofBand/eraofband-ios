@@ -32,6 +32,7 @@ class OtherUserViewController: UIViewController {
     var chatRoomIdx: String = "none"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
 
     var sessionData: [String] = ["보컬", "기타", "베이스", "키보드", "드럼"]
 
@@ -45,7 +46,7 @@ class OtherUserViewController: UIViewController {
     /* 서버에서 채팅방 정보 리스트 가져오는 함수 */
     func getMessageList(completion: @escaping () -> Void) {
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/chat/chat-room"
         
@@ -70,7 +71,7 @@ class OtherUserViewController: UIViewController {
     }
     
     func getBlockList() {
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/users/info/block"
         
@@ -107,14 +108,13 @@ class OtherUserViewController: UIViewController {
     
     @IBAction func messageBtnTapped(_ sender: Any) {
         
-        let header : HTTPHeaders = ["x-access-token": self.appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
-        
         
         AF.request(self.appDelegate.baseUrl + "/chat/chat-room/exist",
                    method: .patch,
                    parameters: [
-                    "firstUserIdx": appDelegate.userIdx!,
+                    "firstUserIdx": defaults.integer(forKey: "userIdx"),
                     "secondUserIdx": userData?.getUser.userIdx
                    ],
                    encoding: JSONEncoding.default,
@@ -136,7 +136,7 @@ class OtherUserViewController: UIViewController {
                                    method: .patch,
                                    parameters: [
                                     "chatRoomIdx": self.chatRoomIdx,
-                                    "firstUserIdx": self.appDelegate.userIdx!,
+                                    "firstUserIdx": self.defaults.integer(forKey: "userIdx"),
                                     "secondUserIdx": self.userData?.getUser.userIdx
                                    ],
                                    encoding: JSONEncoding.default,
@@ -230,7 +230,7 @@ class OtherUserViewController: UIViewController {
     
     func doUnBlock() {
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/unblock/" + String(userIdx!),
@@ -249,7 +249,7 @@ class OtherUserViewController: UIViewController {
     
     func doBlock() {
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/block/" + String(userIdx!),
@@ -268,7 +268,7 @@ class OtherUserViewController: UIViewController {
     
     func doUnFollow(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/unfollow/" + String(userIdx!),
@@ -289,7 +289,7 @@ class OtherUserViewController: UIViewController {
     func doFollow(){
         
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/follow/" + String(userIdx!),

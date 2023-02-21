@@ -21,6 +21,7 @@ class PorfolCommentViewController: UIViewController{
     var pofolIdx: Int?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var tableView: UITableView!
     var commentList: [CommentResult] = [CommentResult(content: "테스트1", nickName: "잼민", pofolCommentIdx: 0, pofolIdx: 0, profileImgUrl: "", updatedAt: "2시간 전", userIdx: 0)]
@@ -30,14 +31,14 @@ class PorfolCommentViewController: UIViewController{
         view.endEditing(true)
         
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/comment/" + String(pofolIdx!),
                    method: .post,
                    parameters: [
                     "content": commentTextField.text ?? "",
-                    "userIdx": appDelegate.userIdx!
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -66,7 +67,7 @@ class PorfolCommentViewController: UIViewController{
 
     func getCommentList(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/info/comment" + "?pofolIdx=" + String(pofolIdx!),
@@ -177,7 +178,7 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
         
         /*댓글 메뉴 처리*/
         cell.menuBtn.tag = commentList[indexPath.row].pofolCommentIdx
-        if(appDelegate.userIdx == commentList[indexPath.row].userIdx){
+        if(defaults.integer(forKey: "userIdx") == commentList[indexPath.row].userIdx){
             cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
         } else {
             cell.menuBtn.addTarget(self, action: #selector(otherMenuBtnTapped(sender:)), for: .touchUpInside)
@@ -188,13 +189,13 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
     
     func deleteComment(commentIdx: Int){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("https://eraofband.shop/pofols/comment/status/" + String(commentIdx),
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx!
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -250,7 +251,7 @@ extension PorfolCommentViewController: UITableViewDataSource, UITableViewDelegat
     
     /*다른 유저 프로필로 넘어가기*/
     @objc func profileBtnTapped(sender: UIButton){
-        if(sender.tag == appDelegate.userIdx){
+        if(sender.tag == defaults.integer(forKey: "userIdx")){
             guard let myPageVC = self.storyboard?.instantiateViewController(withIdentifier: "MypageTabViewController") as? MypageTabViewController else {return}
             
             myPageVC.viewMode = 1

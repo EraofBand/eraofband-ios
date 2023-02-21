@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class MypageTabViewController: UIViewController {
-    
+    let defaults = UserDefaults.standard
     var viewMode: Int = 0 //탭 바 마이페이지 눌렀을 때, 다른 데서 타고 넘어와서 마이페이지로 넘어왔을 때 구분
     
     // 레이아웃 변수
@@ -56,7 +56,7 @@ class MypageTabViewController: UIViewController {
         
         followVC.myNickName = nickNameLabel.text
         followVC.currentPage = "Following"
-        followVC.userIdx = appDelegate.userIdx
+        followVC.userIdx = defaults.integer(forKey: "userIdx")
         
         navigationController?.pushViewController(followVC, animated: true)
     }
@@ -67,7 +67,7 @@ class MypageTabViewController: UIViewController {
         
         followVC.myNickName = nickNameLabel.text
         followVC.currentPage = "Follower"
-        followVC.userIdx = appDelegate.userIdx
+        followVC.userIdx = defaults.integer(forKey: "userIdx")
         
         navigationController?.pushViewController(followVC, animated: true)
     }

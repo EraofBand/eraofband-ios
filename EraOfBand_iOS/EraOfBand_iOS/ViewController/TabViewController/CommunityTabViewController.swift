@@ -13,9 +13,10 @@ import AVFoundation
 import KakaoSDKShare
 import KakaoSDKTemplate
 import KakaoSDKCommon
+import SafariServices
 
 class CommunityTabViewController: UIViewController {
-    
+    let defaults = UserDefaults.standard
     @IBOutlet weak var choiceCollectionView: UICollectionView!
     @IBOutlet weak var feedTableView: UITableView!
     
@@ -123,7 +124,7 @@ extension CommunityTabViewController {
     /* 모든 포폴 리스트 */
     func getAllPofolList(_ lastPofolIdx: Int, completion: @escaping () -> Void) {
         let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "x-access-token": appDelegate.jwt]
+                                   "x-access-token": defaults.string(forKey: "jwt")!]
         let url = appDelegate.baseUrl + "/pofols/info/all/" + String(lastPofolIdx)
         
         AF.request(url,
@@ -150,7 +151,7 @@ extension CommunityTabViewController {
     /* 팔로우한 유저 포폴 리스트 */
     func getFollowPofolList(_ lastPofolIdx: Int, completion: @escaping () -> Void) {
         let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "x-access-token": appDelegate.jwt]
+                                   "x-access-token": defaults.string(forKey: "jwt")!]
         let url = appDelegate.baseUrl + "/pofols/info/follow/" + String(lastPofolIdx)
         
         AF.request(url,
@@ -177,13 +178,13 @@ extension CommunityTabViewController {
 // MARK: 포트폴리오 액션 함수
     func deletePofol(pofolIdx: Int){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx!
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -252,7 +253,14 @@ extension CommunityTabViewController {
         else {
             print("카카오톡 미설치")
             // 카카오톡 미설치: 웹 공유 사용 권장
-            // 아래 함수는 따로 구현해야함.
+            
+            let url = URL(string: "https://www.naver.com")!
+            
+            let safariViewController = SFSafariViewController(url: url)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.present(safariViewController, animated: false, completion: nil)
+            }
             
         }
          
@@ -349,7 +357,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         
         cell.profileImgView.layer.cornerRadius = 35/2
         
-        if pofolList[indexPath.row].userIdx != appDelegate.userIdx {
+        if pofolList[indexPath.row].userIdx != defaults.integer(forKey: "userIdx") {
             cell.profileBtn.tag = pofolList[indexPath.row].userIdx!
             cell.profileBtn.isEnabled = true
             cell.profileBtn.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
@@ -380,7 +388,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.menuBtn.thumbIdx = indexPath.row
         cell.menuBtn.tag = cell.menuBtn.pofolIdx!
         
-        if appDelegate.userIdx != cell.menuBtn.userIdx {
+        if defaults.integer(forKey: "userIdx") != cell.menuBtn.userIdx {
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
         } else {
             cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
@@ -481,13 +489,13 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     /* 포폴 삭제하기 함수 */
     func deletePofol(pofolIdx: Int, thumbIdx: Int){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx!
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -547,7 +555,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     @objc func deleteLike(sender: UIButton){
         let pofolIdx = pofolList[sender.tag].pofolIdx!
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/unlikes/" + String(pofolIdx),
@@ -571,7 +579,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     @objc func postLike(sender: UIButton){
         let pofolIdx = pofolList[sender.tag].pofolIdx!
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/likes/" + String(pofolIdx),

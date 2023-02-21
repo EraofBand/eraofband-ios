@@ -11,15 +11,16 @@ import Alamofire
 class FreeBoardViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
-    var postList: [BoardListResult] = [BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0),BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0)]
+    var postList: [BoardListResult] = []
     
     var refreshControl = UIRefreshControl()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
-    func getPostList(boardIdx: Int, completion: @escaping (BoardListModel)-> Void){
+    func getPostList(boardIdx: Int, completion: @escaping ()-> Void){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/board/list/info/0/" + String(boardIdx),
@@ -30,7 +31,8 @@ class FreeBoardViewController: UIViewController{
             response in
             switch response.result{
             case .success(let data):
-                completion(data)
+                self.postList += data.result
+                completion()
                 
             case .failure(let err):
                 print(err)
@@ -41,8 +43,7 @@ class FreeBoardViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getPostList(boardIdx: 0){ data in
-            self.postList = data.result
+        getPostList(boardIdx: 0){ 
             self.tableView.reloadData()
         }
         
@@ -56,8 +57,7 @@ class FreeBoardViewController: UIViewController{
     
     @objc func refresh(_ sender: AnyObject) {
        // Code to refresh table view
-        getPostList(boardIdx: 0){ data in
-            self.postList = data.result
+        getPostList(boardIdx: 0){
             self.tableView.reloadData()
         }
         
@@ -69,8 +69,7 @@ class FreeBoardViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        getPostList(boardIdx: 0){ data in
-            self.postList = data.result
+        getPostList(boardIdx: 0){
             self.tableView.reloadData()
         }
     }
@@ -118,6 +117,7 @@ extension FreeBoardViewController: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
+/*
 extension FreeBoardViewController: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentListSize = self.postList.count
@@ -135,5 +135,5 @@ extension FreeBoardViewController: UIScrollViewDelegate{
             }
         }
     }
-}
+}*/
 

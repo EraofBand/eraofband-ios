@@ -229,6 +229,7 @@
 		BCB8063428AFB21D009CC6D9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BCB8063328AFB21D009CC6D9 /* FirebaseStorage */; };
 		BCB8063628AFB21D009CC6D9 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BCB8063528AFB21D009CC6D9 /* FirebaseStorageCombine-Community */; };
 		BCC2CF20287C3E8B00A71B82 /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */; };
+		BCC72F9C29A4AB91000128C7 /* DefaultResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC72F9B29A4AB91000128C7 /* DefaultResultData.swift */; };
 		BCD0DF6728ABD1C700F1F74C /* BoardTabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0DF6628ABD1C700F1F74C /* BoardTabManViewController.swift */; };
 		BCD0DF6928ABDC0C00F1F74C /* FreeBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0DF6828ABDC0C00F1F74C /* FreeBoardViewController.swift */; };
 		BCD0DF6B28ABDCB500F1F74C /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0DF6A28ABDCB500F1F74C /* BoardTableViewCell.swift */; };
@@ -436,6 +437,7 @@
 		BCA6646B287306F500136D1B /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		BCB805C828AFAA58009CC6D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCC2CF1F287C3E8B00A71B82 /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
+		BCC72F9B29A4AB91000128C7 /* DefaultResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResultData.swift; sourceTree = "<group>"; };
 		BCD0DF6628ABD1C700F1F74C /* BoardTabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTabManViewController.swift; sourceTree = "<group>"; };
 		BCD0DF6828ABDC0C00F1F74C /* FreeBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeBoardViewController.swift; sourceTree = "<group>"; };
 		BCD0DF6A28ABDCB500F1F74C /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
@@ -953,6 +955,7 @@
 				BCD0DF6C28ABDD7E00F1F74C /* BoardListModel.swift */,
 				A81C647728AB96E200FBAD05 /* BoardInfoData.swift */,
 				A86AAE8E28D6FB1800CC3042 /* BlockListData.swift */,
+				BCC72F9B29A4AB91000128C7 /* DefaultResultData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1175,6 +1178,7 @@
 				BC08AF2728ACD5E50029E741 /* MyBoardViewController.swift in Sources */,
 				A8ED885F289D51FC00A071E5 /* SearchUserData.swift in Sources */,
 				A854A814289AB07800FDEB4D /* AcceptAlertViewController.swift in Sources */,
+				BCC72F9C29A4AB91000128C7 /* DefaultResultData.swift in Sources */,
 				BC439BFD2873437A006F5659 /* RegisterViewController3.swift in Sources */,
 				A86AAE8F28D6FB1800CC3042 /* BlockListData.swift in Sources */,
 				A854A810289A9E5D00FDEB4D /* SessionRecruitData.swift in Sources */,

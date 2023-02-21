@@ -23,6 +23,7 @@ class ModifyPostViewController: UIViewController {
     let imgPicker = UIImagePickerController()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     @IBAction func BackBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -30,7 +31,7 @@ class ModifyPostViewController: UIViewController {
     
     @IBAction func modifyBtnTapped(_ sender: Any) {
         
-        let header: HTTPHeaders = ["x-access-token": self.appDelegate.jwt,
+        let header: HTTPHeaders = ["x-access-token": self.defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let contentUrl = appDelegate.baseUrl + "/board/board-info/" + String(boardInfo!.boardIdx)
         
@@ -39,7 +40,7 @@ class ModifyPostViewController: UIViewController {
                    parameters: [
                     "content": self.descriptionTextView.text ?? "",
                     "title": self.titleTextField.text ?? "",
-                    "userIdx": self.appDelegate.userIdx!
+                    "userIdx": self.defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -112,6 +113,8 @@ class ModifyPostViewController: UIViewController {
     func setLayout(){
         self.title = "게시물 수정"
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        collectionView.isHidden = true
         
         setBoardButton()
         
