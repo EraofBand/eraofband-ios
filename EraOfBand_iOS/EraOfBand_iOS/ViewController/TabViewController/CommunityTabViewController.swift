@@ -207,17 +207,17 @@ extension CommunityTabViewController {
         }
     }
     
-    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
-        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else {return}
-                
-        addPofolVC.isModifying = true
-        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
-        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
-        addPofolVC.currentThumbNailUrl = pofolList[thumbIdx].imgUrl
-        addPofolVC.pofolIdx = pofolIdx
-        
-        self.navigationController?.pushViewController(addPofolVC, animated: true)
-    }
+//    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
+//        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else {return}
+//                
+//        addPofolVC.isModifying = true
+//        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
+//        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
+//        addPofolVC.currentThumbNailUrl = pofolList[thumbIdx].imgUrl
+//        addPofolVC.pofolIdx = pofolIdx
+//        
+//        self.navigationController?.pushViewController(addPofolVC, animated: true)
+//    }
     
     func sharePofol(pofolIdx: Int, thumbIdx: Int){
         
