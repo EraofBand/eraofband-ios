@@ -13,9 +13,10 @@ import AVFoundation
 import KakaoSDKShare
 import KakaoSDKTemplate
 import KakaoSDKCommon
+import SafariServices
 
 class CommunityTabViewController: UIViewController {
-    
+    let defaults = UserDefaults.standard
     @IBOutlet weak var choiceCollectionView: UICollectionView!
     @IBOutlet weak var feedTableView: UITableView!
     
@@ -72,7 +73,7 @@ class CommunityTabViewController: UIViewController {
     }
     
     @objc func editingAction(_ sender: UIButton) {
-        let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofol") as! AddPofolViewController
+        let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as! AddPofolViewController
         
         self.navigationController?.pushViewController(addPofolVC, animated: true)
     }
@@ -123,7 +124,7 @@ extension CommunityTabViewController {
     /* 모든 포폴 리스트 */
     func getAllPofolList(_ lastPofolIdx: Int, completion: @escaping () -> Void) {
         let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "x-access-token": appDelegate.jwt]
+                                   "x-access-token": defaults.string(forKey: "jwt")!]
         let url = appDelegate.baseUrl + "/pofols/info/all/" + String(lastPofolIdx)
         
         AF.request(url,
@@ -150,7 +151,7 @@ extension CommunityTabViewController {
     /* 팔로우한 유저 포폴 리스트 */
     func getFollowPofolList(_ lastPofolIdx: Int, completion: @escaping () -> Void) {
         let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "x-access-token": appDelegate.jwt]
+                                   "x-access-token": defaults.string(forKey: "jwt")!]
         let url = appDelegate.baseUrl + "/pofols/info/follow/" + String(lastPofolIdx)
         
         AF.request(url,
@@ -177,13 +178,13 @@ extension CommunityTabViewController {
 // MARK: 포트폴리오 액션 함수
     func deletePofol(pofolIdx: Int){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx!
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -207,23 +208,13 @@ extension CommunityTabViewController {
         }
     }
     
-//    func modifyPofol(pofolIdx: Int, thumbIdx: Int){
-//        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else {return}
-//                
-//        addPofolVC.isModifying = true
-//        addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
-//        addPofolVC.currentDescription = pofolList[thumbIdx].content ?? ""
-//        addPofolVC.currentThumbNailUrl = pofolList[thumbIdx].imgUrl
-//        addPofolVC.pofolIdx = pofolIdx
-//        
-//        self.navigationController?.pushViewController(addPofolVC, animated: true)
-//    }
-    
-    func sharePofol(pofolIdx: Int, thumbIdx: Int){
+    @objc func sharePofol(sender: PofolShareButton){
+        
+        let thumbIdx = sender.thumbIdx ?? 0
         
         if ShareApi.isKakaoTalkSharingAvailable(){
             
-            let appLink = Link(iosExecutionParams: ["second": "vvv"])
+            let appLink = Link(androidExecutionParams: ["second": "vvv"], iosExecutionParams: ["second": "vvv"])
 
             // 해당 appLink를 들고 있을 버튼을 만들어준다.
             let button = Button(title: "앱으로 보기", link: appLink)
@@ -234,9 +225,11 @@ extension CommunityTabViewController {
                                   description: pofolList[thumbIdx].content,
                                 link: appLink)
             
+            let social = Social(likeCount: pofolList[thumbIdx].pofolLikeCount, commentCount: pofolList[thumbIdx].commentCount)
+            
             // 템플릿에 버튼을 추가할때 아래 buttons에 배열의 형태로 넣어준다.
             // 만약 버튼을 하나 더 추가하려면 버튼 변수를 만들고 [button, button2] 이런 식으로 진행하면 된다 .
-            let template = FeedTemplate(content: content, buttons: [button])
+            let template = FeedTemplate(content: content, social: social, buttons: [button])
             
             //메시지 템플릿 encode
             if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
@@ -259,7 +252,14 @@ extension CommunityTabViewController {
         else {
             print("카카오톡 미설치")
             // 카카오톡 미설치: 웹 공유 사용 권장
-            // 아래 함수는 따로 구현해야함.
+            
+            let url = URL(string: "https://www.naver.com")!
+            
+            let safariViewController = SFSafariViewController(url: url)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.present(safariViewController, animated: false, completion: nil)
+            }
             
         }
          
@@ -319,6 +319,14 @@ extension CommunityTabViewController: UICollectionViewDelegate, UICollectionView
     
 }
 
+/*
+// MARK: 공유버튼 액션 설정
+extension CommunityTabViewController: CellButtonDelegate{
+    func shareButtonTapped(recruitTitle: String, recruitDescription: String) {
+        sharePofol(sender: <#T##PofolShareButton#>)
+    }
+}*/
+
 // MARK: TabelView 설정
 extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -348,7 +356,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         
         cell.profileImgView.layer.cornerRadius = 35/2
         
-        if pofolList[indexPath.row].userIdx != appDelegate.userIdx {
+        if pofolList[indexPath.row].userIdx != defaults.integer(forKey: "userIdx") {
             cell.profileBtn.tag = pofolList[indexPath.row].userIdx!
             cell.profileBtn.isEnabled = true
             cell.profileBtn.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
@@ -379,11 +387,14 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         cell.menuBtn.thumbIdx = indexPath.row
         cell.menuBtn.tag = cell.menuBtn.pofolIdx!
         
-        if appDelegate.userIdx != cell.menuBtn.userIdx {
+        if defaults.integer(forKey: "userIdx") != cell.menuBtn.userIdx {
             cell.menuBtn.addTarget(self, action: #selector(menuBtnTapped(sender:)), for: .touchUpInside)
         } else {
             cell.menuBtn.addTarget(self, action: #selector(myMenuBtnTapped(sender:)), for: .touchUpInside)
         }
+        
+        cell.shareBtn.thumbIdx = indexPath.row
+        cell.shareBtn.addTarget(self, action: #selector(sharePofol(sender:)), for: .touchUpInside)
         
         return cell
     }
@@ -436,10 +447,10 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         print("pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
-        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
-            })
+//        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
+//            })
 
         let declareAction = UIAlertAction(title: "신고하기", style: .destructive) {_ in
             let declareVC = self.storyboard?.instantiateViewController(withIdentifier: "DeclartionAlert") as! DeclarationAlertViewController
@@ -454,7 +465,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
                 (alert: UIAlertAction!) -> Void in
               })
         
-        optionMenu.addAction(shareAction)
+//        optionMenu.addAction(shareAction)
         optionMenu.addAction(declareAction)
         optionMenu.addAction(cancelAction)
 
@@ -463,7 +474,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     
     /* 포폴 수정하기 함수 */
     func modifyPofol(pofolIdx: Int, thumbIdx: Int){
-        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofol") as? AddPofolViewController else { return }
+        guard let addPofolVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPofolViewController") as? AddPofolViewController else { return }
                 
         addPofolVC.isModifying = true
         addPofolVC.currentTitle = pofolList[thumbIdx].title ?? ""
@@ -477,13 +488,13 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     /* 포폴 삭제하기 함수 */
     func deletePofol(pofolIdx: Int, thumbIdx: Int){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("https://eraofband.shop/pofols/status/" + String(pofolIdx),
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx!
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -504,10 +515,10 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
         print("my pofol Idx: \(sender.tag)")
         let optionMenu = UIAlertController(title: nil, message: "포트폴리오", preferredStyle: .actionSheet)
         
-        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
-            })
+//        let shareAction = UIAlertAction(title: "공유하기", style: .default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            self.sharePofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
+//            })
         let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
             self.modifyPofol(pofolIdx: sender.pofolIdx ?? 0, thumbIdx: sender.thumbIdx ?? 0)
@@ -520,7 +531,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
                 (alert: UIAlertAction!) -> Void in
               })
         
-        optionMenu.addAction(shareAction)
+//        optionMenu.addAction(shareAction)
         optionMenu.addAction(modifyAction)
         optionMenu.addAction(deleteAction)
         optionMenu.addAction(cancelAction)
@@ -543,7 +554,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     @objc func deleteLike(sender: UIButton){
         let pofolIdx = pofolList[sender.tag].pofolIdx!
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/unlikes/" + String(pofolIdx),
@@ -567,7 +578,7 @@ extension CommunityTabViewController: UITableViewDelegate, UITableViewDataSource
     @objc func postLike(sender: UIButton){
         let pofolIdx = pofolList[sender.tag].pofolIdx!
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/pofols/likes/" + String(pofolIdx),

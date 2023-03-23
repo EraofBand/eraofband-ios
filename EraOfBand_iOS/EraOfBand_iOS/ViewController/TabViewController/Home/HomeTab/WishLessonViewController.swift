@@ -19,11 +19,12 @@ class WishLessonViewController: UIViewController {
     func getWishLessonList() {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let defaults = UserDefaults.standard
         var url = appDelegate.baseUrl + "/lessons/info/likes"
         print("url: \(url)")
         
         url = url.encodeUrl()!
-        let header: HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header: HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                    "Content-Type": "application/json"]
         
         let request = AF.request(url,

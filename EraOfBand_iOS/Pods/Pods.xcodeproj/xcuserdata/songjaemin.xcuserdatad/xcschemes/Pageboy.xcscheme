@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1340"
+   LastUpgradeVersion = "1240"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A809A7B4286F283400B9E08D"
-               BuildableName = "EraOfBand_iOS.app"
-               BlueprintName = "EraOfBand_iOS"
-               ReferencedContainer = "container:EraOfBand_iOS.xcodeproj">
+               BlueprintIdentifier = "06201A837B408E21A6F416D49AF9A573"
+               BuildableName = "Pageboy.framework"
+               BlueprintName = "Pageboy"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,30 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A809A7B4286F283400B9E08D"
-            BuildableName = "EraOfBand_iOS.app"
-            BlueprintName = "EraOfBand_iOS"
-            ReferencedContainer = "container:EraOfBand_iOS.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
-      <AdditionalOptions>
-         <AdditionalOption
-            key = "NSZombieEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </AdditionalOption>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -71,16 +47,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A809A7B4286F283400B9E08D"
-            BuildableName = "EraOfBand_iOS.app"
-            BlueprintName = "EraOfBand_iOS"
-            ReferencedContainer = "container:EraOfBand_iOS.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

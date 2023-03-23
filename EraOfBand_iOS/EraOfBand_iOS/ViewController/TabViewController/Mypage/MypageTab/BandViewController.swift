@@ -14,13 +14,14 @@ class BandViewController: UIViewController {
     @IBOutlet weak var bandTableView: UITableView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     func getBandList(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
-        AF.request(appDelegate.baseUrl + "/users/info/my-page/" + String(appDelegate.userIdx!),
+        AF.request(appDelegate.baseUrl + "/users/info/my-page/" + String(defaults.integer(forKey: "userIdx")),
                    method: .get,
                    encoding: JSONEncoding.default,
                    headers: header

@@ -15,12 +15,13 @@ class PromotionBoardViewController: UIViewController{
     var postList: [BoardListResult] = [BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0),BoardListResult(boardIdx: 0, boardLikeCount: 0, category: 0, commentCount: 0, content: "내용", imgUrl: "", nickName: "닉네임", title: "제목", updatedAt: "1일 전", userIdx: 0, views: 0)]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     var refreshControl = UIRefreshControl()
     
     func getPostList(boardIdx: Int, completion: @escaping (BoardListModel)-> Void){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/board/list/info/2/" + String(boardIdx),

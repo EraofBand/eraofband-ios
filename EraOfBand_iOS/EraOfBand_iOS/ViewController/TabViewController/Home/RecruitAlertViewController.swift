@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 
 class RecruitAlertViewController: UIViewController {
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var doneView: UIView!
     @IBOutlet weak var alertView: UIView!
@@ -65,7 +66,7 @@ class RecruitAlertViewController: UIViewController {
     
     func recruitBand(completion: @escaping ()-> Void) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = "\(appDelegate.baseUrl)/sessions/\(bandIdx!)"
         let parameters: [String: Int] = ["buSession": 0]

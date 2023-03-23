@@ -17,8 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public let baseUrl = "https://eraofband.shop" //rest api 베이스 url 전역변수
     public var myKakaoData: kakaoData!
+    /*
+    public var expiration: Int?
     public var jwt: String = ""
+    public var refresh: String = ""
     public var userIdx: Int?
+     */
     public var userSession: Int?
     
     public var isFirstRun: Bool?

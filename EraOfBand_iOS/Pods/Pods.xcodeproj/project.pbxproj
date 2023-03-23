@@ -300,7 +300,7 @@
 		2251FC62D16C3CBB61649D1B8EBC545E /* Toast-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		22ABF7CE9CAF7F4DFED80D8642ECC7CD /* Tabman.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Tabman.modulemap; sourceTree = "<group>"; };
 		23B9217E6313461296DD5435C37498A0 /* Pods-EraOfBand_iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EraOfBand_iOS-umbrella.h"; sourceTree = "<group>"; };
-		23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pageboy; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24EC3AC255F8F4F435143CD5BF2ED83E /* AuthenticationChallengeResponsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationChallengeResponsable.swift; path = Sources/Networking/AuthenticationChallengeResponsable.swift; sourceTree = "<group>"; };
 		25A0D5CA7C39004CE545CC4E801ACD74 /* Toast-Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Toast-Swift-Info.plist"; sourceTree = "<group>"; };
 		261A05D890768E566A628CA2203EE267 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Sources/ConstraintDSL.swift; sourceTree = "<group>"; };
@@ -342,7 +342,7 @@
 		4B569950D418176ED7BAAFAAF3AB6158 /* TMBarButtonController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMBarButtonController.swift; path = Sources/Tabman/Bar/BarButton/TMBarButtonController.swift; sourceTree = "<group>"; };
 		4B5E84718B90F87F74868F2C1B610D68 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/General/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
 		4BE0ECFDED44E381A903EEC9DFCC519B /* TMDotBarIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMDotBarIndicator.swift; path = Sources/Tabman/Bar/BarIndicator/Types/TMDotBarIndicator.swift; sourceTree = "<group>"; };
-		4D4799138F8AC5FFF2497DCB60AF4CBB /* Tabman */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Tabman; path = Tabman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D4799138F8AC5FFF2497DCB60AF4CBB /* Tabman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tabman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD09A1F275AF39EFB130A8C4C3BF3AF /* WeakContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeakContainer.swift; path = Sources/Tabman/Bar/Utility/WeakContainer.swift; sourceTree = "<group>"; };
 		534B7B7251DAB90FAC7BB9696756A0E2 /* TVMonogramView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TVMonogramView+Kingfisher.swift"; path = "Sources/Extensions/TVMonogramView+Kingfisher.swift"; sourceTree = "<group>"; };
 		584AD88410834B775D9F69A13F28A87C /* TMBarButton+None.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TMBarButton+None.swift"; path = "Sources/Tabman/Bar/BarButton/Types/TMBarButton+None.swift"; sourceTree = "<group>"; };
@@ -405,7 +405,7 @@
 		94B616D4179C4D50038996BC45A67C1D /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Utility/Box.swift; sourceTree = "<group>"; };
 		95431B1B94A3C559BB66D594019541DF /* KFImageProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFImageProtocol.swift; path = Sources/SwiftUI/KFImageProtocol.swift; sourceTree = "<group>"; };
 		954599297CD5915B62D16F83399EEC3F /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
-		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EEF697612EE65BC32DE47C7F40DDEB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		989EAA482992D2972BD83A5C9CDBF568 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Sources/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
 		992AA3B5E9FA20511338B5A2B42C254D /* TMAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMAnimation.swift; path = Sources/Tabman/Bar/TMAnimation.swift; sourceTree = "<group>"; };
@@ -413,7 +413,7 @@
 		9B4EA2E2CE7783FC86474833C66DC855 /* TMHidingBar+Triggers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TMHidingBar+Triggers.swift"; path = "Sources/Tabman/Bar/BarExtensions/AutoHidingBar/TMHidingBar+Triggers.swift"; sourceTree = "<group>"; };
 		9B544B0664AF7B243A161E5E7D43491F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9C2C69AB893C790CB04BA9F07C42DDFA /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/General/ImageSource/Resource.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E35A3742A3B6D38182D9AC05082FA3A /* GIFAnimatedImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GIFAnimatedImage.swift; path = Sources/Image/GIFAnimatedImage.swift; sourceTree = "<group>"; };
 		9EAF6E36B67E36DE7529A31B265C0282 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Sources/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		A482892A52A909EE37361B73C67E9324 /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/General/Kingfisher.swift; sourceTree = "<group>"; };
@@ -459,7 +459,7 @@
 		C1A1CD7F33C0719229687F673C70A7CD /* TMTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMTransition.swift; path = Sources/Tabman/Bar/TMTransition.swift; sourceTree = "<group>"; };
 		C211EE2BEE3A43215FE11670B33FD2DA /* UIView+DefaultTintColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+DefaultTintColor.swift"; path = "Sources/Tabman/Bar/Extensions/UIView+DefaultTintColor.swift"; sourceTree = "<group>"; };
 		C33F77C6F3EA8F13073E784CF383D9E6 /* DiskStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskStorage.swift; path = Sources/Cache/DiskStorage.swift; sourceTree = "<group>"; };
-		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43B2E3B226F6502D3953A2434E9B750 /* EdgeFadedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EdgeFadedView.swift; path = Sources/Tabman/Bar/Generic/EdgeFadedView.swift; sourceTree = "<group>"; };
 		C7303E3A9AB19B9EA3BA8508CA130180 /* TMBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TMBar.swift; path = Sources/Tabman/Bar/TMBar.swift; sourceTree = "<group>"; };
 		C860BAFF30DF24A8461ABA258368C5F0 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
@@ -726,7 +726,6 @@
 				4FD09A1F275AF39EFB130A8C4C3BF3AF /* WeakContainer.swift */,
 				0E916764058C67492D787CADDE75B6CB /* Support Files */,
 			);
-			name = Tabman;
 			path = Tabman;
 			sourceTree = "<group>";
 		};
@@ -793,18 +792,17 @@
 				9AAE9BB01135B90A24500C86909013E3 /* WeakContainer.swift */,
 				24BC5A4E2DC3DFBACE2B483706351124 /* Support Files */,
 			);
-			name = Pageboy;
 			path = Pageboy;
 			sourceTree = "<group>";
 		};
 		A7EDCB55BE97799B17A39FE1CF3743B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
-				23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy */,
+				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */,
+				23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy.framework */,
 				8BE5FF0F456556382236B0714A2CEBCA /* Pods-EraOfBand_iOS */,
-				979486118B3E90C08386079D57962701 /* SnapKit */,
-				4D4799138F8AC5FFF2497DCB60AF4CBB /* Tabman */,
+				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
+				4D4799138F8AC5FFF2497DCB60AF4CBB /* Tabman.framework */,
 				D6043471C96F93DC41F7DD1E0D7D8B35 /* Toast-Swift */,
 			);
 			name = Products;
@@ -816,7 +814,6 @@
 				EB6FD1981DE37B9387C02F9AE18036CE /* Toast.swift */,
 				3986C36732EC0C445EA5067224F9AF00 /* Support Files */,
 			);
-			name = "Toast-Swift";
 			path = "Toast-Swift";
 			sourceTree = "<group>";
 		};
@@ -881,7 +878,6 @@
 				49C2C92A46E8ACD19BD540847558C506 /* UILayoutSupport+Extensions.swift */,
 				59423D23726CFF3AAADA8D06187D1F17 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -963,7 +959,6 @@
 				EE2754A52ABE7ED8CB036969A6502FE9 /* WKInterfaceImage+Kingfisher.swift */,
 				2EE65F45C1FEDF12AF0397526A418F14 /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1038,7 +1033,7 @@
 			);
 			name = Pageboy;
 			productName = Pageboy;
-			productReference = 23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy */;
+			productReference = 23D5CD291D18F2187712FE6F84B6F1C6 /* Pageboy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */ = {
@@ -1056,7 +1051,7 @@
 			);
 			name = SnapKit;
 			productName = SnapKit;
-			productReference = 979486118B3E90C08386079D57962701 /* SnapKit */;
+			productReference = 979486118B3E90C08386079D57962701 /* SnapKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3EF26018CD886BA3143044A409D6D0B9 /* Tabman */ = {
@@ -1075,7 +1070,7 @@
 			);
 			name = Tabman;
 			productName = Tabman;
-			productReference = 4D4799138F8AC5FFF2497DCB60AF4CBB /* Tabman */;
+			productReference = 4D4799138F8AC5FFF2497DCB60AF4CBB /* Tabman.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		975657243584F98A35F08BB333B5A401 /* Pods-EraOfBand_iOS */ = {
@@ -1134,7 +1129,7 @@
 			);
 			name = Kingfisher;
 			productName = Kingfisher;
-			productReference = C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */;
+			productReference = C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */

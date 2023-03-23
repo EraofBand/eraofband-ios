@@ -10,6 +10,8 @@ import Alamofire
 
 class HomeTabViewController: UIViewController {
 
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var floatingStackView: UIStackView!
     @IBOutlet weak var floatingButton: UIButton!
     @IBOutlet weak var creatStackView: UIStackView!
@@ -84,7 +86,7 @@ class HomeTabViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let url = "\(appDelegate.baseUrl)/notice/alarm"
         
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         AF.request(
             url,

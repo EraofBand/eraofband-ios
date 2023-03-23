@@ -24,6 +24,7 @@ class BandRecruitViewController: UIViewController{
     
     var bandIdx: Int?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     var safariViewController: SFSafariViewController?
     
     var bandMemberArr: [Int] = []
@@ -49,7 +50,7 @@ class BandRecruitViewController: UIViewController{
         AF.request("\(appDelegate.baseUrl)/sessions/status/\(bandIdx ?? 0)",
                    method: .patch,
                    parameters: [
-                    "userIdx": appDelegate.userIdx
+                    "userIdx": defaults.integer(forKey: "userIdx")
                    ],
                    encoding: JSONEncoding.default,
                    headers: header
@@ -88,7 +89,7 @@ class BandRecruitViewController: UIViewController{
         
         optionMenu.addAction(cancelAction)
         
-        if(bandInfo?.userIdx == appDelegate.userIdx){
+        if(bandInfo?.userIdx == defaults.integer(forKey: "userIdx")){
             let modifyAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
                 self.modifyRecruit()
@@ -101,7 +102,7 @@ class BandRecruitViewController: UIViewController{
             optionMenu.addAction(modifyAction)
             optionMenu.addAction(deleteAction)
             
-        }else if(bandMemberArr.contains(appDelegate.userIdx!)){
+        }else if(bandMemberArr.contains(defaults.integer(forKey: "userIdx"))){
             let quitAction = UIAlertAction(title: "탈퇴하기", style: .destructive, handler: {
                 (alert: UIAlertAction!) -> Void in
                 self.quitBand()
@@ -137,7 +138,7 @@ class BandRecruitViewController: UIViewController{
     
     func likeSession(){
         let header : HTTPHeaders = [
-            "x-access-token": self.appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("\(appDelegate.baseUrl)/sessions/likes/\(bandIdx ?? 0)",
@@ -156,7 +157,7 @@ class BandRecruitViewController: UIViewController{
     
     func dislikeSession(){
         let header : HTTPHeaders = [
-            "x-access-token": self.appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request("\(appDelegate.baseUrl)/sessions/unlikes/\(bandIdx ?? 0)",
@@ -221,7 +222,14 @@ class BandRecruitViewController: UIViewController{
         else {
             print("카카오톡 미설치")
             // 카카오톡 미설치: 웹 공유 사용 권장
-            // 아래 함수는 따로 구현해야함.
+            
+            let url = URL(string: "https://www.naver.com")!
+            
+            let safariViewController = SFSafariViewController(url: url)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.present(safariViewController, animated: false, completion: nil)
+            }
             
         }
         
@@ -261,7 +269,7 @@ class BandRecruitViewController: UIViewController{
         super.viewDidLoad()
         
         header = [
-            "x-access-token": self.appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         
@@ -288,7 +296,7 @@ class BandRecruitViewController: UIViewController{
                 let introHeight = 900 + (bandInfo?.memberCount ?? 1 - 1) * 80
                 var recruitHeight = 0
                 
-                if(bandInfo?.userIdx == appDelegate.userIdx){
+                if(bandInfo?.userIdx == defaults.integer(forKey: "userIdx")){
                     recruitHeight = (bandInfo?.applicants?.count ?? 1 * 100) + (recruitCellCount * 220) + 350
                 }else{
                     recruitHeight = (recruitCellCount * 220) + 300

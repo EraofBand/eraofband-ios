@@ -19,13 +19,14 @@ class MyBoardViewController: UIViewController{
     let choiceLabel = ["작성 글","댓글 단 글"]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     var refreshControl = UIRefreshControl()
     
     //작성 글 리스트 불러오기
     func getMyPostList(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/board/my",
@@ -48,7 +49,7 @@ class MyBoardViewController: UIViewController{
     //댓글 단 글 리스트 불러오기
     func getMyCommentList(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/board/my-comment",

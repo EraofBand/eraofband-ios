@@ -27,6 +27,7 @@ class CreateLessonViewController: UIViewController{
     @IBOutlet weak var peopleNumView: UIView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     var imgUrl: String = ""
     let imagePickerController = UIImagePickerController()
     
@@ -55,7 +56,7 @@ class CreateLessonViewController: UIViewController{
                     imgUrl = result
                     
                     let header : HTTPHeaders = [
-                        "x-access-token": self.appDelegate.jwt,
+                        "x-access-token": self.defaults.string(forKey: "jwt")!,
                         "Content-Type": "application/json"]
                     
                     AF.request(appDelegate.baseUrl + "/lessons",
@@ -69,7 +70,7 @@ class CreateLessonViewController: UIViewController{
                                 "lessonRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
                                 "lessonSession": currentCategory,
                                 "lessonTitle": titleTextField.text ?? "",
-                                "userIdx": appDelegate.userIdx ?? 0
+                                "userIdx": defaults.integer(forKey: "userIdx")
                                ],
                                encoding: JSONEncoding.default,
                                headers: header).responseJSON{ response in
@@ -91,7 +92,7 @@ class CreateLessonViewController: UIViewController{
                 print("test")
                 
                 let header : HTTPHeaders = [
-                    "x-access-token": self.appDelegate.jwt,
+                    "x-access-token": self.defaults.string(forKey: "jwt")!,
                     "Content-Type": "application/json"]
                 
                 AF.request(appDelegate.baseUrl + "/lessons/lesson-info/" + String(lessonInfo?.lessonIdx ?? 0),
@@ -105,7 +106,7 @@ class CreateLessonViewController: UIViewController{
                             "lessonRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
                             "lessonSession": currentCategory,
                             "lessonTitle": titleTextField.text ?? "",
-                            "userIdx": appDelegate.userIdx ?? 0
+                            "userIdx": defaults.integer(forKey: "userIdx")
                            ],
                            encoding: JSONEncoding.default,
                            headers: header).responseJSON{ response in
@@ -123,7 +124,7 @@ class CreateLessonViewController: UIViewController{
                     if isSuccess{
                         imgUrl = result
                         let header : HTTPHeaders = [
-                            "x-access-token": self.appDelegate.jwt,
+                            "x-access-token": self.defaults.string(forKey: "jwt")!,
                             "Content-Type": "application/json"]
                         
                         AF.request(appDelegate.baseUrl + "/lessons/lesson-info/" + String(lessonInfo?.lessonIdx ?? 0),
@@ -137,7 +138,7 @@ class CreateLessonViewController: UIViewController{
                                     "lessonRegion": "\(cityTextField.text ?? "") \(districtTextField.text ?? "")",
                                     "lessonSession": currentCategory,
                                     "lessonTitle": titleTextField.text ?? "",
-                                    "userIdx": appDelegate.userIdx ?? 0
+                                    "userIdx": defaults.integer(forKey: "userIdx")
                                    ],
                                    encoding: JSONEncoding.default,
                                    headers: header).responseJSON{ response in

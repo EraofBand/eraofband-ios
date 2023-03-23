@@ -29,6 +29,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
     var pofolIdx: Int = 0
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     var imagePicker: UIImagePickerController = {
         
         let imagePicker = UIImagePickerController()
@@ -58,7 +59,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
                     if isSuccess{
  
                         let header : HTTPHeaders = [
-                            "x-access-token": self.appDelegate.jwt,
+                            "x-access-token": self.defaults.string(forKey: "jwt")!,
                             "Content-Type": "application/json"]
                         
                         AF.request(self.appDelegate.baseUrl + "/pofols",
@@ -67,7 +68,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
                                     "content": self.descriptionTextView.text ?? "",
                                     "imgUrl": imgResult,
                                     "title": self.titleTextField.text ?? "",
-                                    "userIdx": self.appDelegate.userIdx!,
+                                    "userIdx": self.defaults.integer(forKey: "userIdx"),
                                     "videoUrl": videoResult
                                     ],
                                    encoding: JSONEncoding.default,
@@ -84,7 +85,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
         }
         else{
             let header : HTTPHeaders = [
-                "x-access-token": self.appDelegate.jwt,
+                "x-access-token": defaults.string(forKey: "jwt")!,
                 "Content-Type": "application/json"]
             
             AF.request(self.appDelegate.baseUrl + "/pofols/pofol-info/\(pofolIdx)/",
@@ -92,7 +93,7 @@ class AddPofolViewController: UIViewController, UIImagePickerControllerDelegate 
                        parameters: [
                         "content": self.descriptionTextView.text ?? "",
                         "title": self.titleTextField.text ?? "",
-                        "userIdx": self.appDelegate.userIdx!,
+                        "userIdx": self.defaults.integer(forKey: "userIdx"),
                         ],
                        encoding: JSONEncoding.default,
                         headers: header

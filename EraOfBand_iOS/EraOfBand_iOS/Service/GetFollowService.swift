@@ -10,12 +10,12 @@ import Alamofire
 import UIKit
 
 class GetFollowService {
-    
     static func getFollowingList(_ userIdx: Int, completion: @escaping (Bool, FollowData) -> Void){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let defaults = UserDefaults.standard
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/info/follow/" + String(userIdx),
@@ -44,8 +44,9 @@ class GetFollowService {
     static func getFollowerList(_ userIdx: Int, completion: @escaping (Bool, FollowData) -> Void){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let defaults = UserDefaults.standard
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/info/follow/" + String(userIdx),

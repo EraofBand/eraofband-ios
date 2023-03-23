@@ -37,6 +37,7 @@ struct ChatroomInResult: Codable{
 
 class ChatViewController: MessagesViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     var chatRoomIdx: String = "none"
     var otherUserInfo: GetOtherUser?
@@ -53,7 +54,7 @@ class ChatViewController: MessagesViewController {
     
     /*해당 유저와 채팅 내역이 없을 때 채팅방 생성 처리*/
     func makeChat(completion: @escaping () -> Void){
-        let header : HTTPHeaders = ["x-access-token": appDelegate.jwt,
+        let header : HTTPHeaders = ["x-access-token": defaults.string(forKey: "jwt")!,
                                     "Content-Type": "application/json"]
         let url = appDelegate.baseUrl + "/chat"
         let uuidStr = UUID().uuidString
@@ -62,7 +63,7 @@ class ChatViewController: MessagesViewController {
                    method: .post,
                    parameters: [
                     "chatRoomIdx": uuidStr,
-                    "firstUserIdx": appDelegate.userIdx!,
+                    "firstUserIdx": defaults.integer(forKey: "userIdx"),
                     "secondUserIdx": otherUserInfo?.userIdx
                    ],
                    encoding: JSONEncoding.default,
@@ -148,7 +149,7 @@ class ChatViewController: MessagesViewController {
     /*채팅방 나가기*/
     func deleteChat(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/chat/status/" + self.chatRoomIdx,
@@ -173,7 +174,7 @@ class ChatViewController: MessagesViewController {
     /*채팅방 들어가기 - 마지막 나가기 인덱스 가져오기*/
     func chatroomIn(){
         let header : HTTPHeaders = [
-            "x-access-token": appDelegate.jwt,
+            "x-access-token": defaults.string(forKey: "jwt")!,
             "Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/chat/chatroom-in",
@@ -294,7 +295,7 @@ class ChatViewController: MessagesViewController {
             //print(self.chatList)
             messages = []
             for i in (lastChatIdx + 1)..<self.chatList!.count{
-                if(self.chatList![i].userIdx == self.appDelegate.userIdx){
+                if(self.chatList![i].userIdx == self.defaults.integer(forKey: "userIdx")){
                     messages.append(Message(sender: currentUser,
                                             messageId: String(i),
                                             sentDate: Date(milliseconds: Int64(self.chatList![i].timeStamp)),
@@ -337,7 +338,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
         if(chatRoomIdx == "none"){
             //채팅방이 없을 때
             makeChat(completion: {
-                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstUserIdx").setValue(self.appDelegate.userIdx)
+                self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("firstUserIdx").setValue(self.defaults.integer(forKey: "userIdx"))
                 self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("users").child("secondUserIdx").setValue(self.otherUserInfo?.userIdx)
                 self.sendMessage(text: text, chatIdx: "0")
                 self.loadChat()
@@ -353,7 +354,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
         
         let currentTimeStamp = Date().millisecondsSince1970
         self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(chatIdx).child("timeStamp").setValue(currentTimeStamp)
-        self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(chatIdx).child("userIdx").setValue(self.appDelegate.userIdx)
+        self.chatReference.child("chat").child("\(self.chatRoomIdx)").child("comments").child(chatIdx).child("userIdx").setValue(self.defaults.integer(forKey: "userIdx"))
         
         messages = []
         
