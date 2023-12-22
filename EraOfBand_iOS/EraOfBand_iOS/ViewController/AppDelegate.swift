@@ -8,12 +8,25 @@
 import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
+import FirebaseCore
+import KakaoSDKUser
+import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public let baseUrl = "https://eraofband.shop" //rest api 베이스 url 전역변수
     public var myKakaoData: kakaoData!
+    /*
+    public var expiration: Int?
+    public var jwt: String = ""
+    public var refresh: String = ""
+    public var userIdx: Int?
+     */
+    public var userSession: Int?
+    
+    public var isFirstRun: Bool?
+    public var isAutoLogin = false
     
     let kakaoKey = Bundle.main.kakaoKey
 
@@ -30,7 +43,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         KakaoSDK.initSDK(appKey: kakaoKey)
         
+        FirebaseApp.configure()
+        
+        // 앱 전체 네비게이션 바 custom
+        if #available(iOS 15, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            navigationBarAppearance.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor : UIColor.white
+            ]
+            navigationBarAppearance.backgroundColor = .clear
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        }
+        
         sleep(1)
+        
+        checkAppFirstrunOrUpdateStatus{
+            isFirstRun = true
+        } updated: {
+            isFirstRun = false
+        } nothingChanged: {
+            isFirstRun = false
+        }
+        
+        /*무음모드에서 미디어 소리 활성화*/
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+        } catch let error as NSError {
+            print("Error : \(error), \(error.userInfo)")
+        }
+                
+        do {
+             try AVAudioSession.sharedInstance().setActive(true)
+        }
+          catch let error as NSError {
+            print("Error: Could not setActive to true: \(error), \(error.userInfo)")
+        }
+        
         return true
     }
 

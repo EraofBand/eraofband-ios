@@ -4,10 +4,19 @@
 target 'EraOfBand_iOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
-  pod 'Tabman', '~> 2.11'
+
 
   # Pods for EraOfBand_iOS
-  pod 'KakaoSDK'
+  pod 'Tabman', '~> 2.12'
+  pod 'SnapKit', '~> 5.6.0'
+  pod 'Kingfisher', '~> 7.0'
+  pod 'Toast-Swift', '~> 5.0.1'
 
+  # Workaround for Cocoapods issue #7606
+  post_install do |installer|
+      installer.pods_project.build_configurations.each do |config|
+          config.build_settings.delete('CODE_SIGNING_ALLOWED')
+          config.build_settings.delete('CODE_SIGNING_REQUIRED')
+      end
+  end
 end

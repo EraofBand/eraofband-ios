@@ -18,10 +18,14 @@ class RegisterViewController6: UIViewController{
     var myRegisterData: RegisterData!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let defaults = UserDefaults.standard
     
     var admitBool: [Bool] = [false, false, false]
     
+    
+    
     @IBAction func startBtnTapped(_ sender: Any) {
+        
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(appDelegate.baseUrl + "/users/signin/" + appDelegate.myKakaoData.kakaoToken,
@@ -32,12 +36,32 @@ class RegisterViewController6: UIViewController{
                     "nickName": myRegisterData.nickName,
                     "profileImgUrl": myRegisterData.profileImgUrl,
                     "region": myRegisterData.region,
-                    "session": 0
+                    "userSession": myRegisterData.userSession
                     ],
                    encoding: JSONEncoding.default,
-                   headers: header).response{response in
-            print(response.data!)
-                    }
+                   headers: header).responseDecodable(of: LoginUserData.self){ response in
+            switch response.result{
+            case .success(let data):
+                self.defaults.set(data.result.jwt, forKey: "jwt")
+                self.defaults.set(data.result.userIdx, forKey: "userIdx")
+                self.defaults.set(data.result.refresh, forKey: "refresh")
+                self.defaults.set(data.result.expiration, forKey: "expiration")
+                self.appDelegate.userSession = self.myRegisterData.userSession
+                    
+                    /*
+                    self.appDelegate.jwt = getData.result.jwt ?? ""
+                    self.appDelegate.userIdx = getData.result.userIdx!
+                    self.appDelegate.userSession = self.myRegisterData.userSession*/
+                    
+                    guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController7") as? RegisterViewController7 else {return}
+                    nextVC.myRegisterData = self.myRegisterData
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+        
     }
     
     func checkForNextBtnEnabled(){
@@ -120,8 +144,8 @@ class RegisterViewController6: UIViewController{
         setLayout()
 
         
-        print(myRegisterData!)
-        print(appDelegate.myKakaoData.kakaoToken)
+        //print(myRegisterData!)
+        //print(appDelegate.myKakaoData.kakaoToken)
         
     }
 

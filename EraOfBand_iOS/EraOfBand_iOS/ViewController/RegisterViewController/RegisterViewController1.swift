@@ -14,7 +14,7 @@ class RegisterViewController1: UIViewController{
     @IBOutlet weak var nicknameTextField: UITextField!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var myRegisterData: RegisterData = RegisterData.init(birth: "", gender: "", nickName: "", profileImgUrl: "", region: "", session: 0)
+    var myRegisterData: RegisterData = RegisterData.init(birth: "", gender: "", nickName: "", profileImgUrl: "", region: "", userSession: 0)
     
     @IBAction func backBarBtnTapped(_ sender: Any) {
         self.dismiss(animated: true)
@@ -44,6 +44,7 @@ class RegisterViewController1: UIViewController{
         welcomeLabel.attributedText = attributedString
         
         nextBtn.isEnabled = false
+        nicknameTextField.borderStyle = .none
     }
     
     override func viewDidLoad() {

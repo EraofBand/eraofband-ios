@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FRl-bl-RNh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CommunityTab-->
+        <scene sceneID="7e8-jt-PmS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CommunityTab" id="qaS-FP-Kyk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="community" id="wzK-Tn-aZB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDz-Wl-MqG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-580" y="517"/>
+        </scene>
+        <!--BoardTab-->
+        <scene sceneID="i8P-9s-0Fe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BoardTab" id="GmL-fV-mNq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="notice" id="og3-1R-hJc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jnr-lp-fQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-208" y="517"/>
+        </scene>
+        <!--HomeTab-->
+        <scene sceneID="V7P-aR-eAY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeTab" id="gwh-qH-JBE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="home" id="wWx-ew-1Yi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2nF-6s-rqa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="517"/>
+        </scene>
+        <!--MessageTab-->
+        <scene sceneID="ie0-CA-zlh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessageTab" id="FXs-Rb-Qi2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="message" id="7PL-jX-aRG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PfU-Zw-gpV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="517"/>
+        </scene>
+        <!--MypageTab-->
+        <scene sceneID="S9o-jV-b5J">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MypageTab" id="9Cq-9z-jZp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="zsR-3T-AJQ" userLabel="mypage"/>
+                    <navigationItem key="navigationItem" id="Auo-Rn-6wd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mKd-ad-U9x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999" y="517"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GBe-b9-T1m">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBar" automaticallyAdjustsScrollViewInsets="NO" id="FRl-bl-RNh" customClass="TabBarController" customModule="EraOfBand_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cHg-1w-j74" customClass="TabBar" customModule="EraOfBand_iOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qaS-FP-Kyk" kind="relationship" relationship="viewControllers" id="gPG-Y7-IFk"/>
+                        <segue destination="GmL-fV-mNq" kind="relationship" relationship="viewControllers" id="fq8-3r-uG6"/>
+                        <segue destination="gwh-qH-JBE" kind="relationship" relationship="viewControllers" id="xFE-MQ-pwX"/>
+                        <segue destination="FXs-Rb-Qi2" kind="relationship" relationship="viewControllers" id="Nmk-4v-8Un"/>
+                        <segue destination="9Cq-9z-jZp" kind="relationship" relationship="viewControllers" id="XHp-hd-cYx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lcZ-ds-VsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="179.71014492753625" y="53.571428571428569"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="cHg-1w-j74">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
+</document>

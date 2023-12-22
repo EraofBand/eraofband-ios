@@ -9,44 +9,60 @@ import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import Alamofire
 
 class LoginViewController: UIViewController{
     
     @IBOutlet weak var backgroundImg: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    //카카오 데이터 구조체
-    /*
-    struct kakaoData{
-        var kakaoToken: String
-        var kakaoUserName: String
-        
-        init(kakaoToken: String, kakaoUserName: String){
-            self.kakaoToken = kakaoToken
-            self.kakaoUserName = kakaoUserName
-        }
-    }*/
+    let header : HTTPHeaders = ["Content-Type": "application/json"]
+    let defaults = UserDefaults.standard
     
     //로그인 이후 카카오 유저 정보 가져오기
     func getKakaoData(kakaoToken: String){
-        UserApi.shared.me() {(user, error) in
+        
+        UserApi.shared.me() { [self] (user, error) in
             if let error = error {
                 print(error)
             }
             else {
                 print("me() success.")
-                //self.kakaoUserName = (user?.kakaoAccount?.profile?.nickname)! as String
-            
-                //print("카카오정보:" + self.kakaoToken + self.kakaoUserName)
-                let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String)
+                
+                let myKakaoData = kakaoData.init(kakaoToken: kakaoToken, kakaoUserName: (user?.kakaoAccount?.profile?.nickname)! as String, kakaoEmail: (user?.kakaoAccount?.email)! as String)
                 self.appDelegate.myKakaoData = myKakaoData
-                guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
-                registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
                 
-                //registerVC.myKakaoData = myKakaoData
+                // 회원가입 된 계정인지 확인
+                CheckRegisterService.checkRegister(myKakaoData.kakaoToken) { [self] getData in
+                    
+                    print(getData)
+                    
+                    if (getData.result.jwt! == "NULL") { // 회원가입 되어있지 않은 이메일일 경우 회원가입 뷰로 이동
+                        guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterNavigationController") as? RegisterNavigationController else {return}
+                        registerVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(registerVC, animated: true)
+                    } else { // 회원가입 되어있는 이메일일 경우 메인화면으로 이동
+                        
+                        defaults.setValue(getData.result.expiration, forKey: "expiration")
+                        defaults.setValue(getData.result.jwt, forKey: "jwt")
+                        defaults.setValue(getData.result.refresh, forKey: "refresh")
+                        defaults.setValue(getData.result.userIdx, forKey: "userIdx")
+                        
+                        /*
+                        self.appDelegate.expiration = getData.result.expiration
+                        self.appDelegate.jwt = getData.result.jwt ?? ""
+                        self.appDelegate.refresh = getData.result.refresh ?? ""
+                        self.appDelegate.userIdx = getData.result.userIdx!*/
+                        
+                        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as? TabBarController else { return }
+                        mainTabBarVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                    
+                        self.present(mainTabBarVC, animated: true)
+                    }
+                     
+                }
                 
-                self.present(registerVC, animated: true)
             }
         }
     }
@@ -54,7 +70,7 @@ class LoginViewController: UIViewController{
     @IBAction func kakaoBtnTapped(_ sender: Any) {
         // 카카오톡 설치 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
-           loginWithApp()
+            loginWithApp()
         }else {
             loginWithWeb()
         }
@@ -67,7 +83,6 @@ class LoginViewController: UIViewController{
                 print(error)
             }else{
                 print("loginWithKakaoTalk() success.")
-                //self.kakaoToken =
                 
                 self.getKakaoData(kakaoToken: (oauthToken?.accessToken)! as String)
             }
@@ -81,7 +96,6 @@ class LoginViewController: UIViewController{
                 print(error)
             }else{
                 print("loginWithKakaoTalk() success.")
-                //self.kakaoToken = (oauthToken?.accessToken)! as String
 
                 self.getKakaoData(kakaoToken: (oauthToken?.accessToken)! as String)
             }

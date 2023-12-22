@@ -14,6 +14,7 @@ class OnboardingViewController: UIViewController {
     var onboardingModel = OnboardingModel.fetchMember()
     
     var currentPage = 0
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     /*스킵 버튼 눌렀을 때 로그인 뷰로 이동*/
     @IBAction func skipBtnTapped(_ sender: Any) {
@@ -31,7 +32,13 @@ class OnboardingViewController: UIViewController {
         collectionView.delegate = self
     
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
     }
     
 }
@@ -56,7 +63,7 @@ extension OnboardingViewController: UICollectionViewDataSource{
 
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 414)
+        return CGSize(width: collectionView.frame.size.width, height: 430)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
